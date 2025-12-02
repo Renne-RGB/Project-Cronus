@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 647163173}
   - component: {fileID: 647163172}
   - component: {fileID: 647163175}
+  - component: {fileID: 647163176}
   m_Layer: 0
   m_Name: Center
   m_TagString: Untagged
@@ -416,7 +417,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647163171}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb53201fee3087b4a8782174cb25f530, type: 3}
   m_Name: 
@@ -474,10 +475,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.28274146, y: 0.28274146, z: 0.28274146}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 825492278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &647163175
 Rigidbody2D:
@@ -502,10 +503,29 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &647163176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647163171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388d6fe0df2d28a42aedfafd0cb44567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 20
+  blockLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  debug: 1
+  detectionOffset: 0.02
+  meshFilter: {fileID: 1348874368}
 --- !u!1 &702657615
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +776,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.5368, y: 3.5368, z: 3.5368}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 647163174}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &825492279
@@ -1709,15 +1730,14 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1030766248}
   - {fileID: 1085293265}
   - {fileID: 1039254695}
   - {fileID: 1368545564}
   - {fileID: 737577907}
   - {fileID: 2095126280}
   - {fileID: 1685502873}
-  - {fileID: 1030766248}
   - {fileID: 285889265}
   - {fileID: 702657617}
-  - {fileID: 825492278}
   - {fileID: 1348874366}
-  - {fileID: 647163174}
+  - {fileID: 825492278}

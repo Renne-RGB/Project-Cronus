@@ -11,7 +11,7 @@ namespace Assets.Code
         }
         public Vector2 toPointDirection { get; set; }
         public bool isAssistPoint { get; }
-        public Vector2 basicPoint { get; }
+        public Vector2 basicPoint { get; set; }
         public Vector2 leftPoint { get; set; }
         public Vector2 rightPoint { get; set; }
         public Vector2 toLeftPointDirection { get; set; }

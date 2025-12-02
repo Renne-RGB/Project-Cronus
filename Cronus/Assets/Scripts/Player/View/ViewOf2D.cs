@@ -26,6 +26,11 @@ public class ViewOf2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void LateUpdate()
+    {
         UpdateView();
     }
 
@@ -150,6 +155,19 @@ public class ViewOf2D : MonoBehaviour
         hitInfo.toPointDirection = (hitInfo.basicPoint - (Vector2)transform.position).normalized;
         if (hitInfo.isAssistPoint)
             return;
+
+        // RaycastHit2D pointRaycastHit = Physics2D.Raycast(transform.position, hitInfo.basicPoint, radius, blockLayerMask);
+
+        // var hits = Physics.RaycastAll(transform.position, hitInfo.toPointDirection, radius, blockLayerMask);
+
+        //RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, hitInfo.toPointDirection, radius, blockLayerMask);
+
+        // if (hits.Length >= 2)
+        // {
+        //     Vector2 farPoint = hits[1].point;
+        //     hitInfo.basicPoint = farPoint - (Vector2)transform.position;
+        // }
+
         //そのベクトルの中心から垂直方向ベクトルを取る
         Vector2 perpendicular = Vector2.Perpendicular(hitInfo.toPointDirection);
 
@@ -179,9 +197,10 @@ public class ViewOf2D : MonoBehaviour
         }
         if (debug)
         {
-            Debug.DrawLine(transform.position, hitInfo.leftPoint, Color.yellow);
+            //Debug.DrawLine(transform.position, hitInfo.basicPoint, Color.yellow);
+             Debug.DrawLine(transform.position, hitInfo.leftPoint, Color.yellow);
 
-            Debug.DrawLine(transform.position, hitInfo.rightPoint, Color.red);
+             Debug.DrawLine(transform.position, hitInfo.rightPoint, Color.red);
         }
     }
 

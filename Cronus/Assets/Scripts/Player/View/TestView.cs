@@ -13,7 +13,7 @@ public class TaperView : MonoBehaviour
 
     public bool debug;
 
-    public float detectionOffset = 0.02f;       //偏移量
+    public float detectionOffset = 0.02f;
     private ViewMeshCreater viewMeshCreater;
 
     public MeshFilter meshFilter;
@@ -34,7 +34,6 @@ public class TaperView : MonoBehaviour
     private void UpdateView()
     {
         List<Vector2> points = GetVisiblePointsOfColliders();
-        List<HitInfo> hitInfos = points.ConvertAll(point => new HitInfo(point, false));
 
         Vector2[] rectPoint = new Vector2[] {
             (Vector2)transform.position + Vector2.up * radius,
@@ -48,15 +47,13 @@ public class TaperView : MonoBehaviour
                 points.Add(point);
         }
 
-        //衝突している点を全部保存して度数順で並ぶ
+        List<HitInfo> hitInfos = points.ConvertAll(point => new HitInfo(point, false));
         hitInfos = hitInfos.OrderBy(hitInfo => GetAngle360((hitInfo.basicPoint - (Vector2)transform.position).normalized, Vector2.right)).ToList();
 
         hitInfos.ForEach(hitInfo =>
         {
             CompleteHitInfo(hitInfo);
         });
-
-        //メッシュを初期化
         viewMeshCreater.Clear();
         viewMeshCreater.SetCenter(transform.position);
 
@@ -81,7 +78,6 @@ public class TaperView : MonoBehaviour
             List<Vector2> pointsOfCollider = new List<Vector2>();
             if (collider is BoxCollider2D)
             {
-                //boxColliderのローカル座標を保存する
                 BoxCollider2D boxCollider = (BoxCollider2D)collider;
                 pointsOfCollider.Add(new Vector2(-boxCollider.size.x, -boxCollider.size.y) * 0.5f);
                 pointsOfCollider.Add(new Vector2(boxCollider.size.x, boxCollider.size.y) * 0.5f);
@@ -90,20 +86,17 @@ public class TaperView : MonoBehaviour
             }
             else if (collider is EdgeCollider2D)
             {
-                //edgeColliderのローカル座標を保存する
                 EdgeCollider2D edgeCollider = (EdgeCollider2D)collider;
                 edgeCollider.GetPoints(pointsOfCollider);
             }
             else if (collider is PolygonCollider2D)
             {
-                //polygonColliderのローカル座標を保存する
                 PolygonCollider2D polygonCollider = (PolygonCollider2D)collider;
                 pointsOfCollider.AddRange(polygonCollider.points);
             }
             Vector2 center = transform.position;
             foreach (Vector2 point in pointsOfCollider)
             {
-                //ローカル座標をワールド座標に変換
                 Vector2 worldPoint = collider.gameObject.transform.TransformPoint(point);
                 if (IsVisiblePoint(worldPoint, true))
                     points.Add(worldPoint);
@@ -117,7 +110,6 @@ public class TaperView : MonoBehaviour
         Vector2 closePoint;
         if (offset)
         {
-            //pointからの線にcollider自分に当たられないように 偏移量をつける
             Vector2 toCenterDirection = ((Vector2)transform.position - point).normalized;
             closePoint = point + toCenterDirection * detectionOffset;
         }
@@ -125,12 +117,10 @@ public class TaperView : MonoBehaviour
         {
             closePoint = point;
         }
-        //プレイヤーに向けて線を作る、プレイヤーに当たったら見えるポイントとする
         RaycastHit2D raycastHit = Physics2D.Linecast(closePoint, transform.position, blockLayerMask | (1 << gameObject.layer));
         return raycastHit && raycastHit.collider == selfCollider;
     }
 
-    //時計回りの度数をとる
     private float GetAngle360(Vector2 dir1, Vector2 dir2)
     {
         float angle = Vector2.Angle(dir1, dir2);
