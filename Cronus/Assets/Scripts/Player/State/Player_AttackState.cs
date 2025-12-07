@@ -9,8 +9,15 @@ public class Player_AttackState : EntityState
     public override void Update()
     {
         base.Update();
+        HandleAttackVelocity();
 
-        if(triggerCalled)
+        if (triggerCalled)
             stateMachine.ChangeState(player.idleState);
-    }   
+    }
+
+    private void HandleAttackVelocity()
+    {
+        //攻撃する時移動速度を0にする
+        player.SetVelocity(0, 0);
+    }
 }

@@ -9,6 +9,7 @@ public abstract class EntityState
 
     protected Animator anim;
     protected Rigidbody2D rb;
+    protected PlayerInputSet input;
 
     protected bool triggerCalled;
 
@@ -20,6 +21,7 @@ public abstract class EntityState
 
         anim = player.anim;
         rb = player.rb;
+        input = player.input;
     }
 
     public virtual void Enter()
