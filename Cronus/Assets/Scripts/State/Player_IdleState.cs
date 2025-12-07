@@ -11,8 +11,11 @@ public class Player_IdleState : EntityState
     {
         base.Update();
 
-        if(player.moveInput.x != 0)
+        if(player.moveInput.x != 0 || player.moveInput.y != 0)
             stateMachine.ChangeState(player.moveState);
+
+        if (player.input.Player.Attack.WasPressedThisFrame())
+            stateMachine.ChangeState(player.attackState);
     }
 
 }

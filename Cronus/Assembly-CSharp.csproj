@@ -69,7 +69,9 @@
     <Compile Include="Assets\Scripts\Player\View\ViewOf2D.cs" />
     <Compile Include="Assets\Scripts\Player\View\ViewMeshCreater.cs" />
     <Compile Include="Assets\Scripts\State\Player_MoveState.cs" />
+    <Compile Include="Assets\Scripts\State\Player_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\View\TestView.cs" />
+    <Compile Include="Assets\Scripts\Animation\Player_AnimationTrigger.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Scripts\State\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />

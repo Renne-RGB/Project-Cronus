@@ -8,6 +8,9 @@ public abstract class EntityState
     protected string animBoolName;
 
     protected Animator anim;
+    protected Rigidbody2D rb;
+
+    protected bool triggerCalled;
 
     public EntityState(Player player, StateMachine stateMachine, string animBoolName)
     {
@@ -16,13 +19,20 @@ public abstract class EntityState
         this.animBoolName = animBoolName;
 
         anim = player.anim;
+        rb = player.rb;
     }
 
     public virtual void Enter()
     {
         //状態に入ったたびに呼び出される
         anim.SetBool(animBoolName, true);
+        triggerCalled = false;
         //Debug.Log("I enter " + animBoolName);
+    }
+
+    public void CallAnimationTrigger()
+    {
+        triggerCalled = true;
     }
     
     public virtual void Update()
