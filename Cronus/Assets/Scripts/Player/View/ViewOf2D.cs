@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Code;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Collider2D))]
 public class ViewOf2D : MonoBehaviour
@@ -104,6 +105,21 @@ public class ViewOf2D : MonoBehaviour
                 //polygonColliderのローカル座標を保存する
                 PolygonCollider2D polygonCollider = (PolygonCollider2D)collider;
                 pointsOfCollider.AddRange(polygonCollider.points);
+            }
+            else if (collider is CompositeCollider2D)
+            {
+                //Tilemapの中のCompositeColliderから結合した後の全ての頂点を取る
+                CompositeCollider2D tileCollider = (CompositeCollider2D)collider;
+                int pathCount = tileCollider.pathCount;     //結合したのポリゴン数
+                for (int i = 0; i < pathCount; i++)
+                {
+                    //丸々一個のポリゴン
+                    Vector2[] tilePoints = new Vector2[tileCollider.GetPathPointCount(i)];
+                    tileCollider.GetPath(i, tilePoints);
+                    //ポリゴンの全ての頂点を保存する
+                    foreach (var p in tilePoints)
+                        pointsOfCollider.Add(p);
+                }
             }
 
             Vector2 center = transform.position;
