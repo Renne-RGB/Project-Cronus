@@ -65,19 +65,26 @@
     <Analyzer Include="E:\UNITY\6000.0.43f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Enemy\State\Enemy_MoveState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\State\Enemy_IdleState.cs" />
     <Compile Include="Assets\Scripts\Player\State\Player_BasicState.cs" />
     <Compile Include="Assets\Scripts\Player\View\ViewOf2D.cs" />
+    <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\View\ViewMeshCreater.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy_Noob.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Player\State\Player_IdleState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerState.cs" />
     <Compile Include="Assets\Scripts\Player\View\TestView.cs" />
-    <Compile Include="Assets\Scripts\Animation\Player_AnimationTrigger.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\EntityState.cs" />
     <Compile Include="Assets\Scripts\Player\State\Player_AttackState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\View\HitInfo.cs" />
-    <Compile Include="Assets\Scripts\Entity\EntityState.cs" />
     <Compile Include="Assets\Scripts\Player\State\Player_MoveState.cs" />
-    <Compile Include="Assets\Scripts\Player\State\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Player\Animation\Player_AnimationTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
