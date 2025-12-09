@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyState : EntityState
+public abstract class EnemyState : EntityState
 {
     protected Enemy enemy;
 
@@ -10,5 +10,10 @@ public class EnemyState : EntityState
 
         rb = enemy.rb;
         anim = enemy.anim;
+    }
+
+    public override void Update()
+    {
+        base.Update();
     }
 }

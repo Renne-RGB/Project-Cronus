@@ -9,7 +9,6 @@ public class Entity : MonoBehaviour
 
 
     [Header("Movement details")]
-    public float moveSpeed;
 
     [Range(0, 1)]
     public int facingDirX { get; private set; } = 1;

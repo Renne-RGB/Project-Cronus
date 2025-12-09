@@ -6,7 +6,6 @@ public class Player_IdleState : Player_BasicState
     {
         
     }
-
     public override void Update()
     {
         base.Update();

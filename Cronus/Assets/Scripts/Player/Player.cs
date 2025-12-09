@@ -9,6 +9,8 @@ public class Player : Entity
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
 
+    public float moveSpeed;
+
     protected override void Awake()
     {
         base.Awake();

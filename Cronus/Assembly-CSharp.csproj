@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Enemy\State\Enemy_MoveState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\State\Enemy_CqbState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\State\Enemy_ChaseState.cs" />
     <Compile Include="Assets\Scripts\Enemy\State\Enemy_IdleState.cs" />
     <Compile Include="Assets\Scripts\Player\State\Player_BasicState.cs" />
     <Compile Include="Assets\Scripts\Player\View\ViewOf2D.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\View\HitInfo.cs" />
+    <Compile Include="Assets\Scripts\Enemy\State\Enemy_ShootState.cs" />
     <Compile Include="Assets\Scripts\Player\State\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Player\Animation\Player_AnimationTrigger.cs" />
   </ItemGroup>
@@ -565,6 +568,10 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1337,6 +1344,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj" />
+    <ProjectReference Include="AstarPathfindingProject.csproj" />
+    <ProjectReference Include="PackageToolsEditor.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

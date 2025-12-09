@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Enemy_Noob : Enemy
 {
@@ -6,8 +7,13 @@ public class Enemy_Noob : Enemy
     {
         base.Awake();
 
+        chaseDistance = 10.0f;
+
         idleState = new Enemy_IdleState(this, stateMachine, "idle");
         moveState = new Enemy_MoveState(this, stateMachine, "move");
+        chaseState = new Enemy_ChaseState(this, stateMachine, "chase");
+        cqbState = new Enemy_CqbState(this, stateMachine, "cqb");
+        shootState = new Enemy_ShootState(this, stateMachine, "shoot");
     }
 
     protected override void Start()
@@ -16,4 +22,7 @@ public class Enemy_Noob : Enemy
 
         stateMachine.Initialize(idleState);
     }
+
+
+
 }
