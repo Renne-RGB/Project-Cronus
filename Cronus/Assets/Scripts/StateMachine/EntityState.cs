@@ -39,4 +39,9 @@ public abstract class EntityState
         anim.SetBool(animBoolName, false);
         //Debug.Log("I exit " + animBoolName);
     }
+
+    public virtual void FixedUpdate()
+    {
+        
+    }
 }

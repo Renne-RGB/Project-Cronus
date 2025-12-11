@@ -22,4 +22,10 @@ public class StateMachine
     {
         currentState.Update();
     }
+
+    public void FixedUpdateActiveState()
+    {
+        currentState.FixedUpdate();
+    }
+
 }

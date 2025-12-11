@@ -16,6 +16,7 @@ public class Enemy : Entity
     public float idleTime = 2;
     public float moveSpeed = 1.4f;
 
+
     [Header("Target")]
     public Transform playerTransform;
     [Header("Chase")]
@@ -25,8 +26,9 @@ public class Enemy : Entity
 
     private Seeker seeker;
     public List<Vector3> pathPointList;        //ルーティングリスト
+    public bool pathReady = false;
     public int currentIndex = 0;
-    private float pathGenerateInterval = 2.0f;      //0.5秒毎にルーティング生成
+    private float pathGenerateInterval = 0.5f;      //0.5秒毎にルーティング生成
     private float pathGenerateTimer = 0f;       //ルーティング生成Timer
     [Header("Attack")]
     public float cqbDistance = 3f;         //接近戦距離
@@ -68,27 +70,57 @@ public class Enemy : Entity
             pathGenerateTimer = 0f;
         }
 
+        if (!pathReady)
+            return;
+
         //ルーティングリストがなければプレイヤーの位置によって生成する
         if (pathPointList == null || pathPointList.Count <= 0)
             GeneratePath(playerTransform.position);
         //敵が現在のパースポイントに着いたら、currentIndex順でルーティング計算する
-        else if (Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.1f)
+        else if (Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.4f)
         {
             currentIndex++;
             if (currentIndex >= pathPointList.Count)
                 GeneratePath(playerTransform.position);
         }
+        // else
+        // {
+        //     Vector2 toNode = pathPointList[currentIndex] - transform.position;
+        //     float dist = toNode.magnitude;
+
+        //     float dot = Vector2.Dot(MovementInput, toNode.normalized);
+
+        //     bool facingNode = dot > 0.2f;
+
+        //     if (facingNode && dist <= 0.1f)
+        //     {
+        //         currentIndex++;
+        //         if (currentIndex >= pathPointList.Count)
+        //             GeneratePath(playerTransform.position);
+        //     }
+        // }
     }
 
     //ルーティング生成
     public virtual void GeneratePath(Vector3 target)
     {
-        currentIndex = 0;
-        //引数（1：始点　2：終点　3：コールバック関数）
+        pathReady = false;
+        //引数（1：始点(プレイヤー位置)　2：終点(敵位置)　3：コールバック関数）
         seeker.StartPath(transform.position, target, Path =>
         {
+            if (Path.error) return;
+
             pathPointList = Path.vectorPath;
+
+            //パース逆転して、敵からプレイヤーになるように
+            //pathPointList.Reverse();
+
+            currentIndex = 0;
+
+            pathReady = true;
+
         });
+
     }
     #endregion
 }

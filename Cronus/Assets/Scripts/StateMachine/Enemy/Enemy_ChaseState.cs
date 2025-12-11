@@ -12,10 +12,15 @@ public class Enemy_ChaseState : EnemyState
 
         enemy.moveSpeed = 3.0f;
     }
+
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
+
     public override void Update()
     {
         base.Update();
-        Dash();
 
         enemy.GetPlayerTransform();     //プレイヤーの位置を取る
         enemy.AutoPath();
@@ -35,13 +40,6 @@ public class Enemy_ChaseState : EnemyState
             {
                 //プレイヤーを追撃する
                 Vector2 direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
-                if (enemy.currentIndex == 0)
-                {
-                    Debug.Log("DIR: " + direction);
-                    Debug.Log("pathPointList[currentIndex]: " + enemy.pathPointList[enemy.currentIndex]);
-                    Debug.Log("enemy.transform: " + enemy.transform.position);
-                    Debug.Log("-------------------------");
-                }
                 enemy.MovementInput = direction;
                 //enemy.SetVelocity(enemy.moveSpeed * direction.x, enemy.moveSpeed * direction.y);
             }
@@ -52,20 +50,34 @@ public class Enemy_ChaseState : EnemyState
             //待機状態に入る
             stateMachine.ChangeState(enemy.idleState);
         }
+
+        Dash();
     }
 
     void Dash()
     {
-        if (enemy.MovementInput.magnitude > 0.1f && enemy.currentSpeed >= 0)
+        if (enemy.MovementInput.sqrMagnitude > 0.01f && enemy.currentSpeed > 0f)
         {
-            enemy.rb.linearVelocity = enemy.MovementInput * enemy.currentSpeed;
-            //Flip
-            if (enemy.MovementInput.x < 0)      //右
-                enemy.sr.flipX = true;
-            if (enemy.MovementInput.x > 0)      //左
-                enemy.sr.flipX = false;
+            Vector2 newPos = enemy.rb.position + enemy.MovementInput * enemy.currentSpeed * Time.fixedDeltaTime;
+            enemy.rb.MovePosition(newPos);
+
+            if (Mathf.Abs(enemy.MovementInput.x) > 0.1f)
+            {
+                enemy.sr.flipX = enemy.MovementInput.x < 0;
+            }
+
+            // if (enemy.pathPointList != null && enemy.pathPointList.Count > enemy.currentIndex)
+            // {
+            //     Vector2 nextNode = enemy.pathPointList[enemy.currentIndex];
+            //     float dx = nextNode.x - enemy.transform.position.x;
+
+            //     if (Mathf.Abs(dx) > 0.05f) 
+            //         enemy.sr.flipX = dx < 0;
+            // }
         }
         else
+        {
             enemy.rb.linearVelocity = Vector2.zero;
+        }
     }
 }

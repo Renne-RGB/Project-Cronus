@@ -45,6 +45,11 @@ public class Entity : MonoBehaviour
         stateMachine.UpdateActiveState();
     }
 
+    private void FixedUpdate()
+    {
+        stateMachine.FixedUpdateActiveState();
+    }
+
     public void CallAnimationTrigger()
     {
         stateMachine.currentState.CallAnimationTrigger();
