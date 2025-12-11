@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Player\View\ViewOf2D.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\View\ViewMeshCreater.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Animation\Enemy_AnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Noob.cs" />
     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />

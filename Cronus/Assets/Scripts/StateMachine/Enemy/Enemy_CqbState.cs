@@ -19,5 +19,8 @@ public class Enemy_CqbState : EnemyState
         enemy.rb.linearVelocity = Vector2.zero;
 
         enemy.GetPlayerTransform();     //プレイヤーの位置を取る
+
+        if (triggerCalled)
+            stateMachine.ChangeState(enemy.idleState);
     }
 }

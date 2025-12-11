@@ -31,6 +31,9 @@ public class Enemy_ChaseState : EnemyState
             if (enemy.pathPointList == null || enemy.pathPointList.Count <= 0)
                 return;
 
+            if (enemy.currentIndex >= enemy.pathPointList.Count)
+                return; // ルーティング既に終わっている、新しいルーティング生成を待つ
+
             //接近戦範囲をチェック
             if (enemy.distance <= enemy.cqbDistance)
             {
