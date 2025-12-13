@@ -4,8 +4,8 @@ using UnityEngine;
 public class FieldOfView : MonoBehaviour
 {
     public int rayCount = 50;
-    public float viewDistance = 50f;
-    public float fov = 90f;
+    public float viewDistance { get; set; }
+    public float fov { get; set; }
     private Vector3 origin = Vector3.zero;
     private float startingAngle;
     [SerializeField] private LayerMask layerMask;
@@ -93,5 +93,15 @@ public class FieldOfView : MonoBehaviour
     public void SetAimDirection(Vector3 aimDirection)
     {
         startingAngle = GetAngleFromVectorFloat(aimDirection) - fov / 2f;
+    }
+
+    public void SetFov(float fov)
+    {
+        this.fov = fov;
+    }
+
+    public void SetViewDistance(float distance)
+    {
+        this.viewDistance = distance;
     }
 }

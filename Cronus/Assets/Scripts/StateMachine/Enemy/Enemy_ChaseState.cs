@@ -34,22 +34,28 @@ public class Enemy_ChaseState : EnemyState
             if (enemy.currentIndex >= enemy.pathPointList.Count)
                 return; // ルーティング既に終わっている、新しいルーティング生成を待つ
 
-            //接近戦範囲をチェック
-            if (enemy.distance <= enemy.cqbDistance)
-            {
-                stateMachine.ChangeState(enemy.cqbState);
-            }
-            else
-            {
+            //接近戦距離内であれば cqb状態に入る
+            // if (enemy.distance <= enemy.cqbDistance)
+            // {
+            //     stateMachine.ChangeState(enemy.cqbState);
+            // }
+            // //射程距離内であれば shoot状態に入る
+            // else if (enemy.distance <= enemy.shootRange)
+            // {
+            //     stateMachine.ChangeState(enemy.shootState);
+            // }
+            // else
+            // {
                 //プレイヤーを追撃する
                 Vector2 direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
                 enemy.MovementInput = direction;
                 //enemy.SetVelocity(enemy.moveSpeed * direction.x, enemy.moveSpeed * direction.y);
-            }
+            //}
         }
         //プレイヤーを見つけなかったら
         else
         {
+            enemy.SetAlert(false);
             //待機状態に入る
             stateMachine.ChangeState(enemy.idleState);
         }

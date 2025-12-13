@@ -22,7 +22,7 @@ public class Enemy_MoveState : EnemyState
         enemy.GetPlayerTransform();
         if (enemy.playerTransform != null)
         {
-            stateMachine.ChangeState(enemy.chaseState);
+            enemy.FindTargetPlayer();
         }
 
         //ルーティングポイントがなかったら生成する

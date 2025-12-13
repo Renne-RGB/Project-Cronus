@@ -9,6 +9,7 @@ public class Enemy_CqbState : EnemyState
     public override void Enter()
     {
         base.Enter();
+        enemy.SetAlert(true);
     }
 
     public override void Update()
