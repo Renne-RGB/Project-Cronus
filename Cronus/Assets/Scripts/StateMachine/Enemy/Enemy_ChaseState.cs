@@ -54,33 +54,7 @@ public class Enemy_ChaseState : EnemyState
             stateMachine.ChangeState(enemy.idleState);
         }
 
-        Dash();
+        enemy.Dash();
     }
 
-    void Dash()
-    {
-        if (enemy.MovementInput.sqrMagnitude > 0.01f && enemy.currentSpeed > 0f)
-        {
-            Vector2 newPos = enemy.rb.position + enemy.MovementInput * enemy.currentSpeed * Time.fixedDeltaTime;
-            enemy.rb.MovePosition(newPos);
-
-            if (Mathf.Abs(enemy.MovementInput.x) > 0.1f)
-            {
-                enemy.sr.flipX = enemy.MovementInput.x < 0;
-            }
-
-            // if (enemy.pathPointList != null && enemy.pathPointList.Count > enemy.currentIndex)
-            // {
-            //     Vector2 nextNode = enemy.pathPointList[enemy.currentIndex];
-            //     float dx = nextNode.x - enemy.transform.position.x;
-
-            //     if (Mathf.Abs(dx) > 0.05f) 
-            //         enemy.sr.flipX = dx < 0;
-            // }
-        }
-        else
-        {
-            enemy.rb.linearVelocity = Vector2.zero;
-        }
-    }
 }

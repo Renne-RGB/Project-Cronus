@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy_IdleState : EnemyState
 {
+    private float Timer = 0f;
     public Enemy_IdleState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
@@ -21,18 +22,31 @@ public class Enemy_IdleState : EnemyState
         enemy.GetPlayerTransform();     //プレイヤーの位置を取る
 
         //プレイヤーが範囲内にいる
-        if(enemy.playerTransform != null)
+        if (enemy.playerTransform != null)
         {
             //攻撃距離より大きいであれば 追撃状態に入る
-            if(enemy.distance > enemy.cqbDistance)
+            if (enemy.distance > enemy.cqbDistance)
             {
                 stateMachine.ChangeState(enemy.chaseState);
-                Debug.Log("Enemy:Chase State");
+                //Debug.Log("Enemy:Chase State");
             }
             else
             {
                 stateMachine.ChangeState(enemy.cqbState);
-                Debug.Log("Enemy:Cqb State");
+                //Debug.Log("Enemy:Cqb State");
+            }
+        }
+        //プレイヤーがなかったらパトロール状態に入る
+        else
+        {
+            if (Timer <= enemy.idleDuration)
+            {
+                Timer += Time.deltaTime;
+            }
+            else
+            {
+                Timer = 0f;
+                stateMachine.ChangeState(enemy.moveState);
             }
         }
     }

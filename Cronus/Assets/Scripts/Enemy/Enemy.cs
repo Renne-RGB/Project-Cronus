@@ -1,6 +1,6 @@
-using UnityEngine;
 using Pathfinding;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Enemy : Entity
 {
@@ -12,10 +12,11 @@ public class Enemy : Entity
 
     public SpriteRenderer sr;
 
-    [Header("Movement details")]
-    public float idleTime = 2;
+    [Header("Patrol details")]
+    public float idleDuration = 2;      //待機時間
     public float moveSpeed = 1.4f;
-
+    public Transform[] patroPoints;     //全てのパトロール座標
+    public int targetPointIndex = 0;    //パトロール目標番号
 
     [Header("Target")]
     public Transform playerTransform;
@@ -74,7 +75,7 @@ public class Enemy : Entity
             return;
 
         //ルーティングリストがなければプレイヤーの位置によって生成する
-        if (pathPointList == null || pathPointList.Count <= 0)
+        if (pathPointList == null || pathPointList.Count <= 0 || currentIndex >= pathPointList.Count)
             GeneratePath(playerTransform.position);
         //敵が現在のパースポイントに着いたら、currentIndex順でルーティング計算する
         else if (Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.4f)
@@ -102,7 +103,7 @@ public class Enemy : Entity
     }
 
     //ルーティング生成
-    public virtual void GeneratePath(Vector3 target)
+    public void GeneratePath(Vector3 target)
     {
         pathReady = false;
         //引数（1：始点(プレイヤー位置)　2：終点(敵位置)　3：コールバック関数）
@@ -123,4 +124,23 @@ public class Enemy : Entity
 
     }
     #endregion
+
+    public void Dash()
+    {
+        if (MovementInput.sqrMagnitude > 0.01f && currentSpeed > 0f)
+        {
+            Vector2 newPos = rb.position + MovementInput * currentSpeed * Time.fixedDeltaTime;
+            rb.MovePosition(newPos);
+
+            if (Mathf.Abs(MovementInput.x) > 0.1f)
+            {
+                sr.flipX = MovementInput.x < 0;
+            }
+
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+    }
 }
