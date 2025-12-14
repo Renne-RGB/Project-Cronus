@@ -52,6 +52,8 @@ public class Enemy : Entity
         seeker = GetComponent<Seeker>();
         sr = GetComponentInChildren<SpriteRenderer>();
 
+        MovementInput = Vector2.right;
+        fieldOfView = GetComponentInChildren<FieldOfView>();
         fieldOfView.SetFov(fov);
         fieldOfView.SetViewDistance(viewDistance);
     }
@@ -60,10 +62,10 @@ public class Enemy : Entity
     {
         base.Update();
 
-        //!!!原因がわからないけど取り敢えずMovementInputの反時計回りはちょうど敵の移動方向である
-        aimDirection = new Vector3(-MovementInput.y, MovementInput.x, 0f);
+        aimDirection = MovementInput.normalized;
         fieldOfView.SetAimDirection(aimDirection);
-        fieldOfView.SetOrigin(transform.position);
+        //fieldOfView.SetOrigin(transform.position);
+        fieldOfView.SetOrigin(Vector3.zero);
 
         FindTargetPlayer();
     }
@@ -195,25 +197,6 @@ public class Enemy : Entity
             }
         }
 
-    }
-
-    public void SwitchStateByDistance()
-    {
-        // // //接近戦距離内であれば cqb状態に入る
-        // if (distance <= cqbDistance)
-        // {
-        //     stateMachine.ChangeState(cqbState);
-        // }
-        // //射程距離内であれば shoot状態に入る
-        // else if (distance <= shootRange)
-        // {
-        //     stateMachine.ChangeState(shootState);
-        // }
-        // //射程より大きいであれば 追撃状態に入る
-        // else
-        // {
-        //     stateMachine.ChangeState(chaseState);
-        // }
     }
 
     public void SetAlert(bool alert)

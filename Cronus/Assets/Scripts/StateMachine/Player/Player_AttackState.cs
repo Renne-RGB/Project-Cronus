@@ -12,7 +12,11 @@ public class Player_AttackState : PlayerState
         HandleAttackVelocity();
 
         if (triggerCalled)
+        {
             stateMachine.ChangeState(player.idleState);
+            //敵の死体を生成
+            player.GenerateEnemyBody();
+        }
     }
 
     private void HandleAttackVelocity()

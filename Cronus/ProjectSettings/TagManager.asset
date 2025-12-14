@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - PlayerAttack
+  - EnemyHit
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -16,8 +20,8 @@ TagManager:
   - PlayerView
   - Enemy
   - Camera
-  - 
-  - 
+  - PlayerHit
+  - EnemyHit
   - 
   - 
   - 

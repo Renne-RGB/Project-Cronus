@@ -27,6 +27,8 @@ public class FieldOfView : MonoBehaviour
         Vector2[] uv = new Vector2[vertices.Length];
         int[] triangles = new int[rayCount * 3];
 
+        Vector3 raycastOrigin = transform.position;
+
         vertices[0] = origin;
 
         int vertexIndex = 1;
@@ -34,7 +36,8 @@ public class FieldOfView : MonoBehaviour
         for (int i = 0; i < rayCount; i++)
         {
             Vector3 vertex;
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
+            //RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(raycastOrigin, GetVectorFromAngle(angle), viewDistance, layerMask);
             //not hit
             if (raycastHit2D.collider == null)
             {
@@ -44,7 +47,7 @@ public class FieldOfView : MonoBehaviour
             else
             {
                 //何かを当たったらそのポイントをベクトルの終点にする
-                vertex = raycastHit2D.point;
+                vertex = raycastHit2D.point - (Vector2)raycastOrigin;
             }
             vertices[vertexIndex] = vertex;
 
@@ -92,7 +95,11 @@ public class FieldOfView : MonoBehaviour
 
     public void SetAimDirection(Vector3 aimDirection)
     {
-        startingAngle = GetAngleFromVectorFloat(aimDirection) - fov / 2f;
+        //startingAngle = GetAngleFromVectorFloat(aimDirection) - fov / 2f;
+
+        //修正した角度を取る
+        float baseAngle = GetAngleFromVectorFloat(aimDirection);
+        startingAngle = baseAngle + 90f - fov / 2f;
     }
 
     public void SetFov(float fov)

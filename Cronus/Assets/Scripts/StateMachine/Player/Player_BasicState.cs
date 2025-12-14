@@ -11,8 +11,9 @@ public class Player_BasicState : PlayerState
     {
         base.Update();
 
-        if (player.input.Player.Attack.WasPressedThisFrame())
+        if (player.input.Player.Attack.WasPressedThisFrame() && player.attackStandby)
         {
+            player.MovePlayerToDeadEnemy();
             stateMachine.ChangeState(player.attackState);
         }
     }

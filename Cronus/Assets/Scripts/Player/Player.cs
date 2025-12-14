@@ -11,6 +11,11 @@ public class Player : Entity
 
     public float moveSpeed;
 
+    [SerializeField]private Enemy enemyCanKill;     //攻撃範囲内の敵
+    [SerializeField]private Enemy lockedEnemy;      //一番最初の敵を記録する
+    [SerializeField]private Transform enemyTrans;     //敵死体の生成座標
+    [SerializeField]public bool attackStandby = false;     //攻撃できるか
+
     protected override void Awake()
     {
         base.Awake();
@@ -43,6 +48,78 @@ public class Player : Entity
     private void OnDisable()
     {
         input.Disable();
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+
+        //自分collider範囲内の敵チェック
+        if (!other.CompareTag("EnemyHit"))
+            return;
+
+        //既に保存する敵がいれば再び実行しない
+        if (attackStandby)
+            return;
+
+        Enemy enemyComponent = other.GetComponentInParent<Enemy>();
+
+        if (enemyComponent != null)
+        {
+            //今の敵を保存する
+            enemyCanKill = enemyComponent;
+            lockedEnemy = enemyCanKill;
+            enemyTrans = enemyCanKill.transform;
+            attackStandby = true;
+        }
+    }
+
+    protected override void OnTriggerExit2D(Collider2D other)
+    {
+        base.OnTriggerExit2D(other);
+
+        //自分collider範囲内の敵チェック
+        if (!other.CompareTag("Enemy"))
+            return;
+
+        //一番最初記録した敵じゃなければ無視する
+        Enemy leaveEnemy = other.GetComponent<Enemy>();
+        if (leaveEnemy != lockedEnemy)
+            return;
+
+        enemyCanKill = null;
+        enemyTrans = null;
+        lockedEnemy = null;
+        attackStandby = false;
+    }
+
+    //暗殺できる敵を探す
+    public bool CheckEnemyCanKill()
+    {
+        bool canKill = false;
+
+        if (attackStandby && enemyCanKill != null)
+            canKill = true;
+
+        return canKill;
+    }
+
+    public void GenerateEnemyBody()
+    {
+        if (enemyTrans == null)
+            return;
+    }
+
+    //プレイヤー暗殺する時座標を敵の位置に移動する
+    public void MovePlayerToDeadEnemy()
+    {
+        if (enemyTrans == null)
+            return;
+
+        transform.position = enemyTrans.position;
+
+        //敵objectを削除
+        Destroy(enemyCanKill.gameObject);
     }
 
 }
