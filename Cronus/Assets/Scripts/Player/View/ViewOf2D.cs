@@ -10,6 +10,7 @@ public class ViewOf2D : MonoBehaviour
     private Collider2D selfCollider;
     public float radius = 20;
     public LayerMask blockLayerMask;
+    public LayerMask enemyLayer;
 
     public bool debug;
     public float detectionOffset = 0.02f;      //偏移量
@@ -27,7 +28,7 @@ public class ViewOf2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void LateUpdate()
@@ -74,6 +75,9 @@ public class ViewOf2D : MonoBehaviour
             viewMeshCreater.AddNewTriangle(point1 - (Vector2)transform.position, point2 - (Vector2)transform.position);
         }
         meshFilter.mesh = viewMeshCreater.GetMesh();
+
+        //視野内の敵チェック
+        CheckEnemiesVisibility();
     }
 
     private List<Vector2> GetVisiblePointsOfColliders()
@@ -214,9 +218,9 @@ public class ViewOf2D : MonoBehaviour
         if (debug)
         {
             //Debug.DrawLine(transform.position, hitInfo.basicPoint, Color.yellow);
-             Debug.DrawLine(transform.position, hitInfo.leftPoint, Color.yellow);
+            Debug.DrawLine(transform.position, hitInfo.leftPoint, Color.yellow);
 
-             Debug.DrawLine(transform.position, hitInfo.rightPoint, Color.red);
+            Debug.DrawLine(transform.position, hitInfo.rightPoint, Color.red);
         }
     }
 
@@ -302,5 +306,35 @@ public class ViewOf2D : MonoBehaviour
     {
         Vector3 p1_target = point - start;
         return Mathf.Sin(Vector3.Angle(direction, p1_target) * Mathf.Deg2Rad) * p1_target.magnitude;
+    }
+
+    private void CheckEnemiesVisibility()
+    {
+        // 1. 找到半径内所有的敌人
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyLayer);
+
+        foreach (var enemyCollider in enemies)
+        {
+            // 2. 获取父物体上的处理器
+            var handler = enemyCollider.GetComponent<EnemyVisibilityHandler>();
+            if (handler == null) continue;
+
+            // 3. 射线检测：从玩家指向敌人 Collider 中心
+            Vector2 direction = enemyCollider.bounds.center - transform.position;
+            float dist = direction.magnitude;
+
+            // 检查路径上是否有障碍物层级的东西
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, dist, blockLayerMask);
+
+            // 如果没有命中障碍物，说明可见
+            bool isVisible = (hit.collider == null);
+            handler.UpdateVisibility(isVisible);
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius); // 画出检测范围
     }
 }
