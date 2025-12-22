@@ -9,7 +9,7 @@ public class EnemyVisibilityHandler : MonoBehaviour
     public Animator actionAnimator; 
 
     [Header("Visibility Settings")]
-    public float ghostDuration = 2.0f; 
+    public float ghostDuration = 0.5f; 
 
     private VisibilityState currentState = VisibilityState.Hidden;
     private float timer;

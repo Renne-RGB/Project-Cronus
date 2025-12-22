@@ -15,6 +15,8 @@ public class Player_BasicState : PlayerState
         {
             player.MovePlayerToDeadEnemy();
             stateMachine.ChangeState(player.attackState);
+
+            player.attackStandby = false;
         }
     }
 }
