@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\StateMachine\Player\PlayerState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_MoveState.cs" />
     <Compile Include="Assets\Scripts\TitleScreen.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_AlertState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_IdleState.cs" />
     <Compile Include="Assets\Scripts\Player\View\ViewOf2D.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />

@@ -9,7 +9,7 @@ public class Enemy_ChaseState : EnemyState
     public override void Enter()
     {
         base.Enter();
-
+        enemy.SetAlert(true);
         enemy.moveSpeed = 3.0f;
     }
 
@@ -21,46 +21,41 @@ public class Enemy_ChaseState : EnemyState
     public override void Update()
     {
         base.Update();
+        enemy.GetPlayerTransform();
 
-        enemy.GetPlayerTransform();     //プレイヤーの位置を取る
-        enemy.AutoPath();
-        //プレイヤーを見つかったら
         if (enemy.playerTransform != null)
         {
-            //ルーティングリストのNULLチェック
-            if (enemy.pathPointList == null || enemy.pathPointList.Count <= 0)
-                return;
+            // プレイヤーを視認している場合
+            Enemy.sharedLastTargetPosition = enemy.playerTransform.position;
+            enemy.currentChaseTimer = enemy.chaseDuration;
 
-            if (enemy.currentIndex >= enemy.pathPointList.Count)
-                return; // ルーティング既に終わっている、新しいルーティング生成を待つ
+            //視認したらフラグをリセットし
+            enemy.ResetSearchRingFlag();
 
-            //接近戦距離内であれば cqb状態に入る
-            // if (enemy.distance <= enemy.cqbDistance)
-            // {
-            //     stateMachine.ChangeState(enemy.cqbState);
-            // }
-            // //射程距離内であれば shoot状態に入る
-            // else if (enemy.distance <= enemy.shootRange)
-            // {
-            //     stateMachine.ChangeState(enemy.shootState);
-            // }
-            // else
-            // {
-                //プレイヤーを追撃する
-                Vector2 direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
-                enemy.MovementInput = direction;
-                //enemy.SetVelocity(enemy.moveSpeed * direction.x, enemy.moveSpeed * direction.y);
-            //}
+            if (enemy.distance <= enemy.cqbDistance) { stateMachine.ChangeState(enemy.cqbState); return; }
+            else if (enemy.distance <= enemy.shootRange) { stateMachine.ChangeState(enemy.shootState); return; }
         }
-        //プレイヤーを見つけなかったら
         else
         {
-            enemy.SetAlert(false);
-            //待機状態に入る
-            stateMachine.ChangeState(enemy.idleState);
+            // プレイヤーを見失った場合
+            // UpdateSharedSearchRing内部で「一度だけ生成する」
+            if (enemy.GetAlert())
+            {
+                enemy.UpdateSharedSearchRing(Enemy.sharedLastTargetPosition);
+            }
         }
 
-        enemy.Dash();
-    }
+        enemy.AutoPath();
 
+        if (enemy.pathPointList != null && enemy.currentIndex < enemy.pathPointList.Count)
+        {
+            enemy.MovementInput = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
+            enemy.Dash();
+        }
+        else
+        {
+            enemy.MovementInput = Vector2.zero;
+            enemy.Dash();
+        }
+    }
 }

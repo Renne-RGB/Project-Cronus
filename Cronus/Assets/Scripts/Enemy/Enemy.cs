@@ -1,22 +1,28 @@
 using Pathfinding;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
 
 public class Enemy : Entity
 {
+    //プレイヤー消える寸前の座標
+    public static Vector3 sharedLastTargetPosition;
+    public static GameObject sharedSearchRing;
+    public GameObject searchRingPrefab;
+
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
     public Enemy_ChaseState chaseState;
     public Enemy_CqbState cqbState;
     public Enemy_ShootState shootState;
+    public Enemy_AlertState alertState;
 
     public SpriteRenderer sr;
     [Header("Vision")]
     [SerializeField] private FieldOfView fieldOfView;
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 8f;
-    [SerializeField] private bool AlertFlag = false;
     [SerializeField] public Vector3 aimDirection { get; set; }
 
     [Header("Patrol details")]
@@ -28,11 +34,19 @@ public class Enemy : Entity
     [Header("Target")]
     public Transform playerTransform;
     public Player player;
-    [SerializeField] private LayerMask playerAndObstacleMask;
+    [SerializeField] public LayerMask playerAndObstacleMask;
     [Header("Chase")]
     public float currentSpeed = 0;
+    public float chaseDuration = 3f;
+    public float currentChaseTimer = 0f;
+    [SerializeField] private bool AlertFlag = false;
     public Vector2 MovementInput { get; set; }
     [SerializeField] protected float chaseDistance = 20f;       //追撃距離
+    [Header("Detection Settings")]
+    public float loseTargetDelay = 2.0f; //プレイヤーが消えて何秒から赤い円を生成する
+    private float loseTargetTimer = 0f;
+    public float searchRingDuration = 5.0f; // 捜索リングの持続時間
+    private bool hasGeneratedRingThisTime = false;
 
     private Seeker seeker;
     public List<Vector3> pathPointList;        //ルーティングリスト
@@ -62,55 +76,134 @@ public class Enemy : Entity
     {
         base.Update();
 
-        aimDirection = MovementInput.normalized;
+        GetPlayerTransform();
+
+        if (playerTransform != null)
+        {
+            sharedLastTargetPosition = playerTransform.position;
+            aimDirection = (playerTransform.position - transform.position).normalized;
+
+            if (Mathf.Abs(aimDirection.x) > 0.1f)
+            {
+                sr.flipX = aimDirection.x < 0;
+            }
+        }
+        else
+        {
+            //プレイヤーに見つけなかったら 視野方向は移動方向と同じようにする
+            if (MovementInput.sqrMagnitude > 0.01f)
+            {
+                aimDirection = MovementInput.normalized;
+            }
+        }
+
         fieldOfView.SetAimDirection(aimDirection);
-        //fieldOfView.SetOrigin(transform.position);
         fieldOfView.SetOrigin(Vector3.zero);
 
         FindTargetPlayer();
+
+        if (GetAlert())
+        {
+            if (sharedSearchRing != null) currentChaseTimer = chaseDuration;
+            else currentChaseTimer -= Time.deltaTime;
+
+            if (currentChaseTimer <= 0)
+            {
+                SetAlert(false);
+                stateMachine.ChangeState(idleState);
+            }
+        }
     }
 
     public void GetPlayerTransform()
     {
-        Collider2D[] chaseColliders = Physics2D.OverlapCircleAll(transform.position, chaseDistance, playerLayer);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, chaseDistance, playerLayer);
 
-        //プレイヤーは追撃範囲内にいれば 距離を求める
-        if (chaseColliders.Length > 0)
+        if (colliders.Length > 0)
         {
-            playerTransform = chaseColliders[0].transform;
-            distance = Vector2.Distance(playerTransform.position, transform.position);
+            Transform target = colliders[0].transform;
+            Vector3 dirToPlayer = (target.position - transform.position).normalized;
+            float distToPlayer = Vector2.Distance(transform.position, target.position);
+
+            //障害物チェック
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dirToPlayer, chaseDistance, playerAndObstacleMask);
+            bool hasLineOfSight = hit.collider != null && ((1 << hit.collider.gameObject.layer) & playerLayer) != 0;
+
+            if (hasLineOfSight)
+            {
+                if (playerTransform != null)
+                {
+                    //もしchase状態である かつ chaseDistance内 かつ 障害物なし
+                    //視野角度がプレイヤーにLockONする
+                    loseTargetTimer = 0f;
+                    distance = distToPlayer;
+                    return;
+                }
+                else
+                {
+                    float angle = Vector3.Angle(aimDirection, dirToPlayer);
+                    if (distToPlayer <= viewDistance && angle < fov / 2f)
+                    {
+                        playerTransform = target;
+                        distance = distToPlayer;
+                        loseTargetTimer = 0f;
+                        ClearSearchRing(); //プレイヤーに見つけなかったら 前の赤い円を消す
+                        return;
+                    }
+                }
+            }
         }
-        else
-            playerTransform = null;
+
+        if (playerTransform != null)
+        {
+            loseTargetTimer += Time.deltaTime;
+            if (loseTargetTimer >= loseTargetDelay)
+            {
+                playerTransform = null;
+            }
+        }
     }
 
     #region ルーティング生成
     public void AutoPath()
     {
-        // if (playerTransform == null)
-        //     return;
-
         pathGenerateTimer += Time.deltaTime;
-        //一定の時間に経ったらルーティングを生成する
+
+        // ターゲットの決定：プレイヤーが見えていればプレイヤー、いなければ共有の最後目撃地点
+        Vector3 targetPos = (playerTransform != null) ? playerTransform.position : sharedLastTargetPosition;
+
         if (pathGenerateTimer >= pathGenerateInterval)
         {
-            GeneratePath(playerTransform.position);
+            GeneratePath(targetPos);
             pathGenerateTimer = 0f;
         }
 
-        if (!pathReady)
-            return;
-
-        //ルーティングリストがなければプレイヤーの位置によって生成する
-        if (pathPointList == null || pathPointList.Count <= 0 || currentIndex >= pathPointList.Count)
-            GeneratePath(playerTransform.position);
-        //敵が現在のパースポイントに着いたら、currentIndex順でルーティング計算する
-        else if (Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.4f)
+        if (pathPointList != null && currentIndex < pathPointList.Count)
         {
-            currentIndex++;
-            if (currentIndex >= pathPointList.Count)
-                GeneratePath(playerTransform.position);
+            // 経路の補正：次のポイントが現在地より近い場合はスキップ
+            if (currentIndex + 1 < pathPointList.Count)
+            {
+                if (Vector2.Distance(transform.position, pathPointList[currentIndex + 1]) <
+                    Vector2.Distance(transform.position, pathPointList[currentIndex]))
+                {
+                    currentIndex++;
+                }
+            }
+
+            // 到達判定
+            if (Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.4f)
+            {
+                currentIndex++;
+            }
         }
+    }
+
+    //赤い円に着いた時
+    private void OnReachedSearchLocation()
+    {
+        SetAlert(false);
+        ClearSearchRing();
+        stateMachine.ChangeState(idleState);
     }
 
     //ルーティング生成
@@ -143,11 +236,14 @@ public class Enemy : Entity
             Vector2 newPos = rb.position + MovementInput * currentSpeed * Time.fixedDeltaTime;
             rb.MovePosition(newPos);
 
-            if (Mathf.Abs(MovementInput.x) > 0.1f)
+            //プレイヤーに見えない時のみ視野方向は移動方向と同じようにする
+            if (playerTransform == null)
             {
-                sr.flipX = MovementInput.x < 0;
+                if (Mathf.Abs(MovementInput.x) > 0.1f)
+                {
+                    sr.flipX = MovementInput.x < 0;
+                }
             }
-
         }
         else
         {
@@ -157,43 +253,23 @@ public class Enemy : Entity
 
     public void FindTargetPlayer()
     {
+        //既にAlert状態であれば実行しない
+        if (AlertFlag || stateMachine.currentState == alertState)
+            return;
+
         if (playerTransform != null)
         {
             Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;
-            if (distance < viewDistance)
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dirToPlayer, viewDistance, playerAndObstacleMask);
+            bool isVisible = hit.collider != null && hit.collider.gameObject.GetComponent<Player>() != null;
+            if (isVisible)
             {
-                //視野角に入るか否か
-                if (Vector3.Angle(MovementInput, dirToPlayer) < fov / 2)
+                //視野内に入ったらalert状態に切り替える
+                if (Vector3.Angle(MovementInput, dirToPlayer) < fov / 2 || distance < cqbDistance)
                 {
-                    //プレイヤーに向けてRaycastを出す
-                    RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, dirToPlayer, viewDistance, playerAndObstacleMask);
-                    if (raycastHit2D.collider != null)
-                    {
-                        //プレイヤーに当たったら 攻撃状態に入る
-                        if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
-                        {
-                            if (distance <= cqbDistance)
-                            {
-                                stateMachine.ChangeState(cqbState);
-                            }
-                            //射程距離内であれば shoot状態に入る
-                            else if (distance <= shootRange)
-                            {
-                                stateMachine.ChangeState(shootState);
-                            }
-                        }
-                        //他の何かを当たったら
-                        else
-                        {
-
-                        }
-                    }
-
+                    stateMachine.ChangeState(alertState);
                 }
-            }
-            else if (distance < cqbDistance)
-            {
-                stateMachine.ChangeState(cqbState);
             }
         }
 
@@ -202,10 +278,56 @@ public class Enemy : Entity
     public void SetAlert(bool alert)
     {
         AlertFlag = alert;
+        if (alert)
+            currentChaseTimer = chaseDuration;
     }
 
     public bool GetAlert()
     {
         return AlertFlag;
     }
+
+    // 共有検索赤い円の生成・更新
+    public void UpdateSharedSearchRing(Vector3 position)
+    {
+        if (hasGeneratedRingThisTime) return;
+
+        sharedLastTargetPosition = position;
+
+        if (sharedSearchRing == null)
+        {
+            sharedSearchRing = Instantiate(searchRingPrefab, position, Quaternion.identity);
+            hasGeneratedRingThisTime = true;
+
+            Destroy(sharedSearchRing, searchRingDuration);
+        }
+    }
+
+    public void ResetSearchStatus()
+    {
+        hasGeneratedRingThisTime = false;
+    }
+
+    // 赤い円とタイマーの強制クリア（プレイヤー発見時に使用）
+    public void ClearSearchRing()
+    {
+        if (sharedSearchRing != null)
+        {
+            Destroy(sharedSearchRing);
+            sharedSearchRing = null;
+
+            // 核心修复：リングが消えた瞬間、プレイヤーが見えていなければ Idle へ戻る
+            if (playerTransform == null && (stateMachine.currentState == chaseState || stateMachine.currentState == alertState))
+            {
+                SetAlert(false);
+                stateMachine.ChangeState(idleState);
+            }
+        }
+    }
+
+    public void ResetSearchRingFlag()
+    {
+        hasGeneratedRingThisTime = false;
+    }
+
 }
