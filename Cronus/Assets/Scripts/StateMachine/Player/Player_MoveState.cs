@@ -32,6 +32,9 @@ public class Player_MoveState : Player_BasicState
             return;
         }
 
+        if (player.input.Player.Run.IsPressed())
+            stateMachine.ChangeState(player.runState);
+
         //遮られていない方向にのみ速度を与える
         float vx = isBlockedX ? 0 : player.moveInput.x * player.moveSpeed;
         float vy = isBlockedY ? 0 : player.moveInput.y * player.moveSpeed;

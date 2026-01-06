@@ -198,14 +198,6 @@ public class Enemy : Entity
         }
     }
 
-    //赤い円に着いた時
-    private void OnReachedSearchLocation()
-    {
-        SetAlert(false);
-        ClearSearchRing();
-        stateMachine.ChangeState(idleState);
-    }
-
     //ルーティング生成
     public void GeneratePath(Vector3 target)
     {
@@ -328,6 +320,29 @@ public class Enemy : Entity
     public void ResetSearchRingFlag()
     {
         hasGeneratedRingThisTime = false;
+    }
+
+    public void OnHearSound(Vector3 soundPosition)
+    {
+        // すでにプレイヤーを目視している場合は、視覚優先のため音を無視する
+        if (playerTransform != null) return;
+
+        // 最後に確認されたターゲット座標を音の発生源に更新
+        sharedLastTargetPosition = soundPosition;
+
+        // 赤い円（SearchRing）を生成
+        if (sharedSearchRing == null)
+        {
+            ResetSearchStatus();
+            UpdateSharedSearchRing(soundPosition);
+        }
+
+        // 警戒状態（AlertState）に移行して、音の場所へ移動を開始する
+        if (stateMachine.currentState != alertState && stateMachine.currentState != chaseState)
+        {
+            SetAlert(true);
+            stateMachine.ChangeState(alertState);
+        }
     }
 
 }

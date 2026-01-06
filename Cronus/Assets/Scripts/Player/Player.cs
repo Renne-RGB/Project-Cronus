@@ -1,3 +1,4 @@
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 
 public class Player : Entity
@@ -5,16 +6,22 @@ public class Player : Entity
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
     public Player_AttackState attackState { get; private set; }
+    public Player_RunState runState { get; private set; }
 
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
 
     public float moveSpeed;
 
-    [SerializeField]private Enemy enemyCanKill;     //攻撃範囲内の敵
-    [SerializeField]private Enemy lockedEnemy;      //一番最初の敵を記録する
-    [SerializeField]private Transform enemyTrans;     //敵死体の生成座標
-    [SerializeField]public bool attackStandby = false;     //攻撃できるか
+    [SerializeField] private Enemy enemyCanKill;     //攻撃範囲内の敵
+    [SerializeField] private Enemy lockedEnemy;      //一番最初の敵を記録する
+    [SerializeField] private Transform enemyTrans;     //敵死体の生成座標
+    [SerializeField] public bool attackStandby = false;     //攻撃できるか
+    [Header("Sound Settings")]
+    [SerializeField] private float runNoiseRadius = 5.0f; // 走る時の音の範囲
+    [SerializeField] private LayerMask enemyLayer;        // 敵のレイヤー
+    [SerializeField] private GameObject soundWavePrefab;
+    public float noiseCooldownTimer = 0f;
 
     protected override void Awake()
     {
@@ -25,6 +32,7 @@ public class Player : Entity
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
         attackState = new Player_AttackState(this, stateMachine, "attack");
+        runState = new Player_RunState(this, stateMachine, "run");
     }
 
     protected override void Start()
@@ -32,6 +40,15 @@ public class Player : Entity
         base.Start();
 
         stateMachine.Initialize(idleState);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (noiseCooldownTimer > 0)
+        {
+            noiseCooldownTimer -= Time.deltaTime;
+        }
     }
 
     private void OnEnable()
@@ -52,8 +69,6 @@ public class Player : Entity
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        base.OnTriggerEnter2D(other);
-
         //自分collider範囲内の敵チェック
         if (!other.CompareTag("EnemyHit"))
             return;
@@ -120,6 +135,37 @@ public class Player : Entity
 
         //敵objectを削除
         Destroy(enemyCanKill.gameObject);
+    }
+
+    public void EmitRunNoise()
+    {
+        if (soundWavePrefab != null)
+        {
+            GameObject wave = Instantiate(soundWavePrefab, transform.position, Quaternion.identity);
+
+            SoundWave waveScript = wave.GetComponent<SoundWave>();
+            if (waveScript != null)
+            {
+                waveScript.Setup(runNoiseRadius);
+            }
+        }
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, runNoiseRadius, enemyLayer);
+        foreach (var hit in hitEnemies)
+        {
+            Enemy enemy = hit.GetComponentInParent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.OnHearSound(transform.position); //
+            }
+        }
+    }
+
+    // エディタ上で音の範囲を可視化する
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(1, 1, 0, 0.3f);
+        Gizmos.DrawWireSphere(transform.position, runNoiseRadius);
     }
 
 }

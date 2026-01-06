@@ -1351,11 +1351,17 @@ MonoBehaviour:
   whatIsWall:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed: 10
+  moveSpeed: 5
   enemyCanKill: {fileID: 0}
   lockedEnemy: {fileID: 0}
   enemyTrans: {fileID: 0}
   attackStandby: 0
+  runNoiseRadius: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  soundWavePrefab: {fileID: 3989036047491272193, guid: 3b7dfe9ce2ec5594d92cda77d4371631, type: 3}
+  noiseCooldownTimer: 0
 --- !u!4 &1103402526
 Transform:
   m_ObjectHideFlags: 0
@@ -16120,6 +16126,10 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1103402526}
+    - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
+      propertyPath: searchRingPrefab
+      value: 
+      objectReference: {fileID: 5762972613593406422, guid: 6da1d88e936c1504292d407a9a9e1cb5, type: 3}
     - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
       propertyPath: patroPoints.Array.size
       value: 2
