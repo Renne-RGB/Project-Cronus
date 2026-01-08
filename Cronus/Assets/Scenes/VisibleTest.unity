@@ -1700,6 +1700,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
+      propertyPath: cqbDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 6638349535624953820, guid: e23a04eba26186d46a9ee36bcdd2ef3f, type: 3}
@@ -1712,6 +1716,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
+      propertyPath: cqbAttackRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
       propertyPath: loseTargetDelay
       value: 4
       objectReference: {fileID: 0}
@@ -1719,6 +1727,10 @@ PrefabInstance:
       propertyPath: searchRingPrefab
       value: 
       objectReference: {fileID: 5762972613593406422, guid: 6da1d88e936c1504292d407a9a9e1cb5, type: 3}
+    - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
+      propertyPath: cqbKnockbackForce
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
       propertyPath: patroPoints.Array.size
       value: 2

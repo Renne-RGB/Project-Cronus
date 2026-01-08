@@ -188,7 +188,7 @@ public class Player : Entity
         Gizmos.DrawWireSphere(transform.position, runNoiseRadius);
     }
 
-    public void TakeDamage(Vector2 bulletDir)
+    public void TakeDamageByBullet(Vector2 bulletDir, float duration, float force)
     {
         if (invincibleTimer > 0)
             return;
@@ -196,7 +196,20 @@ public class Player : Entity
         invincibleFlashEnabled = true;
         invincibleTimer = invincibleDuration;
 
-        hitState.SetKnockbackDirection(bulletDir);
+        hitState.SetupHit(bulletDir, duration, force);
+        stateMachine.ChangeState(hitState);
+    }
+
+    public void TakeDamageByMelee(Vector2 impactDir, float heavyStunDuration, float heavyKnockbackForce)
+    {
+        if (invincibleTimer > 0)
+            return;
+
+        invincibleFlashEnabled = true;
+        invincibleTimer = invincibleDuration;
+
+        hitState.SetupHit(impactDir, heavyStunDuration, heavyKnockbackForce);
+        
         stateMachine.ChangeState(hitState);
     }
 

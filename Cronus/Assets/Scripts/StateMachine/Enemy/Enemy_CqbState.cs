@@ -22,6 +22,31 @@ public class Enemy_CqbState : EnemyState
         enemy.GetPlayerTransform();     //プレイヤーの位置を取る
 
         if (triggerCalled)
+        {
+            // --- 在切换状态前执行攻击判定 ---
+            PerformCqbAttack();
+
             stateMachine.ChangeState(enemy.idleState);
+        }
     }
+
+    private void PerformCqbAttack()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(enemy.transform.position, enemy.cqbAttackRadius, enemy.playerLayer);
+
+        foreach (var hit in hits)
+        {
+            Player player = hit.GetComponent<Player>();
+            if (player != null)
+            {
+                //撃退方向
+                Vector2 dirToPlayer = (player.transform.position - enemy.transform.position).normalized;
+
+                player.TakeDamageByMelee(dirToPlayer, enemy.cqbStunDuration, enemy.cqbKnockbackForce);
+
+                break; 
+            }
+        }
+    }
+
 }

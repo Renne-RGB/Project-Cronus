@@ -3,9 +3,9 @@ using UnityEngine;
 public class Player_HitState : PlayerState
 {
     private float stunTimer;
-    private float stunDuration = 1.0f;
+    private float stunDuration;     //stun継続時間
+    private float knockbackForce;   //撃退され距離
     private Vector2 knockbackDir;
-    private float knockbackForce = 10.0f;
 
     public Player_HitState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -40,9 +40,10 @@ public class Player_HitState : PlayerState
         }
     }
 
-    // 用于在进入状态前设置击退方向
-    public void SetKnockbackDirection(Vector2 direction)
+    public void SetupHit(Vector2 dir, float duration, float force)
     {
-        knockbackDir = direction.normalized;
+        knockbackDir = dir.normalized;
+        stunDuration = duration;
+        knockbackForce = force;
     }
 }

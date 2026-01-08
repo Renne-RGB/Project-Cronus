@@ -8,6 +8,9 @@ public class EnemyBullet : MonoBehaviour
     public float damage = 1f;
     public LayerMask targetLayers;
 
+    private float stunDuration = 1.0f;
+    private float knockbackForce = 10.0f;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -45,7 +48,7 @@ public class EnemyBullet : MonoBehaviour
             Rigidbody2D bulletRb = GetComponent<Rigidbody2D>();
             Vector2 bulletDir = bulletRb != null ? bulletRb.linearVelocity.normalized : transform.right;
 
-            player.TakeDamage(bulletDir);
+            player.TakeDamageByBullet(bulletDir, stunDuration, knockbackForce);
         }
         else
         {

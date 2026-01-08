@@ -52,8 +52,11 @@ public class Enemy : Entity
     private float pathGenerateTimer = 0f;       //ルーティング生成Timer
     [Header("Attack")]
     public float distance;      //プレイヤーとの距離
-    public float cqbDistance;         //接近戦距離
     public float shootRange;      //射程距離
+    public float cqbDistance;         //接近戦距離
+    public float cqbAttackRadius = 3.0f;     //接近戦判定半径
+    public float cqbStunDuration = 2.0f;     //stun時間
+    public float cqbKnockbackForce = 20.0f;  //飛ばされる距離
     public LayerMask playerLayer;
     [Header("Weapon Settings")]
     public GameObject bulletPrefab;
