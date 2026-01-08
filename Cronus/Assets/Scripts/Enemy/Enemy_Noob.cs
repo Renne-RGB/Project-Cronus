@@ -17,6 +17,7 @@ public class Enemy_Noob : Enemy
         cqbState = new Enemy_CqbState(this, stateMachine, "cqb");
         shootState = new Enemy_ShootState(this, stateMachine, "shoot");
         alertState = new Enemy_AlertState(this, stateMachine, "alert");
+        searchState = new Enemy_SearchState(this, stateMachine, "search");
     }
 
     protected override void Start()

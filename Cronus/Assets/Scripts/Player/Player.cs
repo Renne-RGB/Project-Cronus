@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework.Interfaces;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class Player : Entity
     public Player_MoveState moveState { get; private set; }
     public Player_AttackState attackState { get; private set; }
     public Player_RunState runState { get; private set; }
+    public Player_HitState hitState { get; private set; }
 
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
@@ -33,6 +35,7 @@ public class Player : Entity
         moveState = new Player_MoveState(this, stateMachine, "move");
         attackState = new Player_AttackState(this, stateMachine, "attack");
         runState = new Player_RunState(this, stateMachine, "run");
+        hitState = new Player_HitState(this, stateMachine, "hit");
     }
 
     protected override void Start()
@@ -168,4 +171,9 @@ public class Player : Entity
         Gizmos.DrawWireSphere(transform.position, runNoiseRadius);
     }
 
+    public void TakeDamage(Vector2 bulletDir)
+    {
+        hitState.SetKnockbackDirection(bulletDir);
+        stateMachine.ChangeState(hitState);
+    }
 }

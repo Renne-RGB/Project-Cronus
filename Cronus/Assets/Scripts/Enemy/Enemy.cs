@@ -6,17 +6,13 @@ using UnityEngine.Splines;
 
 public class Enemy : Entity
 {
-    //プレイヤー消える寸前の座標
-    public static Vector3 sharedLastTargetPosition;
-    public static GameObject sharedSearchRing;
-    public GameObject searchRingPrefab;
-
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
     public Enemy_ChaseState chaseState;
     public Enemy_CqbState cqbState;
     public Enemy_ShootState shootState;
     public Enemy_AlertState alertState;
+    public Enemy_SearchState searchState;
 
     public SpriteRenderer sr;
     [Header("Vision")]
@@ -45,7 +41,7 @@ public class Enemy : Entity
     [Header("Detection Settings")]
     public float loseTargetDelay = 2.0f; //プレイヤーが消えて何秒から赤い円を生成する
     private float loseTargetTimer = 0f;
-    public float searchRingDuration = 5.0f; // 捜索リングの持続時間
+
     private bool hasGeneratedRingThisTime = false;
 
     private Seeker seeker;
@@ -59,6 +55,14 @@ public class Enemy : Entity
     public float cqbDistance;         //接近戦距離
     public float shootRange;      //射程距離
     public LayerMask playerLayer;
+    [Header("Weapon Settings")]
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float timeBetweenShots = 0.2f; //三連発の間隔
+    public float spreadAngle = 30f;     //弾丸のランダム角度
+    public float bulletSpeed = 20f;     //弾丸の速度
+    public float shootCooldownDuration = 2.0f;
+    public float currentShootCooldown = 0f;
 
     protected override void Awake()
     {
@@ -80,7 +84,7 @@ public class Enemy : Entity
 
         if (playerTransform != null)
         {
-            sharedLastTargetPosition = playerTransform.position;
+            SearchRingManager.Instance.LastTargetPosition = playerTransform.position;
             aimDirection = (playerTransform.position - transform.position).normalized;
 
             if (Mathf.Abs(aimDirection.x) > 0.1f)
@@ -104,7 +108,7 @@ public class Enemy : Entity
 
         if (GetAlert())
         {
-            if (sharedSearchRing != null) currentChaseTimer = chaseDuration;
+            if (SearchRingManager.Instance.HasActiveRing()) currentChaseTimer = chaseDuration;
             else currentChaseTimer -= Time.deltaTime;
 
             if (currentChaseTimer <= 0)
@@ -112,6 +116,11 @@ public class Enemy : Entity
                 SetAlert(false);
                 stateMachine.ChangeState(idleState);
             }
+        }
+
+        if (currentShootCooldown > 0)
+        {
+            currentShootCooldown -= Time.deltaTime;
         }
     }
 
@@ -170,7 +179,7 @@ public class Enemy : Entity
         pathGenerateTimer += Time.deltaTime;
 
         // ターゲットの決定：プレイヤーが見えていればプレイヤー、いなければ共有の最後目撃地点
-        Vector3 targetPos = (playerTransform != null) ? playerTransform.position : sharedLastTargetPosition;
+        Vector3 targetPos = (playerTransform != null) ? playerTransform.position : SearchRingManager.Instance.LastTargetPosition;
 
         if (pathGenerateTimer >= pathGenerateInterval)
         {
@@ -284,15 +293,8 @@ public class Enemy : Entity
     {
         if (hasGeneratedRingThisTime) return;
 
-        sharedLastTargetPosition = position;
-
-        if (sharedSearchRing == null)
-        {
-            sharedSearchRing = Instantiate(searchRingPrefab, position, Quaternion.identity);
-            hasGeneratedRingThisTime = true;
-
-            Destroy(sharedSearchRing, searchRingDuration);
-        }
+        SearchRingManager.Instance.GenerateSearchRing(position);
+        hasGeneratedRingThisTime = true;
     }
 
     public void ResetSearchStatus()
@@ -303,10 +305,9 @@ public class Enemy : Entity
     // 赤い円とタイマーの強制クリア（プレイヤー発見時に使用）
     public void ClearSearchRing()
     {
-        if (sharedSearchRing != null)
+        if (SearchRingManager.Instance.HasActiveRing())
         {
-            Destroy(sharedSearchRing);
-            sharedSearchRing = null;
+            SearchRingManager.Instance.DestroySearchRing();
 
             // 核心修复：リングが消えた瞬間、プレイヤーが見えていなければ Idle へ戻る
             if (playerTransform == null && (stateMachine.currentState == chaseState || stateMachine.currentState == alertState))
@@ -328,10 +329,10 @@ public class Enemy : Entity
         if (playerTransform != null) return;
 
         // 最後に確認されたターゲット座標を音の発生源に更新
-        sharedLastTargetPosition = soundPosition;
+        SearchRingManager.Instance.LastTargetPosition = soundPosition;
 
         // 赤い円（SearchRing）を生成
-        if (sharedSearchRing == null)
+        if (!SearchRingManager.Instance.HasActiveRing())
         {
             ResetSearchStatus();
             UpdateSharedSearchRing(soundPosition);

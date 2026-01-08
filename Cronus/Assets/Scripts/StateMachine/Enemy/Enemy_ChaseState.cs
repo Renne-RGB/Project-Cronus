@@ -26,14 +26,21 @@ public class Enemy_ChaseState : EnemyState
         if (enemy.playerTransform != null)
         {
             // プレイヤーを視認している場合
-            Enemy.sharedLastTargetPosition = enemy.playerTransform.position;
-            enemy.currentChaseTimer = enemy.chaseDuration;
+            SearchRingManager.Instance.LastTargetPosition = enemy.playerTransform.position;
 
-            //視認したらフラグをリセットし
+            enemy.currentChaseTimer = enemy.chaseDuration;
             enemy.ResetSearchRingFlag();
 
-            if (enemy.distance <= enemy.cqbDistance) { stateMachine.ChangeState(enemy.cqbState); return; }
-            else if (enemy.distance <= enemy.shootRange) { stateMachine.ChangeState(enemy.shootState); return; }
+            if (enemy.distance <= enemy.cqbDistance)
+            {
+                stateMachine.ChangeState(enemy.cqbState);
+                return;
+            }
+            else if (enemy.distance <= enemy.shootRange && enemy.currentShootCooldown <= 0)
+            {
+                stateMachine.ChangeState(enemy.shootState);
+                return;
+            }
         }
         else
         {
@@ -41,7 +48,7 @@ public class Enemy_ChaseState : EnemyState
             // UpdateSharedSearchRing内部で「一度だけ生成する」
             if (enemy.GetAlert())
             {
-                enemy.UpdateSharedSearchRing(Enemy.sharedLastTargetPosition);
+                enemy.UpdateSharedSearchRing(SearchRingManager.Instance.LastTargetPosition);
             }
         }
 
