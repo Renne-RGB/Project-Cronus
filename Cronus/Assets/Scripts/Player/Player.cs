@@ -24,10 +24,16 @@ public class Player : Entity
     [SerializeField] private LayerMask enemyLayer;        // 敵のレイヤー
     [SerializeField] private GameObject soundWavePrefab;
     public float noiseCooldownTimer = 0f;
+    [Header("Combat Settings")]
+    [SerializeField] private float invincibleDuration = 2.0f;   //無敵時間
+    private float invincibleTimer;
+    private SpriteRenderer sr;    //無敵エフェクト
 
     protected override void Awake()
     {
         base.Awake();
+
+        sr = GetComponentInChildren<SpriteRenderer>();
 
         input = new PlayerInputSet();
 
@@ -48,6 +54,8 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
+
+        Invincible();
         if (noiseCooldownTimer > 0)
         {
             noiseCooldownTimer -= Time.deltaTime;
@@ -173,7 +181,38 @@ public class Player : Entity
 
     public void TakeDamage(Vector2 bulletDir)
     {
+        if (invincibleTimer > 0)
+            return;
+            
+        invincibleTimer = invincibleDuration;
+
         hitState.SetKnockbackDirection(bulletDir);
         stateMachine.ChangeState(hitState);
+    }
+
+    private void Invincible()
+    {
+        if (invincibleTimer > 0)
+        {
+            invincibleTimer -= Time.deltaTime;
+
+            if (sr != null)
+            {
+                float alpha = Mathf.PingPong(Time.time * 10.0f, 1.0f);
+
+                Color c = sr.color;
+                c.a = (alpha > 0.5f) ? 1f : 0.4f; // 硬切闪烁看起来更有“受击感”
+                sr.color = c;
+            }
+        }
+        else
+        {
+            if (sr != null && sr.color.a < 1f)
+            {
+                Color c = sr.color;
+                c.a = 1f;
+                sr.color = c;
+            }
+        }
     }
 }
