@@ -9,6 +9,7 @@ public class Player : Entity
     public Player_AttackState attackState { get; private set; }
     public Player_RunState runState { get; private set; }
     public Player_HitState hitState { get; private set; }
+    public Player_DashState dashState { get; private set; }
 
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
@@ -26,8 +27,14 @@ public class Player : Entity
     public float noiseCooldownTimer = 0f;
     [Header("Combat Settings")]
     [SerializeField] private float invincibleDuration = 2.0f;   //無敵時間
-    private float invincibleTimer;
+    public float invincibleTimer;
+    [HideInInspector] public bool invincibleFlashEnabled = true;
     private SpriteRenderer sr;    //無敵エフェクト
+    [Header("Dash Settings")]
+    public float dashSpeed = 30f;
+    public float dashDuration = 0.7f;
+    public float dashCooldown = 2.0f;
+    public float dashCooldownTimer;
 
     protected override void Awake()
     {
@@ -42,6 +49,7 @@ public class Player : Entity
         attackState = new Player_AttackState(this, stateMachine, "attack");
         runState = new Player_RunState(this, stateMachine, "run");
         hitState = new Player_HitState(this, stateMachine, "hit");
+        dashState = new Player_DashState(this, stateMachine, "dash");
     }
 
     protected override void Start()
@@ -57,9 +65,10 @@ public class Player : Entity
 
         Invincible();
         if (noiseCooldownTimer > 0)
-        {
             noiseCooldownTimer -= Time.deltaTime;
-        }
+
+        if (dashCooldownTimer > 0)
+            dashCooldownTimer -= Time.deltaTime;
     }
 
     private void OnEnable()
@@ -183,7 +192,8 @@ public class Player : Entity
     {
         if (invincibleTimer > 0)
             return;
-            
+
+        invincibleFlashEnabled = true;
         invincibleTimer = invincibleDuration;
 
         hitState.SetKnockbackDirection(bulletDir);
@@ -196,12 +206,17 @@ public class Player : Entity
         {
             invincibleTimer -= Time.deltaTime;
 
-            if (sr != null)
+            if (invincibleFlashEnabled && sr != null)
             {
                 float alpha = Mathf.PingPong(Time.time * 10.0f, 1.0f);
-
                 Color c = sr.color;
-                c.a = (alpha > 0.5f) ? 1f : 0.4f; // 硬切闪烁看起来更有“受击感”
+                c.a = (alpha > 0.5f) ? 1f : 0.4f;
+                sr.color = c;
+            }
+            else if (sr != null)
+            {
+                Color c = sr.color;
+                c.a = 1f;
                 sr.color = c;
             }
         }
@@ -214,5 +229,29 @@ public class Player : Entity
                 sr.color = c;
             }
         }
+
     }
+
+    public bool CheckAttackInput()
+    {
+        if (input.Player.Attack.WasPressedThisFrame() && attackStandby)
+        {
+            MovePlayerToDeadEnemy();
+            attackStandby = false;
+            return true;
+        }
+        return false;
+    }
+
+    public bool CheckDashInput()
+    {
+        if (input.Player.Dash.WasPressedThisFrame() && dashCooldownTimer <= 0)
+        {
+            dashCooldownTimer = dashCooldown;
+            invincibleFlashEnabled = false;
+            return true;
+        }
+        return false;
+    }
+
 }

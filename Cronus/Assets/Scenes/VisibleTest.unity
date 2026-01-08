@@ -1403,6 +1403,13 @@ MonoBehaviour:
     m_Bits: 4096
   soundWavePrefab: {fileID: 3989036047491272193, guid: 3b7dfe9ce2ec5594d92cda77d4371631, type: 3}
   noiseCooldownTimer: 0
+  invincibleDuration: 2
+  invincibleTimer: 0
+  invincibleFlashEnabled: 1
+  dashSpeed: 10
+  dashDuration: 0.7
+  dashCooldown: 2
+  dashCooldownTimer: 0
 --- !u!4 &1103402526
 Transform:
   m_ObjectHideFlags: 0

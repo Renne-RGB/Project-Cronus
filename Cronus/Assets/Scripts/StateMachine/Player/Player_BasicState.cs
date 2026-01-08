@@ -11,12 +11,14 @@ public class Player_BasicState : PlayerState
     {
         base.Update();
 
-        if (player.input.Player.Attack.WasPressedThisFrame() && player.attackStandby)
+        if (player.CheckAttackInput())
         {
-            player.MovePlayerToDeadEnemy();
             stateMachine.ChangeState(player.attackState);
+        }
 
-            player.attackStandby = false;
+        if(player.CheckDashInput())
+        {
+            stateMachine.ChangeState(player.dashState);
         }
     }
 }

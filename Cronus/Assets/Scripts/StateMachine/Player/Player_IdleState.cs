@@ -23,10 +23,7 @@ public class Player_IdleState : Player_BasicState
 
         if (player.moveInput.x != 0 || player.moveInput.y != 0)
         {
-            if (player.input.Player.Run.IsPressed())
-                stateMachine.ChangeState(player.runState);
-            else
-                stateMachine.ChangeState(player.moveState);
+            stateMachine.ChangeState(player.moveState);
         }
 
     }

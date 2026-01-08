@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Player\View\ViewOf2D.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_RunState.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\Player\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\Player\View\ViewMeshCreater.cs" />
     <Compile Include="Assets\Scripts\Enemy\Animation\Enemy_AnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\EnemyState.cs" />

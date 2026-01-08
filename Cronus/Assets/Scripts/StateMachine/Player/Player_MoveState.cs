@@ -11,7 +11,7 @@ public class Player_MoveState : Player_BasicState
     {
         base.Update();
 
-        if (player.moveInput.x != 0 || player.moveInput.y != 0)
+if (player.moveInput.x != 0 || player.moveInput.y != 0)
         {
             player.anim.SetFloat("x", player.moveInput.x);
             player.anim.SetFloat("y", player.moveInput.y);
