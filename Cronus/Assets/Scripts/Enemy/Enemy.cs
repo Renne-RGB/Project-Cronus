@@ -13,6 +13,8 @@ public class Enemy : Entity
     public Enemy_ShootState shootState;
     public Enemy_AlertState alertState;
     public Enemy_SearchState searchState;
+    public Enemy_KnockbackState knockbackState;
+    public Enemy_FaintState faintState;
 
     public SpriteRenderer sr;
     [Header("Vision")]
@@ -66,6 +68,11 @@ public class Enemy : Entity
     public float bulletSpeed = 20f;     //弾丸の速度
     public float shootCooldownDuration = 2.0f;
     public float currentShootCooldown = 0f;
+    [Header("Knockback & Faint Settings")]
+    public float faintDuration = 5.0f;           // 気絶時間
+    public float knockbackForceEnemy = 10.0f;    // 敵が受けるノックバック力
+    public float wallBounceForce = 5.0f;         // 壁にぶつかった時の跳ね返り力
+    public float faintDrag = 7.0f;         //気絶時の摩擦
 
     protected override void Awake()
     {
@@ -85,24 +92,31 @@ public class Enemy : Entity
 
         GetPlayerTransform();
 
-        if (playerTransform != null)
-        {
-            SearchRingManager.Instance.LastTargetPosition = playerTransform.position;
-            aimDirection = (playerTransform.position - transform.position).normalized;
+        bool isViewLocked = (stateMachine.currentState == knockbackState || stateMachine.currentState == faintState);
 
-            if (Mathf.Abs(aimDirection.x) > 0.1f)
-            {
-                sr.flipX = aimDirection.x < 0;
-            }
-        }
-        else
+        //敵が飛ばせる状態であれば視野はプレイヤーに追従しない
+        if (!isViewLocked)
         {
-            //プレイヤーに見つけなかったら 視野方向は移動方向と同じようにする
-            if (MovementInput.sqrMagnitude > 0.01f)
+            if (playerTransform != null)
             {
-                aimDirection = MovementInput.normalized;
+                SearchRingManager.Instance.LastTargetPosition = playerTransform.position;
+                aimDirection = (playerTransform.position - transform.position).normalized;
+
+                if (Mathf.Abs(aimDirection.x) > 0.1f)
+                {
+                    sr.flipX = aimDirection.x < 0;
+                }
+            }
+            else
+            {
+                //プレイヤーに見つけなかったら 視野方向は移動方向と同じようにする
+                if (MovementInput.sqrMagnitude > 0.01f)
+                {
+                    aimDirection = MovementInput.normalized;
+                }
             }
         }
+
 
         fieldOfView.SetAimDirection(aimDirection);
         fieldOfView.SetOrigin(Vector3.zero);
@@ -312,7 +326,7 @@ public class Enemy : Entity
         {
             SearchRingManager.Instance.DestroySearchRing();
 
-            // 核心修复：リングが消えた瞬間、プレイヤーが見えていなければ Idle へ戻る
+            //リングが消えた瞬間、プレイヤーが見えていなければ Idle へ戻る
             if (playerTransform == null && (stateMachine.currentState == chaseState || stateMachine.currentState == alertState))
             {
                 SetAlert(false);
@@ -328,24 +342,79 @@ public class Enemy : Entity
 
     public void OnHearSound(Vector3 soundPosition)
     {
-        // すでにプレイヤーを目視している場合は、視覚優先のため音を無視する
-        if (playerTransform != null) return;
+        //すでにプレイヤーを目視している場合は、視覚優先のため音を無視する
+        if (playerTransform != null)
+            return;
 
-        // 最後に確認されたターゲット座標を音の発生源に更新
+        //最後に確認されたターゲット座標を音の発生源に更新
         SearchRingManager.Instance.LastTargetPosition = soundPosition;
 
-        // 赤い円（SearchRing）を生成
+        //赤い円（SearchRing）を生成
         if (!SearchRingManager.Instance.HasActiveRing())
         {
             ResetSearchStatus();
             UpdateSharedSearchRing(soundPosition);
         }
 
-        // 警戒状態（AlertState）に移行して、音の場所へ移動を開始する
+        //警戒状態（AlertState）に移行して、音の場所へ移動を開始する
         if (stateMachine.currentState != alertState && stateMachine.currentState != chaseState)
         {
             SetAlert(true);
             stateMachine.ChangeState(alertState);
+        }
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+
+        // 1. プレイヤーとの衝突判定
+        if (other.CompareTag("Player"))
+        {
+            Player player = other.GetComponent<Player>();
+
+            // プレイヤーがチャージ中
+            if (player != null && player.GetCurrentState() == player.chargeActionState)
+            {
+                Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+
+                Vector2 playerChargeDir = player.chargeDir.normalized;
+                if (playerChargeDir == Vector2.zero)
+                    playerChargeDir = (transform.position - player.transform.position).normalized;
+
+                // プレイヤーへの反動
+                if (playerRb != null)
+                {
+                    //Idle状態戻る
+                    player.ResetState();
+                    playerRb.linearVelocity = Vector2.zero;
+                    playerRb.AddForce(-playerChargeDir * player.chargeRecoilForce, ForceMode2D.Impulse);
+                }
+
+                // 敵へのノックバック処理
+                rb.linearVelocity = Vector2.zero;
+                rb.AddForce(playerChargeDir * knockbackForceEnemy, ForceMode2D.Impulse);
+
+                //まずは KnockbackState に移行する
+                stateMachine.ChangeState(knockbackState);
+            }
+        }
+
+        //壁との衝突判定
+        if (other.CompareTag("Wall") && stateMachine.currentState == knockbackState)
+        {
+            //壁の法線を計算
+            Vector2 closestPoint = other.ClosestPoint(transform.position);
+            Vector2 normal = ((Vector2)transform.position - closestPoint).normalized;
+
+            if (normal == Vector2.zero) normal = -rb.linearVelocity.normalized;
+
+            //壁からの跳ね返り
+            rb.linearVelocity = Vector2.zero; // 既存の速度を消して、純粋な跳ね返りにする
+            rb.AddForce(normal * wallBounceForce, ForceMode2D.Impulse);
+
+            //壁に当たったら FaintState へ移行
+            stateMachine.ChangeState(faintState);
         }
     }
 

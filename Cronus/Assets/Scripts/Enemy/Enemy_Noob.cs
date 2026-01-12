@@ -18,6 +18,8 @@ public class Enemy_Noob : Enemy
         shootState = new Enemy_ShootState(this, stateMachine, "shoot");
         alertState = new Enemy_AlertState(this, stateMachine, "alert");
         searchState = new Enemy_SearchState(this, stateMachine, "search");
+        knockbackState = new Enemy_KnockbackState(this, stateMachine, "knockback");
+        faintState = new Enemy_FaintState(this, stateMachine, "faint");
     }
 
     protected override void Start()

@@ -1474,6 +1474,7 @@ MonoBehaviour:
   arrowOrbitRadius: 1.5
   chargeDir: {x: 0, y: 0}
   arrowRotationSpeed: 15
+  chargeRecoilForce: 5
   currentArrowDir: {x: 0, y: 0, z: 0}
 --- !u!4 &1103402526
 Transform:
@@ -1768,6 +1769,10 @@ PrefabInstance:
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
+      propertyPath: faintDrag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1992806043}
@@ -1800,12 +1805,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
+      propertyPath: wallBounceForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
       propertyPath: searchRingPrefab
       value: 
       objectReference: {fileID: 5762972613593406422, guid: 6da1d88e936c1504292d407a9a9e1cb5, type: 3}
     - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
       propertyPath: cqbKnockbackForce
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
+      propertyPath: knockbackForceEnemy
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8807365434920030060, guid: 53939e235ea9d0c44acee72dd300be58, type: 3}
       propertyPath: patroPoints.Array.size

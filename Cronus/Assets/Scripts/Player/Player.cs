@@ -45,6 +45,7 @@ public class Player : Entity
     public float arrowOrbitRadius = 1.5f;   //アローが回転する外周の半径
     [HideInInspector] public Vector2 chargeDir; //チャージ方向を保存する
     public float arrowRotationSpeed = 30f;  //回転のスムーズさ
+    public float chargeRecoilForce = 5.0f;  //チャージ衝突時のプレイヤーへの反動
     [HideInInspector] public Vector3 currentArrowDir; // 現在のアローの方向を保持
     protected override void Awake()
     {
@@ -281,6 +282,16 @@ public class Player : Entity
             return true;
         }
         return false;
+    }
+
+    public EntityState GetCurrentState()
+    {
+        return stateMachine.currentState;
+    }
+
+    public void ResetState()
+    {
+        stateMachine.ChangeState(idleState);
     }
 
 }

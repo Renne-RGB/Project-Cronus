@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: cc9a017b09b4f4942b30ff203b8121cc
+guid: 3674253b78d7ef54584d61e453d1ca32
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6948672925027435140
-    second: charge_0
+      213: -1890253005137995191
+    second: faint_0
+  - first:
+      213: -7189817902102920044
+    second: faint_1
+  - first:
+      213: -5345348775917916556
+    second: faint_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +119,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charge_0
+      name: faint_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 8
-        width: 11
-        height: 14
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 48282aca535ae6060800000000000000
-      internalID: 6948672925027435140
+      spriteID: 343a300afd969e647bc567f531ab45a5
+      internalID: -1890253005137995191
       vertices: []
       indices: 
       edges: []
@@ -138,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fd0a2c58fd583f241bc29a8c18039b5f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +154,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      charge_0: 6948672925027435140
+      faint_0: -1890253005137995191
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
