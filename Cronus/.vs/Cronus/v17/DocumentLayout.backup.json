@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|c:\\users\\student\\documents\\github\\project-cronus\\cronus\\assets\\scripts\\titlescreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\titlescreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|c:\\users\\student\\documents\\github\\project-cronus\\cronus\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|c:\\users\\student\\documents\\github\\project-cronus\\cronus\\assets\\scripts\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,11 +22,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\Player\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Player.cs",
+              "ToolTip": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\Player\\Player.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\Player.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAADwvxIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T03:20:31.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TitleScreen.cs",
+              "DocumentMoniker": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\TitleScreen.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TitleScreen.cs",
+              "ToolTip": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\TitleScreen.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TitleScreen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T03:05:33.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\Enemy\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\Enemy.cs",
