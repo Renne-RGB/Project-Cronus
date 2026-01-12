@@ -1,6 +1,5 @@
 using UnityEngine;
 
-//プレイヤーの待機や移動の共通処理State(移動と待機が共有できる状態 例えば移動と待機状態両方攻撃やスキルを使える)
 public class Player_BasicState : PlayerState
 {
     public Player_BasicState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
@@ -11,14 +10,39 @@ public class Player_BasicState : PlayerState
     {
         base.Update();
 
+        // 攻撃入力の確認
         if (player.CheckAttackInput())
         {
             stateMachine.ChangeState(player.attackState);
+            return;
         }
 
-        if(player.CheckDashInput())
+        //Dash Input
+        if (player.input.Player.Dash.WasPressedThisFrame())
         {
-            stateMachine.ChangeState(player.dashState);
+            //cooldownの確認
+            if (player.dashCooldownTimer <= 0)
+            {
+                player.dashCooldownTimer = player.dashCooldown; //cooldown設定
+                player.invincibleFlashEnabled = false;
+                stateMachine.ChangeState(player.dashState);
+                return;
+            }
+            else
+            {
+                // Debug.Log("Dash is on Cooldown");
+            }
         }
+
+        if (player.input.Player.Charge.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(player.prepareChargeState);
+            return;
+        }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
     }
 }

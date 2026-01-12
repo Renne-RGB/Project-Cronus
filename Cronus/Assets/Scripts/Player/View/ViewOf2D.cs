@@ -140,20 +140,27 @@ public class ViewOf2D : MonoBehaviour
 
     private bool IsVisiblePoint(Vector2 point, bool offset)
     {
-        Vector2 closePoint;
+        Vector2 targetPoint;
         if (offset)
         {
             //pointからの線にcollider自分に当たられないように 偏移量をつける
             Vector2 toCenterDirection = ((Vector2)transform.position - point).normalized;
-            closePoint = point + toCenterDirection * detectionOffset;
+            targetPoint = point + toCenterDirection * detectionOffset;
         }
         else
         {
-            closePoint = point;
+            targetPoint = point;
         }
         //プレイヤーに向けて線を作る、プレイヤーに当たったら見えるポイントとする
-        RaycastHit2D raycastHit = Physics2D.Linecast(closePoint, transform.position, blockLayerMask | (1 << gameObject.layer));
-        return raycastHit && raycastHit.collider == selfCollider;
+        float distance = Vector2.Distance(transform.position, targetPoint);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, (targetPoint - (Vector2)transform.position).normalized, distance, blockLayerMask);
+
+        if (hit.collider == null || hit.distance >= distance - 0.1f)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     //時計回りの度数をとる

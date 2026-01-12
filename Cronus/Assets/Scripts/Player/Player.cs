@@ -10,6 +10,8 @@ public class Player : Entity
     public Player_RunState runState { get; private set; }
     public Player_HitState hitState { get; private set; }
     public Player_DashState dashState { get; private set; }
+    public Player_PrepareChargeState prepareChargeState { get; private set; }
+    public Player_ChargeActionState chargeActionState { get; private set; }
 
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
@@ -35,7 +37,15 @@ public class Player : Entity
     public float dashDuration = 0.7f;
     public float dashCooldown = 2.0f;
     public float dashCooldownTimer;
-
+    [Header("Charge Settings")]
+    public GameObject arrowIndicator; //アローのGameObject
+    public float chargeDurationReq = 1.5f; // チャージ完了までの時間
+    public float chargeSpeed = 40f; //チャージ速度
+    public float chargeActionDuration = 0.5f;
+    public float arrowOrbitRadius = 1.5f;   //アローが回転する外周の半径
+    [HideInInspector] public Vector2 chargeDir; //チャージ方向を保存する
+    public float arrowRotationSpeed = 30f;  //回転のスムーズさ
+    [HideInInspector] public Vector3 currentArrowDir; // 現在のアローの方向を保持
     protected override void Awake()
     {
         base.Awake();
@@ -50,6 +60,9 @@ public class Player : Entity
         runState = new Player_RunState(this, stateMachine, "run");
         hitState = new Player_HitState(this, stateMachine, "hit");
         dashState = new Player_DashState(this, stateMachine, "dash");
+
+        prepareChargeState = new Player_PrepareChargeState(this, stateMachine, "precharge");
+        chargeActionState = new Player_ChargeActionState(this, stateMachine, "charge");
     }
 
     protected override void Start()
@@ -57,6 +70,9 @@ public class Player : Entity
         base.Start();
 
         stateMachine.Initialize(idleState);
+
+        if (arrowIndicator != null)
+            arrowIndicator.SetActive(false);
     }
 
     protected override void Update()
@@ -209,7 +225,7 @@ public class Player : Entity
         invincibleTimer = invincibleDuration;
 
         hitState.SetupHit(impactDir, heavyStunDuration, heavyKnockbackForce);
-        
+
         stateMachine.ChangeState(hitState);
     }
 
@@ -260,8 +276,8 @@ public class Player : Entity
     {
         if (input.Player.Dash.WasPressedThisFrame() && dashCooldownTimer <= 0)
         {
-            dashCooldownTimer = dashCooldown;
-            invincibleFlashEnabled = false;
+            // dashCooldownTimer = dashCooldown;
+            // invincibleFlashEnabled = false;
             return true;
         }
         return false;

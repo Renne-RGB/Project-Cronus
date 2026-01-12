@@ -12,8 +12,6 @@ public class Player_RunState : Player_MoveState
 
     public override void Enter()
     {
-        // 这里可以调用 base.Enter()，通常 MoveState.Enter 只是处理动画或参数，问题不大
-        // 如果 MoveState.Enter 会重置某些东西，也可以选择不调
         base.Enter();
 
         playerSpeedTemp = player.moveSpeed;
@@ -22,11 +20,21 @@ public class Player_RunState : Player_MoveState
 
     public override void Update()
     {
-        //Dashのチェック最優先
-        if (player.CheckDashInput())
+        if (player.input.Player.Dash.WasPressedThisFrame())
         {
-            stateMachine.ChangeState(player.dashState);
-            return; 
+            if (player.dashCooldownTimer <= 0)
+            {
+                player.dashCooldownTimer = player.dashCooldown;
+                player.invincibleFlashEnabled = false;
+                stateMachine.ChangeState(player.dashState);
+                return;
+            }
+        }
+
+        if (player.input.Player.Charge.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(player.prepareChargeState);
+            return;
         }
 
         //runキー押していないならmoveに戻る
@@ -35,6 +43,7 @@ public class Player_RunState : Player_MoveState
             stateMachine.ChangeState(player.moveState);
             return;
         }
+
         //移動入力がなければidleに戻る
         if (player.moveInput.x == 0 && player.moveInput.y == 0)
         {
@@ -49,7 +58,7 @@ public class Player_RunState : Player_MoveState
         bool isBlockedX = player.wallDetectedX && player.moveInput.x != 0 && Mathf.Sign(player.moveInput.x) == Mathf.Sign(player.facingDirX);
         bool isBlockedY = player.wallDetectedY && player.moveInput.y != 0 && Mathf.Sign(player.moveInput.y) == Mathf.Sign(player.facingDirY);
 
-        float vx = isBlockedX ? 0 : player.moveInput.x * player.moveSpeed; // 注意：此时 moveSpeed 已经被 Enter 里的倍率修改过了
+        float vx = isBlockedX ? 0 : player.moveInput.x * player.moveSpeed;
         float vy = isBlockedY ? 0 : player.moveInput.y * player.moveSpeed;
 
         Vector2 finalVelocity = new Vector2(vx, vy);
