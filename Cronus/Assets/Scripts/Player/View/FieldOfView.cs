@@ -23,6 +23,13 @@ public class FieldOfView : MonoBehaviour
         meshFilter = GetComponent<MeshFilter>();
         meshFilter.mesh = mesh;
 
+        // 描画順序を調整する
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        if (renderer != null)
+        {
+            renderer.sortingOrder = 1;
+        }
+
         //配列の初期化
         vertices = new Vector3[rayCount + 1 + 1];
         uv = new Vector2[vertices.Length];
@@ -51,7 +58,7 @@ public class FieldOfView : MonoBehaviour
         for (int i = 0; i < rayCount; i++)
         {
             Vector3 vertex;
-            
+
             //角度からベクトルを取得
             Vector3 dir = GetVectorFromAngle(angle);
 
@@ -89,7 +96,7 @@ public class FieldOfView : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
-        
+
         mesh.bounds = new Bounds(origin, Vector3.one * viewDistance * 2f);
     }
 
