@@ -40,7 +40,7 @@ public class Player_BasicState : PlayerState
             if (player.dashCooldownTimer <= 0)
             {
                 player.dashCooldownTimer = player.dashCooldown; //cooldown設定
-                player.SetInvincible(false);
+                player.SetInvincibleFlash(false);
                 stateMachine.ChangeState(player.dashState);
                 return;
             }

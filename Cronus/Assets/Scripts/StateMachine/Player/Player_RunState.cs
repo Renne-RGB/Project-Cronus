@@ -25,7 +25,7 @@ public class Player_RunState : Player_MoveState
             if (player.dashCooldownTimer <= 0)
             {
                 player.dashCooldownTimer = player.dashCooldown;
-                player.SetInvincible(true);
+                player.SetInvincibleFlash(true);
                 stateMachine.ChangeState(player.dashState);
                 return;
             }
