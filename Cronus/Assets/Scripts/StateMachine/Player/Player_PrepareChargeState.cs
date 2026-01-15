@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player_PrepareChargeState : PlayerState
 {
-    private float prepareTimer; 
+    private float prepareTimer;
 
     public Player_PrepareChargeState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -13,7 +13,7 @@ public class Player_PrepareChargeState : PlayerState
         base.Enter();
         player.SetVelocity(0, 0);
 
-        prepareTimer = 0f; 
+        prepareTimer = 0f;
 
         if (player.arrowIndicator != null)
             player.arrowIndicator.SetActive(true);
@@ -57,7 +57,8 @@ public class Player_PrepareChargeState : PlayerState
 
     private void UpdateArrowTransform(Vector3 direction)
     {
-        if (player.arrowIndicator == null) return;
+        if (player.arrowIndicator == null)
+            return;
 
         // ワールド座標を使用して位置を更新
         player.arrowIndicator.transform.position = player.transform.position + (direction * player.arrowOrbitRadius);

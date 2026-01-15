@@ -51,6 +51,9 @@ TagManager:
   - name: Wall
     uniqueID: 2928415831
     locked: 0
+  - name: SearchingRing
+    uniqueID: 2328897361
+    locked: 0
   - name: Enemy
     uniqueID: 1792333419
     locked: 0

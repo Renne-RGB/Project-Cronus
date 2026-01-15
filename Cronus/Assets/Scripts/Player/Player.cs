@@ -313,7 +313,7 @@ public class Player : Entity
 
     public void ChangeHP(int count)
     {
-        if (currentHP >= maxHP)
+        if (count >= 0 && currentHP >= maxHP)
             return;
 
         currentHP += count;
