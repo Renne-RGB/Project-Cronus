@@ -15,6 +15,7 @@ public class Enemy : Entity
     public Enemy_SearchState searchState;
     public Enemy_KnockbackState knockbackState;
     public Enemy_FaintState faintState;
+    public Enemy_BlockState blockState;
 
     public SpriteRenderer sr;
     [Header("Vision")]
@@ -59,6 +60,9 @@ public class Enemy : Entity
     public float cqbAttackRadius = 3.0f;     //接近戦判定半径
     public float cqbStunDuration = 2.0f;     //stun時間
     public float cqbKnockbackForce = 20.0f;  //飛ばされる距離
+    public float cqbDamage = 2.0f;
+    private bool canAssassed = true;     //暗殺できるか否か
+
     public LayerMask playerLayer;
     [Header("Weapon Settings")]
     public GameObject bulletPrefab;
@@ -418,4 +422,27 @@ public class Enemy : Entity
         }
     }
 
+    public void SetCanAssassed(bool killFlag)
+    {
+        canAssassed = killFlag;
+    }
+
+    public bool GetCanAssassed()
+    {
+        return canAssassed;
+    }
+
+    public void TriggerAssassinationDeath(int deathType)
+    {
+        anim.SetInteger("deathIndex", deathType);
+        anim.SetTrigger("die");
+    }
+
+    public void TriggerBlockOrAlert()
+    {
+        if (stateMachine.currentState != faintState && stateMachine.currentState != knockbackState)
+        {
+            stateMachine.ChangeState(blockState);
+        }
+    }
 }

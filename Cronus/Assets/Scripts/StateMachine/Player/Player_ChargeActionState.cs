@@ -12,10 +12,13 @@ public class Player_ChargeActionState : PlayerState
     {
         base.Enter();
         startTime = Time.time;
+
+        //発動成功したらhp消費する
+        player.ChangeHP(-1);
         
         //無敵時間
         player.invincibleTimer = player.chargeActionDuration;
-        player.invincibleFlashEnabled = false;
+        player.SetInvincible(false);
     }
 
     public override void Update()
@@ -37,6 +40,6 @@ public class Player_ChargeActionState : PlayerState
     {
         base.Exit();
         player.SetVelocity(0, 0);
-        player.invincibleFlashEnabled = true;
+        player.SetInvincible(true);
     }
 }

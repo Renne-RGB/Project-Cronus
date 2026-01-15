@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player_BasicState : PlayerState
 {
+    public PlayerFeedBack playerFeedBack;
     public Player_BasicState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
@@ -13,7 +14,22 @@ public class Player_BasicState : PlayerState
         // 攻撃入力の確認
         if (player.CheckAttackInput())
         {
-            stateMachine.ChangeState(player.attackState);
+            Enemy target = player.GetCankillEnemy();
+            if (target != null)
+            {
+                if (target.GetCanAssassed())
+                {
+                    stateMachine.ChangeState(player.attackState);
+                }
+                else
+                {
+                    //暗殺失敗状態に入る
+                    stateMachine.ChangeState(player.failedAttackState);
+
+                    //敵はガード状態
+                    target.TriggerBlockOrAlert();
+                }
+            }
             return;
         }
 
@@ -24,7 +40,7 @@ public class Player_BasicState : PlayerState
             if (player.dashCooldownTimer <= 0)
             {
                 player.dashCooldownTimer = player.dashCooldown; //cooldown設定
-                player.invincibleFlashEnabled = false;
+                player.SetInvincible(false);
                 stateMachine.ChangeState(player.dashState);
                 return;
             }
@@ -36,7 +52,20 @@ public class Player_BasicState : PlayerState
 
         if (player.input.Player.Charge.WasPressedThisFrame())
         {
-            stateMachine.ChangeState(player.prepareChargeState);
+            if (player.GetHP() > 1)
+            {
+                stateMachine.ChangeState(player.prepareChargeState);
+            }
+            else
+            {
+                player.PlayErrorShake();
+
+                if (stateMachine.currentState != player.idleState)
+                {
+                    stateMachine.ChangeState(player.idleState);
+                }
+            }
+
             return;
         }
     }

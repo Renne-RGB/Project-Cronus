@@ -20,6 +20,7 @@ public class Enemy_Noob : Enemy
         searchState = new Enemy_SearchState(this, stateMachine, "search");
         knockbackState = new Enemy_KnockbackState(this, stateMachine, "knockback");
         faintState = new Enemy_FaintState(this, stateMachine, "faint");
+        blockState = new Enemy_BlockState(this, stateMachine, "block");
     }
 
     protected override void Start()

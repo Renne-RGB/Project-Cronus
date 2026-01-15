@@ -12,6 +12,9 @@ public class Enemy_FaintState : EnemyState
     public override void Enter()
     {
         base.Enter();
+
+        //気絶状態であれば暗殺される
+        enemy.SetCanAssassed(true);
         //気絶時間設定
         faintTimer = enemy.faintDuration;
 
@@ -42,6 +45,6 @@ public class Enemy_FaintState : EnemyState
         //終了時は抵抗値と速度リセット
         enemy.rb.linearDamping = defaultDrag;
         enemy.rb.linearVelocity = Vector2.zero;
-        
+
     }
 }

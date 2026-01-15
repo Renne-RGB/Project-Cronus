@@ -47,6 +47,6 @@ public class Player_DashState : PlayerState
         base.Exit();
         player.SetVelocity(0, 0);
 
-        player.invincibleFlashEnabled = true;
+        player.SetInvincible(true);
     }
 }

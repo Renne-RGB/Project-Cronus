@@ -15,6 +15,8 @@ public class Enemy_AlertState : EnemyState
 
         alertTimer = ALERT_DURATION;
         enemy.SetVelocity(0, 0);
+
+        enemy.SetCanAssassed(false);
     }
 
     public override void Update()

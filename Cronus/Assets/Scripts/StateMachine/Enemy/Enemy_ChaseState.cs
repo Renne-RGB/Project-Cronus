@@ -49,6 +49,8 @@ public class Enemy_ChaseState : EnemyState
             if (enemy.GetAlert())
             {
                 enemy.UpdateSharedSearchRing(SearchRingManager.Instance.LastTargetPosition);
+                //プレイヤー位置失ったら暗殺状態になる
+                enemy.SetCanAssassed(true);
             }
         }
 

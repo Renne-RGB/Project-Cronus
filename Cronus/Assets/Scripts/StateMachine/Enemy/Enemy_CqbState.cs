@@ -10,6 +10,8 @@ public class Enemy_CqbState : EnemyState
     {
         base.Enter();
         enemy.SetAlert(true);
+        
+        enemy.SetCanAssassed(false);
     }
 
     public override void Update()
@@ -42,7 +44,7 @@ public class Enemy_CqbState : EnemyState
                 //撃退方向
                 Vector2 dirToPlayer = (player.transform.position - enemy.transform.position).normalized;
 
-                player.TakeDamageByMelee(dirToPlayer, enemy.cqbStunDuration, enemy.cqbKnockbackForce);
+                player.TakeDamageByMelee(dirToPlayer, enemy.cqbStunDuration, enemy.cqbKnockbackForce, enemy.cqbDamage);
 
                 break; 
             }

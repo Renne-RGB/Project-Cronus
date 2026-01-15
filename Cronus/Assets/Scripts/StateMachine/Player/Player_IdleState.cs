@@ -11,6 +11,12 @@ public class Player_IdleState : Player_BasicState
         base.Update();
         HandleIdleVelocity();
 
+        if (player.IsShaking)
+        {
+            //震えているときIdle状態保つ
+            return;
+        }
+
         bool isBlockedX = player.wallDetectedX && (player.moveInput.x != 0 && Mathf.Sign(player.moveInput.x) == Mathf.Sign(player.facingDirX));
         bool isBlockedY = player.wallDetectedY && (player.moveInput.y != 0 && Mathf.Sign(player.moveInput.y) == Mathf.Sign(player.facingDirY));
 

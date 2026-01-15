@@ -1,12 +1,12 @@
-using System;
-using NUnit.Framework.Interfaces;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : Entity
 {
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
     public Player_AttackState attackState { get; private set; }
+    public Player_FailedAttackState failedAttackState { get; private set; }
     public Player_RunState runState { get; private set; }
     public Player_HitState hitState { get; private set; }
     public Player_DashState dashState { get; private set; }
@@ -18,6 +18,8 @@ public class Player : Entity
 
     public float moveSpeed;
 
+    [SerializeField] private int currentHP;
+    private int maxHP = 5;
     [SerializeField] private Enemy enemyCanKill;     //攻撃範囲内の敵
     [SerializeField] private Enemy lockedEnemy;      //一番最初の敵を記録する
     [SerializeField] private Transform enemyTrans;     //敵死体の生成座標
@@ -47,6 +49,12 @@ public class Player : Entity
     public float arrowRotationSpeed = 30f;  //回転のスムーズさ
     public float chargeRecoilForce = 5.0f;  //チャージ衝突時のプレイヤーへの反動
     [HideInInspector] public Vector3 currentArrowDir; // 現在のアローの方向を保持
+    [Header("FeedBack Settings")]
+    [SerializeField] private float shakeDuration = 0.2f;
+    [SerializeField] private float shakeStrength = 0.2f;
+    [SerializeField] private int shakeVibrato = 20;      //振動頻度
+    [SerializeField] private float shakeRandomness = 90; //ランダム角度
+    [HideInInspector] public float shakeTimer;
     protected override void Awake()
     {
         base.Awake();
@@ -58,6 +66,8 @@ public class Player : Entity
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
         attackState = new Player_AttackState(this, stateMachine, "attack");
+        failedAttackState = new Player_FailedAttackState(this, stateMachine, "failedAttack");
+
         runState = new Player_RunState(this, stateMachine, "run");
         hitState = new Player_HitState(this, stateMachine, "hit");
         dashState = new Player_DashState(this, stateMachine, "dash");
@@ -69,6 +79,8 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
+
+        currentHP = maxHP;
 
         stateMachine.Initialize(idleState);
 
@@ -86,6 +98,9 @@ public class Player : Entity
 
         if (dashCooldownTimer > 0)
             dashCooldownTimer -= Time.deltaTime;
+
+        if (shakeTimer > 0)
+            shakeTimer -= Time.deltaTime;
     }
 
     private void OnEnable()
@@ -122,7 +137,7 @@ public class Player : Entity
             enemyCanKill = enemyComponent;
             lockedEnemy = enemyCanKill;
             enemyTrans = enemyCanKill.transform;
-            attackStandby = true;
+            SetAttackStandby(true);
         }
     }
 
@@ -142,7 +157,7 @@ public class Player : Entity
         enemyCanKill = null;
         enemyTrans = null;
         lockedEnemy = null;
-        attackStandby = false;
+        SetAttackStandby(false);
     }
 
     //暗殺できる敵を探す
@@ -163,15 +178,12 @@ public class Player : Entity
     }
 
     //プレイヤー暗殺する時座標を敵の位置に移動する
-    public void MovePlayerToDeadEnemy()
+    public void MovePlayerToEnemy()
     {
         if (enemyTrans == null)
             return;
 
         transform.position = enemyTrans.position;
-
-        //敵objectを削除
-        Destroy(enemyCanKill.gameObject);
     }
 
     public void EmitRunNoise()
@@ -210,19 +222,19 @@ public class Player : Entity
         if (invincibleTimer > 0)
             return;
 
-        invincibleFlashEnabled = true;
+        SetInvincible(true);
         invincibleTimer = invincibleDuration;
 
         hitState.SetupHit(bulletDir, duration, force);
         stateMachine.ChangeState(hitState);
     }
 
-    public void TakeDamageByMelee(Vector2 impactDir, float heavyStunDuration, float heavyKnockbackForce)
+    public void TakeDamageByMelee(Vector2 impactDir, float heavyStunDuration, float heavyKnockbackForce, float damage)
     {
         if (invincibleTimer > 0)
             return;
 
-        invincibleFlashEnabled = true;
+        SetInvincible(true);
         invincibleTimer = invincibleDuration;
 
         hitState.SetupHit(impactDir, heavyStunDuration, heavyKnockbackForce);
@@ -265,20 +277,15 @@ public class Player : Entity
     public bool CheckAttackInput()
     {
         if (input.Player.Attack.WasPressedThisFrame() && attackStandby)
-        {
-            MovePlayerToDeadEnemy();
-            attackStandby = false;
             return true;
-        }
-        return false;
+        else
+            return false;
     }
 
     public bool CheckDashInput()
     {
         if (input.Player.Dash.WasPressedThisFrame() && dashCooldownTimer <= 0)
         {
-            // dashCooldownTimer = dashCooldown;
-            // invincibleFlashEnabled = false;
             return true;
         }
         return false;
@@ -292,6 +299,48 @@ public class Player : Entity
     public void ResetState()
     {
         stateMachine.ChangeState(idleState);
+    }
+
+    public void SetInvincible(bool isInvincible)
+    {
+        invincibleFlashEnabled = isInvincible;
+    }
+
+    public int GetHP()
+    {
+        return currentHP;
+    }
+
+    public void ChangeHP(int count)
+    {
+        if (currentHP >= maxHP)
+            return;
+
+        currentHP += count;
+    }
+
+    public void PlayErrorShake()
+    {
+        shakeTimer = shakeDuration;
+        //前のアニメーションを中止
+        transform.DOKill(complete: true);
+
+        transform.DOShakePosition(shakeDuration, shakeStrength, shakeVibrato, shakeRandomness, false, true);
+    }
+
+    public bool IsShaking => shakeTimer > 0;
+
+    public Enemy GetCankillEnemy()
+    {
+        if (enemyCanKill != null)
+            return enemyCanKill;
+        else
+            return null;
+    }
+
+    public void SetAttackStandby(bool canAttack)
+    {
+        attackStandby = canAttack;
     }
 
 }

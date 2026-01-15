@@ -6,6 +6,29 @@ public class Player_AttackState : PlayerState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        float targetIndex = 0f;
+
+        Enemy targetEnemy = player.GetCankillEnemy();
+
+        if (targetEnemy != null)
+        {
+            if (targetEnemy.CompareTag("Enemy"))
+                targetIndex = 0f;
+
+            targetEnemy.TriggerAssassinationDeath((int)targetIndex);
+
+            player.MovePlayerToEnemy();
+            player.SetAttackStandby(false);
+            player.anim.SetFloat("attackIndex", targetIndex);
+            player.SetInvincible(true);
+        }
+
+    }
+
     public override void Update()
     {
         base.Update();
@@ -14,8 +37,13 @@ public class Player_AttackState : PlayerState
         if (triggerCalled)
         {
             stateMachine.ChangeState(player.idleState);
-            //敵の死体を生成
-            player.GenerateEnemyBody();
+
+            //HP回復
+            player.ChangeHP(1);
+
+            player.SetAttackStandby(false);
+
+            player.SetInvincible(false);
         }
     }
 
