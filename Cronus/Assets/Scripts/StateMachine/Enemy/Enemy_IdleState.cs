@@ -11,7 +11,7 @@ public class Enemy_IdleState : EnemyState
     {
         base.Enter();
 
-        Timer = 0f;
+        //Timer = 0f;
         //待機状態の移動速度常に0にする
         enemy.rb.linearVelocity = Vector2.zero;
     }
@@ -27,23 +27,33 @@ public class Enemy_IdleState : EnemyState
             stateMachine.ChangeState(enemy.chaseState);
         }
 
-        //プレイヤーが範囲内にいる
-        // if (enemy.playerTransform != null)
-        // {
-        //     enemy.FindTargetPlayer();
-        // }
-        //プレイヤーがなかったらパトロール状態に入る
-        // else
-        // {
-        if (Timer <= enemy.idleDuration)
+        if (enemy.patroPoints.Length == 1)
         {
-            Timer += Time.deltaTime;
+            float distanceToPoint = Vector2.Distance(enemy.transform.position, enemy.patroPoints[0].position);
+
+            if (distanceToPoint > 0.4f)
+            {
+                Timer -= Time.deltaTime;
+                if (Timer <= 0f)
+                {
+                    Timer = enemy.idleDuration;
+                    stateMachine.ChangeState(enemy.moveState);
+                }
+            }
+            else
+            {
+                Timer = enemy.idleDuration;
+            }
         }
         else
         {
-            Timer = 0f;
-            stateMachine.ChangeState(enemy.moveState);
+            Timer -= Time.deltaTime;
+            if (Timer <= 0f)
+            {
+                Timer = enemy.idleDuration;
+                stateMachine.ChangeState(enemy.moveState);
+            }
         }
-        // }
+
     }
 }

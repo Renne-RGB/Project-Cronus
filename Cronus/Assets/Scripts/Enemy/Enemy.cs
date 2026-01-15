@@ -436,6 +436,7 @@ public class Enemy : Entity
     {
         anim.SetInteger("deathIndex", deathType);
         anim.SetTrigger("die");
+        CloseFieldOfView(false);
     }
 
     public void TriggerBlockOrAlert()
@@ -443,6 +444,14 @@ public class Enemy : Entity
         if (stateMachine.currentState != faintState && stateMachine.currentState != knockbackState)
         {
             stateMachine.ChangeState(blockState);
+        }
+    }
+
+    public void CloseFieldOfView(bool isActive)
+    {
+        if (fieldOfView != null)
+        {
+            fieldOfView.gameObject.SetActive(isActive);
         }
     }
 }

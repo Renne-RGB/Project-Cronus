@@ -25,10 +25,9 @@ public class Enemy_CqbState : EnemyState
 
         if (triggerCalled)
         {
-            // --- 在切换状态前执行攻击判定 ---
             PerformCqbAttack();
 
-            stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.chaseState);
         }
     }
 

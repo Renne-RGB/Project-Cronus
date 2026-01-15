@@ -12,6 +12,8 @@ public class Enemy_MoveState : EnemyState
     {
         base.Enter();
 
+        enemy.SetAlert(false);
+
         GeneratePatroPoint();
     }
 
@@ -25,30 +27,34 @@ public class Enemy_MoveState : EnemyState
             enemy.FindTargetPlayer();
         }
 
-        //ルーティングポイントがなかったら生成する
+        // ルーティングポイントがなかったら生成する
         if (enemy.pathPointList == null || enemy.pathPointList.Count <= 0)
         {
             GeneratePatroPoint();
         }
         else
         {
-            if (Vector2.Distance(enemy.transform.position, enemy.pathPointList[enemy.currentIndex]) <= 0.4f)
+            if (enemy.currentIndex >= enemy.pathPointList.Count)
+            {
+                stateMachine.ChangeState(enemy.idleState);
+                return;
+            }
+
+            float distanceToWaypoint = Vector2.Distance(enemy.transform.position, enemy.pathPointList[enemy.currentIndex]);
+
+            if (distanceToWaypoint <= 0.4f)
             {
                 enemy.currentIndex++;
 
-                //最後のルーティングポイントに着いたら
-                if(enemy.currentIndex >= enemy.pathPointList.Count)
-                    stateMachine.ChangeState(enemy.idleState);
-                else
+                if (enemy.currentIndex >= enemy.pathPointList.Count)
                 {
-                    direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
-                    enemy.MovementInput = direction;
+                    enemy.MovementInput = Vector2.zero; // 停止移动
+                    stateMachine.ChangeState(enemy.idleState);
+                    return;
                 }
             }
-            else
-            {
-
-            }
+            direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
+            enemy.MovementInput = direction;
         }
 
         enemy.Dash();
@@ -58,13 +64,22 @@ public class Enemy_MoveState : EnemyState
     {
         while (true)
         {
-            int i = Random.Range(0, enemy.patroPoints.Length);
-
-            if (enemy.targetPointIndex != i)
+            if (enemy.patroPoints.Length == 1)
             {
-                enemy.targetPointIndex = i;
+                enemy.targetPointIndex = 0;
                 break;
             }
+            else
+            {
+                int i = Random.Range(0, enemy.patroPoints.Length);
+
+                if (enemy.targetPointIndex != i)
+                {
+                    enemy.targetPointIndex = i;
+                    break;
+                }
+            }
+
         }
 
         enemy.GeneratePath(enemy.patroPoints[enemy.targetPointIndex].position);

@@ -15,8 +15,6 @@ public class Enemy_AlertState : EnemyState
 
         alertTimer = ALERT_DURATION;
         enemy.SetVelocity(0, 0);
-
-        enemy.SetCanAssassed(false);
     }
 
     public override void Update()
@@ -28,13 +26,16 @@ public class Enemy_AlertState : EnemyState
         if (enemy.playerTransform != null)
         {
             Vector2 dir = (enemy.playerTransform.position - enemy.transform.position).normalized;
-            enemy.MovementInput = dir; 
+            enemy.MovementInput = dir;
         }
 
         alertTimer -= Time.deltaTime;
 
         if (alertTimer <= 0)
             DetermineNextState();
+
+        if (triggerCalled)
+            enemy.SetCanAssassed(false);
     }
 
     private void DetermineNextState()
