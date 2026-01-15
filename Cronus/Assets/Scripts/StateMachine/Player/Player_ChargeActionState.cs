@@ -18,7 +18,7 @@ public class Player_ChargeActionState : PlayerState
         
         //無敵時間
         player.invincibleTimer = player.chargeActionDuration;
-        player.SetInvincibleFlash(false);
+        player.SetInvincible(false);
     }
 
     public override void Update()
@@ -40,6 +40,6 @@ public class Player_ChargeActionState : PlayerState
     {
         base.Exit();
         player.SetVelocity(0, 0);
-        player.SetInvincibleFlash(true);
+        player.SetInvincible(true);
     }
 }
