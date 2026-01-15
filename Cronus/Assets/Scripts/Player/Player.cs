@@ -222,7 +222,7 @@ public class Player : Entity
         if (invincibleTimer > 0)
             return;
 
-        SetInvincibleFlash(true);
+        SetInvincible(true);
         invincibleTimer = invincibleDuration;
 
         hitState.SetupHit(bulletDir, duration, force);
@@ -234,7 +234,7 @@ public class Player : Entity
         if (invincibleTimer > 0)
             return;
 
-        SetInvincibleFlash(true);
+        SetInvincible(true);
         invincibleTimer = invincibleDuration;
 
         hitState.SetupHit(impactDir, heavyStunDuration, heavyKnockbackForce);
@@ -301,7 +301,7 @@ public class Player : Entity
         stateMachine.ChangeState(idleState);
     }
 
-    public void SetInvincibleFlash(bool isInvincible)
+    public void SetInvincible(bool isInvincible)
     {
         invincibleFlashEnabled = isInvincible;
     }

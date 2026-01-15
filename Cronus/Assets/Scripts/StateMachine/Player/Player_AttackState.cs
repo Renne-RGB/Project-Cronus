@@ -24,7 +24,7 @@ public class Player_AttackState : PlayerState
             player.MovePlayerToEnemy();
             player.SetAttackStandby(false);
             player.anim.SetFloat("attackIndex", targetIndex);
-            player.SetInvincibleFlash(true);
+            player.SetInvincible(true);
         }
 
     }
@@ -43,7 +43,7 @@ public class Player_AttackState : PlayerState
 
             player.SetAttackStandby(false);
 
-            player.SetInvincibleFlash(false);
+            player.SetInvincible(false);
         }
     }
 

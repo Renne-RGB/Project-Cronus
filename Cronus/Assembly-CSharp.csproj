@@ -68,7 +68,7 @@
     <Compile Include="Assets\Scripts\StateMachine\Player\PlayerState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_FailedAttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_MoveState.cs" />
-    <Compile Include="Assets\Scripts\CheckGameClear.cs" />
+    <Compile Include="Assets\Scripts\TitleScreen.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_AlertState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_IdleState.cs" />
     <Compile Include="Assets\Scripts\Player\View\ViewOf2D.cs" />
@@ -88,8 +88,6 @@
     <Compile Include="Assets\Scripts\Player\View\FieldOfView.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_HitState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_MoveState.cs" />
-    <Compile Include="Assets\Scripts\MenuTitle.cs" />
-    <Compile Include="Assets\Scripts\MenuGameOver.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_FaintState.cs" />
     <Compile Include="Assets\Scripts\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
@@ -98,7 +96,6 @@
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_ChaseState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_CqbState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_SearchState.cs" />
-    <Compile Include="Assets\Scripts\MenuGameClear.cs" />
     <Compile Include="Assets\Scripts\Player\SoundWave.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_PrepareChargeState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
@@ -110,7 +107,6 @@
     <Compile Include="Assets\Scripts\Player\Animation\Player_AnimationTrigger.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_AttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_ShootState.cs" />
-    <Compile Include="Assets\Scripts\MenuBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -614,10 +610,6 @@
       <HintPath>Library\PackageCache\com.unity.ext.nunit@60ef35ffd3cd\net40\unity-custom\nunit.framework.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -628,6 +620,10 @@
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
