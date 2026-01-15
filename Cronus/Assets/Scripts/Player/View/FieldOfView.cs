@@ -3,88 +3,108 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
+    [Header("Settings")]
     public int rayCount = 50;
-    public float viewDistance { get; set; }
-    public float fov { get; set; }
-    private Vector3 origin = Vector3.zero;
-    private float startingAngle;
+    public float viewDistance = 50f;
+    public float fov = 90f;
     [SerializeField] private LayerMask layerMask;
+
     private Mesh mesh;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float startingAngle;
+    private Vector3 origin = Vector3.zero; // ローカル原点 (Local Origin)
+    private MeshFilter meshFilter;
+    private Vector3[] vertices;
+    private Vector2[] uv;
+    private int[] triangles;
+
     private void Start()
     {
         mesh = new Mesh();
-        GetComponent<MeshFilter>().mesh = mesh;
+        meshFilter = GetComponent<MeshFilter>();
+        meshFilter.mesh = mesh;
+
+        //配列の初期化
+        vertices = new Vector3[rayCount + 1 + 1];
+        uv = new Vector2[vertices.Length];
+        triangles = new int[rayCount * 3];
     }
 
-    // Update is called once per frame
     private void LateUpdate()
+    {
+        UpdateMesh();
+    }
+
+    private void UpdateMesh()
     {
         float angle = startingAngle;
         float angleIncrease = fov / rayCount;
 
-        Vector3[] vertices = new Vector3[rayCount + 1 + 1];
-        Vector2[] uv = new Vector2[vertices.Length];
-        int[] triangles = new int[rayCount * 3];
-
+        //レイキャストの発射位置（ワールド座標）
         Vector3 raycastOrigin = transform.position;
 
+        //メッシュの原点（ローカル座標：通常は0,0,0）
         vertices[0] = origin;
 
         int vertexIndex = 1;
         int triangleIndex = 0;
+
         for (int i = 0; i < rayCount; i++)
         {
             Vector3 vertex;
-            //RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(raycastOrigin, GetVectorFromAngle(angle), viewDistance, layerMask);
-            //not hit
+            
+            //角度からベクトルを取得
+            Vector3 dir = GetVectorFromAngle(angle);
+
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(raycastOrigin, dir, viewDistance, layerMask);
+
             if (raycastHit2D.collider == null)
             {
-                vertex = origin + GetVectorFromAngle(angle) * viewDistance;
+                //衝突なし：最大距離まで伸ばす
+                vertex = origin + dir * viewDistance;
             }
-            //hit object
             else
             {
-                //何かを当たったらそのポイントをベクトルの終点にする
+                //衝突あり：衝突点を使用
+                //ワールド座標の衝突点 (hit.point) を ローカル座標に変換する
                 vertex = raycastHit2D.point - (Vector2)raycastOrigin;
             }
+
             vertices[vertexIndex] = vertex;
 
+            // 三角形のインデックスを構築
             if (i > 0)
             {
-                triangles[triangleIndex + 0] = 0;
-                triangles[triangleIndex + 1] = vertexIndex - 1;
-                triangles[triangleIndex + 2] = vertexIndex;
+                triangles[triangleIndex + 0] = 0;             // 原点
+                triangles[triangleIndex + 1] = vertexIndex - 1; // 前の頂点
+                triangles[triangleIndex + 2] = vertexIndex;     // 現在の頂点
 
                 triangleIndex += 3;
             }
 
             vertexIndex++;
-
             angle -= angleIncrease;
         }
 
+        mesh.Clear();
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
-        mesh.bounds = new Bounds(origin, Vector3.one * 1000f);
+        
+        mesh.bounds = new Bounds(origin, Vector3.one * viewDistance * 2f);
     }
 
     public static Vector3 GetVectorFromAngle(float angle)
     {
-        // angle = 0 -> 360
+        //角度(0-360)をラジアンに変換してベクトルを生成
         float angleRad = angle * (MathF.PI / 180f);
         return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
     }
 
     public static float GetAngleFromVectorFloat(Vector3 dir)
     {
+        dir = dir.normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        // angle = 0 -> 360
-        if (angle < 0)
-            angle += 360;
-
+        if (angle < 0) angle += 360;
         return angle;
     }
 
@@ -95,11 +115,9 @@ public class FieldOfView : MonoBehaviour
 
     public void SetAimDirection(Vector3 aimDirection)
     {
-        //startingAngle = GetAngleFromVectorFloat(aimDirection) - fov / 2f;
-
-        //修正した角度を取る
+        //向きに合わせて開始角度を調整
         float baseAngle = GetAngleFromVectorFloat(aimDirection);
-        startingAngle = baseAngle + 90f - fov / 2f;
+        startingAngle = baseAngle + fov / 2f;
     }
 
     public void SetFov(float fov)
