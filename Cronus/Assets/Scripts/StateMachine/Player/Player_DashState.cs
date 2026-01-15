@@ -25,6 +25,7 @@ public class Player_DashState : PlayerState
                 savedDashDir = Vector2.right;
         }
         savedDashDir.Normalize();
+        player.SetInvincibleFlash(false);
     }
 
     public override void Update()
@@ -47,6 +48,6 @@ public class Player_DashState : PlayerState
         base.Exit();
         player.SetVelocity(0, 0);
 
-        player.SetInvincible(true);
+        player.SetInvincibleFlash(true);
     }
 }
