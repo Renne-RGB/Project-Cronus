@@ -3,22 +3,26 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - PlayerAttack
+  - EnemyHit
+  - Wall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Wall
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - BG
+  - PlayerView
+  - Enemy
+  - Camera
+  - PlayerHit
+  - EnemyHit
+  - Bullet
   - 
   - 
   - 
@@ -38,11 +42,22 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BG
+  - name: TileBG
     uniqueID: 1886112635
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Wall
+    uniqueID: 2928415831
+    locked: 0
+  - name: Enemy
+    uniqueID: 1792333419
+    locked: 0
+  - name: Player
+    uniqueID: 3182433423
+    locked: 0
   m_RenderingLayers:
   - Default
+  - Enemy
+  - Player

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Code;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Collider2D))]
 public class ViewOf2D : MonoBehaviour
@@ -9,6 +10,7 @@ public class ViewOf2D : MonoBehaviour
     private Collider2D selfCollider;
     public float radius = 20;
     public LayerMask blockLayerMask;
+    public LayerMask enemyLayer;
 
     public bool debug;
     public float detectionOffset = 0.02f;      //偏移量
@@ -26,7 +28,7 @@ public class ViewOf2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void LateUpdate()
@@ -73,6 +75,9 @@ public class ViewOf2D : MonoBehaviour
             viewMeshCreater.AddNewTriangle(point1 - (Vector2)transform.position, point2 - (Vector2)transform.position);
         }
         meshFilter.mesh = viewMeshCreater.GetMesh();
+
+        //視野内の敵チェック
+        CheckEnemiesVisibility();
     }
 
     private List<Vector2> GetVisiblePointsOfColliders()
@@ -105,6 +110,21 @@ public class ViewOf2D : MonoBehaviour
                 PolygonCollider2D polygonCollider = (PolygonCollider2D)collider;
                 pointsOfCollider.AddRange(polygonCollider.points);
             }
+            else if (collider is CompositeCollider2D)
+            {
+                //Tilemapの中のCompositeColliderから結合した後の全ての頂点を取る
+                CompositeCollider2D tileCollider = (CompositeCollider2D)collider;
+                int pathCount = tileCollider.pathCount;     //結合したのポリゴン数
+                for (int i = 0; i < pathCount; i++)
+                {
+                    //丸々一個のポリゴン
+                    Vector2[] tilePoints = new Vector2[tileCollider.GetPathPointCount(i)];
+                    tileCollider.GetPath(i, tilePoints);
+                    //ポリゴンの全ての頂点を保存する
+                    foreach (var p in tilePoints)
+                        pointsOfCollider.Add(p);
+                }
+            }
 
             Vector2 center = transform.position;
             foreach (Vector2 point in pointsOfCollider)
@@ -120,20 +140,27 @@ public class ViewOf2D : MonoBehaviour
 
     private bool IsVisiblePoint(Vector2 point, bool offset)
     {
-        Vector2 closePoint;
+        Vector2 targetPoint;
         if (offset)
         {
             //pointからの線にcollider自分に当たられないように 偏移量をつける
             Vector2 toCenterDirection = ((Vector2)transform.position - point).normalized;
-            closePoint = point + toCenterDirection * detectionOffset;
+            targetPoint = point + toCenterDirection * detectionOffset;
         }
         else
         {
-            closePoint = point;
+            targetPoint = point;
         }
         //プレイヤーに向けて線を作る、プレイヤーに当たったら見えるポイントとする
-        RaycastHit2D raycastHit = Physics2D.Linecast(closePoint, transform.position, blockLayerMask | (1 << gameObject.layer));
-        return raycastHit && raycastHit.collider == selfCollider;
+        float distance = Vector2.Distance(transform.position, targetPoint);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, (targetPoint - (Vector2)transform.position).normalized, distance, blockLayerMask);
+
+        if (hit.collider == null || hit.distance >= distance - 0.1f)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     //時計回りの度数をとる
@@ -198,9 +225,9 @@ public class ViewOf2D : MonoBehaviour
         if (debug)
         {
             //Debug.DrawLine(transform.position, hitInfo.basicPoint, Color.yellow);
-             Debug.DrawLine(transform.position, hitInfo.leftPoint, Color.yellow);
+            Debug.DrawLine(transform.position, hitInfo.leftPoint, Color.yellow);
 
-             Debug.DrawLine(transform.position, hitInfo.rightPoint, Color.red);
+            Debug.DrawLine(transform.position, hitInfo.rightPoint, Color.red);
         }
     }
 
@@ -286,5 +313,35 @@ public class ViewOf2D : MonoBehaviour
     {
         Vector3 p1_target = point - start;
         return Mathf.Sin(Vector3.Angle(direction, p1_target) * Mathf.Deg2Rad) * p1_target.magnitude;
+    }
+
+    private void CheckEnemiesVisibility()
+    {
+        // 1. 找到半径内所有的敌人
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyLayer);
+
+        foreach (var enemyCollider in enemies)
+        {
+            // 2. 获取父物体上的处理器
+            var handler = enemyCollider.GetComponent<EnemyVisibilityHandler>();
+            if (handler == null) continue;
+
+            // 3. 射线检测：从玩家指向敌人 Collider 中心
+            Vector2 direction = enemyCollider.bounds.center - transform.position;
+            float dist = direction.magnitude;
+
+            // 检查路径上是否有障碍物层级的东西
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, dist, blockLayerMask);
+
+            // 如果没有命中障碍物，说明可见
+            bool isVisible = (hit.collider == null);
+            handler.UpdateVisibility(isVisible);
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius); // 画出检测范围
     }
 }
