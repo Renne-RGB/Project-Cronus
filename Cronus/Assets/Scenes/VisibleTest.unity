@@ -8598,6 +8598,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5015217736649814103, guid: 9e018d74db0cbac41a1862631420b643, type: 3}
+      propertyPath: m_Size.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015217736649814103, guid: 9e018d74db0cbac41a1862631420b643, type: 3}
+      propertyPath: m_Size.y
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5691447768141623571, guid: 9e018d74db0cbac41a1862631420b643, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14
@@ -8641,6 +8649,10 @@ PrefabInstance:
     - target: {fileID: 7141635620502707686, guid: 9e018d74db0cbac41a1862631420b643, type: 3}
       propertyPath: m_Name
       value: Enemy_Noob (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807365434920030060, guid: 9e018d74db0cbac41a1862631420b643, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8807365434920030060, guid: 9e018d74db0cbac41a1862631420b643, type: 3}
       propertyPath: patroPoints.Array.size
