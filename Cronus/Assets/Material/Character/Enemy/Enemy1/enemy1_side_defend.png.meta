@@ -1,37 +1,25 @@
 fileFormatVersion: 2
-guid: 146929aac4bacb04db19b597a2bd31a0
+guid: 9a82fe53026d37a4cb18a184044b36f6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3635658881388770736
-    second: enemy1_side_cqc_0
+      213: 699506451216568607
+    second: enemy1_side_defend_0
   - first:
-      213: 6575156119179601603
-    second: enemy1_side_cqc_1
+      213: -6828575688198651343
+    second: enemy1_side_defend_1
   - first:
-      213: -4086852654544578259
-    second: enemy1_side_cqc_2
+      213: -4541746445195070952
+    second: enemy1_side_defend_2
   - first:
-      213: -8280524951405948764
-    second: enemy1_side_cqc_3
+      213: -3992204878152597013
+    second: enemy1_side_defend_3
   - first:
-      213: -6284892369809726209
-    second: enemy1_side_cqc_4
+      213: -3414179329469944933
+    second: enemy1_side_defend_4
   - first:
-      213: -8143797983147791714
-    second: enemy1_side_cqc_5
-  - first:
-      213: 9119598876247127955
-    second: enemy1_side_cqc_6
-  - first:
-      213: -7950559373077220112
-    second: enemy1_side_cqc_7
-  - first:
-      213: -3863078639677667612
-    second: enemy1_side_cqc_8
-  - first:
-      213: 8989795367795070162
-    second: enemy1_side_cqc_9
+      213: 7689333678135469387
+    second: enemy1_side_defend_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy1_side_cqc_0
+      name: enemy1_side_defend_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b5fba57d74747230800000000000000
-      internalID: 3635658881388770736
+      spriteID: f119bd6496525b900800000000000000
+      internalID: 699506451216568607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_side_cqc_1
+      name: enemy1_side_defend_1
       rect:
         serializedVersion: 2
         x: 64
@@ -164,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c6af6a57a5af3b50800000000000000
-      internalID: 6575156119179601603
+      spriteID: 1320d0747960c31a0800000000000000
+      internalID: -6828575688198651343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_side_cqc_2
+      name: enemy1_side_defend_2
       rect:
         serializedVersion: 2
         x: 128
@@ -186,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d29128ce9259847c0800000000000000
-      internalID: -4086852654544578259
+      spriteID: 812314adba978f0c0800000000000000
+      internalID: -4541746445195070952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_side_cqc_3
+      name: enemy1_side_defend_3
       rect:
         serializedVersion: 2
         x: 192
@@ -208,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a090b5cd6aa51d80800000000000000
-      internalID: -8280524951405948764
+      spriteID: be1022f90d6d898c0800000000000000
+      internalID: -3992204878152597013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_side_cqc_4
+      name: enemy1_side_defend_4
       rect:
         serializedVersion: 2
         x: 256
@@ -230,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff4aded30b397c8a0800000000000000
-      internalID: -6284892369809726209
+      spriteID: b9b667b2df56e90d0800000000000000
+      internalID: -3414179329469944933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_side_cqc_5
+      name: enemy1_side_defend_5
       rect:
         serializedVersion: 2
         x: 320
@@ -252,96 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9aeeebc1ea6bfe80800000000000000
-      internalID: -8143797983147791714
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy1_side_cqc_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 397f2c83cd25f8e70800000000000000
-      internalID: 9119598876247127955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy1_side_cqc_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f47412cf50f9a190800000000000000
-      internalID: -7950559373077220112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy1_side_cqc_8
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 64
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4e60d96d176936ac0800000000000000
-      internalID: -3863078639677667612
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy1_side_cqc_9
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 64
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2d490ecc14b22cc70800000000000000
-      internalID: 8989795367795070162
+      spriteID: b4566bc8d3006ba60800000000000000
+      internalID: 7689333678135469387
       vertices: []
       indices: 
       edges: []
@@ -350,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cd639360fb30c9142930488acbcfffab
+    spriteID: 50c39a920b34db14b863d30d6f7e93f7
     internalID: 0
     vertices: []
     indices: 
@@ -360,16 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy1_side_cqc_0: 3635658881388770736
-      enemy1_side_cqc_1: 6575156119179601603
-      enemy1_side_cqc_2: -4086852654544578259
-      enemy1_side_cqc_3: -8280524951405948764
-      enemy1_side_cqc_4: -6284892369809726209
-      enemy1_side_cqc_5: -8143797983147791714
-      enemy1_side_cqc_6: 9119598876247127955
-      enemy1_side_cqc_7: -7950559373077220112
-      enemy1_side_cqc_8: -3863078639677667612
-      enemy1_side_cqc_9: 8989795367795070162
+      enemy1_side_defend_0: 699506451216568607
+      enemy1_side_defend_1: -6828575688198651343
+      enemy1_side_defend_2: -4541746445195070952
+      enemy1_side_defend_3: -3992204878152597013
+      enemy1_side_defend_4: -3414179329469944933
+      enemy1_side_defend_5: 7689333678135469387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

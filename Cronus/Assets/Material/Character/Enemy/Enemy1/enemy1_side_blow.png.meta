@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 9704b504df537a9469dd7cd29554b821
+guid: 561c26336dd3b90408d769bf152d7866
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7167404613265276434
-    second: enemy1_side_wait_0
+      213: 6487941785082749444
+    second: enemy1_side_blow_0
   - first:
-      213: 3973694302765822237
-    second: enemy1_side_wait_1
+      213: 5156358654720036162
+    second: enemy1_side_blow_1
   - first:
-      213: -7889398026957017922
-    second: enemy1_side_wait_2
+      213: -1182297153213474601
+    second: enemy1_side_blow_2
   - first:
-      213: 2865183276599588713
-    second: enemy1_side_wait_3
+      213: 7030862054237674533
+    second: enemy1_side_blow_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy1_side_wait_0
+      name: enemy1_side_blow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21e3c2f658cb77360800000000000000
-      internalID: 7167404613265276434
+      spriteID: 402654fcdacc90a50800000000000000
+      internalID: 6487941785082749444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_side_wait_1
+      name: enemy1_side_blow_1
       rect:
         serializedVersion: 2
         x: 64
@@ -146,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d11b9523ae5652730800000000000000
-      internalID: 3973694302765822237
+      spriteID: 24d491d70e01f8740800000000000000
+      internalID: 5156358654720036162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_side_wait_2
+      name: enemy1_side_blow_2
       rect:
         serializedVersion: 2
         x: 128
@@ -168,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ebc2f875b4a338290800000000000000
-      internalID: -7889398026957017922
+      spriteID: 7d851c3d003a79fe0800000000000000
+      internalID: -1182297153213474601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_side_wait_3
+      name: enemy1_side_blow_3
       rect:
         serializedVersion: 2
         x: 192
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 967bb1a720d23c720800000000000000
-      internalID: 2865183276599588713
+      spriteID: 52c1c9789c3a29160800000000000000
+      internalID: 7030862054237674533
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e6b2ae0620bd6614ab7a317fb803ddee
+    spriteID: 195550f33ddfcf64fba56f07acbc8850
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy1_side_wait_0: 7167404613265276434
-      enemy1_side_wait_1: 3973694302765822237
-      enemy1_side_wait_2: -7889398026957017922
-      enemy1_side_wait_3: 2865183276599588713
+      enemy1_side_blow_0: 6487941785082749444
+      enemy1_side_blow_1: 5156358654720036162
+      enemy1_side_blow_2: -1182297153213474601
+      enemy1_side_blow_3: 7030862054237674533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

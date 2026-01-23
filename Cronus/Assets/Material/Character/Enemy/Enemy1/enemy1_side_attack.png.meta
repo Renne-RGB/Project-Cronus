@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: -1850556679907408091
     second: enemy1_side_attack_2
+  - first:
+      213: 1348159398367139310
+    second: enemy1_side_attack_3
+  - first:
+      213: -4401138451835598211
+    second: enemy1_side_attack_4
+  - first:
+      213: -2728764213523444916
+    second: enemy1_side_attack_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,10 +118,10 @@ TextureImporter:
       name: enemy1_side_attack_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 5
-        width: 20
-        height: 35
+        x: 0
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +140,10 @@ TextureImporter:
       name: enemy1_side_attack_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 5
-        width: 21
-        height: 35
+        x: 64
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +162,10 @@ TextureImporter:
       name: enemy1_side_attack_2
       rect:
         serializedVersion: 2
-        x: 152
-        y: 5
-        width: 20
-        height: 35
+        x: 128
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,11 +180,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: enemy1_side_attack_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee5174874df95b210800000000000000
+      internalID: 1348159398367139310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_side_attack_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ac60375e30ce2c0800000000000000
+      internalID: -4401138451835598211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_side_attack_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4b0329c76b712ad0800000000000000
+      internalID: -2728764213523444916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fd5aca72bdb20544da04d1357162979f
     internalID: 0
     vertices: []
     indices: 
@@ -188,6 +263,9 @@ TextureImporter:
       enemy1_side_attack_0: 8051935616558997737
       enemy1_side_attack_1: -8433187722769575858
       enemy1_side_attack_2: -1850556679907408091
+      enemy1_side_attack_3: 1348159398367139310
+      enemy1_side_attack_4: -4401138451835598211
+      enemy1_side_attack_5: -2728764213523444916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
