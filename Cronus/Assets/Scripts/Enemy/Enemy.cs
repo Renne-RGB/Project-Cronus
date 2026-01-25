@@ -290,7 +290,8 @@ public class Enemy : Entity
                 //視野内に入ったらalert状態に切り替える
                 if (Vector3.Angle(MovementInput, dirToPlayer) < fov / 2 || distance < cqbDistance)
                 {
-                    stateMachine.ChangeState(alertState);
+                    if (stateMachine.currentState != faintState)
+                        stateMachine.ChangeState(alertState);
                 }
             }
         }
@@ -361,7 +362,7 @@ public class Enemy : Entity
         }
 
         //警戒状態（AlertState）に移行して、音の場所へ移動を開始する
-        if (stateMachine.currentState != alertState && stateMachine.currentState != chaseState)
+        if (stateMachine.currentState != alertState && stateMachine.currentState != chaseState && stateMachine.currentState != faintState)
         {
             SetAlert(true);
             stateMachine.ChangeState(alertState);
