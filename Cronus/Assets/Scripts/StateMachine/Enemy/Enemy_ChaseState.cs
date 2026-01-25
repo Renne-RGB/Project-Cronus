@@ -52,6 +52,17 @@ public class Enemy_ChaseState : EnemyState
                 //プレイヤー位置失ったら暗殺状態になる
                 enemy.SetCanAssassed(true);
             }
+
+            //Search状態に入る
+            Vector3 targetPos = SearchRingManager.Instance.LastTargetPosition;
+            float distanceToRing = Vector2.Distance(enemy.transform.position, targetPos);
+
+            //赤い円の範囲内に入ったら
+            if (distanceToRing <= 1.0f)
+            {
+                stateMachine.ChangeState(enemy.searchState);
+                return;
+            }
         }
 
         enemy.AutoPath();

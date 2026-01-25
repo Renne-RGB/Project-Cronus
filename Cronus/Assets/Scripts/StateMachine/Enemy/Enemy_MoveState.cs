@@ -48,7 +48,7 @@ public class Enemy_MoveState : EnemyState
 
                 if (enemy.currentIndex >= enemy.pathPointList.Count)
                 {
-                    enemy.MovementInput = Vector2.zero; // 停止移动
+                    enemy.MovementInput = Vector2.zero; // 移動停止
                     stateMachine.ChangeState(enemy.idleState);
                     return;
                 }
