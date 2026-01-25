@@ -157,6 +157,17 @@ public class Enemy : Entity
         if (colliders.Length > 0)
         {
             Transform target = colliders[0].transform;
+            Player targetPlayer = target.GetComponent<Player>();
+
+            //プレイヤーはHide状態であれば無視する
+            if (targetPlayer != null)
+            {
+                if (targetPlayer.IsHidden() && !GetAlert())
+                {
+                    return;
+                }
+            }
+
             Vector3 dirToPlayer = (target.position - transform.position).normalized;
             float distToPlayer = Vector2.Distance(transform.position, target.position);
 
@@ -320,8 +331,8 @@ public class Enemy : Entity
     // 共有検索赤い円の生成・更新
     public void UpdateSharedSearchRing(Vector3 position)
     {
-        if (hasGeneratedRingThisTime)
-            ClearSearchRing();
+        // if (hasGeneratedRingThisTime)
+        //     return;
 
         SearchRingManager.Instance.GenerateSearchRing(position);
         hasGeneratedRingThisTime = true;

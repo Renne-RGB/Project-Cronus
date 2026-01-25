@@ -8,6 +8,7 @@ TagManager:
   - PlayerAttack
   - EnemyHit
   - Wall
+  - HideSpot
   layers:
   - Default
   - TransparentFX

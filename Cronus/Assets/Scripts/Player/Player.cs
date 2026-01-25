@@ -12,6 +12,7 @@ public class Player : Entity
     public Player_DashState dashState { get; private set; }
     public Player_PrepareChargeState prepareChargeState { get; private set; }
     public Player_ChargeActionState chargeActionState { get; private set; }
+    public Player_HiddenState hiddenState { get; private set; }
 
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
@@ -55,6 +56,9 @@ public class Player : Entity
     [SerializeField] private int shakeVibrato = 20;      //振動頻度
     [SerializeField] private float shakeRandomness = 90; //ランダム角度
     [HideInInspector] public float shakeTimer;
+    [Header("Stealth Settings")]
+    public HideSpot currentHideSpot;
+    public bool isHidden = false;
     protected override void Awake()
     {
         base.Awake();
@@ -74,6 +78,7 @@ public class Player : Entity
 
         prepareChargeState = new Player_PrepareChargeState(this, stateMachine, "precharge");
         chargeActionState = new Player_ChargeActionState(this, stateMachine, "charge");
+        hiddenState = new Player_HiddenState(this, stateMachine, "hide");
     }
 
     protected override void Start()
@@ -121,24 +126,33 @@ public class Player : Entity
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
+        base.OnTriggerEnter2D(other);
+
         //自分collider範囲内の敵チェック
-        if (!other.CompareTag("EnemyHit"))
-            return;
-
-        //既に保存する敵がいれば再び実行しない
-        if (attackStandby)
-            return;
-
-        Enemy enemyComponent = other.GetComponentInParent<Enemy>();
-
-        if (enemyComponent != null)
+        if (other.CompareTag("EnemyHit"))
         {
-            //今の敵を保存する
-            enemyCanKill = enemyComponent;
-            lockedEnemy = enemyCanKill;
-            enemyTrans = enemyCanKill.transform;
-            SetAttackStandby(true);
+            //既に保存する敵がいれば再び実行しない
+            if (attackStandby)
+                return;
+
+            Enemy enemyComponent = other.GetComponentInParent<Enemy>();
+
+            if (enemyComponent != null)
+            {
+                //今の敵を保存する
+                enemyCanKill = enemyComponent;
+                lockedEnemy = enemyCanKill;
+                enemyTrans = enemyCanKill.transform;
+                SetAttackStandby(true);
+            }
         }
+        //HideSpotを保存する
+        else if (other.CompareTag("HideSpot"))
+        {
+            currentHideSpot = other.GetComponent<HideSpot>();
+        }
+
+
     }
 
     protected override void OnTriggerExit2D(Collider2D other)
@@ -147,17 +161,25 @@ public class Player : Entity
 
         //自分collider範囲内の敵チェック
         if (!other.CompareTag("Enemy"))
-            return;
+        {
+            //一番最初記録した敵じゃなければ無視する
+            Enemy leaveEnemy = other.GetComponent<Enemy>();
+            if (leaveEnemy != lockedEnemy)
+                return;
 
-        //一番最初記録した敵じゃなければ無視する
-        Enemy leaveEnemy = other.GetComponent<Enemy>();
-        if (leaveEnemy != lockedEnemy)
-            return;
+            enemyCanKill = null;
+            enemyTrans = null;
+            lockedEnemy = null;
+            SetAttackStandby(false);
+        }
+        else if (other.CompareTag("HideSpot"))
+        {
+            if (currentHideSpot == other.GetComponent<HideSpot>())
+            {
+                currentHideSpot = null;
+            }
+        }
 
-        enemyCanKill = null;
-        enemyTrans = null;
-        lockedEnemy = null;
-        SetAttackStandby(false);
     }
 
     //暗殺できる敵を探す
@@ -222,6 +244,11 @@ public class Player : Entity
         if (invincibleTimer > 0)
             return;
 
+        if (IsHidden())
+        {
+            SetHidden(false);
+        }
+
         SetInvincibleFlash(true);
         invincibleTimer = invincibleDuration;
 
@@ -233,6 +260,11 @@ public class Player : Entity
     {
         if (invincibleTimer > 0)
             return;
+
+        if (IsHidden())
+        {
+            SetHidden(false);
+        }
 
         SetInvincibleFlash(true);
         invincibleTimer = invincibleDuration;
@@ -341,6 +373,21 @@ public class Player : Entity
     public void SetAttackStandby(bool canAttack)
     {
         attackStandby = canAttack;
+    }
+
+    public bool IsHidden()
+    {
+        return isHidden;
+    }
+
+    public void SetHidden(bool hidden)
+    {
+        isHidden = hidden;
+    }
+
+    public void SetVelocity(Vector2 velocity)
+    {
+        rb.linearVelocity = velocity;
     }
 
 }

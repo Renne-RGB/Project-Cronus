@@ -68,6 +68,15 @@ public class Player_BasicState : PlayerState
 
             return;
         }
+
+        if (player.input.Player.Active.WasPressedThisFrame())
+    {
+        if (player.currentHideSpot != null)
+        {
+            stateMachine.ChangeState(player.hiddenState);
+            return;
+        }
+    }
     }
 
     public override void Exit()

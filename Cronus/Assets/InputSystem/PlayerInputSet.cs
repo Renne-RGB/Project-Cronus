@@ -137,7 +137,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Hide"",
+                    ""name"": ""Active"",
                     ""type"": ""Button"",
                     ""id"": ""54fa129b-5281-4128-a7cc-bd58307c0cd6"",
                     ""expectedControlType"": """",
@@ -308,7 +308,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard & Mouse"",
-                    ""action"": ""Hide"",
+                    ""action"": ""Active"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -319,7 +319,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";GamePad"",
-                    ""action"": ""Hide"",
+                    ""action"": ""Active"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -363,7 +363,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Charge = m_Player.FindAction("Charge", throwIfNotFound: true);
-        m_Player_Hide = m_Player.FindAction("Hide", throwIfNotFound: true);
+        m_Player_Active = m_Player.FindAction("Active", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -449,7 +449,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Charge;
-    private readonly InputAction m_Player_Hide;
+    private readonly InputAction m_Player_Active;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -482,9 +482,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Charge => m_Wrapper.m_Player_Charge;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Hide".
+        /// Provides access to the underlying input action "Player/Active".
         /// </summary>
-        public InputAction @Hide => m_Wrapper.m_Player_Hide;
+        public InputAction @Active => m_Wrapper.m_Player_Active;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -526,9 +526,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Charge.started += instance.OnCharge;
             @Charge.performed += instance.OnCharge;
             @Charge.canceled += instance.OnCharge;
-            @Hide.started += instance.OnHide;
-            @Hide.performed += instance.OnHide;
-            @Hide.canceled += instance.OnHide;
+            @Active.started += instance.OnActive;
+            @Active.performed += instance.OnActive;
+            @Active.canceled += instance.OnActive;
         }
 
         /// <summary>
@@ -555,9 +555,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Charge.started -= instance.OnCharge;
             @Charge.performed -= instance.OnCharge;
             @Charge.canceled -= instance.OnCharge;
-            @Hide.started -= instance.OnHide;
-            @Hide.performed -= instance.OnHide;
-            @Hide.canceled -= instance.OnHide;
+            @Active.started -= instance.OnActive;
+            @Active.performed -= instance.OnActive;
+            @Active.canceled -= instance.OnActive;
         }
 
         /// <summary>
@@ -660,11 +660,11 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCharge(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Hide" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Active" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnHide(InputAction.CallbackContext context);
+        void OnActive(InputAction.CallbackContext context);
     }
 }

@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Hide",
+                    "name": "Active",
                     "type": "Button",
                     "id": "54fa129b-5281-4128-a7cc-bd58307c0cd6",
                     "expectedControlType": "",
@@ -222,7 +222,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard & Mouse",
-                    "action": "Hide",
+                    "action": "Active",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -233,7 +233,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";GamePad",
-                    "action": "Hide",
+                    "action": "Active",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
