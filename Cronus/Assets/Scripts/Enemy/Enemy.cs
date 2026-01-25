@@ -454,6 +454,11 @@ public class Enemy : Entity
 
     public void TriggerAssassinationDeath(int deathType)
     {
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        MovementInput = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        
         anim.SetInteger("deathIndex", deathType);
         anim.SetTrigger("die");
         CloseFieldOfView(false);
