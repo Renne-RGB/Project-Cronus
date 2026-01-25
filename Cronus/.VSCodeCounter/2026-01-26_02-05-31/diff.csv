@@ -1,0 +1,14 @@
+"filename", "language", "JSON", "XML", "C#", "comment", "blank", "total"
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\DOTween.XML", "XML", 0, -3107, 0, 0, -1, -3108
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.XML", "XML", 0, -144, 0, 0, -1, -145
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs", "C#", 0, 0, -94, -80, -25, -199
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs", "C#", 0, 0, -109, -18, -20, -147
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs", "C#", 0, 0, -137, -60, -20, -217
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs", "C#", 0, 0, -125, -51, -18, -194
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs", "C#", 0, 0, -63, -17, -14, -94
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs", "C#", 0, 0, -390, -203, -70, -663
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs", "C#", 0, 0, -254, -99, -37, -390
+"e:\GitHub\Project-Cronus\Cronus\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs", "C#", 0, 0, -123, -27, -18, -168
+"e:\GitHub\Project-Cronus\Cronus\Packages\manifest.json", "JSON", -48, 0, 0, 0, -1, -49
+"e:\GitHub\Project-Cronus\Cronus\Packages\packages-lock.json", "JSON", -590, 0, 0, 0, -1, -591
+"Total", "-", -638, -3251, -1295, -555, -226, -5965
