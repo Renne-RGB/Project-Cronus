@@ -11,6 +11,9 @@ public class Player_BasicState : PlayerState
     {
         base.Update();
 
+        if (TryUseCharge())
+            return;
+
         // 攻撃入力の確認
         if (player.CheckAttackInput())
         {
@@ -70,17 +73,39 @@ public class Player_BasicState : PlayerState
         }
 
         if (player.input.Player.Active.WasPressedThisFrame())
-    {
-        if (player.currentHideSpot != null)
         {
-            stateMachine.ChangeState(player.hiddenState);
-            return;
+            if (player.currentHideSpot != null)
+            {
+                stateMachine.ChangeState(player.hiddenState);
+                return;
+            }
         }
-    }
     }
 
     public override void Exit()
     {
         base.Exit();
+    }
+
+    protected bool TryUseCharge()
+    {
+        if (player.input.Player.Charge.WasPressedThisFrame())
+        {
+            if (player.GetHP() > 1)
+            {
+                stateMachine.ChangeState(player.prepareChargeState);
+            }
+            else
+            {
+                player.PlayErrorShake();
+
+                if (stateMachine.currentState != player.idleState)
+                {
+                    stateMachine.ChangeState(player.idleState);
+                }
+            }
+            return true;
+        }
+        return false;
     }
 }

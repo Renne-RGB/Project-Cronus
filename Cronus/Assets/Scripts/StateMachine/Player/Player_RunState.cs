@@ -31,11 +31,8 @@ public class Player_RunState : Player_MoveState
             }
         }
 
-        if (player.input.Player.Charge.WasPressedThisFrame())
-        {
-            stateMachine.ChangeState(player.prepareChargeState);
+        if (TryUseCharge())
             return;
-        }
 
         //runキー押していないならmoveに戻る
         if (!player.input.Player.Run.IsPressed())
@@ -53,7 +50,7 @@ public class Player_RunState : Player_MoveState
 
         player.anim.SetFloat("x", player.moveInput.x);
         player.anim.SetFloat("y", player.moveInput.y);
-        
+
         //壁チェック
         bool isBlockedX = player.wallDetectedX && player.moveInput.x != 0 && Mathf.Sign(player.moveInput.x) == Mathf.Sign(player.facingDirX);
         bool isBlockedY = player.wallDetectedY && player.moveInput.y != 0 && Mathf.Sign(player.moveInput.y) == Mathf.Sign(player.facingDirY);
