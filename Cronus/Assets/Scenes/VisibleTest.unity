@@ -8407,7 +8407,7 @@ Transform:
   m_GameObject: {fileID: 972260229}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1206975, y: 1.3889246, z: 25.459873}
+  m_LocalPosition: {x: -0.49121714, y: 1.3888445, z: 25.459873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9214,7 +9214,7 @@ Transform:
   m_GameObject: {fileID: 1404718040}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.293398, y: 1.3855612, z: 25.459873}
+  m_LocalPosition: {x: -8.294371, y: 1.3855612, z: 25.459873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11449,6 +11449,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2535377025990771599, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3400461127540225928, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: meshFilter
       value: 
@@ -11456,6 +11460,10 @@ PrefabInstance:
     - target: {fileID: 5417360343398618148, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589519511306491384, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
+      propertyPath: runNoiseRadius
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

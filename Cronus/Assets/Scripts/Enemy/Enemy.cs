@@ -17,6 +17,7 @@ public class Enemy : Entity
     public Enemy_BlockState blockState;
     public Enemy_SuspiciousState susState;
     public Enemy_HearState hearState;
+    public Enemy_InvestigateState investigateState;
 
     public SpriteRenderer sr;
     [Header("Vision")]
@@ -49,7 +50,6 @@ public class Enemy : Entity
     public float loseTargetDelay = 2.0f; //プレイヤーが消えて何秒から赤い円を生成する
     private float loseTargetTimer = 0f;
 
-    private bool hasGeneratedRingThisTime = false;
 
     private Seeker seeker;
     public List<Vector3> pathPointList;        //ルーティングリスト
@@ -331,16 +331,7 @@ public class Enemy : Entity
     // 共有検索赤い円の生成・更新
     public void UpdateSharedSearchRing(Vector3 position)
     {
-        // if (hasGeneratedRingThisTime)
-        //     return;
-
         SearchRingManager.Instance.GenerateSearchRing(position);
-        hasGeneratedRingThisTime = true;
-    }
-
-    public void ResetSearchStatus()
-    {
-        hasGeneratedRingThisTime = false;
     }
 
     // 赤い円とタイマーの強制クリア（プレイヤー発見時に使用）
@@ -359,11 +350,6 @@ public class Enemy : Entity
         }
     }
 
-    public void ResetSearchRingFlag()
-    {
-        hasGeneratedRingThisTime = false;
-    }
-
     public void OnHearSound(Vector3 soundPosition)
     {
         //すでにプレイヤーを目視している場合は、視覚優先のため音を無視する
@@ -376,7 +362,6 @@ public class Enemy : Entity
         //赤い円（SearchRing）を生成
         if (!SearchRingManager.Instance.HasActiveRing())
         {
-            ResetSearchStatus();
             UpdateSharedSearchRing(soundPosition);
         }
 
@@ -458,7 +443,7 @@ public class Enemy : Entity
         rb.angularVelocity = 0f;
         MovementInput = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic;
-        
+
         anim.SetInteger("deathIndex", deathType);
         anim.SetTrigger("die");
         CloseFieldOfView(false);

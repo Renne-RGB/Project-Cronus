@@ -80,7 +80,7 @@ public class Enemy_SuspiciousState : EnemyState
         //MAXになったらAlert状態に入る
         if (timer >= duration)
         {
-            enemy.SetAlert(true);
+            //enemy.SetAlert(true);
             stateMachine.ChangeState(enemy.alertState);
             return;
         }

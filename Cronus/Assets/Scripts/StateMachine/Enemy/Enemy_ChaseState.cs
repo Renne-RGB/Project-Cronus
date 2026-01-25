@@ -29,7 +29,6 @@ public class Enemy_ChaseState : EnemyState
             SearchRingManager.Instance.LastTargetPosition = enemy.playerTransform.position;
 
             enemy.currentChaseTimer = enemy.chaseDuration;
-            enemy.ResetSearchRingFlag();
 
             if (enemy.distance <= enemy.cqbDistance)
             {

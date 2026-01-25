@@ -1,17 +1,17 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+// using UnityEngine;
+// using UnityEngine.SceneManagement;
+// using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
-public class CheckGameClear : MonoBehaviour
-{
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        // Õ“Ë‚µ‚½‚Ì‚ªƒvƒŒƒCƒ„[‚È‚ç
-        if (col.gameObject.tag == "Player")
-        {
-            // ƒQ[ƒ€ƒNƒŠƒA‰æ–Ê‚É‘JˆÚ
-            SceneManager.LoadScene("Scenes/GameClear");
-        }
-    }
+// public class CheckGameClear : MonoBehaviour
+// {
+//     void OnTriggerEnter2D(Collider2D col)
+//     {
+//         // ï¿½Õ“Ë‚ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½È‚ï¿½
+//         if (col.gameObject.tag == "Player")
+//         {
+//             // ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½Ê‚É‘Jï¿½ï¿½
+//             SceneManager.LoadScene("Scenes/GameClear");
+//         }
+//     }
 
-}
+// }

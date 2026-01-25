@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class Player : Entity
 {
@@ -56,6 +57,7 @@ public class Player : Entity
     [SerializeField] private int shakeVibrato = 20;      //振動頻度
     [SerializeField] private float shakeRandomness = 90; //ランダム角度
     [HideInInspector] public float shakeTimer;
+    private List<Enemy> enemiesInRange = new List<Enemy>();
     [Header("Stealth Settings")]
     public HideSpot currentHideSpot;
     public bool isHidden = false;
@@ -97,6 +99,11 @@ public class Player : Entity
     {
         base.Update();
 
+        if (enemiesInRange.Count > 0)
+        {
+            UpdateClosestEnemy();
+        }
+
         Invincible();
         if (noiseCooldownTimer > 0)
             noiseCooldownTimer -= Time.deltaTime;
@@ -131,19 +138,12 @@ public class Player : Entity
         //自分collider範囲内の敵チェック
         if (other.CompareTag("EnemyHit"))
         {
-            //既に保存する敵がいれば再び実行しない
-            if (attackStandby)
-                return;
-
             Enemy enemyComponent = other.GetComponentInParent<Enemy>();
 
-            if (enemyComponent != null)
+            if (enemyComponent != null && !enemiesInRange.Contains(enemyComponent))
             {
-                //今の敵を保存する
-                enemyCanKill = enemyComponent;
-                lockedEnemy = enemyCanKill;
-                enemyTrans = enemyCanKill.transform;
-                SetAttackStandby(true);
+                enemiesInRange.Add(enemyComponent);
+                UpdateClosestEnemy();
             }
         }
         //HideSpotを保存する
@@ -160,17 +160,17 @@ public class Player : Entity
         base.OnTriggerExit2D(other);
 
         //自分collider範囲内の敵チェック
-        if (!other.CompareTag("Enemy"))
+        if (other.CompareTag("EnemyHit") || other.CompareTag("Enemy")) 
         {
-            //一番最初記録した敵じゃなければ無視する
-            Enemy leaveEnemy = other.GetComponent<Enemy>();
-            if (leaveEnemy != lockedEnemy)
-                return;
+            //Enemy leaveEnemy = other.GetComponent<Enemy>();
+            Enemy leaveEnemy = other.GetComponentInParent<Enemy>();
+            if (leaveEnemy != null && enemiesInRange.Contains(leaveEnemy))
+            {
+                enemiesInRange.Remove(leaveEnemy);
+                
+                UpdateClosestEnemy();
+            }
 
-            enemyCanKill = null;
-            enemyTrans = null;
-            lockedEnemy = null;
-            SetAttackStandby(false);
         }
         else if (other.CompareTag("HideSpot"))
         {
@@ -388,6 +388,43 @@ public class Player : Entity
     public void SetVelocity(Vector2 velocity)
     {
         rb.linearVelocity = velocity;
+    }
+
+    private void UpdateClosestEnemy()
+    {
+        enemiesInRange.RemoveAll(e => e == null);
+
+        if (enemiesInRange.Count == 0)
+        {
+            enemyCanKill = null;
+            lockedEnemy = null;
+            enemyTrans = null;
+            SetAttackStandby(false);
+            return;
+        }
+
+        //最も近い敵を探す
+        Enemy closestEnemy = null;
+        float minDistance = float.MaxValue;
+        Vector3 currentPos = transform.position;
+
+        foreach (var enemy in enemiesInRange)
+        {
+            float dist = Vector2.Distance(currentPos, enemy.transform.position);
+            if (dist < minDistance)
+            {
+                minDistance = dist;
+                closestEnemy = enemy;
+            }
+        }
+
+        if (closestEnemy != null)
+        {
+            enemyCanKill = closestEnemy;
+            lockedEnemy = closestEnemy;
+            enemyTrans = closestEnemy.transform;
+            SetAttackStandby(true);
+        }
     }
 
 }

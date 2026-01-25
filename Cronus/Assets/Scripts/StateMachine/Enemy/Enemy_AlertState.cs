@@ -13,6 +13,7 @@ public class Enemy_AlertState : EnemyState
     {
         base.Enter();
 
+        enemy.SetAlert(true);
         alertTimer = ALERT_DURATION;
         enemy.SetVelocity(0, 0);
     }

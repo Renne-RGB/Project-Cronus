@@ -23,6 +23,7 @@ public class Enemy_Noob : Enemy
         blockState = new Enemy_BlockState(this, stateMachine, "block");
         susState = new Enemy_SuspiciousState(this, stateMachine, "sus");
         hearState = new Enemy_HearState(this, stateMachine, "hear");
+        investigateState = new Enemy_InvestigateState(this, stateMachine, "investigate");
     }
 
     protected override void Start()
