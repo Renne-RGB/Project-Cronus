@@ -1,8 +1,7 @@
 using Pathfinding;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Splines;
+using UnityEngine.UI;
 
 public class Enemy : Entity
 {
@@ -16,6 +15,7 @@ public class Enemy : Entity
     public Enemy_KnockbackState knockbackState;
     public Enemy_FaintState faintState;
     public Enemy_BlockState blockState;
+    public Enemy_SuspiciousState susState;
 
     public SpriteRenderer sr;
     [Header("Vision")]
@@ -34,6 +34,9 @@ public class Enemy : Entity
     public Transform playerTransform;
     public Player player;
     [SerializeField] public LayerMask playerAndObstacleMask;
+    [Header("Suspicious Settings")]
+    public float suspiciousDistance = 15f; // 疑惑距離
+    public Image questionMarkImage;
     [Header("Chase")]
     public float currentSpeed = 0;
     public float chaseDuration = 3f;
@@ -147,7 +150,7 @@ public class Enemy : Entity
 
     public void GetPlayerTransform()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, chaseDistance, playerLayer);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, suspiciousDistance, playerLayer);
 
         if (colliders.Length > 0)
         {
@@ -156,30 +159,24 @@ public class Enemy : Entity
             float distToPlayer = Vector2.Distance(transform.position, target.position);
 
             //障害物チェック
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dirToPlayer, chaseDistance, playerAndObstacleMask);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dirToPlayer, suspiciousDistance, playerAndObstacleMask);
             bool hasLineOfSight = hit.collider != null && ((1 << hit.collider.gameObject.layer) & playerLayer) != 0;
 
             if (hasLineOfSight)
             {
-                if (playerTransform != null)
+                //角度のチェック
+                float angle = Vector3.Angle(aimDirection, dirToPlayer);
+                if (angle < fov / 2f)
                 {
-                    //もしchase状態である かつ chaseDistance内 かつ 障害物なし
-                    //視野角度がプレイヤーにLockONする
-                    loseTargetTimer = 0f;
+                    playerTransform = target;
                     distance = distToPlayer;
-                    return;
-                }
-                else
-                {
-                    float angle = Vector3.Angle(aimDirection, dirToPlayer);
-                    if (distToPlayer <= viewDistance && angle < fov / 2f)
+                    loseTargetTimer = 0f;
+
+                    if (stateMachine.currentState == susState)
                     {
-                        playerTransform = target;
-                        distance = distToPlayer;
-                        loseTargetTimer = 0f;
-                        ClearSearchRing(); //プレイヤーに見つけなかったら 前の赤い円を消す
-                        return;
+                        SearchRingManager.Instance.LastTargetPosition = target.position;
                     }
+                    return;
                 }
             }
         }
@@ -278,20 +275,28 @@ public class Enemy : Entity
         //既にAlert状態であれば実行しない
         if (AlertFlag || stateMachine.currentState == alertState)
             return;
+        if (stateMachine.currentState == susState && distance > viewDistance)
+            return;
 
         if (playerTransform != null)
         {
             Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dirToPlayer, viewDistance, playerAndObstacleMask);
-            bool isVisible = hit.collider != null && hit.collider.gameObject.GetComponent<Player>() != null;
-            if (isVisible)
+            if (Vector3.Angle(aimDirection, dirToPlayer) < fov / 2)
             {
-                //視野内に入ったらalert状態に切り替える
-                if (Vector3.Angle(MovementInput, dirToPlayer) < fov / 2 || distance < cqbDistance)
+                //敵との距离 < 視野範囲距离 ->　Alert状態に入る
+                if (distance <= viewDistance)
                 {
                     if (stateMachine.currentState != faintState)
                         stateMachine.ChangeState(alertState);
+                }
+                //疑惑距离
+                else if (distance <= suspiciousDistance)
+                {
+                    if (stateMachine.currentState != faintState && stateMachine.currentState != susState)
+                    {
+                        stateMachine.ChangeState(susState);
+                    }
                 }
             }
         }
@@ -454,5 +459,10 @@ public class Enemy : Entity
         {
             fieldOfView.gameObject.SetActive(isActive);
         }
+    }
+
+    public float GetViewDistance()
+    {
+        return viewDistance;
     }
 }

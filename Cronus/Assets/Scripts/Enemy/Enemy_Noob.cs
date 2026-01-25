@@ -21,6 +21,7 @@ public class Enemy_Noob : Enemy
         knockbackState = new Enemy_KnockbackState(this, stateMachine, "knockback");
         faintState = new Enemy_FaintState(this, stateMachine, "faint");
         blockState = new Enemy_BlockState(this, stateMachine, "block");
+        susState = new Enemy_SuspiciousState(this, stateMachine, "sus");
     }
 
     protected override void Start()
