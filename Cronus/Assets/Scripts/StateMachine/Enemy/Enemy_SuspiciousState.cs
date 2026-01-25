@@ -7,7 +7,7 @@ public class Enemy_SuspiciousState : EnemyState
     private float duration = 5.0f;
     private bool halfWayTriggered = false; //50%以上フラグ
 
-    private string moveAnimParam = "move"; 
+    private string susBlendParam = "susBlend"; 
 
     public Enemy_SuspiciousState(Enemy enemy, StateMachine stateMachine, string animBoolName) 
         : base(enemy, stateMachine, animBoolName)
@@ -24,6 +24,7 @@ public class Enemy_SuspiciousState : EnemyState
         enemy.rb.linearVelocity = Vector2.zero;
         enemy.MovementInput = Vector2.zero;
         
+        enemy.anim.SetFloat(susBlendParam, 0f);
 
         if (enemy.questionMarkImage != null)
         {
@@ -115,8 +116,8 @@ public class Enemy_SuspiciousState : EnemyState
         if (enemy.playerTransform != null)
             enemy.UpdateSharedSearchRing(enemy.playerTransform.position);
 
-        enemy.anim.SetBool(animBoolName, false); // "Idle" = false
-        enemy.anim.SetBool(moveAnimParam, true); // "move" = true
+        //Moveアニメーションを再生する
+        enemy.anim.SetFloat(susBlendParam, 1.0f);
     }
 
     //移動停止
@@ -127,9 +128,8 @@ public class Enemy_SuspiciousState : EnemyState
         enemy.MovementInput = Vector2.zero;
         enemy.rb.linearVelocity = Vector2.zero;
 
-        //Move -> Idle
-        enemy.anim.SetBool(moveAnimParam, false); // "move" = false
-        enemy.anim.SetBool(animBoolName, true);   // "Idle" = true
+        //Blend Treeの値を0にしてIdleアニメーションに戻す
+        enemy.anim.SetFloat(susBlendParam, 0f);
     }
 
     private void MoveTowardsRing()
@@ -143,7 +143,8 @@ public class Enemy_SuspiciousState : EnemyState
 
     public override void Exit()
     {
-        enemy.anim.SetBool(moveAnimParam, false);
+        //終了時にパラメータをリセット
+        enemy.anim.SetFloat(susBlendParam, 0f);
         
         enemy.MovementInput = Vector2.zero;
         enemy.rb.linearVelocity = Vector2.zero;

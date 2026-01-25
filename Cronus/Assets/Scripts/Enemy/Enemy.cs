@@ -320,7 +320,8 @@ public class Enemy : Entity
     // 共有検索赤い円の生成・更新
     public void UpdateSharedSearchRing(Vector3 position)
     {
-        if (hasGeneratedRingThisTime) return;
+        if (hasGeneratedRingThisTime)
+            ClearSearchRing();
 
         SearchRingManager.Instance.GenerateSearchRing(position);
         hasGeneratedRingThisTime = true;
