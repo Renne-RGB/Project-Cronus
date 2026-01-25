@@ -42,7 +42,7 @@ public class Enemy_MoveState : EnemyState
 
             float distanceToWaypoint = Vector2.Distance(enemy.transform.position, enemy.pathPointList[enemy.currentIndex]);
 
-            if (distanceToWaypoint <= 0.4f)
+            if (distanceToWaypoint <= 0.5f)
             {
                 enemy.currentIndex++;
 

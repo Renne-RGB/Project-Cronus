@@ -22,6 +22,7 @@ public class Enemy_Noob : Enemy
         faintState = new Enemy_FaintState(this, stateMachine, "faint");
         blockState = new Enemy_BlockState(this, stateMachine, "block");
         susState = new Enemy_SuspiciousState(this, stateMachine, "sus");
+        hearState = new Enemy_HearState(this, stateMachine, "hear");
     }
 
     protected override void Start()

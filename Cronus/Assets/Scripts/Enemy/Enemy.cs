@@ -16,6 +16,7 @@ public class Enemy : Entity
     public Enemy_FaintState faintState;
     public Enemy_BlockState blockState;
     public Enemy_SuspiciousState susState;
+    public Enemy_HearState hearState;
 
     public SpriteRenderer sr;
     [Header("Vision")]
@@ -99,9 +100,10 @@ public class Enemy : Entity
 
         GetPlayerTransform();
 
-        bool isViewLocked = (stateMachine.currentState == knockbackState || stateMachine.currentState == faintState);
+        bool isViewLocked = (stateMachine.currentState == knockbackState || stateMachine.currentState == faintState
+         || stateMachine.currentState == searchState || stateMachine.currentState == susState);
 
-        //敵が飛ばせる状態であれば視野はプレイヤーに追従しない
+        //敵が飛ばせられ状態であれば視野はプレイヤーに追従しない
         if (!isViewLocked)
         {
             if (playerTransform != null)
@@ -287,7 +289,7 @@ public class Enemy : Entity
                 //敵との距离 < 視野範囲距离 ->　Alert状態に入る
                 if (distance <= viewDistance)
                 {
-                    if (stateMachine.currentState != faintState)
+                    if (stateMachine.currentState != faintState && stateMachine.currentState != hearState)
                         stateMachine.ChangeState(alertState);
                 }
                 //疑惑距离
@@ -369,8 +371,8 @@ public class Enemy : Entity
         //警戒状態（AlertState）に移行して、音の場所へ移動を開始する
         if (stateMachine.currentState != alertState && stateMachine.currentState != chaseState && stateMachine.currentState != faintState)
         {
-            SetAlert(true);
-            stateMachine.ChangeState(alertState);
+            //SetAlert(true);
+            stateMachine.ChangeState(hearState);
         }
     }
 

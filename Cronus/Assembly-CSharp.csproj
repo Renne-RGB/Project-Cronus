@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\UI &amp; Menu\MenuGameClear.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Noob.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_BlockState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_HearState.cs" />
     <Compile Include="Assets\Scripts\UI &amp; Menu\MenuBase.cs" />
     <Compile Include="Assets\Scripts\UI &amp; Menu\MenuGameOver.cs" />
     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
