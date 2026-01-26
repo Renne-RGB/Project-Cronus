@@ -36,12 +36,17 @@ public class Player_PrepareChargeState : PlayerState
         base.Update();
         player.SetVelocity(0, 0);
 
-        prepareTimer += Time.deltaTime;
+        prepareTimer += Time.unscaledDeltaTime;
+
+        //今の状態によるチャージ時間を選ぶ
+        float currentReq = player.witchTimeManager.IsWitchTimeActive ?
+               player.witchTimeManager.witchChargeDuration :
+               player.chargeDurationReq;
 
         //UI更新
         if (player.chargeBarImage != null)
         {
-            float progress = Mathf.Clamp01(prepareTimer / player.chargeDurationReq);
+            float progress = Mathf.Clamp01(prepareTimer / currentReq);
             player.chargeBarImage.fillAmount = progress;
         }
 
@@ -51,7 +56,7 @@ public class Player_PrepareChargeState : PlayerState
         if (targetDir == Vector3.zero)
             targetDir = player.currentArrowDir;
 
-        player.currentArrowDir = Vector3.Slerp(player.currentArrowDir, targetDir.normalized, player.arrowRotationSpeed * Time.deltaTime);
+        player.currentArrowDir = Vector3.Slerp(player.currentArrowDir, targetDir.normalized, player.arrowRotationSpeed * Time.unscaledDeltaTime);
 
         UpdateArrowTransform(player.currentArrowDir);
         player.chargeDir = (Vector2)player.currentArrowDir;
@@ -59,10 +64,13 @@ public class Player_PrepareChargeState : PlayerState
         //ボタンを離した時の処理
         if (player.input.Player.Charge.WasReleasedThisFrame())
         {
-            if (prepareTimer >= player.chargeDurationReq)
+            if (prepareTimer >= currentReq)
             {
                 //MAXなら発動
-                stateMachine.ChangeState(player.chargeActionState);
+                if (player.witchTimeManager.IsWitchTimeActive)
+                    stateMachine.ChangeState(player.witchActionState);
+                else
+                    stateMachine.ChangeState(player.chargeActionState);
             }
             else
             {

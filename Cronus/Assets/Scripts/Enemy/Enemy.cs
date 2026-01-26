@@ -24,6 +24,7 @@ public class Enemy : Entity
     [SerializeField] private FieldOfView fieldOfView;
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 8f;
+    [SerializeField] private float fovRotationSpeed = 10f;  //転向速度
     [SerializeField] public Vector3 aimDirection { get; set; }
 
     [Header("Patrol details")]
@@ -82,6 +83,8 @@ public class Enemy : Entity
     public float wallBounceForce = 5.0f;         // 壁にぶつかった時の跳ね返り力
     public float faintDrag = 7.0f;         //気絶時の摩擦
 
+    private bool isDead = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -96,6 +99,9 @@ public class Enemy : Entity
 
     protected override void Update()
     {
+        if (isDead)
+            return;
+
         base.Update();
 
         GetPlayerTransform();
@@ -106,23 +112,31 @@ public class Enemy : Entity
         //敵が飛ばせられ状態であれば視野はプレイヤーに追従しない
         if (!isViewLocked)
         {
+
+            Vector3 targetDirection = aimDirection;     //向きの初期設定
+
             if (playerTransform != null)
             {
                 SearchRingManager.Instance.LastTargetPosition = playerTransform.position;
-                aimDirection = (playerTransform.position - transform.position).normalized;
-
-                if (Mathf.Abs(aimDirection.x) > 0.1f)
-                {
-                    sr.flipX = aimDirection.x < 0;
-                }
+                targetDirection = (playerTransform.position - transform.position).normalized;
             }
             else
             {
                 //プレイヤーに見つけなかったら 視野方向は移動方向と同じようにする
                 if (MovementInput.sqrMagnitude > 0.01f)
                 {
-                    aimDirection = MovementInput.normalized;
+                    targetDirection = MovementInput.normalized;
                 }
+            }
+
+            if (targetDirection != Vector3.zero)
+            {
+                aimDirection = Vector3.Slerp(aimDirection, targetDirection, fovRotationSpeed * Time.deltaTime);
+            }
+
+            if (Mathf.Abs(aimDirection.x) > 0.1f)
+            {
+                sr.flipX = aimDirection.x < 0;
             }
         }
 
@@ -407,6 +421,11 @@ public class Enemy : Entity
                 //まずは KnockbackState に移行する
                 stateMachine.ChangeState(knockbackState);
             }
+            else if (player != null && player.GetCurrentState() == player.witchActionState)
+            {
+                TriggerAssassinationDeath(0);
+                return;
+            }
         }
 
         //壁との衝突判定
@@ -439,6 +458,10 @@ public class Enemy : Entity
 
     public void TriggerAssassinationDeath(int deathType)
     {
+        if (isDead)
+            return;
+        isDead = true;
+
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         MovementInput = Vector2.zero;

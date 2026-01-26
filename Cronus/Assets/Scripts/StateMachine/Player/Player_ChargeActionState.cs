@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player_ChargeActionState : PlayerState
 {
-    private float startTime;
+    private float stateTimer;
 
     public Player_ChargeActionState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -11,11 +11,11 @@ public class Player_ChargeActionState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        startTime = Time.time;
+        stateTimer = 0f;
 
         //発動成功したらhp消費する
         player.ChangeHP(-1);
-        
+
         //無敵時間
         player.invincibleTimer = player.chargeActionDuration;
         player.SetInvincibleFlash(false);
@@ -24,12 +24,11 @@ public class Player_ChargeActionState : PlayerState
     public override void Update()
     {
         base.Update();
+        stateTimer += Time.unscaledDeltaTime;
 
-        // アローが向いていた方向（chargeDir）へ高速移動
         player.SetVelocity(player.chargeDir.x * player.chargeSpeed, player.chargeDir.y * player.chargeSpeed);
 
-        // 時間経過で終了
-        if (Time.time >= startTime + player.chargeActionDuration)
+        if (stateTimer >= player.chargeActionDuration)
         {
             player.SetVelocity(0, 0);
             stateMachine.ChangeState(player.idleState);

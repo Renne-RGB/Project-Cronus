@@ -15,6 +15,7 @@ public class Player : Entity
     public Player_PrepareChargeState prepareChargeState { get; private set; }
     public Player_ChargeActionState chargeActionState { get; private set; }
     public Player_HiddenState hiddenState { get; private set; }
+    public Player_WitchActionState witchActionState { get; private set; }
 
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
@@ -65,6 +66,7 @@ public class Player : Entity
     public HideSpot currentHideSpot;
     [Header("Hierarchy References")]
     public Transform visuals;
+    public WitchTimeManager witchTimeManager;
     public bool isHidden = false;
     protected override void Awake()
     {
@@ -86,6 +88,19 @@ public class Player : Entity
         prepareChargeState = new Player_PrepareChargeState(this, stateMachine, "precharge");
         chargeActionState = new Player_ChargeActionState(this, stateMachine, "charge");
         hiddenState = new Player_HiddenState(this, stateMachine, "hide");
+        witchActionState = new Player_WitchActionState(this, stateMachine, "witch");
+
+        witchActionState = new Player_WitchActionState(this, stateMachine, "witch");
+
+        if (witchTimeManager != null)
+        {
+            witchTimeManager.Init(this);
+        }
+        else
+        {
+
+            Debug.LogError("WitchTimeManager Null");
+        }
     }
 
     protected override void Start()
@@ -107,20 +122,35 @@ public class Player : Entity
     {
         base.Update();
 
+        if (witchTimeManager != null && witchTimeManager.IsWitchTimeActive)
+        {
+            anim.speed = 1f / witchTimeManager.slowMotionFactor;
+        }
+        else
+        {
+            anim.speed = 1f;
+        }
+
         if (enemiesInRange.Count > 0)
         {
             UpdateClosestEnemy();
         }
 
         Invincible();
+
         if (noiseCooldownTimer > 0)
-            noiseCooldownTimer -= Time.deltaTime;
+            noiseCooldownTimer -= Time.unscaledDeltaTime;
 
         if (dashCooldownTimer > 0)
-            dashCooldownTimer -= Time.deltaTime;
+            dashCooldownTimer -= Time.unscaledDeltaTime;
 
         if (shakeTimer > 0)
-            shakeTimer -= Time.deltaTime;
+            shakeTimer -= Time.unscaledDeltaTime;
+
+        if (input.Player.Test.WasPressedThisFrame())
+        {
+            witchTimeManager.ActivateWitchTime();
+        }
     }
 
     private void OnEnable()
@@ -247,10 +277,22 @@ public class Player : Entity
         Gizmos.DrawWireSphere(transform.position, runNoiseRadius);
     }
 
-    public void TakeDamageByBullet(Vector2 bulletDir, float duration, float force)
+    public bool TakeDamageByBullet(Vector2 bulletDir, float duration, float force)
     {
+        if (stateMachine.currentState == dashState)
+        {
+            if (Time.unscaledTime - dashState.dashStartTime <= 0.5f)
+            {
+                witchTimeManager.ActivateWitchTime();
+                stateMachine.ChangeState(idleState);
+                return true;
+            }
+        }
+
         if (invincibleTimer > 0)
-            return;
+        {
+            return false;
+        }
 
         if (IsHidden())
         {
@@ -262,10 +304,22 @@ public class Player : Entity
 
         hitState.SetupHit(bulletDir, duration, force);
         stateMachine.ChangeState(hitState);
+
+        return true;
     }
 
     public void TakeDamageByMelee(Vector2 impactDir, float heavyStunDuration, float heavyKnockbackForce, float damage)
     {
+        if (stateMachine.currentState == dashState)
+        {
+            if (Time.unscaledTime - dashState.dashStartTime <= 0.5f)
+            {
+                witchTimeManager.ActivateWitchTime();
+                stateMachine.ChangeState(idleState);
+                return;
+            }
+        }
+
         if (invincibleTimer > 0)
             return;
 
@@ -286,11 +340,11 @@ public class Player : Entity
     {
         if (invincibleTimer > 0)
         {
-            invincibleTimer -= Time.deltaTime;
+            invincibleTimer -= Time.unscaledDeltaTime;
 
             if (invincibleFlashEnabled && sr != null)
             {
-                float alpha = Mathf.PingPong(Time.time * 10.0f, 1.0f);
+                float alpha = Mathf.PingPong(Time.unscaledTime * 10.0f, 1.0f);
                 Color c = sr.color;
                 c.a = (alpha > 0.5f) ? 1f : 0.4f;
                 sr.color = c;
@@ -393,9 +447,17 @@ public class Player : Entity
         isHidden = hidden;
     }
 
+    public new void SetVelocity(float xVelocity, float yVelocity)
+    {
+
+        float compensation = (Time.timeScale < 1f && Time.timeScale > 0) ? (1f / Time.timeScale) : 1f;
+
+        base.SetVelocity(xVelocity * compensation, yVelocity * compensation);
+    }
+
     public void SetVelocity(Vector2 velocity)
     {
-        rb.linearVelocity = velocity;
+        SetVelocity(velocity.x, velocity.y);
     }
 
     private void UpdateClosestEnemy()

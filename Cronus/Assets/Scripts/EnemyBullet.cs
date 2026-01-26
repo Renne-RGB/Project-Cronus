@@ -26,35 +26,25 @@ public class EnemyBullet : MonoBehaviour
     {
         Player player = target.GetComponent<Player>();
 
-        //無敵時間プレイヤーに当たれない
-        if (player != null)
-        {
-            if (player.invincibleTimer > 0)
-            {
-                return;
-            }
-        }
+        bool shouldDestroy = true;
 
-        // Effect生成
-        if (hitEffect != null)
-        {
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, effectDuration);
-        }
-
-        // Damage处理
         if (player != null)
         {
             Rigidbody2D bulletRb = GetComponent<Rigidbody2D>();
-            Vector2 bulletDir = bulletRb != null ? bulletRb.linearVelocity.normalized : transform.right;
+            Vector2 bulletDir = bulletRb != null ? bulletRb.linearVelocity.normalized : (Vector2)transform.right;
 
-            player.TakeDamageByBullet(bulletDir, stunDuration, knockbackForce);
+            //無敵時間プレイヤーに当たれない(shouldDestroy->false)
+            shouldDestroy = player.TakeDamageByBullet(bulletDir, stunDuration, knockbackForce);
         }
-        else
+
+        if (shouldDestroy)
         {
-            //Debug.Log("HitWall");
+            if (hitEffect != null)
+            {
+                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                Destroy(effect, effectDuration);
+            }
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
 }

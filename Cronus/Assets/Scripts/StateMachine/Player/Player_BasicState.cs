@@ -20,7 +20,8 @@ public class Player_BasicState : PlayerState
             Enemy target = player.GetCankillEnemy();
             if (target != null)
             {
-                if (target.GetCanAssassed())
+                //WitchTime期間の暗殺は常に成功する
+                if (target.GetCanAssassed() || player.witchTimeManager.IsWitchTimeActive)
                 {
                     stateMachine.ChangeState(player.attackState);
                 }

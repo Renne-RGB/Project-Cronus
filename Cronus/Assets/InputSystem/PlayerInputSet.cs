@@ -144,6 +144,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test"",
+                    ""type"": ""Button"",
+                    ""id"": ""69612522-a6fb-4bb7-9e9d-16bf2861e398"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -322,6 +331,17 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""action"": ""Active"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65c0779c-24a5-45eb-a4d8-c0498046565b"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""Test"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -364,6 +384,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Charge = m_Player.FindAction("Charge", throwIfNotFound: true);
         m_Player_Active = m_Player.FindAction("Active", throwIfNotFound: true);
+        m_Player_Test = m_Player.FindAction("Test", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -450,6 +471,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Charge;
     private readonly InputAction m_Player_Active;
+    private readonly InputAction m_Player_Test;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -485,6 +507,10 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Active".
         /// </summary>
         public InputAction @Active => m_Wrapper.m_Player_Active;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Test".
+        /// </summary>
+        public InputAction @Test => m_Wrapper.m_Player_Test;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -529,6 +555,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Active.started += instance.OnActive;
             @Active.performed += instance.OnActive;
             @Active.canceled += instance.OnActive;
+            @Test.started += instance.OnTest;
+            @Test.performed += instance.OnTest;
+            @Test.canceled += instance.OnTest;
         }
 
         /// <summary>
@@ -558,6 +587,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Active.started -= instance.OnActive;
             @Active.performed -= instance.OnActive;
             @Active.canceled -= instance.OnActive;
+            @Test.started -= instance.OnTest;
+            @Test.performed -= instance.OnTest;
+            @Test.canceled -= instance.OnTest;
         }
 
         /// <summary>
@@ -666,5 +698,12 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnActive(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Test" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTest(InputAction.CallbackContext context);
     }
 }

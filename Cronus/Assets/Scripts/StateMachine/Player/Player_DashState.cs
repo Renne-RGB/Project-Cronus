@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player_DashState : PlayerState
 {
-    private float dashStartTime;
+    public float dashStartTime;
     private Vector2 savedDashDir;
     public Player_DashState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -12,7 +12,7 @@ public class Player_DashState : PlayerState
     {
         base.Enter();
 
-        dashStartTime = Time.time;
+        dashStartTime = Time.unscaledTime;
 
         player.invincibleTimer = player.dashDuration;
 
@@ -33,10 +33,8 @@ public class Player_DashState : PlayerState
         base.Update();
 
         player.SetVelocity(savedDashDir.x * player.dashSpeed, savedDashDir.y * player.dashSpeed);
-        player.anim.SetFloat("x", savedDashDir.x);
-        player.anim.SetFloat("y", savedDashDir.y);
 
-        if (Time.time >= dashStartTime + player.dashDuration)
+        if (Time.unscaledTime - dashStartTime >= player.dashDuration)
         {
             player.SetVelocity(0, 0);
             stateMachine.ChangeState(player.idleState);
