@@ -11,8 +11,8 @@ public class Entity : MonoBehaviour
     [Header("Movement details")]
 
     [Range(0, 1)]
-    public int facingDirX { get; private set; } = 1;
-    public int facingDirY { get; private set; } = -1;
+    public int facingDirX { get; protected set; } = 1;
+    public int facingDirY { get; protected set; } = -1;
 
 
     [Header("Collision detection")]
@@ -20,8 +20,8 @@ public class Entity : MonoBehaviour
     [SerializeField] private LayerMask whatIsWall;
 
 
-    private bool facingRight = true;
-    private bool facingDown = true;
+    protected bool facingRight = true;
+    protected bool facingDown = true;
 
     public bool wallDetectedX { get; private set; }
     public bool wallDetectedY { get; private set; }
@@ -50,14 +50,14 @@ public class Entity : MonoBehaviour
         stateMachine.FixedUpdateActiveState();
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other) 
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        
+
     }
 
-    protected virtual void OnTriggerExit2D(Collider2D other) 
+    protected virtual void OnTriggerExit2D(Collider2D other)
     {
-        
+
     }
 
     public void CallAnimationTrigger()
@@ -88,21 +88,21 @@ public class Entity : MonoBehaviour
         HandleFlipY(yVelocity);
     }
 
-    public void FlipX()
+    public virtual void FlipX()
     {
         transform.Rotate(0f, 180f, 0f);
         facingRight = !facingRight;
         facingDirX *= -1;
     }
 
-    public void FlipY()
+    public virtual void FlipY()
     {
         //transform.Rotate(180f, 0f, 0f);
         facingDown = !facingDown;
         facingDirY *= -1;
     }
 
-    private void HandleCllisionDetection()
+    protected virtual void HandleCllisionDetection()
     {
         //壁に当たる判定
         wallDetectedX = Physics2D.Raycast(transform.position, Vector2.right * facingDirX, wallCheckDistance, whatIsWall);

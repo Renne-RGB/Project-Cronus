@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Player : Entity
 {
@@ -47,6 +48,8 @@ public class Player : Entity
     public float chargeSpeed = 40f; //チャージ速度
     public float chargeActionDuration = 0.5f;
     public float arrowOrbitRadius = 1.5f;   //アローが回転する外周の半径
+    public GameObject chargeBarHolder;
+    public Image chargeBarImage;
     [HideInInspector] public Vector2 chargeDir; //チャージ方向を保存する
     public float arrowRotationSpeed = 30f;  //回転のスムーズさ
     public float chargeRecoilForce = 5.0f;  //チャージ衝突時のプレイヤーへの反動
@@ -60,6 +63,8 @@ public class Player : Entity
     private List<Enemy> enemiesInRange = new List<Enemy>();
     [Header("Stealth Settings")]
     public HideSpot currentHideSpot;
+    [Header("Hierarchy References")]
+    public Transform visuals;
     public bool isHidden = false;
     protected override void Awake()
     {
@@ -93,6 +98,9 @@ public class Player : Entity
 
         if (arrowIndicator != null)
             arrowIndicator.SetActive(false);
+
+        if (chargeBarHolder != null)
+            chargeBarHolder.SetActive(false);
     }
 
     protected override void Update()
@@ -160,14 +168,14 @@ public class Player : Entity
         base.OnTriggerExit2D(other);
 
         //自分collider範囲内の敵チェック
-        if (other.CompareTag("EnemyHit") || other.CompareTag("Enemy")) 
+        if (other.CompareTag("EnemyHit") || other.CompareTag("Enemy"))
         {
             //Enemy leaveEnemy = other.GetComponent<Enemy>();
             Enemy leaveEnemy = other.GetComponentInParent<Enemy>();
             if (leaveEnemy != null && enemiesInRange.Contains(leaveEnemy))
             {
                 enemiesInRange.Remove(leaveEnemy);
-                
+
                 UpdateClosestEnemy();
             }
 
@@ -425,6 +433,14 @@ public class Player : Entity
             enemyTrans = closestEnemy.transform;
             SetAttackStandby(true);
         }
+    }
+
+    public override void FlipX()
+    {
+        facingRight = !facingRight;
+        facingDirX *= -1;
+
+        visuals.Rotate(0f, 180f, 0f);
     }
 
 }

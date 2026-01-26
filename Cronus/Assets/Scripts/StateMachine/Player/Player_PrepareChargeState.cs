@@ -18,6 +18,14 @@ public class Player_PrepareChargeState : PlayerState
         if (player.arrowIndicator != null)
             player.arrowIndicator.SetActive(true);
 
+        //UI表示
+        if (player.chargeBarHolder != null)
+        {
+            player.chargeBarHolder.SetActive(true);
+            if (player.chargeBarImage != null)
+                player.chargeBarImage.fillAmount = 0f;
+        }
+
         //矢印の初期方向設定
         player.currentArrowDir = new Vector3(player.facingDirX, player.facingDirY, 0).normalized;
         UpdateArrowTransform(player.currentArrowDir);
@@ -30,11 +38,11 @@ public class Player_PrepareChargeState : PlayerState
 
         prepareTimer += Time.deltaTime;
 
-        //チャージ完了
-        if (prepareTimer >= player.chargeDurationReq)
+        //UI更新
+        if (player.chargeBarImage != null)
         {
-            stateMachine.ChangeState(player.chargeActionState);
-            return;
+            float progress = Mathf.Clamp01(prepareTimer / player.chargeDurationReq);
+            player.chargeBarImage.fillAmount = progress;
         }
 
         //矢印の回転
@@ -48,10 +56,19 @@ public class Player_PrepareChargeState : PlayerState
         UpdateArrowTransform(player.currentArrowDir);
         player.chargeDir = (Vector2)player.currentArrowDir;
 
+        //ボタンを離した時の処理
         if (player.input.Player.Charge.WasReleasedThisFrame())
         {
-            //チャージ未完了で離した場合はアイドル状態に戻る
-            stateMachine.ChangeState(player.idleState);
+            if (prepareTimer >= player.chargeDurationReq)
+            {
+                //MAXなら発動
+                stateMachine.ChangeState(player.chargeActionState);
+            }
+            else
+            {
+                //未完了ならIdle戻る
+                stateMachine.ChangeState(player.idleState);
+            }
         }
     }
 
@@ -78,5 +95,9 @@ public class Player_PrepareChargeState : PlayerState
         base.Exit();
         if (player.arrowIndicator != null)
             player.arrowIndicator.SetActive(false);
+
+        // UI非表示
+        if (player.chargeBarHolder != null)
+            player.chargeBarHolder.SetActive(false);
     }
 }
