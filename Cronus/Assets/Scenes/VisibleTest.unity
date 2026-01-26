@@ -8412,7 +8412,7 @@ Transform:
   m_GameObject: {fileID: 972260229}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4946885, y: 2.4989545, z: 25.459873}
+  m_LocalPosition: {x: -1.6574707, y: 2.4986846, z: 25.459873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9224,7 +9224,7 @@ Transform:
   m_GameObject: {fileID: 1404718040}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.554428, y: 2.4955614, z: 25.459873}
+  m_LocalPosition: {x: -8.557663, y: 2.4955614, z: 25.459873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10729,6 +10729,7 @@ MonoBehaviour:
   fieldOfView: {fileID: 0}
   fov: 70
   viewDistance: 10
+  fovRotationSpeed: 10
   idleDuration: 2
   moveSpeed: 1
   patroPoints:
@@ -11558,6 +11559,10 @@ PrefabInstance:
       propertyPath: visuals
       value: 
       objectReference: {fileID: 590221515}
+    - target: {fileID: 5589519511306491384, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
+      propertyPath: witchTimeManager
+      value: 
+      objectReference: {fileID: 2090702514}
     - target: {fileID: 6369443060998039894, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
