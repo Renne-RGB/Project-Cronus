@@ -705,6 +705,7 @@ MonoBehaviour:
   fieldOfView: {fileID: 0}
   fov: 70
   viewDistance: 10
+  fovRotationSpeed: 10
   idleDuration: 2
   moveSpeed: 1
   patroPoints:
@@ -721,6 +722,7 @@ MonoBehaviour:
   chaseDuration: 3
   currentChaseTimer: 0
   AlertFlag: 0
+  alertPrefab: {fileID: 6310532776294897818, guid: afdeec3e75c119444a8ada1199bd43eb, type: 3}
   chaseDistance: 20
   loseTargetDelay: 4
   pathPointList: []
