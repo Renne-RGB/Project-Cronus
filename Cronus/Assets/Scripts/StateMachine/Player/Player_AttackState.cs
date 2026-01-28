@@ -19,6 +19,10 @@ public class Player_AttackState : PlayerState
             if (targetEnemy.CompareTag("Enemy"))
                 targetIndex = 0f;
 
+            //WitchTime終わる
+            if (player.witchTimeManager.IsWitchTimeActive)
+                player.witchTimeManager.DeactivateWitchTime();
+
             targetEnemy.TriggerAssassinationDeath((int)targetIndex);
 
             player.MovePlayerToEnemy();
