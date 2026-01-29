@@ -88,8 +88,10 @@ public class Enemy : Entity
     public float knockbackForceEnemy = 10.0f;    // 敵が受けるノックバック力
     public float wallBounceForce = 5.0f;         // 壁にぶつかった時の跳ね返り力
     public float faintDrag = 7.0f;         //気絶時の摩擦
+    [Header("UI Settings")]
+    public InteractionIcon interactionIcon; //Icon
 
-    private bool isDead = false;
+    public bool isDead = false;
 
     protected override void Awake()
     {
@@ -172,6 +174,11 @@ public class Enemy : Entity
         {
             currentShootCooldown -= Time.deltaTime;
         }
+    }
+
+    public EntityState GetCurrentState()
+    {
+        return stateMachine.currentState;
     }
 
     public void GetPlayerTransform()
@@ -348,7 +355,7 @@ public class Enemy : Entity
             currentChaseTimer = chaseDuration;
 
             // (金)アラートプレファブを複製しキャンバスの親子関係にし、SendMessageでキャンバスに登録
-            if(canvas.GetComponent<UIManager>().alert == null)
+            if (canvas.GetComponent<UIManager>().alert == null)
             {
                 Vector2 pos = canvas.transform.position;
                 Vector3 rot = new Vector3(0.0f, 0.0f, 0.0f);
@@ -359,9 +366,9 @@ public class Enemy : Entity
             {
 
             }
-            
 
-            
+
+
         }
 
 
@@ -396,6 +403,8 @@ public class Enemy : Entity
 
     public void OnHearSound(Vector3 soundPosition)
     {
+        if (isDead)
+            return;
         //すでにプレイヤーを目視している場合は、視覚優先のため音を無視する
         if (playerTransform != null)
             return;
@@ -492,6 +501,8 @@ public class Enemy : Entity
             return;
         isDead = true;
 
+        ToggleInteractionIcon(false);
+
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         MovementInput = Vector2.zero;
@@ -521,5 +532,30 @@ public class Enemy : Entity
     public float GetViewDistance()
     {
         return viewDistance;
+    }
+
+    public void ToggleInteractionIcon(bool show)
+    {
+        if (interactionIcon == null)
+            return;
+
+
+        //暗殺目標になる時表示する
+        bool canAssassinate = GetCanAssassed();
+        //Alert状態になる時表示しない
+        bool isAlerted = GetAlert();
+        //Faint状態になる時表示する
+        bool isFainted = stateMachine.currentState == faintState;
+
+        bool shouldShow = isFainted || (canAssassinate && !isAlerted);
+
+        if (show && shouldShow)
+        {
+            interactionIcon.Show();
+        }
+        else
+        {
+            interactionIcon.Hide();
+        }
     }
 }

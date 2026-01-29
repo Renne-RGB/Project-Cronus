@@ -25,6 +25,7 @@ public class Player : Entity
     [SerializeField] private int currentHP;
     private int maxHP = 5;
     [SerializeField] private Enemy enemyCanKill;     //攻撃範囲内の敵
+    private Enemy lastFrameTarget;      //最後1フレームの定期を記録する
     [SerializeField] private Enemy lockedEnemy;      //一番最初の敵を記録する
     [SerializeField] private Transform enemyTrans;     //敵死体の生成座標
     [SerializeField] public bool attackStandby = false;     //攻撃できるか
@@ -68,6 +69,8 @@ public class Player : Entity
     public Transform visuals;
     public WitchTimeManager witchTimeManager;
     public bool isHidden = false;
+    private List<HideSpot> hideSpotsInRange = new List<HideSpot>();
+    private HideSpot lastFrameHideSpot;
     protected override void Awake()
     {
         base.Awake();
@@ -187,7 +190,12 @@ public class Player : Entity
         //HideSpotを保存する
         else if (other.CompareTag("HideSpot"))
         {
-            currentHideSpot = other.GetComponent<HideSpot>();
+            HideSpot spot = other.GetComponent<HideSpot>();
+            if (spot != null && !hideSpotsInRange.Contains(spot))
+            {
+                hideSpotsInRange.Add(spot);
+                UpdateClosestHideSpot();
+            }
         }
 
 
@@ -212,9 +220,13 @@ public class Player : Entity
         }
         else if (other.CompareTag("HideSpot"))
         {
-            if (currentHideSpot == other.GetComponent<HideSpot>())
+            HideSpot spot = other.GetComponent<HideSpot>();
+            if (spot != null && hideSpotsInRange.Contains(spot))
             {
-                currentHideSpot = null;
+                //アイコンを閉じる
+                spot.ToggleInteractionIcon(false);
+                hideSpotsInRange.Remove(spot);
+                UpdateClosestHideSpot();
             }
         }
 
@@ -284,7 +296,7 @@ public class Player : Entity
             if (Time.unscaledTime - dashState.dashStartTime <= 0.5f)
             {
                 witchTimeManager.ActivateWitchTime();
-                stateMachine.ChangeState(idleState);
+                //stateMachine.ChangeState(idleState);
                 return true;
             }
         }
@@ -445,6 +457,7 @@ public class Player : Entity
     public void SetHidden(bool hidden)
     {
         isHidden = hidden;
+        UpdateClosestHideSpot();
     }
 
     public new void SetVelocity(float xVelocity, float yVelocity)
@@ -466,10 +479,15 @@ public class Player : Entity
 
         if (enemiesInRange.Count == 0)
         {
+            //暗殺範囲内敵がいなかったら Iconを閉じる
+            if (enemyCanKill != null)
+                enemyCanKill.ToggleInteractionIcon(false);
+
             enemyCanKill = null;
             lockedEnemy = null;
             enemyTrans = null;
             SetAttackStandby(false);
+            lastFrameTarget = null;
             return;
         }
 
@@ -480,6 +498,11 @@ public class Player : Entity
 
         foreach (var enemy in enemiesInRange)
         {
+            bool shouldShow = (enemy.GetCanAssassed() && !enemy.GetAlert()) || (enemy.GetCurrentState() == enemy.faintState);
+
+            if (!shouldShow || enemy.isDead)
+                continue;
+
             float dist = Vector2.Distance(currentPos, enemy.transform.position);
             if (dist < minDistance)
             {
@@ -488,12 +511,37 @@ public class Player : Entity
             }
         }
 
+        //表示アイコンの目標を入り替える
+        if (closestEnemy != lastFrameTarget)
+        {
+            //前の敵のアイコンを閉じる
+            if (lastFrameTarget != null)
+            {
+                lastFrameTarget.ToggleInteractionIcon(false);
+            }
+
+            //今の敵のアイコンを開く
+            if (closestEnemy != null)
+            {
+                closestEnemy.ToggleInteractionIcon(true);
+            }
+
+            lastFrameTarget = closestEnemy;
+        }
+
         if (closestEnemy != null)
         {
+            closestEnemy.ToggleInteractionIcon(true);
+
             enemyCanKill = closestEnemy;
             lockedEnemy = closestEnemy;
             enemyTrans = closestEnemy.transform;
             SetAttackStandby(true);
+        }
+        else
+        {
+            enemyCanKill = null;
+            SetAttackStandby(false);
         }
     }
 
@@ -503,6 +551,48 @@ public class Player : Entity
         facingDirX *= -1;
 
         visuals.Rotate(0f, 180f, 0f);
+    }
+
+    private void UpdateClosestHideSpot()
+    {
+        hideSpotsInRange.RemoveAll(s => s == null);
+
+        if (hideSpotsInRange.Count == 0)
+        {
+            if (lastFrameHideSpot != null)
+                lastFrameHideSpot.ToggleInteractionIcon(false);
+
+            currentHideSpot = null;
+            lastFrameHideSpot = null;
+            return;
+        }
+
+        HideSpot closestSpot = null;
+        float minDistance = float.MaxValue;
+        Vector3 currentPos = transform.position;
+
+        foreach (var spot in hideSpotsInRange)
+        {
+            //プレイヤーもう入ったらアイコンを閉じる
+            if (IsHidden() && spot == currentHideSpot)
+                continue;
+
+            float dist = Vector2.Distance(currentPos, spot.transform.position);
+            if (dist < minDistance)
+            {
+                minDistance = dist;
+                closestSpot = spot;
+            }
+        }
+
+        if (closestSpot != lastFrameHideSpot)
+        {
+            if (lastFrameHideSpot != null) lastFrameHideSpot.ToggleInteractionIcon(false);
+            if (closestSpot != null) closestSpot.ToggleInteractionIcon(true);
+            lastFrameHideSpot = closestSpot;
+        }
+
+        currentHideSpot = closestSpot;
     }
 
 }

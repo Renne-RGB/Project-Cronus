@@ -19,11 +19,12 @@ public class Player_HiddenState : PlayerState
         player.SetVelocity(Vector2.zero);
         player.rb.linearVelocity = Vector2.zero;
 
-        player.SetHidden(true);
         if (player.currentHideSpot != null)
         {
             player.transform.position = player.currentHideSpot.GetHidePosition();
         }
+        
+        player.SetHidden(true);
     }
     public override void Update()
     {

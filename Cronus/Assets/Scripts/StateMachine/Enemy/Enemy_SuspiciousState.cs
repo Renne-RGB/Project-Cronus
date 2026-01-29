@@ -7,23 +7,23 @@ public class Enemy_SuspiciousState : EnemyState
     private float duration = 5.0f;
     private bool halfWayTriggered = false; //50%以上フラグ
 
-    private string susBlendParam = "susBlend"; 
+    private string susBlendParam = "susBlend";
 
-    public Enemy_SuspiciousState(Enemy enemy, StateMachine stateMachine, string animBoolName) 
+    public Enemy_SuspiciousState(Enemy enemy, StateMachine stateMachine, string animBoolName)
         : base(enemy, stateMachine, animBoolName)
     {
     }
 
     public override void Enter()
     {
-        base.Enter(); 
-        
+        base.Enter();
+
         timer = 0f;
         halfWayTriggered = false;
-        
+
         enemy.rb.linearVelocity = Vector2.zero;
         enemy.MovementInput = Vector2.zero;
-        
+
         enemy.anim.SetFloat(susBlendParam, 0f);
 
         if (enemy.questionMarkImage != null)
@@ -36,7 +36,7 @@ public class Enemy_SuspiciousState : EnemyState
     public override void Update()
     {
         base.Update();
-        
+
         enemy.GetPlayerTransform();
 
         //プレイヤー位置によってprogress増加するか否か
@@ -45,12 +45,12 @@ public class Enemy_SuspiciousState : EnemyState
         if (enemy.playerTransform != null)
         {
             float dist = Vector2.Distance(enemy.transform.position, enemy.playerTransform.position);
-            
+
             //もし視野内にいれば直接Alert状態に入る
-            if (dist <= enemy.GetViewDistance()) 
-            { 
-                stateMachine.ChangeState(enemy.alertState); 
-                return; 
+            if (dist <= enemy.GetViewDistance())
+            {
+                stateMachine.ChangeState(enemy.alertState);
+                return;
             }
 
             //疑惑範囲内にいればprogress増加
@@ -59,7 +59,7 @@ public class Enemy_SuspiciousState : EnemyState
                 shouldIncrease = true;
             }
         }
-        
+
         if (shouldIncrease)
         {
             timer += Time.deltaTime;
@@ -90,11 +90,24 @@ public class Enemy_SuspiciousState : EnemyState
             stateMachine.ChangeState(enemy.idleState);
             return;
         }
-        
+
         //progressは50％超えたらプレイヤー位置に移動する
-        if (progress >= 0.5f && !halfWayTriggered)
+        if (progress >= 0.5f)
         {
-            TriggerHalfWayAction();
+            if (enemy.playerTransform != null)
+            {
+                //プレイヤーがいなければRingの位置に移動する
+                if (!halfWayTriggered)
+                {
+                    TriggerHalfWayAction();
+                }
+                MoveTowardsRing();
+            }
+            else
+            {
+                stateMachine.ChangeState(enemy.investigateState);
+                return;
+            }
         }
         //50%以下になったら移動停止
         else if (progress < 0.5f && halfWayTriggered)
@@ -102,10 +115,10 @@ public class Enemy_SuspiciousState : EnemyState
             CancelHalfWayAction();
         }
 
-        if (halfWayTriggered)
-        {
-            MoveTowardsRing();
-        }
+        // if (halfWayTriggered)
+        // {
+        //     MoveTowardsRing();
+        // }
     }
 
     //SearchRingに移动する
@@ -145,7 +158,7 @@ public class Enemy_SuspiciousState : EnemyState
     {
         //終了時にパラメータをリセット
         enemy.anim.SetFloat(susBlendParam, 0f);
-        
+
         enemy.MovementInput = Vector2.zero;
         enemy.rb.linearVelocity = Vector2.zero;
 
@@ -155,6 +168,6 @@ public class Enemy_SuspiciousState : EnemyState
             enemy.questionMarkImage.gameObject.SetActive(false);
         }
 
-        base.Exit(); 
+        base.Exit();
     }
 }
