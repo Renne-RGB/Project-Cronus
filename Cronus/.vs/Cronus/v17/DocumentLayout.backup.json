@@ -3,15 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|c:\\users\\student\\documents\\github\\project-cronus\\cronus\\assets\\scripts\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|c:\\users\\student\\documents\\github\\project-cronus\\cronus\\assets\\scripts\\ui \u0026 menu\\uialert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui \u0026 menu\\uialert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|c:\\users\\student\\documents\\github\\project-cronus\\cronus\\assets\\scripts\\ui \u0026 menu\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui \u0026 menu\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|c:\\users\\student\\documents\\github\\project-cronus\\cronus\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\assets\\scripts\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\24CU0210\u3042\\Renshu2d\\Assets\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{219961DC-67AC-B8C3-59F7-6282FB736659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,17 +29,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\24CU0210\u3042\\Renshu2d\\Assets\\GameManager.cs",
+              "ToolTip": "D:\\24CU0210\u3042\\Renshu2d\\Assets\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T00:38:46.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\Enemy\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\Enemy.cs",
               "ToolTip": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\Enemy\\Enemy.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy\\Enemy.cs",
-              "ViewState": "AgIAAFUBAAAAAAAAAAAawGcBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF8BAAAAAAAAAAAewG0BAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-28T03:07:40.656Z",
               "EditorCaption": ""
@@ -45,14 +63,27 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI \u0026 Menu\\UIManager.cs",
               "ToolTip": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\UI \u0026 Menu\\UIManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\UI \u0026 Menu\\UIManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-28T03:07:31.35Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "UIAlert.cs",
+              "DocumentMoniker": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\UI \u0026 Menu\\UIAlert.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI \u0026 Menu\\UIAlert.cs",
+              "ToolTip": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\UI \u0026 Menu\\UIAlert.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI \u0026 Menu\\UIAlert.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAADwvxwAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T00:44:50.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\student\\Documents\\GitHub\\Project-Cronus\\Cronus\\Assets\\Scripts\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Player.cs",
@@ -60,8 +91,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\Player.cs",
               "ViewState": "AgIAAOcBAAAAAAAAAAAAAPgBAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-24T03:20:31.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T03:20:31.688Z"
             }
           ]
         }

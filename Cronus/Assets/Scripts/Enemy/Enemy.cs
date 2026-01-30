@@ -354,7 +354,7 @@ public class Enemy : Entity
         {
             currentChaseTimer = chaseDuration;
 
-            // (金)アラートプレファブを複製しキャンバスの親子関係にし、SendMessageでキャンバスに登録
+            //（金）アラートプレファブを複製しキャンバスの親子関係にし、SendMessageでキャンバスに登録
             if (canvas.GetComponent<UIManager>().alert == null)
             {
                 Vector2 pos = canvas.transform.position;
@@ -362,13 +362,8 @@ public class Enemy : Entity
                 GameObject newAlert = Instantiate(alertPrefab, pos, Quaternion.Euler(rot), canvas.transform);
                 canvas.SendMessage("GetAlertPrefab", newAlert);
             }
-            else if (canvas.GetComponent<UIManager>().alert != null)
-            {
-
-            }
-
-
-
+            //（金）追尾のタイマーを更新
+            canvas.SendMessage("UpdateChaseTimer", 10f);
         }
 
 
