@@ -66578,6 +66578,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8807365434920030060, guid: 74729a741cb4adc4a8b7af3c00091086, type: 3}
+      propertyPath: currentSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807365434920030060, guid: 74729a741cb4adc4a8b7af3c00091086, type: 3}
       propertyPath: questionMarkImage
       value: 
       objectReference: {fileID: 2064012036}
@@ -72704,6 +72708,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1792333419
       objectReference: {fileID: 0}
+    - target: {fileID: 5015217736649814103, guid: 74729a741cb4adc4a8b7af3c00091086, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7167404613265276434, guid: 9704b504df537a9469dd7cd29554b821, type: 3}
     - target: {fileID: 5237732082223340396, guid: 74729a741cb4adc4a8b7af3c00091086, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -73135,6 +73143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5464498407463006234, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3325114580606147109, guid: fcde3de356058af469234e05b67b0b87, type: 3}
     - target: {fileID: 5589519511306491384, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: shakeStrength
       value: 0.2

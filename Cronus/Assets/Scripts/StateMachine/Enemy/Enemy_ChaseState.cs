@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Enemy_ChaseState : EnemyState
 {
+    //プレイヤーへの追跡を失ったかどうかを記録する
+    private bool hasLostPlayer = false;
+
     public Enemy_ChaseState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
@@ -10,12 +13,7 @@ public class Enemy_ChaseState : EnemyState
     {
         base.Enter();
         enemy.SetAlert(true);
-        enemy.moveSpeed = 3.0f;
-    }
-
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
+        hasLostPlayer = false;
     }
 
     public override void Update()
@@ -23,43 +21,43 @@ public class Enemy_ChaseState : EnemyState
         base.Update();
         enemy.GetPlayerTransform();
 
-        //プレイヤーが隠している状態であれば目標にならない
-        bool isPlayerTargetable = enemy.playerTransform != null &&
-                                 (enemy.targetPlayer != null && !enemy.targetPlayer.IsHidden());
+        if (enemy.targetPlayer == null) return;
 
-        if (isPlayerTargetable)
+        float distToPlayer = Vector2.Distance(enemy.transform.position, enemy.targetPlayer.transform.position);
+        bool isVisible = enemy.playerTransform != null && !enemy.targetPlayer.IsHidden();
+        bool hasSearchRing = SearchRingManager.Instance.HasActiveRing();
+
+        // プレイヤーを完全に失った
+        if (isVisible)
         {
-            // プレイヤーを視認している場合
-            SearchRingManager.Instance.LastTargetPosition = enemy.playerTransform.position;
-            enemy.currentChaseTimer = enemy.chaseDuration;
+            hasLostPlayer = false;
+        }
 
-            if (enemy.canMelee && enemy.distance <= enemy.cqbDistance)
-            {
-                stateMachine.ChangeState(enemy.cqbState);
+        //まだプレイヤーを見失っていない場合のみ、感知距離内であれば隠れているプレイヤーも追跡する
+        if (!hasLostPlayer && (isVisible || distToPlayer <= enemy.suspiciousDistance))
+        {
+            SearchRingManager.Instance.LastTargetPosition = enemy.targetPlayer.transform.position;
+            enemy.currentChaseTimer = enemy.chaseDuration;
+            enemy.ClearSearchRing();
+
+            if (CheckAttackConditions(distToPlayer, true))
                 return;
-            }
-            else if (enemy.canShoot && enemy.distance <= enemy.shootRange && enemy.currentShootCooldown <= 0)
-            {
-                stateMachine.ChangeState(enemy.shootState);
-                return;
-            }
         }
         else
         {
-            // プレイヤーを見失った場合
-            // UpdateSharedSearchRing内部で「一度だけ生成する」
-            if (enemy.GetAlert())
+            // プレイヤーを見失ったため、searchモードへ移行
+            hasLostPlayer = true;
+            //赤い円が時間経過で自然に消滅した場合は、ここで再生成されない
+            if (enemy.GetAlert() && !hasSearchRing && !isVisible)
             {
                 enemy.UpdateSharedSearchRing(SearchRingManager.Instance.LastTargetPosition);
-                //プレイヤー位置失ったら暗殺状態になる
-                enemy.SetCanAssassed(true);
+                enemy.SetCanAssassed(true); // 暗殺可能な状態に設定
             }
 
-            //Search状態に入る
             Vector3 targetPos = SearchRingManager.Instance.LastTargetPosition;
             float distanceToRing = Vector2.Distance(enemy.transform.position, targetPos);
 
-            //赤い円の範囲内に入ったら
+            //リングの位置に到達したらSearchStateに切り替え
             if (distanceToRing <= 1.2f)
             {
                 stateMachine.ChangeState(enemy.searchState);
@@ -67,6 +65,34 @@ public class Enemy_ChaseState : EnemyState
             }
         }
 
+        MoveTowardsTarget();
+    }
+
+    private bool CheckAttackConditions(float distance, bool ignoreHidden)
+    {
+        //攻撃対象有効か判定
+        bool canBeTargeted = (enemy.playerTransform != null &&
+                             !enemy.targetPlayer.IsHidden()) || ignoreHidden;
+
+        if (!canBeTargeted)
+            return false;
+
+        if (enemy.canMelee && distance <= enemy.cqbDistance)
+        {
+            stateMachine.ChangeState(enemy.cqbState);
+            return true;
+        }
+        if (enemy.canShoot && distance <= enemy.shootRange && enemy.currentShootCooldown <= 0)
+        {
+            stateMachine.ChangeState(enemy.shootState);
+            return true;
+        }
+
+        return false;
+    }
+
+    private void MoveTowardsTarget()
+    {
         enemy.AutoPath();
 
         if (enemy.pathPointList != null && enemy.currentIndex < enemy.pathPointList.Count)

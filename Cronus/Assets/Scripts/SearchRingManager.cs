@@ -6,7 +6,7 @@ public class SearchRingManager : MonoBehaviour
 
     [Header("Search Ring Settings")]
     public GameObject searchRingPrefab;
-    public float searchRingDuration = 5.0f; // 捜索リングの存在時間
+    public float searchRingDuration = 10.0f; // 捜索リングの存在時間
 
     // プレイヤー消える寸前の座標 (原本在Enemy里的static变量)
     public Vector3 LastTargetPosition { get; set; }

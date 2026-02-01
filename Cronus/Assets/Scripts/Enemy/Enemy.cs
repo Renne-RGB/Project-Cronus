@@ -34,7 +34,6 @@ public class Enemy : Entity
 
     [Header("Patrol details")]
     public float idleDuration = 2;      //待機時間
-    public float moveSpeed = 1.4f;
     public Transform[] patroPoints;     //全てのパトロール座標
     public int targetPointIndex = 0;    //パトロール目標番号
 
@@ -57,7 +56,7 @@ public class Enemy : Entity
     public GameObject alertPrefab;
 
     public Vector2 MovementInput { get; set; }
-    [SerializeField] protected float chaseDistance = 20f;       //追撃距離
+    public float chaseDistance = 20f;       //追撃距離
     [Header("Detection Settings")]
     public float loseTargetDelay = 2.0f; //プレイヤーが消えて何秒から赤い円を生成する
     private float loseTargetTimer = 0f;
