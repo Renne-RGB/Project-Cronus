@@ -47,17 +47,21 @@ public class Enemy_AlertState : EnemyState
             return;
         }
         //距離によってStateを切り替え
-        if (enemy.distance <= enemy.cqbDistance)
+        if (enemy.canMelee && enemy.distance <= enemy.cqbDistance)
         {
             stateMachine.ChangeState(enemy.cqbState);
         }
-        else if (enemy.distance <= enemy.shootRange)
+        else if (enemy.canShoot && enemy.distance <= enemy.shootRange)
         {
             stateMachine.ChangeState(enemy.shootState);
         }
-        else
+        else if(enemy.canChase)
         {
             stateMachine.ChangeState(enemy.chaseState);
+        }
+        else
+        {
+            //ビビる
         }
     }
 }

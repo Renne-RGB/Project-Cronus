@@ -48,13 +48,6 @@ public class Enemy_HearState : EnemyState
         //プレイヤーに見つけったら
         if (enemy.playerTransform != null)
         {
-            // enemy.SetAlert(true);
-            // if (enemy.distance <= enemy.cqbDistance)
-            //     stateMachine.ChangeState(enemy.cqbState);
-            // else if (enemy.distance <= enemy.shootRange)
-            //     stateMachine.ChangeState(enemy.shootState);
-            // else
-            //     stateMachine.ChangeState(enemy.chaseState);
             stateMachine.ChangeState(enemy.alertState);
         }
         //赤い円があれば

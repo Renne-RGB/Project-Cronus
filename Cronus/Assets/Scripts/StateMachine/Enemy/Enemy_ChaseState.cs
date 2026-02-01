@@ -23,19 +23,22 @@ public class Enemy_ChaseState : EnemyState
         base.Update();
         enemy.GetPlayerTransform();
 
-        if (enemy.playerTransform != null)
+        //プレイヤーが隠している状態であれば目標にならない
+        bool isPlayerTargetable = enemy.playerTransform != null &&
+                                 (enemy.targetPlayer != null && !enemy.targetPlayer.IsHidden());
+
+        if (isPlayerTargetable)
         {
             // プレイヤーを視認している場合
             SearchRingManager.Instance.LastTargetPosition = enemy.playerTransform.position;
-
             enemy.currentChaseTimer = enemy.chaseDuration;
 
-            if (enemy.distance <= enemy.cqbDistance)
+            if (enemy.canMelee && enemy.distance <= enemy.cqbDistance)
             {
                 stateMachine.ChangeState(enemy.cqbState);
                 return;
             }
-            else if (enemy.distance <= enemy.shootRange && enemy.currentShootCooldown <= 0)
+            else if (enemy.canShoot && enemy.distance <= enemy.shootRange && enemy.currentShootCooldown <= 0)
             {
                 stateMachine.ChangeState(enemy.shootState);
                 return;
@@ -57,7 +60,7 @@ public class Enemy_ChaseState : EnemyState
             float distanceToRing = Vector2.Distance(enemy.transform.position, targetPos);
 
             //赤い円の範囲内に入ったら
-            if (distanceToRing <= 1.0f)
+            if (distanceToRing <= 1.2f)
             {
                 stateMachine.ChangeState(enemy.searchState);
                 return;

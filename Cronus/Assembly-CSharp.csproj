@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\UI &amp; Menu\UIAlert.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraLookAhead.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_BlockState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy_Timid.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_HearState.cs" />
     <Compile Include="Assets\Scripts\UI &amp; Menu\MenuBase.cs" />
     <Compile Include="Assets\Scripts\UI &amp; Menu\MenuGameOver.cs" />

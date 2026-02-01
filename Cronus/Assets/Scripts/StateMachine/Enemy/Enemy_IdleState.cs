@@ -22,7 +22,7 @@ public class Enemy_IdleState : EnemyState
 
         enemy.GetPlayerTransform();     //プレイヤーの位置を取る
 
-        if (enemy.GetAlert())
+        if (enemy.GetAlert() && enemy.canChase)
         {
             stateMachine.ChangeState(enemy.chaseState);
         }

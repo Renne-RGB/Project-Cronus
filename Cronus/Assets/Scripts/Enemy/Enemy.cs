@@ -20,6 +20,11 @@ public class Enemy : Entity
     public Enemy_InvestigateState investigateState;
 
     public SpriteRenderer sr;
+    [Header("Capabilities")]
+    public bool canMelee = true;
+    public bool canShoot = true;
+    public bool canChase = true;
+    public bool canBlock = true;
     [Header("Vision")]
     [SerializeField] private FieldOfView fieldOfView;
     [SerializeField] private float fov = 90f;
@@ -67,6 +72,7 @@ public class Enemy : Entity
     [Header("Attack")]
     public float distance;      //プレイヤーとの距離
     public float shootRange;      //射程距離
+    public int shootNum = 2;        //弾数
     public float cqbDistance;         //接近戦距離
     public float cqbAttackRadius = 3.0f;     //接近戦判定半径
     public float cqbStunDuration = 2.0f;     //stun時間
@@ -118,16 +124,17 @@ public class Enemy : Entity
 
         GetPlayerTransform();
 
-        bool isViewLocked = (stateMachine.currentState == knockbackState || stateMachine.currentState == faintState
-         || stateMachine.currentState == searchState || stateMachine.currentState == susState);
+        bool isViewLocked = (stateMachine.currentState == knockbackState ||
+                         stateMachine.currentState == faintState ||
+                         stateMachine.currentState == searchState ||
+                         stateMachine.currentState == susState);
 
         //敵が飛ばせられ状態であれば視野はプレイヤーに追従しない
         if (!isViewLocked)
         {
-
             Vector3 targetDirection = aimDirection;     //向きの初期設定
 
-            if (playerTransform != null)
+            if (playerTransform != null && targetPlayer != null && !targetPlayer.IsHidden())
             {
                 SearchRingManager.Instance.LastTargetPosition = playerTransform.position;
                 targetDirection = (playerTransform.position - transform.position).normalized;
@@ -240,8 +247,10 @@ public class Enemy : Entity
     {
         pathGenerateTimer += Time.deltaTime;
 
+        bool shouldTrackPlayer = playerTransform != null && targetPlayer != null && !targetPlayer.IsHidden();
+
         // ターゲットの決定：プレイヤーが見えていればプレイヤー、いなければ共有の最後目撃地点
-        Vector3 targetPos = (playerTransform != null) ? playerTransform.position : SearchRingManager.Instance.LastTargetPosition;
+        Vector3 targetPos = shouldTrackPlayer ? playerTransform.position : SearchRingManager.Instance.LastTargetPosition;
 
         if (pathGenerateTimer >= pathGenerateInterval)
         {
@@ -319,6 +328,10 @@ public class Enemy : Entity
         //既にAlert状態であれば実行しない
         if (AlertFlag || stateMachine.currentState == alertState)
             return;
+
+        if (targetPlayer != null && targetPlayer.IsHidden())
+            return;
+
         if (stateMachine.currentState == susState && distance > viewDistance)
             return;
 

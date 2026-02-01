@@ -38,7 +38,7 @@ public class Enemy_SearchState : EnemyState
         base.Update();
 
         enemy.GetPlayerTransform();
-        if (enemy.playerTransform != null)
+        if (enemy.playerTransform != null && enemy.targetPlayer != null && !enemy.targetPlayer.IsHidden())
         {
             stateMachine.ChangeState(enemy.alertState);
             return;

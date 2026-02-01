@@ -42,7 +42,7 @@ public class Enemy_SuspiciousState : EnemyState
         //プレイヤー位置によってprogress増加するか否か
         bool shouldIncrease = false;
 
-        if (enemy.playerTransform != null)
+        if (enemy.playerTransform != null && enemy.targetPlayer != null && !enemy.targetPlayer.IsHidden())
         {
             float dist = Vector2.Distance(enemy.transform.position, enemy.playerTransform.position);
 

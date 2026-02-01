@@ -58,7 +58,7 @@ public class Enemy_ShootState : EnemyState
 
     private IEnumerator ShootBurstRoutine()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < enemy.shootNum; i++)
         {
             if (enemy.playerTransform == null)
             {
