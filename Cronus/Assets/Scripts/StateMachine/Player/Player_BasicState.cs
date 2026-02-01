@@ -56,7 +56,7 @@ public class Player_BasicState : PlayerState
 
         if (player.input.Player.Charge.WasPressedThisFrame())
         {
-            if (player.GetHP() > 1)
+            if (player.GetHP() > 1 || player.witchTimeManager.IsWitchTimeActive)
             {
                 stateMachine.ChangeState(player.prepareChargeState);
             }
@@ -92,7 +92,7 @@ public class Player_BasicState : PlayerState
     {
         if (player.input.Player.Charge.WasPressedThisFrame())
         {
-            if (player.GetHP() > 1)
+            if (player.GetHP() > 1 || player.witchTimeManager.IsWitchTimeActive)
             {
                 stateMachine.ChangeState(player.prepareChargeState);
             }

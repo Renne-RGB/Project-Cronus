@@ -22,6 +22,7 @@ public class WitchTimeManager : MonoBehaviour
             return;
 
         player.invincibleTimer = player.dashDuration + 1.0f;
+        player.SetInvincibleFlash(false);
 
         StartCoroutine(WitchTimeRoutine());
     }
@@ -29,6 +30,8 @@ public class WitchTimeManager : MonoBehaviour
     private IEnumerator WitchTimeRoutine()
     {
         IsWitchTimeActive = true;
+        player.ToggleInteractionIcon();
+
         Time.timeScale = slowMotionFactor;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
@@ -54,5 +57,7 @@ public class WitchTimeManager : MonoBehaviour
             player.anim.speed = 1f;
 
         StopAllCoroutines();
+
+        player.ToggleInteractionIcon();
     }
 }

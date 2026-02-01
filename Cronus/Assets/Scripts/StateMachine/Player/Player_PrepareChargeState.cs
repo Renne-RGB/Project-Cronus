@@ -26,6 +26,8 @@ public class Player_PrepareChargeState : PlayerState
                 player.chargeBarImage.fillAmount = 0f;
         }
 
+        player.ToggleInteractionIcon();
+
         //矢印の初期方向設定
         player.currentArrowDir = new Vector3(player.facingDirX, player.facingDirY, 0).normalized;
         UpdateArrowTransform(player.currentArrowDir);

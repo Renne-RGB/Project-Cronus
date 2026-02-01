@@ -26,11 +26,6 @@ public class Player_DashState : PlayerState
         }
         savedDashDir.Normalize();
         player.SetInvincibleFlash(false);
-
-        if (player.noiseCooldownTimer <= 0)
-        {
-            player.EmitRunNoise();
-        }
     }
 
     public override void Update()

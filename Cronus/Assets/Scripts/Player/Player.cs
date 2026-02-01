@@ -53,6 +53,7 @@ public class Player : Entity
     public float arrowOrbitRadius = 1.5f;   //アローが回転する外周の半径
     public GameObject chargeBarHolder;
     public Image chargeBarImage;
+    public InteractionIcon interactionIcon; //Icon
     [HideInInspector] public Vector2 chargeDir; //チャージ方向を保存する
     public float arrowRotationSpeed = 30f;  //回転のスムーズさ
     public float chargeRecoilForce = 5.0f;  //チャージ衝突時のプレイヤーへの反動
@@ -331,7 +332,7 @@ public class Player : Entity
             if (Time.unscaledTime - dashState.dashStartTime <= 0.5f)
             {
                 witchTimeManager.ActivateWitchTime();
-                stateMachine.ChangeState(idleState);
+                //stateMachine.ChangeState(idleState);
                 return;
             }
         }
@@ -610,12 +611,25 @@ public class Player : Entity
 
         if (closestSpot != lastFrameHideSpot)
         {
-            if (lastFrameHideSpot != null) lastFrameHideSpot.ToggleInteractionIcon(false);
-            if (closestSpot != null) closestSpot.ToggleInteractionIcon(true);
+            if (lastFrameHideSpot != null)
+                lastFrameHideSpot.ToggleInteractionIcon(false);
+            if (closestSpot != null)
+                closestSpot.ToggleInteractionIcon(true);
             lastFrameHideSpot = closestSpot;
         }
 
         currentHideSpot = closestSpot;
+    }
+
+    public void ToggleInteractionIcon()
+    {
+        if (interactionIcon == null)
+            return;
+
+        if (witchTimeManager.IsWitchTimeActive)
+            interactionIcon.Show();
+        else
+            interactionIcon.Hide();
     }
 
 }
