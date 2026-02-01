@@ -638,7 +638,7 @@ SpriteRenderer:
   m_SortingLayerID: 1792333419
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 733244782149438432, guid: 84c28848ab875b24a94dc564d3ad1a25, type: 3}
+  m_Sprite: {fileID: 7167404613265276434, guid: 9704b504df537a9469dd7cd29554b821, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -806,23 +806,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   sr: {fileID: 0}
+  canMelee: 1
+  canShoot: 1
+  canChase: 1
+  canBlock: 1
   fieldOfView: {fileID: 0}
   fov: 70
   viewDistance: 10
   fovRotationSpeed: 10
   idleDuration: 2
-  moveSpeed: 1
   patroPoints:
+  - {fileID: 0}
   - {fileID: 0}
   targetPointIndex: 0
   playerTransform: {fileID: 0}
-  player: {fileID: 0}
+  targetPlayer: {fileID: 0}
   playerAndObstacleMask:
     serializedVersion: 2
     m_Bits: 72
   suspiciousDistance: 15
   questionMarkImage: {fileID: 5900208901926736113}
-  currentSpeed: 5
+  currentSpeed: 7
   chaseDuration: 3
   currentChaseTimer: 0
   AlertFlag: 0
@@ -834,6 +838,7 @@ MonoBehaviour:
   currentIndex: 0
   distance: 0
   shootRange: 0
+  shootNum: 2
   cqbDistance: 3
   cqbAttackRadius: 4
   cqbStunDuration: 2
