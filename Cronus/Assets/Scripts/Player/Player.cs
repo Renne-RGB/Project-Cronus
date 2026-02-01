@@ -34,6 +34,7 @@ public class Player : Entity
     [SerializeField] private LayerMask enemyLayer;        // 敵のレイヤー
     [SerializeField] private GameObject soundWavePrefab;
     public float noiseCooldownTimer = 0f;
+    private float noiseInterval = 0.4f;
     [Header("Combat Settings")]
     [SerializeField] private float invincibleDuration = 2.0f;   //無敵時間
     public float invincibleTimer;
@@ -57,6 +58,7 @@ public class Player : Entity
     public float chargeRecoilForce = 5.0f;  //チャージ衝突時のプレイヤーへの反動
     [HideInInspector] public Vector3 currentArrowDir; // 現在のアローの方向を保持
     [Header("FeedBack Settings")]
+    [SerializeField] private Transform visualTransform;
     [SerializeField] private float shakeDuration = 0.2f;
     [SerializeField] private float shakeStrength = 0.2f;
     [SerializeField] private int shakeVibrato = 20;      //振動頻度
@@ -260,6 +262,8 @@ public class Player : Entity
 
     public void EmitRunNoise()
     {
+        noiseCooldownTimer = noiseInterval;
+
         if (soundWavePrefab != null)
         {
             GameObject wave = Instantiate(soundWavePrefab, transform.position, Quaternion.identity);
@@ -427,11 +431,14 @@ public class Player : Entity
 
     public void PlayErrorShake()
     {
+        if (visualTransform == null)
+            return;
+
         shakeTimer = shakeDuration;
         //前のアニメーションを中止
-        transform.DOKill(complete: true);
+        visualTransform.DOKill(complete: true);
 
-        transform.DOShakePosition(shakeDuration, shakeStrength, shakeVibrato, shakeRandomness, false, true);
+        visualTransform.DOShakePosition(shakeDuration, shakeStrength, shakeVibrato, shakeRandomness, false, true);
     }
 
     public bool IsShaking => shakeTimer > 0;
@@ -492,27 +499,39 @@ public class Player : Entity
         }
 
         //最も近い敵を探す
-        Enemy closestEnemy = null;
-        float minDistance = float.MaxValue;
+        Enemy closestForIcon = null;
+        Enemy closestForAttack = null;
+        float minIconDist = float.MaxValue;
+        float minAttackDist = float.MaxValue;
         Vector3 currentPos = transform.position;
 
         foreach (var enemy in enemiesInRange)
         {
-            bool shouldShow = (enemy.GetCanAssassed() && !enemy.GetAlert()) || (enemy.GetCurrentState() == enemy.faintState);
-
-            if (!shouldShow || enemy.isDead)
+            if (enemy.isDead)
                 continue;
 
             float dist = Vector2.Distance(currentPos, enemy.transform.position);
-            if (dist < minDistance)
+
+            if (dist < minAttackDist)
             {
-                minDistance = dist;
-                closestEnemy = enemy;
+                minAttackDist = dist;
+                closestForAttack = enemy;
+            }
+
+            bool shouldShowIcon = (enemy.GetCanAssassed() && !enemy.GetAlert()) || (enemy.GetCurrentState() == enemy.faintState);
+
+            if (shouldShowIcon)
+            {
+                if (dist < minIconDist)
+                {
+                    minIconDist = dist;
+                    closestForIcon = enemy;
+                }
             }
         }
 
         //表示アイコンの目標を入り替える
-        if (closestEnemy != lastFrameTarget)
+        if (closestForIcon != lastFrameTarget)
         {
             //前の敵のアイコンを閉じる
             if (lastFrameTarget != null)
@@ -521,21 +540,25 @@ public class Player : Entity
             }
 
             //今の敵のアイコンを開く
-            if (closestEnemy != null)
+            if (closestForIcon != null)
             {
-                closestEnemy.ToggleInteractionIcon(true);
+                closestForIcon.ToggleInteractionIcon(true);
             }
 
-            lastFrameTarget = closestEnemy;
+            lastFrameTarget = closestForIcon;
+        }
+        else if (closestForIcon != null)
+        {
+            //アイコンを表示
+            closestForIcon.ToggleInteractionIcon(true);
         }
 
-        if (closestEnemy != null)
+        //暗殺目標を最も近い敵にする
+        if (closestForAttack != null)
         {
-            closestEnemy.ToggleInteractionIcon(true);
-
-            enemyCanKill = closestEnemy;
-            lockedEnemy = closestEnemy;
-            enemyTrans = closestEnemy.transform;
+            enemyCanKill = closestForAttack;
+            lockedEnemy = closestForAttack;
+            enemyTrans = closestForAttack.transform;
             SetAttackStandby(true);
         }
         else

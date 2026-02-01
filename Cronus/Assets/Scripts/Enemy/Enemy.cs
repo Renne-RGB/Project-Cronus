@@ -35,7 +35,7 @@ public class Enemy : Entity
 
     [Header("Target")]
     public Transform playerTransform;
-    public Player player;
+    public Player targetPlayer;
     [SerializeField] public LayerMask playerAndObstacleMask;
     [Header("Suspicious Settings")]
     public float suspiciousDistance = 15f; // 疑惑距離
@@ -188,7 +188,7 @@ public class Enemy : Entity
         if (colliders.Length > 0)
         {
             Transform target = colliders[0].transform;
-            Player targetPlayer = target.GetComponent<Player>();
+            targetPlayer = target.GetComponent<Player>();
 
             //プレイヤーはHide状態であれば無視する
             if (targetPlayer != null)
@@ -354,7 +354,7 @@ public class Enemy : Entity
         {
             currentChaseTimer = chaseDuration;
 
-            //（金）アラートプレファブを複製しキャンバスの親子関係にし、SendMessageでキャンバスに登録
+            // (金)アラートプレファブを複製しキャンバスの親子関係にし、SendMessageでキャンバスに登録
             if (canvas.GetComponent<UIManager>().alert == null)
             {
                 Vector2 pos = canvas.transform.position;
@@ -362,8 +362,13 @@ public class Enemy : Entity
                 GameObject newAlert = Instantiate(alertPrefab, pos, Quaternion.Euler(rot), canvas.transform);
                 canvas.SendMessage("GetAlertPrefab", newAlert);
             }
-            //（金）追尾のタイマーを更新
-            canvas.SendMessage("UpdateChaseTimer", 10f);
+            else if (canvas.GetComponent<UIManager>().alert != null)
+            {
+
+            }
+
+
+
         }
 
 

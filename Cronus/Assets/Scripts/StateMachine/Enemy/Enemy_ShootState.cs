@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class Enemy_ShootState : EnemyState
 {
@@ -58,7 +58,7 @@ public class Enemy_ShootState : EnemyState
 
     private IEnumerator ShootBurstRoutine()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             if (enemy.playerTransform == null)
             {
@@ -78,6 +78,9 @@ public class Enemy_ShootState : EnemyState
 
     private void FireCircularBullet()
     {
+        if (enemy.isDead)
+            return;
+
         if (enemy.bulletPrefab == null || enemy.firePoint == null) return;
 
         //プレイヤー方向ベクトル

@@ -4,7 +4,6 @@ public class Player_RunState : Player_MoveState
 {
     private float moveSpeedMul = 2.0f; // 跑步速度倍率
     private float playerSpeedTemp = 0f;
-    private float noiseInterval = 0.4f;
 
     public Player_RunState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -69,7 +68,6 @@ public class Player_RunState : Player_MoveState
         if (player.noiseCooldownTimer <= 0)
         {
             player.EmitRunNoise();
-            player.noiseCooldownTimer = noiseInterval;
         }
     }
 

@@ -19,6 +19,11 @@ public class Player_ChargeActionState : PlayerState
         //無敵時間
         player.invincibleTimer = player.chargeActionDuration;
         player.SetInvincibleFlash(false);
+
+        if (player.noiseCooldownTimer <= 0)
+        {
+            player.EmitRunNoise();
+        }
     }
 
     public override void Update()

@@ -267,6 +267,11 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!4 &98407388 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 257231569272572727, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
+  m_PrefabInstance: {fileID: 1857336489206176496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &130059217
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +521,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -554,7 +559,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alert: {fileID: 0}
-  lifeList: []
 --- !u!1 &200664422
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +626,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 25}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &211182632
 Animator:
@@ -65755,7 +65759,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -66632,8 +66636,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -325.65, y: 239.42}
-  m_SizeDelta: {x: 25, y: 25}
+  m_AnchoredPosition: {x: -850, y: 480}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1383740971
 MonoBehaviour:
@@ -66763,7 +66767,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 14
+    OrthographicSize: 10
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -72868,6 +72872,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5589519511306491384, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
+      propertyPath: shakeStrength
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589519511306491384, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
+      propertyPath: visualTransform
+      value: 
+      objectReference: {fileID: 98407388}
     - target: {fileID: 5598578138816636371, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: smoothSpeed
       value: 0
@@ -72875,6 +72887,10 @@ PrefabInstance:
     - target: {fileID: 5598578138816636371, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: lookAheadDistance
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731099232460940579, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7077681543193665962, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: m_SortingLayerID

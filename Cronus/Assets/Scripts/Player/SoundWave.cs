@@ -8,7 +8,7 @@ public class SoundWave : MonoBehaviour
 
     [Header("Settings")]
     // 建议在 Inspector 中将 expandSpeed 设为 40-60，fadeSpeed 设为 2-3
-    public float expandSpeed = 30f; // 大幅提升扩散速度
+    public float expandSpeed = 100f; // 大幅提升扩散速度
     public float fadeSpeed = 2f;   // 淡出速度
 
     public void Setup(float radius)
