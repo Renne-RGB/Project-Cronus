@@ -72737,6 +72737,10 @@ PrefabInstance:
       value: Enemy_Noob1
       objectReference: {fileID: 0}
     - target: {fileID: 8807365434920030060, guid: 74729a741cb4adc4a8b7af3c00091086, type: 3}
+      propertyPath: patroPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807365434920030060, guid: 74729a741cb4adc4a8b7af3c00091086, type: 3}
       propertyPath: 'patroPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1046130962}
