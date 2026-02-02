@@ -21,7 +21,7 @@ public class WitchTimeManager : MonoBehaviour
         if (IsWitchTimeActive)
             return;
 
-        player.invincibleTimer = player.dashDuration + 1.0f;
+        player.invincibleTimer = duration;
         player.SetInvincibleFlash(false);
 
         StartCoroutine(WitchTimeRoutine());

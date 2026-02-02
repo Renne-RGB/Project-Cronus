@@ -36,7 +36,10 @@ public class Enemy_ChaseState : EnemyState
         //まだプレイヤーを見失っていない場合のみ、感知距離内であれば隠れているプレイヤーも追跡する
         if (!hasLostPlayer && (isVisible || distToPlayer <= enemy.suspiciousDistance))
         {
-            SearchRingManager.Instance.LastTargetPosition = enemy.targetPlayer.transform.position;
+            if (enemy.hasDirectLineOfSight)
+            {
+                SearchRingManager.Instance.LastTargetPosition = enemy.targetPlayer.transform.position;
+            }
             enemy.currentChaseTimer = enemy.chaseDuration;
             enemy.ClearSearchRing();
 

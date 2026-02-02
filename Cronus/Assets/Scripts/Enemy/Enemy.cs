@@ -48,6 +48,7 @@ public class Enemy : Entity
     public float currentSpeed = 0;
     public float chaseDuration = 3f;
     public float currentChaseTimer = 0f;
+    public bool hasDirectLineOfSight { get; private set; } = false;     //直接視線が通っているかのフラグ
     [SerializeField] private bool AlertFlag = false;
 
     //（金）キャンバスの宣言
@@ -189,6 +190,8 @@ public class Enemy : Entity
 
     public void GetPlayerTransform()
     {
+        hasDirectLineOfSight = false;
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, suspiciousDistance, playerLayer);
 
         if (colliders.Length > 0)
@@ -222,6 +225,9 @@ public class Enemy : Entity
                     distance = distToPlayer;
                     loseTargetTimer = 0f;
 
+                    //視線が通って視野角内ならtrueにする
+                    hasDirectLineOfSight = true;
+
                     if (stateMachine.currentState == susState)
                     {
                         SearchRingManager.Instance.LastTargetPosition = target.position;
@@ -234,7 +240,7 @@ public class Enemy : Entity
         if (playerTransform != null)
         {
             loseTargetTimer += Time.deltaTime;
-            if (loseTargetTimer >= loseTargetDelay)
+            if (loseTargetTimer >= Time.unscaledDeltaTime)
             {
                 playerTransform = null;
             }
