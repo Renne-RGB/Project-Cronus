@@ -248,7 +248,7 @@ public class Enemy : Entity
 
         bool shouldTrackPlayer = playerTransform != null && targetPlayer != null && !targetPlayer.IsHidden();
 
-        // ターゲットの決定：プレイヤーが見えていればプレイヤー、いなければ共有の最後目撃地点
+        //ターゲットの決定：プレイヤーが見えていればプレイヤー、いなければ共有の最後目撃地点
         Vector3 targetPos = shouldTrackPlayer ? playerTransform.position : SearchRingManager.Instance.LastTargetPosition;
 
         if (pathGenerateTimer >= pathGenerateInterval)
@@ -259,7 +259,7 @@ public class Enemy : Entity
 
         if (pathPointList != null && currentIndex < pathPointList.Count)
         {
-            // 経路の補正：次のポイントが現在地より近い場合はスキップ
+            //経路の補正：次のポイントが現在地より近い場合はスキップ
             if (currentIndex + 1 < pathPointList.Count)
             {
                 if (Vector2.Distance(transform.position, pathPointList[currentIndex + 1]) <
@@ -269,7 +269,7 @@ public class Enemy : Entity
                 }
             }
 
-            // 到達判定
+            //到達判定
             if (Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.4f)
             {
                 currentIndex++;
@@ -391,13 +391,13 @@ public class Enemy : Entity
         return AlertFlag;
     }
 
-    // 共有検索赤い円の生成・更新
+    //共有検索赤い円の生成・更新
     public void UpdateSharedSearchRing(Vector3 position)
     {
         SearchRingManager.Instance.GenerateSearchRing(position);
     }
 
-    // 赤い円とタイマーの強制クリア（プレイヤー発見時に使用）
+    //赤い円とタイマーの強制クリア（プレイヤー発見時に使用）
     public void ClearSearchRing()
     {
         if (SearchRingManager.Instance.HasActiveRing())
@@ -442,12 +442,12 @@ public class Enemy : Entity
     {
         base.OnTriggerEnter2D(other);
 
-        // 1. プレイヤーとの衝突判定
+        //プレイヤーとの衝突判定
         if (other.CompareTag("Player"))
         {
             Player player = other.GetComponent<Player>();
 
-            // プレイヤーがチャージ中
+            //プレイヤーがチャージ中
             if (player != null && player.GetCurrentState() == player.chargeActionState)
             {
                 Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
@@ -456,7 +456,7 @@ public class Enemy : Entity
                 if (playerChargeDir == Vector2.zero)
                     playerChargeDir = (transform.position - player.transform.position).normalized;
 
-                // プレイヤーへの反動
+                //プレイヤーへの反動
                 if (playerRb != null)
                 {
                     //Idle状態戻る
@@ -465,7 +465,7 @@ public class Enemy : Entity
                     playerRb.AddForce(-playerChargeDir * player.chargeRecoilForce, ForceMode2D.Impulse);
                 }
 
-                // 敵へのノックバック処理
+                //敵へのノックバック処理
                 rb.linearVelocity = Vector2.zero;
                 rb.AddForce(playerChargeDir * knockbackForceEnemy, ForceMode2D.Impulse);
 
@@ -489,7 +489,7 @@ public class Enemy : Entity
             if (normal == Vector2.zero) normal = -rb.linearVelocity.normalized;
 
             //壁からの跳ね返り
-            rb.linearVelocity = Vector2.zero; // 既存の速度を消して、純粋な跳ね返りにする
+            rb.linearVelocity = Vector2.zero;
             rb.AddForce(normal * wallBounceForce, ForceMode2D.Impulse);
 
             //壁に当たったら FaintState へ移行

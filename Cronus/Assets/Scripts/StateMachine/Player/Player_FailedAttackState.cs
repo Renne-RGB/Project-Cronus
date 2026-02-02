@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// 玩家暗杀失败（被弹刀）的状态
 public class Player_FailedAttackState : PlayerState
 {
     public Player_FailedAttackState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)

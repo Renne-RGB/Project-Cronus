@@ -23,7 +23,7 @@ public class FieldOfView : MonoBehaviour
         meshFilter = GetComponent<MeshFilter>();
         meshFilter.mesh = mesh;
 
-        // 描画順序を調整する
+        //描画順序を調整する
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         if (renderer != null)
         {
@@ -78,12 +78,12 @@ public class FieldOfView : MonoBehaviour
 
             vertices[vertexIndex] = vertex;
 
-            // 三角形のインデックスを構築
+            //三角形のインデックスを構築
             if (i > 0)
             {
-                triangles[triangleIndex + 0] = 0;             // 原点
-                triangles[triangleIndex + 1] = vertexIndex - 1; // 前の頂点
-                triangles[triangleIndex + 2] = vertexIndex;     // 現在の頂点
+                triangles[triangleIndex + 0] = 0;             //原点
+                triangles[triangleIndex + 1] = vertexIndex - 1; //前の頂点
+                triangles[triangleIndex + 2] = vertexIndex;     //現在の頂点
 
                 triangleIndex += 3;
             }

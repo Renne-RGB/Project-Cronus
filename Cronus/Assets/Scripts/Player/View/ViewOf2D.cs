@@ -317,23 +317,18 @@ public class ViewOf2D : MonoBehaviour
 
     private void CheckEnemiesVisibility()
     {
-        // 1. 找到半径内所有的敌人
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyLayer);
 
         foreach (var enemyCollider in enemies)
         {
-            // 2. 获取父物体上的处理器
             var handler = enemyCollider.GetComponent<EnemyVisibilityHandler>();
             if (handler == null) continue;
 
-            // 3. 射线检测：从玩家指向敌人 Collider 中心
             Vector2 direction = enemyCollider.bounds.center - transform.position;
             float dist = direction.magnitude;
 
-            // 检查路径上是否有障碍物层级的东西
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, dist, blockLayerMask);
 
-            // 如果没有命中障碍物，说明可见
             bool isVisible = (hit.collider == null);
             handler.UpdateVisibility(isVisible);
         }
@@ -342,6 +337,6 @@ public class ViewOf2D : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radius); // 画出检测范围
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

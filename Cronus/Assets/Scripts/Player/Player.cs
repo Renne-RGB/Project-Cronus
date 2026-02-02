@@ -287,7 +287,7 @@ public class Player : Entity
         }
     }
 
-    // エディタ上で音の範囲を可視化する
+    //エディタ上で音の範囲を可視化する
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(1, 1, 0, 0.3f);

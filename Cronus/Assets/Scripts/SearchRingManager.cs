@@ -6,12 +6,11 @@ public class SearchRingManager : MonoBehaviour
 
     [Header("Search Ring Settings")]
     public GameObject searchRingPrefab;
-    public float searchRingDuration = 10.0f; // 捜索リングの存在時間
+    public float searchRingDuration = 10.0f; //捜索リングの存在時間
 
-    // プレイヤー消える寸前の座標 (原本在Enemy里的static变量)
+    //プレイヤー消える寸前の座標
     public Vector3 LastTargetPosition { get; set; }
 
-    // 原本的 sharedSearchRing
     private GameObject currentSearchRing;
 
     private void Awake()
@@ -26,7 +25,7 @@ public class SearchRingManager : MonoBehaviour
         }
     }
 
-    // 共有検索赤い円の生成
+    //共有検索赤い円の生成
     public void GenerateSearchRing(Vector3 position)
     {
         LastTargetPosition = position;

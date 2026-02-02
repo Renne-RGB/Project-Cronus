@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player_RunState : Player_MoveState
 {
-    private float moveSpeedMul = 2.0f; // 跑步速度倍率
+    private float moveSpeedMul = 2.0f;
     private float playerSpeedTemp = 0f;
 
     public Player_RunState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)

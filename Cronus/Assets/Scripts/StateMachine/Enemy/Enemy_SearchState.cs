@@ -77,7 +77,6 @@ public class Enemy_SearchState : EnemyState
         if (direction != Vector2.zero)
         {
             enemy.aimDirection = direction;
-            // 确保 Sprite 翻转逻辑同步（虽然 Dash 里通常有，但这能保证视野和身体一致）
             if (Mathf.Abs(direction.x) > 0.1f)
                 enemy.sr.flipX = direction.x < 0;
         }

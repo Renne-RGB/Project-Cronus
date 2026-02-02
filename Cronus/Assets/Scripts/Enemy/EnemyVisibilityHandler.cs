@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// クラスの外に定義することでアクセスを容易にする
+//クラスの外に定義することでアクセスを容易にする
 public enum VisibilityState { Visible, RecentlyHidden, Hidden }
 
 public class EnemyVisibilityHandler : MonoBehaviour
@@ -14,14 +14,14 @@ public class EnemyVisibilityHandler : MonoBehaviour
     private VisibilityState currentState = VisibilityState.Hidden;
     private float timer;
 
-    // Animatorのレイヤーインデックス（0:Base, 1:Outline, 2:Ripple）
+    //Animatorのレイヤーインデックス（0:Base, 1:Outline, 2:Ripple）
     private const int LAYER_NORMAL = 0;
     private const int LAYER_OUTLINE = 1;
     private const int LAYER_RIPPLE = 2;
 
     void Start()
     {
-        // 初期状態の適用
+        //初期状態の適用
         ApplyState(VisibilityState.Hidden);
     }
 
@@ -51,25 +51,25 @@ public class EnemyVisibilityHandler : MonoBehaviour
     {
         currentState = newState;
 
-        // 全てのオーバーレイレイヤーの重みを一旦リセット（0にする）
-        // これにより、Base Layerのアニメーション状態を壊さずに見た目だけを切り替える
+        //全てのオーバーレイレイヤーの重みを一旦リセット（0にする）
+        //これにより、Base Layerのアニメーション状態を壊さずに見た目だけを切り替える
         actionAnimator.SetLayerWeight(LAYER_OUTLINE, 0f);
         actionAnimator.SetLayerWeight(LAYER_RIPPLE, 0f);
 
         switch (newState)
         {
             case VisibilityState.Visible:
-                // Base Layerのみが表示される（他のWeightが0のため）
+                //Base Layerのみが表示される（他のWeightが0のため）
                 break;
 
             case VisibilityState.RecentlyHidden:
-                // Outlineレイヤーを最前面に表示
+                //Outlineレイヤーを最前面に表示
                 actionAnimator.SetLayerWeight(LAYER_OUTLINE, 1f);
                 timer = ghostDuration;
                 break;
 
             case VisibilityState.Hidden:
-                // Rippleレイヤーを最前面に表示
+                //Rippleレイヤーを最前面に表示
                 actionAnimator.SetLayerWeight(LAYER_RIPPLE, 1f);
                 break;
         }
