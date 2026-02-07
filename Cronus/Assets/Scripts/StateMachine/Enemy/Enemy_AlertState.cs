@@ -55,7 +55,7 @@ public class Enemy_AlertState : EnemyState
         {
             stateMachine.ChangeState(enemy.shootState);
         }
-        else if(enemy.canChase)
+        else if (enemy.canChase)
         {
             stateMachine.ChangeState(enemy.chaseState);
         }

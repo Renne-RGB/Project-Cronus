@@ -124,6 +124,7 @@
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_AttackState.cs" />
     <Compile Include="Assets\Scripts\Icon\InteractionIcon.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_ShootState.cs" />
+    <Compile Include="Assets\Scripts\Door\InteractiveDoor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -11,6 +11,7 @@ public class Enemy_IdleState : EnemyState
     {
         base.Enter();
 
+        enemy.SetCanAssassed(true);
         //Timer = 0f;
         //待機状態の移動速度常に0にする
         enemy.rb.linearVelocity = Vector2.zero;

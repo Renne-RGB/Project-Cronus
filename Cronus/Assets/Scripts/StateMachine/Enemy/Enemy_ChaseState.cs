@@ -21,7 +21,8 @@ public class Enemy_ChaseState : EnemyState
         base.Update();
         enemy.GetPlayerTransform();
 
-        if (enemy.targetPlayer == null) return;
+        if (enemy.targetPlayer == null)
+            return;
 
         float distToPlayer = Vector2.Distance(enemy.transform.position, enemy.targetPlayer.transform.position);
         bool isVisible = enemy.playerTransform != null && !enemy.targetPlayer.IsHidden();
@@ -39,36 +40,56 @@ public class Enemy_ChaseState : EnemyState
             if (enemy.hasDirectLineOfSight)
             {
                 SearchRingManager.Instance.LastTargetPosition = enemy.targetPlayer.transform.position;
+
+                enemy.ClearSearchRing();
             }
+            
             enemy.currentChaseTimer = enemy.chaseDuration;
-            enemy.ClearSearchRing();
 
             if (CheckAttackConditions(distToPlayer, true))
                 return;
+
+            if (distToPlayer > enemy.minChaseMoveDistance)
+            {
+                MoveTowardsTarget();
+            }
+            else
+            {
+                enemy.MovementInput = Vector2.zero;
+                enemy.Dash();
+            }
         }
         else
         {
             // プレイヤーを見失ったため、searchモードへ移行
             hasLostPlayer = true;
+            Vector3 lastSeenPos = SearchRingManager.Instance.LastTargetPosition;
+            float distToLastPos = Vector2.Distance(enemy.transform.position, lastSeenPos);
+
             //赤い円が時間経過で自然に消滅した場合は、ここで再生成されない
             if (enemy.GetAlert() && !hasSearchRing && !isVisible)
             {
-                enemy.UpdateSharedSearchRing(SearchRingManager.Instance.LastTargetPosition);
-                enemy.SetCanAssassed(true); // 暗殺可能な状態に設定
+                if (distToLastPos > enemy.minSearchRingDistance)
+                {
+                    enemy.UpdateSharedSearchRing(lastSeenPos);
+                    enemy.SetCanAssassed(true);// 暗殺可能な状態に設定
+                }
             }
 
-            Vector3 targetPos = SearchRingManager.Instance.LastTargetPosition;
-            float distanceToRing = Vector2.Distance(enemy.transform.position, targetPos);
+            MoveTowardsTarget();
+
+            // Vector3 targetPos = SearchRingManager.Instance.LastTargetPosition;
+            // float distanceToRing = Vector2.Distance(enemy.transform.position, targetPos);
 
             //リングの位置に到達したらSearchStateに切り替え
-            if (distanceToRing <= 1.2f)
+            if (distToLastPos <= 1.2f)
             {
                 stateMachine.ChangeState(enemy.searchState);
                 return;
             }
         }
 
-        MoveTowardsTarget();
+        // MoveTowardsTarget();
     }
 
     private bool CheckAttackConditions(float distance, bool ignoreHidden)

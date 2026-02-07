@@ -5,7 +5,7 @@ public class Enemy_InvestigateState : EnemyState
     private Vector2 direction;
     private bool hasReachedDestination = false;
 
-    public Enemy_InvestigateState(Enemy enemy, StateMachine stateMachine, string animBoolName) 
+    public Enemy_InvestigateState(Enemy enemy, StateMachine stateMachine, string animBoolName)
         : base(enemy, stateMachine, animBoolName)
     {
     }
@@ -17,7 +17,7 @@ public class Enemy_InvestigateState : EnemyState
         enemy.SetAlert(false);
         hasReachedDestination = false;
 
-        enemy.pathPointList = null; 
+        enemy.pathPointList = null;
         enemy.currentIndex = 0;
 
         Vector3 targetPos = SearchRingManager.Instance.LastTargetPosition;
@@ -40,48 +40,43 @@ public class Enemy_InvestigateState : EnemyState
             stateMachine.ChangeState(enemy.idleState);
             return;
         }
-        if (enemy.pathPointList == null || enemy.pathPointList.Count == 0)
-        {
-            enemy.rb.linearVelocity = Vector2.zero; 
-            return;
-        }
 
-        //赤い円までの距離
-        float distanceToTarget = Vector2.Distance(enemy.transform.position, SearchRingManager.Instance.LastTargetPosition);
-            
-        //詰まるチェック
-        if (distanceToTarget <= 0.5f || enemy.currentIndex >= enemy.pathPointList.Count)
-        {
-            ArriveAtDestination();
-            return;
-        }
+        // 3. 执行移动逻辑
+        MoveAndCheckArrival();
+    }
 
-        Vector3 currentWaypoint = enemy.pathPointList[enemy.currentIndex];
-        float distanceToWaypoint = Vector2.Distance(enemy.transform.position, currentWaypoint);
+    private void MoveAndCheckArrival()
+    {
+        enemy.AutoPath();
 
-        if (distanceToWaypoint <= 0.5f)
+        if (enemy.pathPointList != null && enemy.currentIndex < enemy.pathPointList.Count)
         {
-            enemy.currentIndex++;
-            if (enemy.currentIndex >= enemy.pathPointList.Count)
+            enemy.MovementInput = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
+            enemy.Dash();
+
+            //赤い円に到達しているか
+            float distToTarget = Vector2.Distance(enemy.transform.position, SearchRingManager.Instance.LastTargetPosition);
+            if (distToTarget <= 1.2f)
             {
                 ArriveAtDestination();
-                return;
             }
         }
-
-        direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
-        enemy.MovementInput = direction;
-        enemy.Dash();
+        else
+        {
+            enemy.MovementInput = Vector2.zero;
+            enemy.Dash();
+        }
     }
 
     private void ArriveAtDestination()
     {
-        if (hasReachedDestination) return;
+        if (hasReachedDestination)
+            return;
         hasReachedDestination = true;
 
         enemy.MovementInput = Vector2.zero;
         enemy.rb.linearVelocity = Vector2.zero;
-        
+
         stateMachine.ChangeState(enemy.searchState);
     }
 }

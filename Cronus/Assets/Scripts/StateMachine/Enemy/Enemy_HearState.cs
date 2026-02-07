@@ -40,25 +40,27 @@ public class Enemy_HearState : EnemyState
     public override void Exit()
     {
         base.Exit();
-        // 退出状态时不需特殊处理，因为 Enter 下一个状态（如 Chase）会重新设置速度
     }
 
     private void DetermineNextState()
     {
-        //プレイヤーに見つけったら
+        //プレイヤーに見つかったら
         if (enemy.playerTransform != null)
         {
             stateMachine.ChangeState(enemy.alertState);
         }
-        //赤い円があれば
+        //赤い円をチェック
         else if (SearchRingManager.Instance.HasActiveRing())
         {
             stateMachine.ChangeState(enemy.investigateState);
         }
-        //なんだねこか
         else
         {
-            stateMachine.ChangeState(enemy.idleState);
+            float distToLastPos = Vector2.Distance(enemy.transform.position, SearchRingManager.Instance.LastTargetPosition);
+            if (distToLastPos > 2f)
+                stateMachine.ChangeState(enemy.investigateState);
+            else
+                stateMachine.ChangeState(enemy.idleState);
         }
     }
 }

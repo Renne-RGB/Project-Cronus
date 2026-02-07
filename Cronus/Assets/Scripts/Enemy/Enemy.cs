@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Enemy : Entity
 {
+    public static int globalAlertCount = 0;     //今警戒中の敵数
+
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
     public Enemy_ChaseState chaseState;
@@ -61,7 +63,8 @@ public class Enemy : Entity
     [Header("Detection Settings")]
     public float loseTargetDelay = 2.0f; //プレイヤーが消えて何秒から赤い円を生成する
     private float loseTargetTimer = 0f;
-
+    public float minSearchRingDistance = 4f;
+    public float minChaseMoveDistance = 1.5f;
 
     private Seeker seeker;
     public List<Vector3> pathPointList;        //ルーティングリスト
@@ -239,8 +242,9 @@ public class Enemy : Entity
 
         if (playerTransform != null)
         {
-            loseTargetTimer += Time.deltaTime;
-            if (loseTargetTimer >= Time.unscaledDeltaTime)
+            loseTargetTimer += Time.unscaledDeltaTime;
+
+            if (loseTargetTimer >= loseTargetDelay)
             {
                 playerTransform = null;
             }
@@ -367,7 +371,18 @@ public class Enemy : Entity
 
     public void SetAlert(bool alert)
     {
+        if (AlertFlag == alert)
+            return;
+
         AlertFlag = alert;
+
+        if (alert)
+            globalAlertCount++;
+        else
+            globalAlertCount--;
+
+        globalAlertCount = Mathf.Max(0, globalAlertCount);
+
         if (alert)
         {
             currentChaseTimer = chaseDuration;
@@ -384,12 +399,7 @@ public class Enemy : Entity
             {
 
             }
-
-
-
         }
-
-
     }
 
     public bool GetAlert()
@@ -408,7 +418,10 @@ public class Enemy : Entity
     {
         if (SearchRingManager.Instance.HasActiveRing())
         {
-            SearchRingManager.Instance.DestroySearchRing();
+            if (playerTransform != null)
+            {
+                SearchRingManager.Instance.DestroySearchRing();
+            }
 
             //リングが消えた瞬間、プレイヤーが見えていなければ Idle へ戻る
             if (playerTransform == null && (stateMachine.currentState == chaseState || stateMachine.currentState == alertState))
@@ -421,25 +434,21 @@ public class Enemy : Entity
 
     public void OnHearSound(Vector3 soundPosition)
     {
-        if (isDead)
-            return;
         //すでにプレイヤーを目視している場合は、視覚優先のため音を無視する
-        if (playerTransform != null)
+        if (isDead || playerTransform != null)
             return;
-
-        //最後に確認されたターゲット座標を音の発生源に更新
-        SearchRingManager.Instance.LastTargetPosition = soundPosition;
 
         //赤い円（SearchRing）を生成
-        if (!SearchRingManager.Instance.HasActiveRing())
-        {
-            UpdateSharedSearchRing(soundPosition);
-        }
+        UpdateSharedSearchRing(soundPosition);
 
-        //警戒状態（AlertState）に移行して、音の場所へ移動を開始する
-        if (stateMachine.currentState != alertState && stateMachine.currentState != chaseState && stateMachine.currentState != faintState)
+        //既に警備している敵がいればAlertになる
+        if (globalAlertCount > 0)
         {
-            //SetAlert(true);
+            stateMachine.ChangeState(alertState);
+        }
+        //警戒状態（AlertState）に移行して、音の場所へ移動を開始する
+        else if (stateMachine.currentState != alertState && stateMachine.currentState != chaseState && stateMachine.currentState != faintState)
+        {
             stateMachine.ChangeState(hearState);
         }
     }

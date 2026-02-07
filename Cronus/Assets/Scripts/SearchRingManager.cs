@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class SearchRingManager : MonoBehaviour
 {
@@ -6,26 +7,18 @@ public class SearchRingManager : MonoBehaviour
 
     [Header("Search Ring Settings")]
     public GameObject searchRingPrefab;
-    public float searchRingDuration = 10.0f; //捜索リングの存在時間
+    public float searchRingDuration = 10.0f;
 
-    //プレイヤー消える寸前の座標
     public Vector3 LastTargetPosition { get; set; }
-
     private GameObject currentSearchRing;
+    private Coroutine destroyCoroutine;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
-    //共有検索赤い円の生成
     public void GenerateSearchRing(Vector3 position)
     {
         LastTargetPosition = position;
@@ -33,8 +26,22 @@ public class SearchRingManager : MonoBehaviour
         if (currentSearchRing == null)
         {
             currentSearchRing = Instantiate(searchRingPrefab, position, Quaternion.identity);
-            Destroy(currentSearchRing, searchRingDuration);
         }
+        else
+        {
+            //もし既に存在している 最新の位置に更新
+            currentSearchRing.transform.position = position;
+            if (destroyCoroutine != null)
+                StopCoroutine(destroyCoroutine);
+        }
+
+        destroyCoroutine = StartCoroutine(RingTimer(searchRingDuration));
+    }
+
+    private IEnumerator RingTimer(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        DestroySearchRing();
     }
 
     public void DestroySearchRing()
@@ -44,10 +51,12 @@ public class SearchRingManager : MonoBehaviour
             Destroy(currentSearchRing);
             currentSearchRing = null;
         }
+        if (destroyCoroutine != null)
+        {
+            StopCoroutine(destroyCoroutine);
+            destroyCoroutine = null;
+        }
     }
 
-    public bool HasActiveRing()
-    {
-        return currentSearchRing != null;
-    }
+    public bool HasActiveRing() => currentSearchRing != null;
 }
