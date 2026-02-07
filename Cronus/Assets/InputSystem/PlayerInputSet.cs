@@ -146,9 +146,27 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Test"",
+                    ""name"": ""Test1"",
                     ""type"": ""Button"",
                     ""id"": ""69612522-a6fb-4bb7-9e9d-16bf2861e398"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test2"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f0dbfdd-9fa4-46fa-aed8-3a64d1255a58"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test3"",
+                    ""type"": ""Button"",
+                    ""id"": ""f39ac45a-9b65-4768-ac0f-e123b23d1471"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -335,11 +353,33 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""65c0779c-24a5-45eb-a4d8-c0498046565b"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard & Mouse"",
-                    ""action"": ""Test"",
+                    ""action"": ""Test1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3838f977-5f5a-4b16-8456-c5e1dce9d968"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Test2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98da95f4-1419-4deb-bb5e-929aa8473b1d"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Test3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -384,7 +424,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Charge = m_Player.FindAction("Charge", throwIfNotFound: true);
         m_Player_Active = m_Player.FindAction("Active", throwIfNotFound: true);
-        m_Player_Test = m_Player.FindAction("Test", throwIfNotFound: true);
+        m_Player_Test1 = m_Player.FindAction("Test1", throwIfNotFound: true);
+        m_Player_Test2 = m_Player.FindAction("Test2", throwIfNotFound: true);
+        m_Player_Test3 = m_Player.FindAction("Test3", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -471,7 +513,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Charge;
     private readonly InputAction m_Player_Active;
-    private readonly InputAction m_Player_Test;
+    private readonly InputAction m_Player_Test1;
+    private readonly InputAction m_Player_Test2;
+    private readonly InputAction m_Player_Test3;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -508,9 +552,17 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Active => m_Wrapper.m_Player_Active;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Test".
+        /// Provides access to the underlying input action "Player/Test1".
         /// </summary>
-        public InputAction @Test => m_Wrapper.m_Player_Test;
+        public InputAction @Test1 => m_Wrapper.m_Player_Test1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Test2".
+        /// </summary>
+        public InputAction @Test2 => m_Wrapper.m_Player_Test2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Test3".
+        /// </summary>
+        public InputAction @Test3 => m_Wrapper.m_Player_Test3;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -555,9 +607,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Active.started += instance.OnActive;
             @Active.performed += instance.OnActive;
             @Active.canceled += instance.OnActive;
-            @Test.started += instance.OnTest;
-            @Test.performed += instance.OnTest;
-            @Test.canceled += instance.OnTest;
+            @Test1.started += instance.OnTest1;
+            @Test1.performed += instance.OnTest1;
+            @Test1.canceled += instance.OnTest1;
+            @Test2.started += instance.OnTest2;
+            @Test2.performed += instance.OnTest2;
+            @Test2.canceled += instance.OnTest2;
+            @Test3.started += instance.OnTest3;
+            @Test3.performed += instance.OnTest3;
+            @Test3.canceled += instance.OnTest3;
         }
 
         /// <summary>
@@ -587,9 +645,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Active.started -= instance.OnActive;
             @Active.performed -= instance.OnActive;
             @Active.canceled -= instance.OnActive;
-            @Test.started -= instance.OnTest;
-            @Test.performed -= instance.OnTest;
-            @Test.canceled -= instance.OnTest;
+            @Test1.started -= instance.OnTest1;
+            @Test1.performed -= instance.OnTest1;
+            @Test1.canceled -= instance.OnTest1;
+            @Test2.started -= instance.OnTest2;
+            @Test2.performed -= instance.OnTest2;
+            @Test2.canceled -= instance.OnTest2;
+            @Test3.started -= instance.OnTest3;
+            @Test3.performed -= instance.OnTest3;
+            @Test3.canceled -= instance.OnTest3;
         }
 
         /// <summary>
@@ -699,11 +763,25 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnActive(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Test" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Test1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnTest(InputAction.CallbackContext context);
+        void OnTest1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Test2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTest2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Test3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTest3(InputAction.CallbackContext context);
     }
 }

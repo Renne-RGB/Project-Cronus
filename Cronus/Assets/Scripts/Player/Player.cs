@@ -74,6 +74,8 @@ public class Player : Entity
     public bool isHidden = false;
     private List<HideSpot> hideSpotsInRange = new List<HideSpot>();
     private HideSpot lastFrameHideSpot;
+    [Header("UI")]
+    public HealthUIManager healthUI;
     protected override void Awake()
     {
         base.Awake();
@@ -122,6 +124,9 @@ public class Player : Entity
 
         if (chargeBarHolder != null)
             chargeBarHolder.SetActive(false);
+
+        if (healthUI != null)
+            healthUI.InitHealth(currentHP);
     }
 
     protected override void Update()
@@ -153,9 +158,17 @@ public class Player : Entity
         if (shakeTimer > 0)
             shakeTimer -= Time.unscaledDeltaTime;
 
-        if (input.Player.Test.WasPressedThisFrame())
+        if (input.Player.Test1.WasPressedThisFrame())
         {
             witchTimeManager.ActivateWitchTime();
+        }
+        if (input.Player.Test2.WasPressedThisFrame())
+        {
+            ChangeHP(-1);
+        }
+        if (input.Player.Test3.WasPressedThisFrame())
+        {
+            ChangeHP(1);
         }
     }
 
@@ -428,6 +441,12 @@ public class Player : Entity
             return;
 
         currentHP += count;
+        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
+
+        if (healthUI != null)
+        {
+            healthUI.UpdateUI(currentHP);
+        }
     }
 
     public void PlayErrorShake()

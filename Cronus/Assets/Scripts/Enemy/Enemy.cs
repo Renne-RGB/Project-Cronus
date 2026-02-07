@@ -114,7 +114,7 @@ public class Enemy : Entity
         fieldOfView.SetViewDistance(viewDistance);
 
         //（金）キャンバスの取得
-        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        //canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 
     }
 
@@ -388,17 +388,17 @@ public class Enemy : Entity
             currentChaseTimer = chaseDuration;
 
             // (金)アラートプレファブを複製しキャンバスの親子関係にし、SendMessageでキャンバスに登録
-            if (canvas.GetComponent<UIManager>().alert == null)
-            {
-                Vector2 pos = canvas.transform.position;
-                Vector3 rot = new Vector3(0.0f, 0.0f, 0.0f);
-                GameObject newAlert = Instantiate(alertPrefab, pos, Quaternion.Euler(rot), canvas.transform);
-                canvas.SendMessage("GetAlertPrefab", newAlert);
-            }
-            else if (canvas.GetComponent<UIManager>().alert != null)
-            {
+            // if (canvas.GetComponent<UIManager>().alert == null)
+            // {
+            //     Vector2 pos = canvas.transform.position;
+            //     Vector3 rot = new Vector3(0.0f, 0.0f, 0.0f);
+            //     GameObject newAlert = Instantiate(alertPrefab, pos, Quaternion.Euler(rot), canvas.transform);
+            //     canvas.SendMessage("GetAlertPrefab", newAlert);
+            // }
+            // else if (canvas.GetComponent<UIManager>().alert != null)
+            // {
 
-            }
+            // }
         }
     }
 
