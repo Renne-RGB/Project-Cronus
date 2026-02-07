@@ -47,7 +47,7 @@ public class Enemy : Entity
     public float suspiciousDistance = 15f; // 疑惑距離
     public Image questionMarkImage;
     [Header("Chase")]
-    public float currentSpeed = 0;
+    public float currentSpeed;
     public float chaseDuration = 3f;
     public float currentChaseTimer = 0f;
     public bool hasDirectLineOfSight { get; private set; } = false;     //直接視線が通っているかのフラグ

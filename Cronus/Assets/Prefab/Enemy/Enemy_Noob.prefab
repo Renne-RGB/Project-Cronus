@@ -340,7 +340,7 @@ MonoBehaviour:
   fov: 90
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 16448
 --- !u!1 &2885043149566401961
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +833,8 @@ MonoBehaviour:
   alertPrefab: {fileID: 6310532776294897818, guid: afdeec3e75c119444a8ada1199bd43eb, type: 3}
   chaseDistance: 20
   loseTargetDelay: 4
+  minSearchRingDistance: 4
+  minChaseMoveDistance: 1.5
   pathPointList: []
   pathReady: 0
   currentIndex: 0

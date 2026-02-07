@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI &amp; Menu\CheckGameClear.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy_Chad.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_FailedAttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_MoveState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_AlertState.cs" />
