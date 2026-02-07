@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_CqbState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_SearchState.cs" />
     <Compile Include="Assets\Scripts\Player\SoundWave.cs" />
+    <Compile Include="Assets\Scripts\Player\AfterimageEffect.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_PrepareChargeState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />

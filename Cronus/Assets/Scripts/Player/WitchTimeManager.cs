@@ -4,6 +4,7 @@ using System.Collections;
 public class WitchTimeManager : MonoBehaviour
 {
     private Player player;
+    private AfterimageEffect afterimage;
     public bool IsWitchTimeActive { get; private set; }
 
     [Header("Settings")]
@@ -14,6 +15,15 @@ public class WitchTimeManager : MonoBehaviour
     public void Init(Player player)
     {
         this.player = player;
+
+        afterimage = GetComponent<AfterimageEffect>();
+        if (afterimage == null) afterimage = gameObject.AddComponent<AfterimageEffect>();
+
+        SpriteRenderer playerSR = player.GetComponentInChildren<SpriteRenderer>();
+        if (playerSR != null)
+        {
+            afterimage.SetTarget(playerSR);
+        }
     }
 
     public void ActivateWitchTime()
@@ -23,6 +33,9 @@ public class WitchTimeManager : MonoBehaviour
 
         player.invincibleTimer = duration;
         player.SetInvincibleFlash(false);
+
+        if (afterimage != null)
+            afterimage.StartEffect();
 
         StartCoroutine(WitchTimeRoutine());
     }
@@ -55,6 +68,9 @@ public class WitchTimeManager : MonoBehaviour
 
         if (player.anim != null)
             player.anim.speed = 1f;
+
+        if (afterimage != null)
+            afterimage.StopEffect();
 
         StopAllCoroutines();
 
