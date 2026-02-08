@@ -33,6 +33,7 @@ public class ViewOf2D : MonoBehaviour
 
     void LateUpdate()
     {
+        Physics2D.SyncTransforms();
         UpdateView();
     }
 

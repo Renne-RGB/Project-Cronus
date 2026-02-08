@@ -46,6 +46,26 @@ public class InteractiveDoor : MonoBehaviour
 
         Vector3 targetPos = isOpen ? openPos : closedPos;
         doorVisual.localPosition = Vector3.Lerp(doorVisual.localPosition, targetPos, Time.deltaTime * slideSpeed);
+
+        if (!isOpen)
+        {
+            float dist = Vector3.Distance(doorVisual.localPosition, closedPos);
+            if (dist < 0.02f) //完全に閉じたら
+            {
+                if (!obstacleCollider.enabled)
+                {
+                    doorVisual.localPosition = closedPos;
+                    obstacleCollider.enabled = true;
+                    UpdateNavigation();
+                }
+            }
+            else
+            {
+                //スライド中見えないとする
+                if (obstacleCollider.enabled)
+                    obstacleCollider.enabled = false;
+            }
+        }
     }
 
     private void HandleDoorLogic()
@@ -86,10 +106,18 @@ public class InteractiveDoor : MonoBehaviour
         isOpen = open;
         obstacleCollider.enabled = !open;
 
-        if (AstarPath.active != null)
+        if (isOpen)
         {
-            Bounds bounds = obstacleCollider.bounds;
-            AstarPath.active.UpdateGraphs(bounds);
+            obstacleCollider.enabled = false;
+            UpdateNavigation();
+        }
+    }
+
+    private void UpdateNavigation()
+    {
+        if (AstarPath.active != null && obstacleCollider != null)
+        {
+            AstarPath.active.UpdateGraphs(obstacleCollider.bounds);
         }
     }
 
