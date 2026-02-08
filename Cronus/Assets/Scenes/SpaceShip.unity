@@ -74814,6 +74814,10 @@ PrefabInstance:
       propertyPath: meshFilter
       value: 
       objectReference: {fileID: 814196086}
+    - target: {fileID: 3400461127540225928, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
+      propertyPath: blockLayerMask.m_Bits
+      value: 16448
+      objectReference: {fileID: 0}
     - target: {fileID: 5417360343398618148, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: m_Name
       value: Player
