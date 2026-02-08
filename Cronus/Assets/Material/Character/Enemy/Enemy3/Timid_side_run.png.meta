@@ -1,28 +1,25 @@
 fileFormatVersion: 2
-guid: 7bf0c90c7169b604a997cfa96fc2dbbc
+guid: 0d148ef918dbb9240b69c50379d709c0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6524610951274160103
-    second: enemy2_back_dead_0
+      213: 1505611100707671751
+    second: Timid_side_run_0
   - first:
-      213: 9039535927731680886
-    second: enemy2_back_dead_1
+      213: -8926651179575476366
+    second: Timid_side_run_1
   - first:
-      213: -6805234291199358374
-    second: enemy2_back_dead_2
+      213: 7712009045663015358
+    second: Timid_side_run_2
   - first:
-      213: 2734717020219069975
-    second: enemy2_back_dead_3
+      213: -6565790228909529212
+    second: Timid_side_run_3
   - first:
-      213: 564941041465199419
-    second: enemy2_back_dead_4
+      213: -2600824179370454983
+    second: Timid_side_run_4
   - first:
-      213: 6919849895165655399
-    second: enemy2_back_dead_5
-  - first:
-      213: -5835873321453119192
-    second: enemy2_back_dead_6
+      213: 1962256165468668524
+    second: Timid_side_run_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,155 +115,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_back_dead_0
+      name: Timid_side_run_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 5
-        width: 23
-        height: 35
+        x: 0
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9102eaf98ece375a0800000000000000
-      internalID: -6524610951274160103
+      spriteID: 700ee1226eff8e04598efeea60a7016a
+      internalID: 1593317274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_dead_1
+      name: Timid_side_run_1
       rect:
         serializedVersion: 2
-        x: 86
-        y: 5
-        width: 25
-        height: 35
+        x: 64
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 676f3d26802e27d70800000000000000
-      internalID: 9039535927731680886
+      spriteID: 257df29dbc388dd43be70044328f9025
+      internalID: 1744760037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_dead_2
+      name: Timid_side_run_2
       rect:
         serializedVersion: 2
-        x: 154
-        y: 5
-        width: 26
-        height: 34
+        x: 128
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a5a41c3c773fe81a0800000000000000
-      internalID: -6805234291199358374
+      spriteID: 5ecca2c0a866726428e492483a43a596
+      internalID: 103872746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_dead_3
+      name: Timid_side_run_3
       rect:
         serializedVersion: 2
-        x: 219
-        y: 5
-        width: 28
-        height: 31
+        x: 192
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7165f5704aaa3f520800000000000000
-      internalID: 2734717020219069975
+      spriteID: 66af599d48c8eec4d8c7e6006c7adb20
+      internalID: 1250192421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_dead_4
+      name: Timid_side_run_4
       rect:
         serializedVersion: 2
-        x: 286
-        y: 6
-        width: 30
-        height: 27
+        x: 256
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b3b829f42e217d700800000000000000
-      internalID: 564941041465199419
+      spriteID: 210b421a84f18554fb4789483d8521d8
+      internalID: -924187246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_dead_5
+      name: Timid_side_run_5
       rect:
         serializedVersion: 2
-        x: 349
-        y: 7
-        width: 33
-        height: 21
+        x: 320
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7697f5411de380060800000000000000
-      internalID: 6919849895165655399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy2_back_dead_6
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 3
-        width: 34
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8299b984220d20fa0800000000000000
-      internalID: -5835873321453119192
+      spriteID: 18a00575cc9437e4a932b45f356a6a9c
+      internalID: 690269240
       vertices: []
       indices: 
       edges: []
@@ -275,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 69921a4dfc28f214babf3501a5596020
     internalID: 0
     vertices: []
     indices: 
@@ -285,13 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy2_back_dead_0: -6524610951274160103
-      enemy2_back_dead_1: 9039535927731680886
-      enemy2_back_dead_2: -6805234291199358374
-      enemy2_back_dead_3: 2734717020219069975
-      enemy2_back_dead_4: 564941041465199419
-      enemy2_back_dead_5: 6919849895165655399
-      enemy2_back_dead_6: -5835873321453119192
+      Timid_side_run_0: 1593317274
+      Timid_side_run_1: 1744760037
+      Timid_side_run_2: 103872746
+      Timid_side_run_3: 1250192421
+      Timid_side_run_4: -924187246
+      Timid_side_run_5: 690269240
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

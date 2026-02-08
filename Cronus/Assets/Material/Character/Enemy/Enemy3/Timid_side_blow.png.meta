@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 41958d7062ec73e4781035c57ca24c59
+guid: 66628d3c4d6829a49a2de7b3917d740a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2989288653416319855
-    second: enemy2_back_wait_0
+      213: -3067358325712249938
+    second: Timid_side_blow_0
   - first:
-      213: 7190068635358589319
-    second: enemy2_back_wait_1
+      213: -2335850440329175695
+    second: Timid_side_blow_1
   - first:
-      213: 8280600801408334015
-    second: enemy2_back_wait_2
+      213: -8388475405819719520
+    second: Timid_side_blow_2
   - first:
-      213: 788925997082936932
-    second: enemy2_back_wait_3
+      213: -8333518396541957683
+    second: Timid_side_blow_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_back_wait_0
+      name: Timid_side_blow_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 5
-        width: 23
-        height: 34
+        x: 0
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 194b302cec9e386d0800000000000000
-      internalID: -2989288653416319855
+      spriteID: eab9515badd8e65d0800000000000000
+      internalID: -3067358325712249938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_wait_1
+      name: Timid_side_blow_1
       rect:
         serializedVersion: 2
-        x: 83
-        y: 5
-        width: 23
-        height: 35
+        x: 64
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 781f939445148c360800000000000000
-      internalID: 7190068635358589319
+      spriteID: 17d5dbf7664659fd0800000000000000
+      internalID: -2335850440329175695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_wait_2
+      name: Timid_side_blow_2
       rect:
         serializedVersion: 2
-        x: 147
-        y: 5
-        width: 23
-        height: 35
+        x: 128
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb832ce6e8a9ae270800000000000000
-      internalID: 8280600801408334015
+      spriteID: 0a0d30dff06269b80800000000000000
+      internalID: -8388475405819719520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_wait_3
+      name: Timid_side_blow_3
       rect:
         serializedVersion: 2
-        x: 211
-        y: 5
-        width: 23
-        height: 35
+        x: 192
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4660332b304d2fa00800000000000000
-      internalID: 788925997082936932
+      spriteID: dc90fe4db25695c80800000000000000
+      internalID: -8333518396541957683
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e28dd917555ccff4d9da7a8c763450b8
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy2_back_wait_0: -2989288653416319855
-      enemy2_back_wait_1: 7190068635358589319
-      enemy2_back_wait_2: 8280600801408334015
-      enemy2_back_wait_3: 788925997082936932
+      Timid_side_blow_0: -3067358325712249938
+      Timid_side_blow_1: -2335850440329175695
+      Timid_side_blow_2: -8388475405819719520
+      Timid_side_blow_3: -8333518396541957683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

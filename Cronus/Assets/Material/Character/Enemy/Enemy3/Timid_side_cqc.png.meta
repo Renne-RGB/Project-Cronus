@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: 834d4f3e82ce1014d8c56496c803c00a
+guid: c88169d2c8e4e904fb2bc0baa991838d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2762239979972782910
-    second: enemy2_front_dead_0
+      213: 2880429683491688066
+    second: Timid_side_cqc_0
   - first:
-      213: -5753322922446851628
-    second: enemy2_front_dead_1
+      213: 4546140539942010354
+    second: Timid_side_cqc_1
   - first:
-      213: 474434348275604128
-    second: enemy2_front_dead_2
+      213: -4307938350270761939
+    second: Timid_side_cqc_2
   - first:
-      213: 4798163635295001712
-    second: enemy2_front_dead_3
+      213: 2330060467413452181
+    second: Timid_side_cqc_3
   - first:
-      213: -6501982553797042499
-    second: enemy2_front_dead_4
+      213: -6585485830454599100
+    second: Timid_side_cqc_4
   - first:
-      213: -7681317106513730012
-    second: enemy2_front_dead_5
+      213: 4746527405068964874
+    second: Timid_side_cqc_5
+  - first:
+      213: -684936573249318656
+    second: Timid_side_cqc_6
+  - first:
+      213: -7279433159508960202
+    second: Timid_side_cqc_7
+  - first:
+      213: 8314961097864558787
+    second: Timid_side_cqc_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_front_dead_0
+      name: Timid_side_cqc_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 5
-        width: 23
-        height: 35
+        x: 0
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e3be8a670a2755620800000000000000
-      internalID: 2762239979972782910
+      spriteID: 28e4305398759f720800000000000000
+      internalID: 2880429683491688066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_front_dead_1
+      name: Timid_side_cqc_1
       rect:
         serializedVersion: 2
-        x: 90
-        y: 5
-        width: 26
-        height: 34
+        x: 64
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d17171d8471820b0800000000000000
-      internalID: -5753322922446851628
+      spriteID: 2fdfe3e0cb2271f30800000000000000
+      internalID: 4546140539942010354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_front_dead_2
+      name: Timid_side_cqc_2
       rect:
         serializedVersion: 2
-        x: 155
-        y: 5
-        width: 28
-        height: 31
+        x: 128
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0aa163ea687859600800000000000000
-      internalID: 474434348275604128
+      spriteID: d2434d515e02734c0800000000000000
+      internalID: -4307938350270761939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_front_dead_3
+      name: Timid_side_cqc_3
       rect:
         serializedVersion: 2
-        x: 222
-        y: 6
-        width: 30
-        height: 27
+        x: 192
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07c94ff8760869240800000000000000
-      internalID: 4798163635295001712
+      spriteID: 5950c5166a9065020800000000000000
+      internalID: 2330060467413452181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_front_dead_4
+      name: Timid_side_cqc_4
       rect:
         serializedVersion: 2
-        x: 285
-        y: 7
-        width: 33
-        height: 21
+        x: 256
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dbed329f05154c5a0800000000000000
-      internalID: -6501982553797042499
+      spriteID: 442a2625787ab94a0800000000000000
+      internalID: -6585485830454599100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_front_dead_5
+      name: Timid_side_cqc_5
       rect:
         serializedVersion: 2
-        x: 350
-        y: 3
-        width: 34
-        height: 21
+        x: 320
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +249,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4262e1bf9ca766590800000000000000
-      internalID: -7681317106513730012
+      spriteID: a04dac7d68d0fd140800000000000000
+      internalID: 4746527405068964874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timid_side_cqc_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0011dc9c0dd9e76f0800000000000000
+      internalID: -684936573249318656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timid_side_cqc_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63cd4490c124afa90800000000000000
+      internalID: -7279433159508960202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timid_side_cqc_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c8b86f501da46370800000000000000
+      internalID: 8314961097864558787
       vertices: []
       indices: 
       edges: []
@@ -250,7 +325,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 769d57c73865bcd468d28625e1672d55
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +335,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy2_front_dead_0: 2762239979972782910
-      enemy2_front_dead_1: -5753322922446851628
-      enemy2_front_dead_2: 474434348275604128
-      enemy2_front_dead_3: 4798163635295001712
-      enemy2_front_dead_4: -6501982553797042499
-      enemy2_front_dead_5: -7681317106513730012
+      Timid_side_cqc_0: 2880429683491688066
+      Timid_side_cqc_1: 4546140539942010354
+      Timid_side_cqc_2: -4307938350270761939
+      Timid_side_cqc_3: 2330060467413452181
+      Timid_side_cqc_4: -6585485830454599100
+      Timid_side_cqc_5: 4746527405068964874
+      Timid_side_cqc_6: -684936573249318656
+      Timid_side_cqc_7: -7279433159508960202
+      Timid_side_cqc_8: 8314961097864558787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,31 +1,34 @@
 fileFormatVersion: 2
-guid: d37080da280ebf84b89a8bdebfb01f7b
+guid: 8227da0ef38e2224dbf6a8145aff2891
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6880812671888404962
-    second: enemy2_back_walk_0
+      213: -8852306351348237134
+    second: Chad_side_notice_0
   - first:
-      213: -1443261357213970840
-    second: enemy2_back_walk_1
+      213: 8169481072196023867
+    second: Chad_side_notice_1
   - first:
-      213: -2721446750096564225
-    second: enemy2_back_walk_2
+      213: 3764680135339065066
+    second: Chad_side_notice_2
   - first:
-      213: 2993658782504651346
-    second: enemy2_back_walk_3
+      213: -2901478579162559960
+    second: Chad_side_notice_3
   - first:
-      213: 1468697529118536330
-    second: enemy2_back_walk_4
+      213: 61460782273451402
+    second: Chad_side_notice_4
   - first:
-      213: 6687216224900996726
-    second: enemy2_back_walk_5
+      213: 6900350713144007529
+    second: Chad_side_notice_5
   - first:
-      213: -6561062374483507884
-    second: enemy2_back_walk_6
+      213: 1398911019511171501
+    second: Chad_side_notice_6
   - first:
-      213: 7998003591902243599
-    second: enemy2_back_walk_7
+      213: 1669001135619949370
+    second: Chad_side_notice_7
+  - first:
+      213: -634927706617171468
+    second: Chad_side_notice_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_back_walk_0
+      name: Chad_side_notice_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 5
-        width: 23
-        height: 35
+        x: 0
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e13ae14bae8d7f50800000000000000
-      internalID: 6880812671888404962
+      spriteID: 2bc34f4664a462580800000000000000
+      internalID: -8852306351348237134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_walk_1
+      name: Chad_side_notice_1
       rect:
         serializedVersion: 2
-        x: 83
-        y: 5
-        width: 23
-        height: 34
+        x: 64
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86e863d317188fbe0800000000000000
-      internalID: -1443261357213970840
+      spriteID: b36758b50c3df5170800000000000000
+      internalID: 8169481072196023867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_walk_2
+      name: Chad_side_notice_2
       rect:
         serializedVersion: 2
-        x: 146
-        y: 5
-        width: 23
-        height: 34
+        x: 128
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fff5a51899a7b3ad0800000000000000
-      internalID: -2721446750096564225
+      spriteID: aeebadf03a4de3430800000000000000
+      internalID: 3764680135339065066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_walk_3
+      name: Chad_side_notice_3
       rect:
         serializedVersion: 2
-        x: 210
-        y: 5
-        width: 23
-        height: 35
+        x: 192
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25a0be53dcc9b8920800000000000000
-      internalID: 2993658782504651346
+      spriteID: 82a4c9dda90ebb7d0800000000000000
+      internalID: -2901478579162559960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_walk_4
+      name: Chad_side_notice_4
       rect:
         serializedVersion: 2
-        x: 275
-        y: 5
-        width: 23
-        height: 35
+        x: 256
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a82ba990f9cd16410800000000000000
-      internalID: 1468697529118536330
+      spriteID: a85d60f714a5ad000800000000000000
+      internalID: 61460782273451402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_walk_5
+      name: Chad_side_notice_5
       rect:
         serializedVersion: 2
-        x: 339
-        y: 5
-        width: 23
-        height: 34
+        x: 320
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67ed375e9b3cdcc50800000000000000
-      internalID: 6687216224900996726
+      spriteID: 96bdf8af968f2cf50800000000000000
+      internalID: 6900350713144007529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_walk_6
+      name: Chad_side_notice_6
       rect:
         serializedVersion: 2
-        x: 404
-        y: 5
-        width: 23
-        height: 34
+        x: 384
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 455cabb488c62f4a0800000000000000
-      internalID: -6561062374483507884
+      spriteID: da9c756192ee96310800000000000000
+      internalID: 1398911019511171501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_walk_7
+      name: Chad_side_notice_7
       rect:
         serializedVersion: 2
-        x: 468
-        y: 5
-        width: 23
-        height: 35
+        x: 448
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,8 +293,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0ba1af34ed9efe60800000000000000
-      internalID: 7998003591902243599
+      spriteID: a33c95aa0bb792710800000000000000
+      internalID: 1669001135619949370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chad_side_notice_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1b7056d984037f0800000000000000
+      internalID: -634927706617171468
       vertices: []
       indices: 
       edges: []
@@ -300,7 +325,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 53d048dbce12325489b1d1c987c1927c
     internalID: 0
     vertices: []
     indices: 
@@ -310,14 +335,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy2_back_walk_0: 6880812671888404962
-      enemy2_back_walk_1: -1443261357213970840
-      enemy2_back_walk_2: -2721446750096564225
-      enemy2_back_walk_3: 2993658782504651346
-      enemy2_back_walk_4: 1468697529118536330
-      enemy2_back_walk_5: 6687216224900996726
-      enemy2_back_walk_6: -6561062374483507884
-      enemy2_back_walk_7: 7998003591902243599
+      Chad_side_notice_0: -8852306351348237134
+      Chad_side_notice_1: 8169481072196023867
+      Chad_side_notice_2: 3764680135339065066
+      Chad_side_notice_3: -2901478579162559960
+      Chad_side_notice_4: 61460782273451402
+      Chad_side_notice_5: 6900350713144007529
+      Chad_side_notice_6: 1398911019511171501
+      Chad_side_notice_7: 1669001135619949370
+      Chad_side_notice_8: -634927706617171468
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
