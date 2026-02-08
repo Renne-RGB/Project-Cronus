@@ -2,7 +2,7 @@ Shader "Custom/StencilFog"
 {
     Properties
     {
-        _Color ("Main Color", Color) = (0,0,0,0.5)
+        _Color ("Main Color", Color) = (0,0,0,0.7)
     }
     SubShader
     {

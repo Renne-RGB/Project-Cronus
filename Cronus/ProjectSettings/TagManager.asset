@@ -61,6 +61,9 @@ TagManager:
   - name: Player
     uniqueID: 3182433423
     locked: 0
+  - name: DoorFrame
+    uniqueID: 2447140097
+    locked: 0
   m_RenderingLayers:
   - Default
   - Enemy
