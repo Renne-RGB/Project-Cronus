@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 56211eb836a9b3846bf3152e1d728d6c
+guid: 88f78e149940c0043aa1f0056fd82743
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 906349001868975695
-    second: enemy2_back_attack_0
+      213: -6208726218069594254
+    second: Chad_side_attack_0
   - first:
-      213: -2767480112283644342
-    second: enemy2_back_attack_1
+      213: 688968907311873857
+    second: Chad_side_attack_1
   - first:
-      213: 8984961995899074375
-    second: enemy2_back_attack_2
+      213: -3011329351099581373
+    second: Chad_side_attack_2
   - first:
-      213: -9201141981463063432
-    second: enemy2_back_attack_3
+      213: 4567791270675173342
+    second: Chad_side_attack_3
   - first:
-      213: -693290040416088820
-    second: enemy2_back_attack_4
+      213: 4511950906458752846
+    second: Chad_side_attack_4
   - first:
-      213: -6311448227531077393
-    second: enemy2_back_attack_5
+      213: 6624582805406366319
+    second: Chad_side_attack_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_back_attack_0
+      name: Chad_side_attack_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 5
-        width: 20
-        height: 35
+        x: 0
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4e1eea7d9ff39c00800000000000000
-      internalID: 906349001868975695
+      spriteID: 27fae40666c26d9a0800000000000000
+      internalID: -6208726218069594254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_attack_1
+      name: Chad_side_attack_1
       rect:
         serializedVersion: 2
-        x: 86
-        y: 5
-        width: 20
-        height: 35
+        x: 64
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4e0068208fe799d0800000000000000
-      internalID: -2767480112283644342
+      spriteID: 14ffc952295bf8900800000000000000
+      internalID: 688968907311873857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_attack_2
+      name: Chad_side_attack_2
       rect:
         serializedVersion: 2
-        x: 150
-        y: 4
-        width: 20
-        height: 36
+        x: 128
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 747f2f5b45ff0bc70800000000000000
-      internalID: 8984961995899074375
+      spriteID: 34c700ee8eb9536d0800000000000000
+      internalID: -3011329351099581373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_attack_3
+      name: Chad_side_attack_3
       rect:
         serializedVersion: 2
-        x: 214
-        y: 4
-        width: 20
-        height: 36
+        x: 192
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 874d5fa1e1afe4080800000000000000
-      internalID: -9201141981463063432
+      spriteID: edf49b0a5fd046f30800000000000000
+      internalID: 4567791270675173342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_attack_4
+      name: Chad_side_attack_4
       rect:
         serializedVersion: 2
-        x: 278
-        y: 3
-        width: 20
-        height: 36
+        x: 256
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0dcea6a160f066f0800000000000000
-      internalID: -693290040416088820
+      spriteID: e47c97fa17bad9e30800000000000000
+      internalID: 4511950906458752846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_back_attack_5
+      name: Chad_side_attack_5
       rect:
         serializedVersion: 2
-        x: 342
-        y: 3
-        width: 20
-        height: 36
+        x: 320
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe8cdbbc64b3968a0800000000000000
-      internalID: -6311448227531077393
+      spriteID: f6a386586fe3feb50800000000000000
+      internalID: 6624582805406366319
       vertices: []
       indices: 
       edges: []
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9f228c7daf2cd0e40847eea4d1528a30
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy2_back_attack_0: 906349001868975695
-      enemy2_back_attack_1: -2767480112283644342
-      enemy2_back_attack_2: 8984961995899074375
-      enemy2_back_attack_3: -9201141981463063432
-      enemy2_back_attack_4: -693290040416088820
-      enemy2_back_attack_5: -6311448227531077393
+      Chad_side_attack_0: -6208726218069594254
+      Chad_side_attack_1: 688968907311873857
+      Chad_side_attack_2: -3011329351099581373
+      Chad_side_attack_3: 4567791270675173342
+      Chad_side_attack_4: 4511950906458752846
+      Chad_side_attack_5: 6624582805406366319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

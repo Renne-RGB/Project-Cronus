@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: b0cfe00e57adc7c41a19b6dc6e520fc2
+guid: b3389268009d65047b34326f83520345
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3264917193467648050
-    second: enemy2_side_dead_0
+      213: -7685040431081799163
+    second: Chad_side_move_0
   - first:
-      213: -8803170738228505615
-    second: enemy2_side_dead_1
+      213: -7149612735522776021
+    second: Chad_side_move_1
   - first:
-      213: -7643357529563151416
-    second: enemy2_side_dead_2
+      213: 6663238061476619779
+    second: Chad_side_move_2
   - first:
-      213: 3236409720985976812
-    second: enemy2_side_dead_3
+      213: -4326968362421472456
+    second: Chad_side_move_3
   - first:
-      213: 6134293352995692779
-    second: enemy2_side_dead_4
+      213: 8631737138618660935
+    second: Chad_side_move_4
   - first:
-      213: -4740466998011256881
-    second: enemy2_side_dead_5
+      213: 676243477791497216
+    second: Chad_side_move_5
+  - first:
+      213: 4876031579699676708
+    second: Chad_side_move_6
+  - first:
+      213: -4644094774630215598
+    second: Chad_side_move_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy2_side_dead_0
+      name: Chad_side_move_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 5
-        width: 26
-        height: 35
+        x: 0
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec7ab4e5c1fa0b2d0800000000000000
-      internalID: -3264917193467648050
+      spriteID: 502cadce170495590800000000000000
+      internalID: -7685040431081799163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_side_dead_1
+      name: Chad_side_move_1
       rect:
         serializedVersion: 2
-        x: 90
-        y: 5
-        width: 26
-        height: 34
+        x: 64
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f3d6c2dadad4d580800000000000000
-      internalID: -8803170738228505615
+      spriteID: b2c5e89e81977cc90800000000000000
+      internalID: -7149612735522776021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_side_dead_2
+      name: Chad_side_move_2
       rect:
         serializedVersion: 2
-        x: 155
-        y: 5
-        width: 28
-        height: 31
+        x: 128
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c3c417b2d65de590800000000000000
-      internalID: -7643357529563151416
+      spriteID: 3062d2ca6b3987c50800000000000000
+      internalID: 6663238061476619779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_side_dead_3
+      name: Chad_side_move_3
       rect:
         serializedVersion: 2
-        x: 222
-        y: 6
-        width: 30
-        height: 27
+        x: 192
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cef7df67e790aec20800000000000000
-      internalID: 3236409720985976812
+      spriteID: 833b38b133583f3c0800000000000000
+      internalID: -4326968362421472456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_side_dead_4
+      name: Chad_side_move_4
       rect:
         serializedVersion: 2
-        x: 285
-        y: 7
-        width: 33
-        height: 21
+        x: 256
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be0295dbd43612550800000000000000
-      internalID: 6134293352995692779
+      spriteID: 74879e5d1371ac770800000000000000
+      internalID: 8631737138618660935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy2_side_dead_5
+      name: Chad_side_move_5
       rect:
         serializedVersion: 2
-        x: 350
-        y: 3
-        width: 34
-        height: 21
+        x: 320
+        y: 0
+        width: 64
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +246,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fcf9312a16a763eb0800000000000000
-      internalID: -4740466998011256881
+      spriteID: 00cdf633cdf726900800000000000000
+      internalID: 676243477791497216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chad_side_move_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 426069d23e42ba340800000000000000
+      internalID: 4876031579699676708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chad_side_move_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2501bee686cdc8fb0800000000000000
+      internalID: -4644094774630215598
       vertices: []
       indices: 
       edges: []
@@ -250,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2760d33e959b0ef438354b01efe6399d
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy2_side_dead_0: -3264917193467648050
-      enemy2_side_dead_1: -8803170738228505615
-      enemy2_side_dead_2: -7643357529563151416
-      enemy2_side_dead_3: 3236409720985976812
-      enemy2_side_dead_4: 6134293352995692779
-      enemy2_side_dead_5: -4740466998011256881
+      Chad_side_move_0: -7685040431081799163
+      Chad_side_move_1: -7149612735522776021
+      Chad_side_move_2: 6663238061476619779
+      Chad_side_move_3: -4326968362421472456
+      Chad_side_move_4: 8631737138618660935
+      Chad_side_move_5: 676243477791497216
+      Chad_side_move_6: 4876031579699676708
+      Chad_side_move_7: -4644094774630215598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
