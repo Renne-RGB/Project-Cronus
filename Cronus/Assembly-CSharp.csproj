@@ -89,10 +89,9 @@
     <Compile Include="Assets\Scripts\UI &amp; Menu\MenuGameClear.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Noob.cs" />
     <Compile Include="Assets\Scripts\UI &amp; Menu\UIAlert.cs" />
-    <Compile Include="Assets\Scripts\UI &amp; Menu\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\UI &amp; Menu\HealthUIManager.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraLookAhead.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_BlockState.cs" />
+    <Compile Include="Assets\Scripts\UI &amp; Menu\MenuDing\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Timid.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_HearState.cs" />
     <Compile Include="Assets\Scripts\UI &amp; Menu\MenuBase.cs" />
@@ -104,6 +103,7 @@
     <Compile Include="Assets\Scripts\Player\View\FieldOfView.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_HitState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Player\Player_MoveState.cs" />
+    <Compile Include="Assets\Scripts\UI &amp; Menu\MenuDing\MainMenu.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_FaintState.cs" />
     <Compile Include="Assets\Scripts\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
@@ -128,6 +128,7 @@
     <Compile Include="Assets\Scripts\Icon\InteractionIcon.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_ShootState.cs" />
     <Compile Include="Assets\Scripts\Door\InteractiveDoor.cs" />
+    <Compile Include="Assets\Scripts\UI &amp; Menu\MenuDing\HealthUIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

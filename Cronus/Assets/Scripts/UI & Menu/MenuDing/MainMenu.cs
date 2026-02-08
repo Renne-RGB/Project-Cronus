@@ -11,7 +11,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(gameSceneName);
     }
 
-    // 2. 继续游戏 (存档载入预留)
     public void ContinueGame()
     {
         if (PlayerPrefs.HasKey("SavedScene"))
@@ -26,7 +25,6 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    // 3. 退出游戏
     public void ExitGame()
     {
         Debug.Log("Exiting Game");
