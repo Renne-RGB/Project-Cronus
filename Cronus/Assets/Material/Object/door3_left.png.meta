@@ -138,8 +138,8 @@ TextureImporter:
       name: door3_left_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 32
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -152,6 +152,50 @@ TextureImporter:
       bones: []
       spriteID: b4b2951a43efdca4c93f8753cf642c45
       internalID: -2115064645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door3_left_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1468f201c9b1ba64c900e10e5d9290a8
+      internalID: -599735720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door3_left_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e7ba34775a6864088c1daa58d73ae2
+      internalID: -968448855
       vertices: []
       indices: 
       edges: []
@@ -172,6 +216,8 @@ TextureImporter:
     nameFileIdTable:
       door3_left_0: -2250217541164349672
       door3_left_1: -2115064645
+      door3_left_2: -599735720
+      door3_left_3: -968448855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

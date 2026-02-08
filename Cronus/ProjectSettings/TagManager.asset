@@ -9,6 +9,7 @@ TagManager:
   - EnemyHit
   - Wall
   - HideSpot
+  - CanMove
   layers:
   - Default
   - TransparentFX
