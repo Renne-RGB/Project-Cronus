@@ -295,7 +295,7 @@ public class Player : Entity
             Enemy enemy = hit.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
-                enemy.OnHearSound(transform.position); //
+                enemy.OnHearSound(transform.position, this);
             }
         }
     }

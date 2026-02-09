@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 2777455435571239470}
   - component: {fileID: 6625850777060198318}
   m_Layer: 9
-  m_Name: Animator_Noob
+  m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,7 @@ Animator:
   m_GameObject: {fileID: 4337090617580680926}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b28ecd43a941fb040a9b765289c843cd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 02ce071c01fa0f34eaab3cf80419e251, type: 2}
   m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -806,17 +806,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   sr: {fileID: 0}
-  canMelee: 1
-  canShoot: 1
-  canChase: 1
-  canBlock: 1
+  canMelee: 0
+  canShoot: 0
+  canChase: 0
+  canBlock: 0
   fieldOfView: {fileID: 0}
   fov: 70
   viewDistance: 7
   fovRotationSpeed: 10
-  idleDuration: 2
-  moveSpeed: 1
+  idleDuration: 5
   patroPoints:
+  - {fileID: 0}
   - {fileID: 0}
   targetPointIndex: 0
   playerTransform: {fileID: 0}
@@ -826,13 +826,19 @@ MonoBehaviour:
     m_Bits: 72
   suspiciousDistance: 15
   questionMarkImage: {fileID: 6696584060271594222}
-  currentSpeed: 5
+  currentSpeed: 7
   chaseDuration: 3
   currentChaseTimer: 0
   AlertFlag: 0
+  soundWavePrefab: {fileID: 3989036047491272193, guid: 3b7dfe9ce2ec5594d92cda77d4371631, type: 3}
   alertPrefab: {fileID: 6310532776294897818, guid: afdeec3e75c119444a8ada1199bd43eb, type: 3}
   chaseDistance: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
   loseTargetDelay: 4
+  minSearchRingDistance: 4
+  minChaseMoveDistance: 1.5
   pathPointList: []
   pathReady: 0
   currentIndex: 0

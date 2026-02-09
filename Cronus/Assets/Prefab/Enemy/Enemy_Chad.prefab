@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1258597974015215499}
   - component: {fileID: 5238271731779291825}
   - component: {fileID: 6625026244033154798}
-  - component: {fileID: 5149171760634735474}
+  - component: {fileID: 4834914437468531597}
   - component: {fileID: 983106091067118947}
   - component: {fileID: 2146472295206495582}
   - component: {fileID: 4360193147199529326}
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3098728718599112741}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -50.899998, y: -37.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &5149171760634735474
+--- !u!114 &4834914437468531597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3098728718599112741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2fb5fda3cb696498b39c62ca61fe7d, type: 3}
+  m_Script: {fileID: 11500000, guid: de2e56bd467590f42bb36adb47583138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wallCheckDistance: 0
@@ -128,10 +128,10 @@ MonoBehaviour:
   canChase: 1
   canBlock: 1
   fieldOfView: {fileID: 0}
-  fov: 70
-  viewDistance: 7
+  fov: 90
+  viewDistance: 8
   fovRotationSpeed: 10
-  idleDuration: 2
+  idleDuration: 5
   patroPoints:
   - {fileID: 0}
   targetPointIndex: 0
@@ -146,9 +146,13 @@ MonoBehaviour:
   chaseDuration: 3
   currentChaseTimer: 0
   AlertFlag: 0
+  soundWavePrefab: {fileID: 3989036047491272193, guid: 3b7dfe9ce2ec5594d92cda77d4371631, type: 3}
   alertPrefab: {fileID: 6310532776294897818, guid: afdeec3e75c119444a8ada1199bd43eb, type: 3}
-  chaseDistance: 10
-  loseTargetDelay: 4
+  chaseDistance: 20
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  loseTargetDelay: 2
   minSearchRingDistance: 4
   minChaseMoveDistance: 1.5
   pathPointList: []
@@ -167,10 +171,10 @@ MonoBehaviour:
     m_Bits: 8
   bulletPrefab: {fileID: 6638349535624953820, guid: e23a04eba26186d46a9ee36bcdd2ef3f, type: 3}
   firePoint: {fileID: 2215909562894485690}
-  timeBetweenShots: 0.3
-  spreadAngle: 30
+  timeBetweenShots: 0.1
+  spreadAngle: 60
   bulletSpeed: 20
-  shootCooldownDuration: 2
+  shootCooldownDuration: 4
   currentShootCooldown: 0
   faintDuration: 5
   knockbackForceEnemy: 10
@@ -360,7 +364,7 @@ GameObject:
   - component: {fileID: 1332078286498313238}
   - component: {fileID: 2824704883064917763}
   m_Layer: 9
-  m_Name: Animator_Noob
+  m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,12 +429,12 @@ SpriteRenderer:
   m_SortingLayerID: 1792333419
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7771852541331618982, guid: cfa77c5b24e2ffd43bc4e712b04d6bad, type: 3}
+  m_Sprite: {fileID: 2007929455597031650, guid: 86c114c6c6d638e4882ac3ab53448c8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.25, y: 1.25}
+  m_Size: {x: 4, y: 2.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -446,7 +450,7 @@ Animator:
   m_GameObject: {fileID: 4150244765937916184}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b28ecd43a941fb040a9b765289c843cd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 66cce99161d084b4f971123954bf0053, type: 2}
   m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

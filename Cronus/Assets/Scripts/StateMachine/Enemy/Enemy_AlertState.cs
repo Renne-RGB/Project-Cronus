@@ -62,6 +62,7 @@ public class Enemy_AlertState : EnemyState
         else
         {
             //ビビる
+            stateMachine.ChangeState(enemy.fleeState);
         }
     }
 }

@@ -796,7 +796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7141635620502707686}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd760a1fd90bb624b9eacc3c7f294141, type: 3}
   m_Name: 
@@ -814,9 +814,8 @@ MonoBehaviour:
   fov: 70
   viewDistance: 10
   fovRotationSpeed: 10
-  idleDuration: 2
+  idleDuration: 5
   patroPoints:
-  - {fileID: 0}
   - {fileID: 0}
   targetPointIndex: 0
   playerTransform: {fileID: 0}
@@ -830,8 +829,12 @@ MonoBehaviour:
   chaseDuration: 3
   currentChaseTimer: 0
   AlertFlag: 0
+  soundWavePrefab: {fileID: 3989036047491272193, guid: 3b7dfe9ce2ec5594d92cda77d4371631, type: 3}
   alertPrefab: {fileID: 6310532776294897818, guid: afdeec3e75c119444a8ada1199bd43eb, type: 3}
   chaseDistance: 20
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   loseTargetDelay: 4
   minSearchRingDistance: 4
   minChaseMoveDistance: 1.5

@@ -20,6 +20,7 @@ public class Enemy : Entity
     public Enemy_SuspiciousState susState;
     public Enemy_HearState hearState;
     public Enemy_InvestigateState investigateState;
+    public Enemy_FleeState fleeState;
 
     public SpriteRenderer sr;
     [Header("Capabilities")]
@@ -35,7 +36,7 @@ public class Enemy : Entity
     [SerializeField] public Vector3 aimDirection { get; set; }
 
     [Header("Patrol details")]
-    public float idleDuration = 2;      //待機時間
+    public float idleDuration = 5;      //待機時間
     public Transform[] patroPoints;     //全てのパトロール座標
     public int targetPointIndex = 0;    //パトロール目標番号
 
@@ -52,6 +53,7 @@ public class Enemy : Entity
     public float currentChaseTimer = 0f;
     public bool hasDirectLineOfSight { get; private set; } = false;     //直接視線が通っているかのフラグ
     [SerializeField] private bool AlertFlag = false;
+    [SerializeField] private GameObject soundWavePrefab;
 
     //（金）キャンバスの宣言
     Canvas canvas;
@@ -60,6 +62,7 @@ public class Enemy : Entity
 
     public Vector2 MovementInput { get; set; }
     public float chaseDistance = 20f;       //追撃距離
+    public LayerMask enemyLayer;
     [Header("Detection Settings")]
     public float loseTargetDelay = 2.0f; //プレイヤーが消えて何秒から赤い円を生成する
     private float loseTargetTimer = 0f;
@@ -137,7 +140,15 @@ public class Enemy : Entity
         {
             Vector3 targetDirection = aimDirection;     //向きの初期設定
 
-            if (playerTransform != null && targetPlayer != null && !targetPlayer.IsHidden())
+            //逃げる状態走る方向に向ける
+            if (stateMachine.currentState == fleeState)
+            {
+                if (MovementInput.sqrMagnitude > 0.01f)
+                {
+                    targetDirection = MovementInput.normalized;
+                }
+            }
+            else if (playerTransform != null && targetPlayer != null && !targetPlayer.IsHidden())
             {
                 SearchRingManager.Instance.LastTargetPosition = playerTransform.position;
                 targetDirection = (playerTransform.position - transform.position).normalized;
@@ -150,6 +161,7 @@ public class Enemy : Entity
                     targetDirection = MovementInput.normalized;
                 }
             }
+
 
             if (targetDirection != Vector3.zero)
             {
@@ -432,10 +444,10 @@ public class Enemy : Entity
         }
     }
 
-    public void OnHearSound(Vector3 soundPosition)
+    public void OnHearSound(Vector3 soundPosition, Entity source)
     {
         //すでにプレイヤーを目視している場合は、視覚優先のため音を無視する
-        if (isDead || playerTransform != null)
+        if (isDead || playerTransform != null || source == this)
             return;
 
         //赤い円（SearchRing）を生成
@@ -450,6 +462,27 @@ public class Enemy : Entity
         else if (stateMachine.currentState != alertState && stateMachine.currentState != chaseState && stateMachine.currentState != faintState)
         {
             stateMachine.ChangeState(hearState);
+        }
+    }
+
+    public void EmitNoise(float radius)
+    {
+        if (soundWavePrefab != null)
+        {
+            GameObject wave = Instantiate(soundWavePrefab, transform.position, Quaternion.identity);
+            SoundWave waveScript = wave.GetComponent<SoundWave>();
+            if (waveScript != null)
+                waveScript.Setup(radius);
+        }
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyLayer);
+        foreach (var hit in hitEnemies)
+        {
+            Enemy enemy = hit.GetComponentInParent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.OnHearSound(transform.position, this);
+            }
         }
     }
 
