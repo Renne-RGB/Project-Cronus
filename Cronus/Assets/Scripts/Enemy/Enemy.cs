@@ -55,11 +55,6 @@ public class Enemy : Entity
     [SerializeField] private bool AlertFlag = false;
     [SerializeField] private GameObject soundWavePrefab;
 
-    //（金）キャンバスの宣言
-    Canvas canvas;
-    //（金）アラート用プレファブ
-    public GameObject alertPrefab;
-
     public Vector2 MovementInput { get; set; }
     public float chaseDistance = 20f;       //追撃距離
     public LayerMask enemyLayer;
@@ -115,10 +110,6 @@ public class Enemy : Entity
         fieldOfView = GetComponentInChildren<FieldOfView>();
         fieldOfView.SetFov(fov);
         fieldOfView.SetViewDistance(viewDistance);
-
-        //（金）キャンバスの取得
-        //canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-
     }
 
     protected override void Update()
@@ -398,19 +389,6 @@ public class Enemy : Entity
         if (alert)
         {
             currentChaseTimer = chaseDuration;
-
-            // (金)アラートプレファブを複製しキャンバスの親子関係にし、SendMessageでキャンバスに登録
-            // if (canvas.GetComponent<UIManager>().alert == null)
-            // {
-            //     Vector2 pos = canvas.transform.position;
-            //     Vector3 rot = new Vector3(0.0f, 0.0f, 0.0f);
-            //     GameObject newAlert = Instantiate(alertPrefab, pos, Quaternion.Euler(rot), canvas.transform);
-            //     canvas.SendMessage("GetAlertPrefab", newAlert);
-            // }
-            // else if (canvas.GetComponent<UIManager>().alert != null)
-            // {
-
-            // }
         }
     }
 
@@ -571,6 +549,8 @@ public class Enemy : Entity
         anim.SetInteger("deathIndex", deathType);
         anim.SetTrigger("die");
         CloseFieldOfView(false);
+
+        if (AlertFlag) { globalAlertCount--; }  //（金）アラート中にやられたらカウントを減らす
     }
 
     public void TriggerBlockOrAlert()
