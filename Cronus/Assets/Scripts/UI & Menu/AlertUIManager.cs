@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class AlertUIManager : MonoBehaviour
 {
-    public GameObject alert;            // Ô‚¢˜g‚ğ“ü‚ê‚é•Ï”
+    public GameObject alert;            // ï¿½Ô‚ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïï¿½
 
-    bool isAlertActive = false;         // ƒAƒ‰[ƒg‚ÌƒIƒ“ƒIƒt
-    float redTimer = 1f;                 // Ô‚¢˜g‚ğƒAƒjƒ[ƒVƒ‡ƒ“‚³‚¹‚é‚½‚ß‚Ì•Ï”
+    bool isAlertActive = false;         // ï¿½Aï¿½ï¿½ï¿½[ï¿½gï¿½ÌƒIï¿½ï¿½ï¿½Iï¿½t
+    float redTimer = 1f;                 // ï¿½Ô‚ï¿½ï¿½gï¿½ï¿½ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚Ì•Ïï¿½
     bool redIsGlow = false;
 
     void Start()
@@ -18,7 +18,7 @@ public class AlertUIManager : MonoBehaviour
 
     void Update()
     {
-        // ƒvƒŒƒCƒ„[‚ğŒ©‚Â‚¯‚½“G‚Ì—L–³‚ÅƒAƒ‰[ƒg‚ğØ‚è‘Ö‚¦‚é
+        // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½Gï¿½Ì—Lï¿½ï¿½ï¿½ÅƒAï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½Ø‚ï¿½Ö‚ï¿½ï¿½ï¿½
         if (Enemy.globalAlertCount == 0) { if (isAlertActive) { AlertReset(); } }
         else if (Enemy.globalAlertCount > 0)
         {
@@ -28,7 +28,7 @@ public class AlertUIManager : MonoBehaviour
     }
 
 
-    // ƒvƒŒƒCƒ„[‚ğŒ©‚Â‚¯‚½“G‚ª‚¢‚È‚­‚È‚Á‚½‚çAƒAƒ‰[ƒg‚ğƒŠƒZƒbƒg‚·‚é
+    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Aï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
     void AlertReset()
     {
         alert.SetActive(false);
@@ -36,14 +36,14 @@ public class AlertUIManager : MonoBehaviour
         redTimer = 1f;
         redIsGlow = false;
     }
-    // ƒvƒŒƒCƒ„[‚ğŒ©‚Â‚¯‚½“G‚ª‚¢‚½‚çAƒAƒ‰[ƒg‚ğƒIƒ“‚É‚·‚é
+    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Aï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
     void AlertStart()
     {
         alert.SetActive(true);
         isAlertActive = true;
     }
 
-    // ƒAƒ‰[ƒg‚ğƒAƒjƒ[ƒVƒ‡ƒ“‚³‚¹‚é
+    // ï¿½Aï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     void AlertAnimate()
     {
         if (redTimer <= 0.1f) { redIsGlow = true; }
@@ -54,12 +54,12 @@ public class AlertUIManager : MonoBehaviour
     }
 
     //using TMPro;
-    //i‹àjƒ^ƒCƒ}[‚ğ•\¦‚·‚é‚½‚ß‚ÌƒeƒLƒXƒg
+    //ï¿½iï¿½ï¿½ï¿½jï¿½^ï¿½Cï¿½}ï¿½[ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚Ìƒeï¿½Lï¿½Xï¿½g
     //public TextMeshProUGUI timer;
-    //i‹àjƒAƒ‰[ƒg‚Ìƒ^ƒCƒ}[
+    //ï¿½iï¿½ï¿½ï¿½jï¿½Aï¿½ï¿½ï¿½[ï¿½gï¿½Ìƒ^ï¿½Cï¿½}ï¿½[
     //public float alertTimer = 16f;
 
-    //Starti‹àjƒ^ƒCƒ}[‚ÌƒeƒLƒXƒg‚Ìæ“¾
+    //Startï¿½iï¿½ï¿½ï¿½jï¿½^ï¿½Cï¿½}ï¿½[ï¿½Ìƒeï¿½Lï¿½Xï¿½gï¿½Ìæ“¾
     //timer = this.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
     //Update
     //if(alertTimer > 0f) { alertTimer -= Time.deltaTime; }
