@@ -43,7 +43,14 @@ public class Enemy_AlertState : EnemyState
     {
         if (enemy.playerTransform == null)
         {
-            stateMachine.ChangeState(enemy.idleState);
+            if (SearchRingManager.Instance.HasActiveRing())
+            {
+                stateMachine.ChangeState(enemy.investigateState);
+            }
+            else
+            {
+                stateMachine.ChangeState(enemy.idleState);
+            }
             return;
         }
         //距離によってStateを切り替え

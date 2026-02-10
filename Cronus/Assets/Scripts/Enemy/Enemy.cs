@@ -431,13 +431,17 @@ public class Enemy : Entity
         //赤い円（SearchRing）を生成
         UpdateSharedSearchRing(soundPosition);
 
+        if (stateMachine.currentState == alertState || stateMachine.currentState == chaseState || stateMachine.currentState == faintState)
+            return;
+
         //既に警備している敵がいればAlertになる
         if (globalAlertCount > 0)
         {
-            stateMachine.ChangeState(alertState);
+            stateMachine.ChangeState(investigateState);
+            //stateMachine.ChangeState(alertState);
         }
         //警戒状態（AlertState）に移行して、音の場所へ移動を開始する
-        else if (stateMachine.currentState != alertState && stateMachine.currentState != chaseState && stateMachine.currentState != faintState)
+        else
         {
             stateMachine.ChangeState(hearState);
         }
@@ -506,13 +510,14 @@ public class Enemy : Entity
         }
 
         //壁との衝突判定
-        if (other.CompareTag("Wall") && stateMachine.currentState == knockbackState)
+        if ((other.CompareTag("Wall") || other.CompareTag("Box")) && stateMachine.currentState == knockbackState)
         {
             //壁の法線を計算
             Vector2 closestPoint = other.ClosestPoint(transform.position);
             Vector2 normal = ((Vector2)transform.position - closestPoint).normalized;
 
-            if (normal == Vector2.zero) normal = -rb.linearVelocity.normalized;
+            if (normal == Vector2.zero)
+                normal = -rb.linearVelocity.normalized;
 
             //壁からの跳ね返り
             rb.linearVelocity = Vector2.zero;

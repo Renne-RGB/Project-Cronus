@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - HideSpot
   - CanMove
+  - Box
   layers:
   - Default
   - TransparentFX

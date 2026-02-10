@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy_FleeState : EnemyState
 {
     private float noiseTimer;
-    private const float noiceInterval = 1.5f;
+    private const float noiseInterval = 1.5f;
 
     private float fleeTimer;
     private const float fleePhaseDuration = 10.0f;
@@ -11,7 +11,7 @@ public class Enemy_FleeState : EnemyState
     private const float fleeDistance = 10f;
     private const float playerDistanceThreshold = 8f;
 
-    private Vector3 currentFleeTarget; 
+    private Vector3 currentFleeTarget;
     private float pathUpdateTimer;
     private const float pathUpdateInterval = 0.5f;
 
@@ -25,7 +25,7 @@ public class Enemy_FleeState : EnemyState
         enemy.SetAlert(true);
 
         noiseTimer = 0;
-        fleeTimer = noiceInterval;
+        fleeTimer = noiseInterval;
         pathUpdateTimer = 0;
 
         PickRandomFleePoint();
@@ -38,19 +38,29 @@ public class Enemy_FleeState : EnemyState
         noiseTimer -= Time.deltaTime;
         if (noiseTimer <= 0)
         {
+            if (enemy.playerTransform != null)
+            {
+                enemy.UpdateSharedSearchRing(enemy.playerTransform.position);
+            }
+
             enemy.EmitNoise(20.0f);
-            noiseTimer = noiceInterval;
+            noiseTimer = noiseInterval;
         }
 
         fleeTimer -= Time.deltaTime;
         if (fleeTimer <= 0)
         {
+            if (enemy.targetPlayer == null)
+            {
+                EndFlee();
+                return;
+            }
+
             float realDist = Vector2.Distance(enemy.transform.position, enemy.targetPlayer.transform.position);
 
             if (realDist > playerDistanceThreshold)
             {
-                enemy.SetAlert(false);
-                stateMachine.ChangeState(enemy.idleState);
+                EndFlee();
                 return;
             }
             else
@@ -61,6 +71,12 @@ public class Enemy_FleeState : EnemyState
         }
 
         MoveAlongPath();
+    }
+
+    private void EndFlee()
+    {
+        enemy.SetAlert(false);
+        stateMachine.ChangeState(enemy.idleState);
     }
 
     private void PickRandomFleePoint()
