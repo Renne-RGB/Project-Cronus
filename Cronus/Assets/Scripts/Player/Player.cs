@@ -30,7 +30,7 @@ public class Player : Entity
     [SerializeField] private Transform enemyTrans;     //敵死体の生成座標
     [SerializeField] public bool attackStandby = false;     //攻撃できるか
     [Header("Sound Settings")]
-    [SerializeField] private float runNoiseRadius = 5.0f; // 走る時の音の範囲
+    [SerializeField] private float runNoiseRadius = 7.0f; // 走る時の音の範囲
     [SerializeField] private LayerMask enemyLayer;        // 敵のレイヤー
     [SerializeField] private GameObject soundWavePrefab;
     public float noiseCooldownTimer = 0f;
