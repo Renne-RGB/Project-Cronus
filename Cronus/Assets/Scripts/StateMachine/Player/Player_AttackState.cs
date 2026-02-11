@@ -8,28 +8,22 @@ public class Player_AttackState : PlayerState
 
     public override void Enter()
     {
-        base.Enter();
-
-        float targetIndex = 0f;
-
         Enemy targetEnemy = player.GetCankillEnemy();
 
         if (targetEnemy != null)
         {
-            if (targetEnemy.CompareTag("Enemy"))
-                targetIndex = 0f;
-
             //WitchTime終わる
             if (player.witchTimeManager.IsWitchTimeActive)
                 player.witchTimeManager.DeactivateWitchTime();
 
-            targetEnemy.TriggerAssassinationDeath((int)targetIndex);
+            targetEnemy.TriggerAssassinationDeath();
 
             player.MovePlayerToEnemy();
             player.SetAttackStandby(false);
-            player.anim.SetFloat("attackIndex", targetIndex);
             player.SetInvincibleFlash(true);
         }
+
+        base.Enter();
 
     }
 

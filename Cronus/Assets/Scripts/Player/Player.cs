@@ -98,8 +98,6 @@ public class Player : Entity
         hiddenState = new Player_HiddenState(this, stateMachine, "hide");
         witchActionState = new Player_WitchActionState(this, stateMachine, "witch");
 
-        witchActionState = new Player_WitchActionState(this, stateMachine, "witch");
-
         if (witchTimeManager != null)
         {
             witchTimeManager.Init(this);

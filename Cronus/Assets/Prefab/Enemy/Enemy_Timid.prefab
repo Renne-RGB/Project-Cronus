@@ -812,7 +812,7 @@ MonoBehaviour:
   canBlock: 0
   fieldOfView: {fileID: 0}
   fov: 70
-  viewDistance: 7
+  viewDistance: 5
   fovRotationSpeed: 10
   idleDuration: 5
   patroPoints:
@@ -824,14 +824,13 @@ MonoBehaviour:
   playerAndObstacleMask:
     serializedVersion: 2
     m_Bits: 72
-  suspiciousDistance: 15
+  suspiciousDistance: 10
   questionMarkImage: {fileID: 6696584060271594222}
   currentSpeed: 7
   chaseDuration: 3
   currentChaseTimer: 0
   AlertFlag: 0
   soundWavePrefab: {fileID: 3989036047491272193, guid: 3b7dfe9ce2ec5594d92cda77d4371631, type: 3}
-  alertPrefab: {fileID: 6310532776294897818, guid: afdeec3e75c119444a8ada1199bd43eb, type: 3}
   chaseDistance: 10
   enemyLayer:
     serializedVersion: 2

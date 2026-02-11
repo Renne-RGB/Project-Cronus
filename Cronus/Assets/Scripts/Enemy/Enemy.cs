@@ -504,7 +504,7 @@ public class Enemy : Entity
             }
             else if (player != null && player.GetCurrentState() == player.witchActionState)
             {
-                TriggerAssassinationDeath(0);
+                TriggerAssassinationDeath();
                 return;
             }
         }
@@ -538,7 +538,7 @@ public class Enemy : Entity
         return canAssassed;
     }
 
-    public void TriggerAssassinationDeath(int deathType)
+    public void TriggerAssassinationDeath()
     {
         if (isDead)
             return;
@@ -551,7 +551,6 @@ public class Enemy : Entity
         MovementInput = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic;
 
-        anim.SetInteger("deathIndex", deathType);
         anim.SetTrigger("die");
         CloseFieldOfView(false);
 

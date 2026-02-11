@@ -1,0 +1,3699 @@
+fileFormatVersion: 2
+guid: cb3d8b1b94834cb4f8b474e8fd18e50b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4470726789173985118
+    second: OssanwithStage_0
+  - first:
+      213: 6005999162487321868
+    second: OssanwithStage_1
+  - first:
+      213: 8102188295461544487
+    second: OssanwithStage_2
+  - first:
+      213: -3240563928652242271
+    second: OssanwithStage_3
+  - first:
+      213: -5735527488828715031
+    second: OssanwithStage_4
+  - first:
+      213: 5547115602086078954
+    second: OssanwithStage_5
+  - first:
+      213: -7176988013390762960
+    second: OssanwithStage_6
+  - first:
+      213: 3356008275435484947
+    second: OssanwithStage_7
+  - first:
+      213: -5231919360976672515
+    second: OssanwithStage_8
+  - first:
+      213: 2032134540493667957
+    second: OssanwithStage_9
+  - first:
+      213: -1466873224305454999
+    second: OssanwithStage_10
+  - first:
+      213: -7476491961902400297
+    second: OssanwithStage_11
+  - first:
+      213: 8796957854741058673
+    second: OssanwithStage_12
+  - first:
+      213: 5328473629261729952
+    second: OssanwithStage_13
+  - first:
+      213: -8863674199235304656
+    second: OssanwithStage_14
+  - first:
+      213: 3485215084748775275
+    second: OssanwithStage_15
+  - first:
+      213: -3746734095823572842
+    second: OssanwithStage_16
+  - first:
+      213: 7355553684843771558
+    second: OssanwithStage_17
+  - first:
+      213: 6789079037815403538
+    second: OssanwithStage_18
+  - first:
+      213: -2452984514177876204
+    second: OssanwithStage_19
+  - first:
+      213: -1470085051119722505
+    second: OssanwithStage_20
+  - first:
+      213: -3973994894244597495
+    second: OssanwithStage_21
+  - first:
+      213: -8430447609980807513
+    second: OssanwithStage_22
+  - first:
+      213: 3556845016971096114
+    second: OssanwithStage_23
+  - first:
+      213: -8252613544063264744
+    second: OssanwithStage_24
+  - first:
+      213: 5433164868717860021
+    second: OssanwithStage_25
+  - first:
+      213: -3112066251764780467
+    second: OssanwithStage_26
+  - first:
+      213: 1596516079133520486
+    second: OssanwithStage_27
+  - first:
+      213: -2396984026762122057
+    second: OssanwithStage_28
+  - first:
+      213: -4813802647975239349
+    second: OssanwithStage_29
+  - first:
+      213: -1092750691101712223
+    second: OssanwithStage_30
+  - first:
+      213: 7891261570926664396
+    second: OssanwithStage_31
+  - first:
+      213: 8641266374983858854
+    second: OssanwithStage_32
+  - first:
+      213: -1504885775480773772
+    second: OssanwithStage_33
+  - first:
+      213: -4398846204343967213
+    second: OssanwithStage_34
+  - first:
+      213: -8412435369003082858
+    second: OssanwithStage_35
+  - first:
+      213: 4912175947373953616
+    second: OssanwithStage_36
+  - first:
+      213: 2278179427698080827
+    second: OssanwithStage_37
+  - first:
+      213: -5699789624798983420
+    second: OssanwithStage_38
+  - first:
+      213: 4697975185965201515
+    second: OssanwithStage_39
+  - first:
+      213: -438950802892673626
+    second: OssanwithStage_40
+  - first:
+      213: -3667208110009081419
+    second: OssanwithStage_41
+  - first:
+      213: 1541142730441441370
+    second: OssanwithStage_42
+  - first:
+      213: -8727369046999303009
+    second: OssanwithStage_43
+  - first:
+      213: 4386683035395537601
+    second: OssanwithStage_44
+  - first:
+      213: -8439972468127021972
+    second: OssanwithStage_45
+  - first:
+      213: -253977697666237979
+    second: OssanwithStage_46
+  - first:
+      213: -2365148768080744032
+    second: OssanwithStage_47
+  - first:
+      213: -1048176875096624412
+    second: OssanwithStage_48
+  - first:
+      213: 910587555618658536
+    second: OssanwithStage_49
+  - first:
+      213: 3468007688263062636
+    second: OssanwithStage_50
+  - first:
+      213: -644366298207970620
+    second: OssanwithStage_51
+  - first:
+      213: -8700212853928696846
+    second: OssanwithStage_52
+  - first:
+      213: 3867040341083979966
+    second: OssanwithStage_53
+  - first:
+      213: -2916288587942397608
+    second: OssanwithStage_54
+  - first:
+      213: -8831177204782681295
+    second: OssanwithStage_55
+  - first:
+      213: 6292407663735901168
+    second: OssanwithStage_56
+  - first:
+      213: -949545150872381877
+    second: OssanwithStage_57
+  - first:
+      213: 3732581104274144634
+    second: OssanwithStage_58
+  - first:
+      213: 1915405601811535946
+    second: OssanwithStage_59
+  - first:
+      213: -5513818710808156918
+    second: OssanwithStage_60
+  - first:
+      213: -156375109764393612
+    second: OssanwithStage_61
+  - first:
+      213: -233991934521745588
+    second: OssanwithStage_62
+  - first:
+      213: -4820505732328364817
+    second: OssanwithStage_63
+  - first:
+      213: 7540144589069347885
+    second: OssanwithStage_64
+  - first:
+      213: 7771968350083647637
+    second: OssanwithStage_65
+  - first:
+      213: 4085008985704404972
+    second: OssanwithStage_66
+  - first:
+      213: 7588040905038307660
+    second: OssanwithStage_67
+  - first:
+      213: 495801845020428056
+    second: OssanwithStage_68
+  - first:
+      213: 8848208446008673838
+    second: OssanwithStage_69
+  - first:
+      213: -8667774370204039027
+    second: OssanwithStage_70
+  - first:
+      213: -5323680641815784887
+    second: OssanwithStage_71
+  - first:
+      213: 56667151534163423
+    second: OssanwithStage_72
+  - first:
+      213: -1366097835388725646
+    second: OssanwithStage_73
+  - first:
+      213: -7213791244131590405
+    second: OssanwithStage_74
+  - first:
+      213: 1575994231389468104
+    second: OssanwithStage_75
+  - first:
+      213: 834040318364440662
+    second: OssanwithStage_76
+  - first:
+      213: 8578292871361621606
+    second: OssanwithStage_77
+  - first:
+      213: -2354679332592561833
+    second: OssanwithStage_78
+  - first:
+      213: 4453090842802048341
+    second: OssanwithStage_79
+  - first:
+      213: 2975940253058691677
+    second: OssanwithStage_80
+  - first:
+      213: 3838726522898221329
+    second: OssanwithStage_81
+  - first:
+      213: -1437498957864927179
+    second: OssanwithStage_82
+  - first:
+      213: 565811370983315242
+    second: OssanwithStage_83
+  - first:
+      213: -4207744800826699230
+    second: OssanwithStage_84
+  - first:
+      213: 1471051045723245312
+    second: OssanwithStage_85
+  - first:
+      213: -5522950707010333095
+    second: OssanwithStage_86
+  - first:
+      213: 5583168664361631882
+    second: OssanwithStage_87
+  - first:
+      213: -6682363596087355828
+    second: OssanwithStage_88
+  - first:
+      213: 878456030891512951
+    second: OssanwithStage_89
+  - first:
+      213: 5058695591789524629
+    second: OssanwithStage_90
+  - first:
+      213: -3455003577044230256
+    second: OssanwithStage_91
+  - first:
+      213: 5195283701964898080
+    second: OssanwithStage_92
+  - first:
+      213: 4549172560602926702
+    second: OssanwithStage_93
+  - first:
+      213: 9004518280685326477
+    second: OssanwithStage_94
+  - first:
+      213: -7129690226825510481
+    second: OssanwithStage_95
+  - first:
+      213: 3652045574278994180
+    second: OssanwithStage_96
+  - first:
+      213: 4907051676065268530
+    second: OssanwithStage_97
+  - first:
+      213: 1565522896456418940
+    second: OssanwithStage_98
+  - first:
+      213: 538694017551209344
+    second: OssanwithStage_99
+  - first:
+      213: 6677899259487244111
+    second: OssanwithStage_100
+  - first:
+      213: 5175320422243001579
+    second: OssanwithStage_101
+  - first:
+      213: 1153388280626833145
+    second: OssanwithStage_102
+  - first:
+      213: 7689172049814613504
+    second: OssanwithStage_103
+  - first:
+      213: 3326431571479788692
+    second: OssanwithStage_104
+  - first:
+      213: 1007290370733972617
+    second: OssanwithStage_105
+  - first:
+      213: 6751618505237057612
+    second: OssanwithStage_106
+  - first:
+      213: 3762041620660037282
+    second: OssanwithStage_107
+  - first:
+      213: -6762646730915790410
+    second: OssanwithStage_108
+  - first:
+      213: -7463696675415461559
+    second: OssanwithStage_109
+  - first:
+      213: -3406398878286287223
+    second: OssanwithStage_110
+  - first:
+      213: -6884807044579148566
+    second: OssanwithStage_111
+  - first:
+      213: -8937174051474129041
+    second: OssanwithStage_112
+  - first:
+      213: -4610180229963100461
+    second: OssanwithStage_113
+  - first:
+      213: -920737866891542956
+    second: OssanwithStage_114
+  - first:
+      213: 2358894501941834709
+    second: OssanwithStage_115
+  - first:
+      213: 2366190154448695350
+    second: OssanwithStage_116
+  - first:
+      213: 1755355142431367207
+    second: OssanwithStage_117
+  - first:
+      213: -8482100510757902384
+    second: OssanwithStage_118
+  - first:
+      213: -3685660561885063061
+    second: OssanwithStage_119
+  - first:
+      213: 3400320279960775861
+    second: OssanwithStage_120
+  - first:
+      213: -3535516806369851900
+    second: OssanwithStage_121
+  - first:
+      213: -5393955524034181279
+    second: OssanwithStage_122
+  - first:
+      213: 5133799429194656728
+    second: OssanwithStage_123
+  - first:
+      213: -6770089429134245778
+    second: OssanwithStage_124
+  - first:
+      213: -5629247751965802566
+    second: OssanwithStage_125
+  - first:
+      213: 1498047629601838644
+    second: OssanwithStage_126
+  - first:
+      213: -5680105582728652573
+    second: OssanwithStage_127
+  - first:
+      213: 9000016199856330408
+    second: OssanwithStage_128
+  - first:
+      213: 2285915197009007553
+    second: OssanwithStage_129
+  - first:
+      213: 4921422992522783694
+    second: OssanwithStage_130
+  - first:
+      213: 6822987114793191676
+    second: OssanwithStage_131
+  - first:
+      213: 6956338851155830232
+    second: OssanwithStage_132
+  - first:
+      213: 307328292997635574
+    second: OssanwithStage_133
+  - first:
+      213: 1992657107604991391
+    second: OssanwithStage_134
+  - first:
+      213: -485396923233812509
+    second: OssanwithStage_135
+  - first:
+      213: -6153230385577451475
+    second: OssanwithStage_136
+  - first:
+      213: 8258168445222928202
+    second: OssanwithStage_137
+  - first:
+      213: 1501270981030045148
+    second: OssanwithStage_138
+  - first:
+      213: -8824308480790194925
+    second: OssanwithStage_139
+  - first:
+      213: -121491714876276990
+    second: OssanwithStage_140
+  - first:
+      213: 2176927619137324064
+    second: OssanwithStage_141
+  - first:
+      213: -6510065256133190988
+    second: OssanwithStage_142
+  - first:
+      213: -7441207887328609156
+    second: OssanwithStage_143
+  - first:
+      213: 5962405521909358975
+    second: OssanwithStage_144
+  - first:
+      213: -7195442850802667563
+    second: OssanwithStage_145
+  - first:
+      213: 8008963125387963160
+    second: OssanwithStage_146
+  - first:
+      213: 2339026807064733429
+    second: OssanwithStage_147
+  - first:
+      213: 8848901300858614215
+    second: OssanwithStage_148
+  - first:
+      213: -5824539952897353836
+    second: OssanwithStage_149
+  - first:
+      213: -5370956658172807731
+    second: OssanwithStage_150
+  - first:
+      213: 803344871072614512
+    second: OssanwithStage_151
+  - first:
+      213: -4932355313980316644
+    second: OssanwithStage_152
+  - first:
+      213: -3379020699391413615
+    second: OssanwithStage_153
+  - first:
+      213: 898168901256946107
+    second: OssanwithStage_154
+  - first:
+      213: -1422510924965717071
+    second: OssanwithStage_155
+  - first:
+      213: 7051413618553671846
+    second: OssanwithStage_156
+  - first:
+      213: -2912098915416253851
+    second: OssanwithStage_157
+  - first:
+      213: -5139962880158587342
+    second: OssanwithStage_158
+  - first:
+      213: 3030433714938372076
+    second: OssanwithStage_159
+  - first:
+      213: -274715100914269822
+    second: OssanwithStage_160
+  - first:
+      213: -3042591124459306077
+    second: OssanwithStage_161
+  - first:
+      213: 6300284470473921670
+    second: OssanwithStage_162
+  - first:
+      213: -3786317534816871682
+    second: OssanwithStage_163
+  - first:
+      213: 1074804109531348616
+    second: OssanwithStage_164
+  - first:
+      213: 1265747755025211212
+    second: OssanwithStage_165
+  - first:
+      213: -4998619895908569629
+    second: OssanwithStage_166
+  - first:
+      213: 8014154546978192905
+    second: OssanwithStage_167
+  - first:
+      213: -4238919136633587939
+    second: OssanwithStage_168
+  - first:
+      213: -6341001384975607895
+    second: OssanwithStage_169
+  - first:
+      213: -4814418003182092808
+    second: OssanwithStage_170
+  - first:
+      213: -6873701135348799333
+    second: OssanwithStage_171
+  - first:
+      213: -7981549040454958836
+    second: OssanwithStage_172
+  - first:
+      213: -9121148117908133461
+    second: OssanwithStage_173
+  - first:
+      213: 5522399935383185637
+    second: OssanwithStage_174
+  - first:
+      213: 2650342053312063214
+    second: OssanwithStage_175
+  - first:
+      213: 6702470909114781521
+    second: OssanwithStage_176
+  - first:
+      213: -737959437788560466
+    second: OssanwithStage_177
+  - first:
+      213: 2578596719653540394
+    second: OssanwithStage_178
+  - first:
+      213: -9075685240409044760
+    second: OssanwithStage_179
+  - first:
+      213: -4566911555375896490
+    second: OssanwithStage_180
+  - first:
+      213: -1020709492880613888
+    second: OssanwithStage_181
+  - first:
+      213: -3541146896014156883
+    second: OssanwithStage_182
+  - first:
+      213: 947216563565854008
+    second: OssanwithStage_183
+  - first:
+      213: -7072043216937257002
+    second: OssanwithStage_184
+  - first:
+      213: -5440234304642812658
+    second: OssanwithStage_185
+  - first:
+      213: -8535110068609814851
+    second: OssanwithStage_186
+  - first:
+      213: -7630151854756061136
+    second: OssanwithStage_187
+  - first:
+      213: 715103007693489427
+    second: OssanwithStage_188
+  - first:
+      213: 6675734520042598290
+    second: OssanwithStage_189
+  - first:
+      213: -4959208322776906467
+    second: OssanwithStage_190
+  - first:
+      213: -4236099492325839015
+    second: OssanwithStage_191
+  - first:
+      213: 2436523249799023265
+    second: OssanwithStage_192
+  - first:
+      213: 4537411042065920428
+    second: OssanwithStage_193
+  - first:
+      213: 8826032362362539340
+    second: OssanwithStage_194
+  - first:
+      213: 1506606383535260729
+    second: OssanwithStage_195
+  - first:
+      213: -601745248551737473
+    second: OssanwithStage_196
+  - first:
+      213: -5886340034716015684
+    second: OssanwithStage_197
+  - first:
+      213: 6064699787296347120
+    second: OssanwithStage_198
+  - first:
+      213: -2573237605766454558
+    second: OssanwithStage_199
+  - first:
+      213: -4082423156354107286
+    second: OssanwithStage_200
+  - first:
+      213: 7829502541386304223
+    second: OssanwithStage_201
+  - first:
+      213: 4427499999913612127
+    second: OssanwithStage_202
+  - first:
+      213: -6562052503929429739
+    second: OssanwithStage_203
+  - first:
+      213: -7957160349386345647
+    second: OssanwithStage_204
+  - first:
+      213: 4008310935426469099
+    second: OssanwithStage_205
+  - first:
+      213: -1577609596865424483
+    second: OssanwithStage_206
+  - first:
+      213: 2503001832430709812
+    second: OssanwithStage_207
+  - first:
+      213: -7799146707215572108
+    second: OssanwithStage_208
+  - first:
+      213: 2339685893184209435
+    second: OssanwithStage_209
+  - first:
+      213: -1550961431683603486
+    second: OssanwithStage_210
+  - first:
+      213: 7277463920572134025
+    second: OssanwithStage_211
+  - first:
+      213: 7496888804558514205
+    second: OssanwithStage_212
+  - first:
+      213: -985750831329295447
+    second: OssanwithStage_213
+  - first:
+      213: -4653050821411251681
+    second: OssanwithStage_214
+  - first:
+      213: -2549471370025156855
+    second: OssanwithStage_215
+  - first:
+      213: -3196557665381889499
+    second: OssanwithStage_216
+  - first:
+      213: 337049889601714380
+    second: OssanwithStage_217
+  - first:
+      213: 4692121797392472465
+    second: OssanwithStage_218
+  - first:
+      213: 9153141839073748577
+    second: OssanwithStage_219
+  - first:
+      213: -3969464778353071561
+    second: OssanwithStage_220
+  - first:
+      213: 7931637437505665673
+    second: OssanwithStage_221
+  - first:
+      213: 1197056767775382340
+    second: OssanwithStage_222
+  - first:
+      213: 4752221991192581483
+    second: OssanwithStage_223
+  - first:
+      213: -131383820799386184
+    second: OssanwithStage_224
+  - first:
+      213: -3275573894171845699
+    second: OssanwithStage_225
+  - first:
+      213: 1735278902352895333
+    second: OssanwithStage_226
+  - first:
+      213: 6135004221930476553
+    second: OssanwithStage_227
+  - first:
+      213: 2286591768531641369
+    second: OssanwithStage_228
+  - first:
+      213: 5699801480026906201
+    second: OssanwithStage_229
+  - first:
+      213: -2581330411200757214
+    second: OssanwithStage_230
+  - first:
+      213: 987934260565650631
+    second: OssanwithStage_231
+  - first:
+      213: -1587275715082056182
+    second: OssanwithStage_232
+  - first:
+      213: 2359613829847249621
+    second: OssanwithStage_233
+  - first:
+      213: -1002693576130541197
+    second: OssanwithStage_234
+  - first:
+      213: -4174453361558560676
+    second: OssanwithStage_235
+  - first:
+      213: -1116400369883090648
+    second: OssanwithStage_236
+  - first:
+      213: -778283520980731816
+    second: OssanwithStage_237
+  - first:
+      213: -5036539430249155330
+    second: OssanwithStage_238
+  - first:
+      213: -5593181682111459883
+    second: OssanwithStage_239
+  - first:
+      213: -8302541501654609319
+    second: OssanwithStage_240
+  - first:
+      213: -9040303534979271055
+    second: OssanwithStage_241
+  - first:
+      213: -1144698917015905145
+    second: OssanwithStage_242
+  - first:
+      213: -3925894651339949381
+    second: OssanwithStage_243
+  - first:
+      213: 8594529963786489901
+    second: OssanwithStage_244
+  - first:
+      213: -5342878477774622887
+    second: OssanwithStage_245
+  - first:
+      213: 2843679066474367275
+    second: OssanwithStage_246
+  - first:
+      213: 5903950083614622818
+    second: OssanwithStage_247
+  - first:
+      213: 2370127389999713522
+    second: OssanwithStage_248
+  - first:
+      213: 1111265287823821652
+    second: OssanwithStage_249
+  - first:
+      213: -6140949454011143097
+    second: OssanwithStage_250
+  - first:
+      213: 8318180881711134848
+    second: OssanwithStage_251
+  - first:
+      213: -2225891116168554239
+    second: OssanwithStage_252
+  - first:
+      213: -3902477308727118957
+    second: OssanwithStage_253
+  - first:
+      213: 5230368079340639657
+    second: OssanwithStage_254
+  - first:
+      213: -6093641007842425940
+    second: OssanwithStage_255
+  - first:
+      213: 4968140971915153053
+    second: OssanwithStage_256
+  - first:
+      213: 3677383973333965189
+    second: OssanwithStage_257
+  - first:
+      213: 512664136073319217
+    second: OssanwithStage_258
+  - first:
+      213: 1629921852206130877
+    second: OssanwithStage_259
+  - first:
+      213: -7080587487847394790
+    second: OssanwithStage_260
+  - first:
+      213: 7396644251079592945
+    second: OssanwithStage_261
+  - first:
+      213: 3493363919898452296
+    second: OssanwithStage_262
+  - first:
+      213: 4978519118491371369
+    second: OssanwithStage_263
+  - first:
+      213: 2268853438080119053
+    second: OssanwithStage_264
+  - first:
+      213: 456496214727984838
+    second: OssanwithStage_265
+  - first:
+      213: -8849390298293085165
+    second: OssanwithStage_266
+  - first:
+      213: -6781300537035340203
+    second: OssanwithStage_267
+  - first:
+      213: -8953007721120840475
+    second: OssanwithStage_268
+  - first:
+      213: 9146668484686952944
+    second: OssanwithStage_269
+  - first:
+      213: 1968851581677264803
+    second: OssanwithStage_270
+  - first:
+      213: -6196874219189579170
+    second: OssanwithStage_271
+  - first:
+      213: 5589162031238371396
+    second: OssanwithStage_272
+  - first:
+      213: 3231417656001036751
+    second: OssanwithStage_273
+  - first:
+      213: -6635675315125082379
+    second: OssanwithStage_274
+  - first:
+      213: 286333521497927226
+    second: OssanwithStage_275
+  - first:
+      213: 5123065675608025858
+    second: OssanwithStage_276
+  - first:
+      213: 5302387035902595636
+    second: OssanwithStage_277
+  - first:
+      213: -4503244476280708786
+    second: OssanwithStage_278
+  - first:
+      213: 3449665996399744866
+    second: OssanwithStage_279
+  - first:
+      213: -6783459984279834048
+    second: OssanwithStage_280
+  - first:
+      213: 4071356271716725127
+    second: OssanwithStage_281
+  - first:
+      213: 3557151480200809992
+    second: OssanwithStage_282
+  - first:
+      213: 3208018935469297667
+    second: OssanwithStage_283
+  - first:
+      213: 3352033628759331196
+    second: OssanwithStage_284
+  - first:
+      213: -7365454930728930839
+    second: OssanwithStage_285
+  - first:
+      213: 7453946470729864298
+    second: OssanwithStage_286
+  - first:
+      213: 5958156840652825006
+    second: OssanwithStage_287
+  - first:
+      213: -6334005994918824375
+    second: OssanwithStage_288
+  - first:
+      213: -3358492233475388097
+    second: OssanwithStage_289
+  - first:
+      213: 2146366057841017163
+    second: OssanwithStage_290
+  - first:
+      213: -5075380791638099386
+    second: OssanwithStage_291
+  - first:
+      213: 509904218623887358
+    second: OssanwithStage_292
+  - first:
+      213: 8999607990343503077
+    second: OssanwithStage_293
+  - first:
+      213: 2917706856102317774
+    second: OssanwithStage_294
+  - first:
+      213: -31268191830313215
+    second: OssanwithStage_295
+  - first:
+      213: 413309020863970140
+    second: OssanwithStage_296
+  - first:
+      213: -7946141997392558100
+    second: OssanwithStage_297
+  - first:
+      213: 676756184476925840
+    second: OssanwithStage_298
+  - first:
+      213: -2785673698415087532
+    second: OssanwithStage_299
+  - first:
+      213: 1049361150524727240
+    second: OssanwithStage_300
+  - first:
+      213: 3301012071277328275
+    second: OssanwithStage_301
+  - first:
+      213: 9198291916415953318
+    second: OssanwithStage_302
+  - first:
+      213: -6226988530136042356
+    second: OssanwithStage_303
+  - first:
+      213: -7933709450334520852
+    second: OssanwithStage_304
+  - first:
+      213: -2801582317765933006
+    second: OssanwithStage_305
+  - first:
+      213: 2639156681959182715
+    second: OssanwithStage_306
+  - first:
+      213: 4156775999426456908
+    second: OssanwithStage_307
+  - first:
+      213: -922979816890717526
+    second: OssanwithStage_308
+  - first:
+      213: -8725231414944847621
+    second: OssanwithStage_309
+  - first:
+      213: 7365059006038358081
+    second: OssanwithStage_310
+  - first:
+      213: 1905159979889814592
+    second: OssanwithStage_311
+  - first:
+      213: -8002713925950371095
+    second: OssanwithStage_312
+  - first:
+      213: 4235557699532922877
+    second: OssanwithStage_313
+  - first:
+      213: 4130724439959876651
+    second: OssanwithStage_314
+  - first:
+      213: 7603269046329568515
+    second: OssanwithStage_315
+  - first:
+      213: -7273899402957821421
+    second: OssanwithStage_316
+  - first:
+      213: -1260119886140971171
+    second: OssanwithStage_317
+  - first:
+      213: 3733269263644446374
+    second: OssanwithStage_318
+  - first:
+      213: -5728994691568069634
+    second: OssanwithStage_319
+  - first:
+      213: -7540110990918670585
+    second: OssanwithStage_320
+  - first:
+      213: -6698683030236677178
+    second: OssanwithStage_321
+  - first:
+      213: -165043137234290657
+    second: OssanwithStage_322
+  - first:
+      213: -8352651857448108836
+    second: OssanwithStage_323
+  - first:
+      213: 6989525012516675023
+    second: OssanwithStage_324
+  - first:
+      213: -30147513050282929
+    second: OssanwithStage_325
+  - first:
+      213: -5064400583458320213
+    second: OssanwithStage_326
+  - first:
+      213: 6286230631153047900
+    second: OssanwithStage_327
+  - first:
+      213: -4503670633278617606
+    second: OssanwithStage_328
+  - first:
+      213: 3809270935869514833
+    second: OssanwithStage_329
+  - first:
+      213: -613173012775595875
+    second: OssanwithStage_330
+  - first:
+      213: -4496310639026912080
+    second: OssanwithStage_331
+  - first:
+      213: 4675259347835803058
+    second: OssanwithStage_332
+  - first:
+      213: 7821274178168085351
+    second: OssanwithStage_333
+  - first:
+      213: -7301400829147612712
+    second: OssanwithStage_334
+  - first:
+      213: -1339335685561813939
+    second: OssanwithStage_335
+  - first:
+      213: -2524618433814742700
+    second: OssanwithStage_336
+  - first:
+      213: 679841258910254541
+    second: OssanwithStage_337
+  - first:
+      213: -6392475287345108818
+    second: OssanwithStage_338
+  - first:
+      213: -6356955241996550936
+    second: OssanwithStage_339
+  - first:
+      213: 5365225742253208385
+    second: OssanwithStage_340
+  - first:
+      213: 80408389436606323
+    second: OssanwithStage_341
+  - first:
+      213: -1731751747056655003
+    second: OssanwithStage_342
+  - first:
+      213: 6597558437755046978
+    second: OssanwithStage_343
+  - first:
+      213: -3118950420961528244
+    second: OssanwithStage_344
+  - first:
+      213: 3197111200336019927
+    second: OssanwithStage_345
+  - first:
+      213: -8226014680727067781
+    second: OssanwithStage_346
+  - first:
+      213: -1148932388291037844
+    second: OssanwithStage_347
+  - first:
+      213: 3432946223874577521
+    second: OssanwithStage_348
+  - first:
+      213: -5946861169791135361
+    second: OssanwithStage_349
+  - first:
+      213: 8240384533816966768
+    second: OssanwithStage_350
+  - first:
+      213: 2548141147105242319
+    second: OssanwithStage_351
+  - first:
+      213: 1233434065206694074
+    second: OssanwithStage_352
+  - first:
+      213: 2546665848276317015
+    second: OssanwithStage_353
+  - first:
+      213: 3222528651787764416
+    second: OssanwithStage_354
+  - first:
+      213: 370526406219761895
+    second: OssanwithStage_355
+  - first:
+      213: 3115220336197801920
+    second: OssanwithStage_356
+  - first:
+      213: -4331633676255441404
+    second: OssanwithStage_357
+  - first:
+      213: 7004860188924263811
+    second: OssanwithStage_358
+  - first:
+      213: 7761217186484807537
+    second: OssanwithStage_359
+  - first:
+      213: -6577292474373354831
+    second: OssanwithStage_360
+  - first:
+      213: 7300134263668632475
+    second: OssanwithStage_361
+  - first:
+      213: 2010676493817489592
+    second: OssanwithStage_362
+  - first:
+      213: -3007948400450524952
+    second: OssanwithStage_363
+  - first:
+      213: 2585374009944935667
+    second: OssanwithStage_364
+  - first:
+      213: 6911160314381130291
+    second: OssanwithStage_365
+  - first:
+      213: 4805044611035665450
+    second: OssanwithStage_366
+  - first:
+      213: -5130396449431651716
+    second: OssanwithStage_367
+  - first:
+      213: 4006636270582317264
+    second: OssanwithStage_368
+  - first:
+      213: 1619937413244128035
+    second: OssanwithStage_369
+  - first:
+      213: 7570959418639312096
+    second: OssanwithStage_370
+  - first:
+      213: 7180847759653619247
+    second: OssanwithStage_371
+  - first:
+      213: 4789132738151273012
+    second: OssanwithStage_372
+  - first:
+      213: -6929628428122081791
+    second: OssanwithStage_373
+  - first:
+      213: 1530013001010848015
+    second: OssanwithStage_374
+  - first:
+      213: 1355441881565412223
+    second: OssanwithStage_375
+  - first:
+      213: 4705637591734818566
+    second: OssanwithStage_376
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 12
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OssanwithStage_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a046731ca9c4f1c0800000000000000
+      internalID: -4470726789173985118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05b959ca68995350800000000000000
+      internalID: 6005999162487321868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7222056d351c07070800000000000000
+      internalID: 8102188295461544487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a22db0b6443703d0800000000000000
+      internalID: -3240563928652242271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef40e413205760b0800000000000000
+      internalID: -5735527488828715031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae92e5e00405bfc40800000000000000
+      internalID: 5547115602086078954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c6b985d67366c90800000000000000
+      internalID: -7176988013390762960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3177a90eebfe29e20800000000000000
+      internalID: 3356008275435484947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df82f73af0d7467b0800000000000000
+      internalID: -5231919360976672515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57e3ded0997933c10800000000000000
+      internalID: 2032134540493667957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1152
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 960ddb6039e94abe0800000000000000
+      internalID: -1466873224305454999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc7ebc3c2a2e3890800000000000000
+      internalID: -7476491961902400297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1745ce38f82151a70800000000000000
+      internalID: 8796957854741058673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a09e2bc88a82f940800000000000000
+      internalID: 5328473629261729952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 033e8cd0747edf480800000000000000
+      internalID: -8863674199235304656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_15
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f984477a8fd5030800000000000000
+      internalID: 3485215084748775275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 690779ed03de00cc0800000000000000
+      internalID: -3746734095823572842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6bd6fda1d241660800000000000000
+      internalID: 7355553684843771558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_18
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 214b9013a67a73e50800000000000000
+      internalID: 6789079037815403538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_19
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41fb4e0b49f35fdd0800000000000000
+      internalID: -2452984514177876204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_20
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff95625f65399be0800000000000000
+      internalID: -1470085051119722505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_21
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 901b555e2b889d8c0800000000000000
+      internalID: -3973994894244597495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a69d8da098010b80800000000000000
+      internalID: -8430447609980807513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2303eada2b37c5130800000000000000
+      internalID: 3556845016971096114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8181885b4b3d87d80800000000000000
+      internalID: -8252613544063264744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b45f0679aa766b40800000000000000
+      internalID: 5433164868717860021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4234128b38bfc4d0800000000000000
+      internalID: -3112066251764780467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_27
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662f3fe4ae6f72610800000000000000
+      internalID: 1596516079133520486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_28
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bcee883ab33cbed0800000000000000
+      internalID: -2396984026762122057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_29
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41e99c0fffe13db0800000000000000
+      internalID: -4813802647975239349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_30
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0e1dc3905c5d0f0800000000000000
+      internalID: -1092750691101712223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_31
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cca56ccc694638d60800000000000000
+      internalID: 7891261570926664396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_32
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aab0721cf1fbe770800000000000000
+      internalID: 8641266374983858854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4732ee44c529d1be0800000000000000
+      internalID: -1504885775480773772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 312a088eea824f2c0800000000000000
+      internalID: -4398846204343967213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_35
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b93a65a96014b80800000000000000
+      internalID: -8412435369003082858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_36
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05241719ffd8b2440800000000000000
+      internalID: 4912175947373953616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_37
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3cfb828e18bd9f10800000000000000
+      internalID: 2278179427698080827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_38
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b4667f88746e0b0800000000000000
+      internalID: -5699789624798983420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_39
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b683e0b6a8f823140800000000000000
+      internalID: 4697975185965201515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_40
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ada5b7029888e9f0800000000000000
+      internalID: -438950802892673626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_41
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b12a7557a57b1dc0800000000000000
+      internalID: -3667208110009081419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_42
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a504324e52d336510800000000000000
+      internalID: 1541142730441441370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_43
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9cfdd1671822e680800000000000000
+      internalID: -8727369046999303009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cabbf2aaf0a0ec30800000000000000
+      internalID: 4386683035395537601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_45
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c644633d1c13fda80800000000000000
+      internalID: -8439972468127021972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_46
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e97bbd21a0b97cf0800000000000000
+      internalID: -253977697666237979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_47
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a1389df9bd4d2fd0800000000000000
+      internalID: -2365148768080744032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_48
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e236128fa02471f0800000000000000
+      internalID: -1048176875096624412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_49
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e89a8dae8e03ac00800000000000000
+      internalID: 910587555618658536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_50
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c645e314e96d02030800000000000000
+      internalID: 3468007688263062636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_51
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca941a0440ce07f0800000000000000
+      internalID: -644366298207970620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_52
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3ea4b4182a24780800000000000000
+      internalID: -8700212853928696846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_53
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb08a66a3bc7aa530800000000000000
+      internalID: 3867040341083979966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_54
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859fa2dfaf24787d0800000000000000
+      internalID: -2916288587942397608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133b6603f1b517580800000000000000
+      internalID: -8831177204782681295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_56
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb8cea7e6f135750800000000000000
+      internalID: 6292407663735901168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_57
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b469e0857b982d2f0800000000000000
+      internalID: -949545150872381877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_58
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7d789ffcbaccc330800000000000000
+      internalID: 3732581104274144634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_59
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4815c02f33e49a10800000000000000
+      internalID: 1915405601811535946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_60
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05a062981bfa73b0800000000000000
+      internalID: -5513818710808156918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_61
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475d7ca8aa174ddf0800000000000000
+      internalID: -156375109764393612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_62
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4f56864391b0ccf0800000000000000
+      internalID: -233991934521745588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_63
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe465da939f1a1db0800000000000000
+      internalID: -4820505732328364817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_64
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2cef8aed89f3a860800000000000000
+      internalID: 7540144589069347885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_65
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 598805869049bdb60800000000000000
+      internalID: 7771968350083647637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce79039770ed0b830800000000000000
+      internalID: 4085008985704404972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_67
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4121fdfff22e4960800000000000000
+      internalID: 7588040905038307660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8170d63b62171e600800000000000000
+      internalID: 495801845020428056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_69
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2645faa3b62bca70800000000000000
+      internalID: 8848208446008673838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_70
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d88c0c65221e5b780800000000000000
+      internalID: -8667774370204039027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_71
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94252fe89ac7e16b0800000000000000
+      internalID: -5323680641815784887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_72
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd580ad597259c000800000000000000
+      internalID: 56667151534163423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_73
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2769931b145aa0de0800000000000000
+      internalID: -1366097835388725646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_74
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe96b1751773eb90800000000000000
+      internalID: -7213791244131590405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_75
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5b80a476e0fd510800000000000000
+      internalID: 1575994231389468104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_76
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6585778204b139b00800000000000000
+      internalID: 834040318364440662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e66c0bae73c0770800000000000000
+      internalID: 8578292871361621606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_78
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751ddd46f9f725fd0800000000000000
+      internalID: -2354679332592561833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_79
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55dc2cd278e8ccd30800000000000000
+      internalID: 4453090842802048341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_80
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52795894e9ac4920800000000000000
+      internalID: 2975940253058691677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_81
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11908332f65e54530800000000000000
+      internalID: 3838726522898221329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_82
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5308773605afc0ce0800000000000000
+      internalID: -1437498957864927179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_83
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a275651b17a2ad700800000000000000
+      internalID: 565811370983315242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_84
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2225a31b5661b95c0800000000000000
+      internalID: -4207744800826699230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_85
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b0dc2d1293a6410800000000000000
+      internalID: 1471051045723245312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_86
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95618a408998a53b0800000000000000
+      internalID: -5522950707010333095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_87
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a800e50c1566b7d40800000000000000
+      internalID: 5583168664361631882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_88
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46163bc6b97343a0800000000000000
+      internalID: -6682363596087355828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_89
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77496181b17e03c00800000000000000
+      internalID: 878456030891512951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_90
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 596f27fa6d8143640800000000000000
+      internalID: 5058695591789524629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_91
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09f13945d8c5d00d0800000000000000
+      internalID: -3455003577044230256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_92
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f7efa400b591840800000000000000
+      internalID: 5195283701964898080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_93
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e01b06758e12f30800000000000000
+      internalID: 4549172560602926702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_94
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8092c51ba976fc70800000000000000
+      internalID: 9004518280685326477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_95
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa1cd7f63804e0d90800000000000000
+      internalID: -7129690226825510481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_96
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 409df66b91caea230800000000000000
+      internalID: 3652045574278994180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_97
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2330b5e2089591440800000000000000
+      internalID: 4907051676065268530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_98
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c768603a7cad9b510800000000000000
+      internalID: 1565522896456418940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_99
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08394c6da53d97700800000000000000
+      internalID: 538694017551209344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_100
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4fc497def9acac50800000000000000
+      internalID: 6677899259487244111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_101
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be46e96018e62d740800000000000000
+      internalID: 5175320422243001579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_102
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f66cd2c788a10010800000000000000
+      internalID: 1153388280626833145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_103
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00eef068d3d65ba60800000000000000
+      internalID: 7689172049814613504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_104
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c72bbd3ebd92e20800000000000000
+      internalID: 3326431571479788692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OssanwithStage_105
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c154d514d9afd00800000000000000
+      internalID: 1007290370733972617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 580af1e14e792014dba7417a3c866ff7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      OssanwithStage_0: -4470726789173985118
+      OssanwithStage_1: 6005999162487321868
+      OssanwithStage_10: -1466873224305454999
+      OssanwithStage_100: 6677899259487244111
+      OssanwithStage_101: 5175320422243001579
+      OssanwithStage_102: 1153388280626833145
+      OssanwithStage_103: 7689172049814613504
+      OssanwithStage_104: 3326431571479788692
+      OssanwithStage_105: 1007290370733972617
+      OssanwithStage_11: -7476491961902400297
+      OssanwithStage_12: 8796957854741058673
+      OssanwithStage_13: 5328473629261729952
+      OssanwithStage_14: -8863674199235304656
+      OssanwithStage_15: 3485215084748775275
+      OssanwithStage_16: -3746734095823572842
+      OssanwithStage_17: 7355553684843771558
+      OssanwithStage_18: 6789079037815403538
+      OssanwithStage_19: -2452984514177876204
+      OssanwithStage_2: 8102188295461544487
+      OssanwithStage_20: -1470085051119722505
+      OssanwithStage_21: -3973994894244597495
+      OssanwithStage_22: -8430447609980807513
+      OssanwithStage_23: 3556845016971096114
+      OssanwithStage_24: -8252613544063264744
+      OssanwithStage_25: 5433164868717860021
+      OssanwithStage_26: -3112066251764780467
+      OssanwithStage_27: 1596516079133520486
+      OssanwithStage_28: -2396984026762122057
+      OssanwithStage_29: -4813802647975239349
+      OssanwithStage_3: -3240563928652242271
+      OssanwithStage_30: -1092750691101712223
+      OssanwithStage_31: 7891261570926664396
+      OssanwithStage_32: 8641266374983858854
+      OssanwithStage_33: -1504885775480773772
+      OssanwithStage_34: -4398846204343967213
+      OssanwithStage_35: -8412435369003082858
+      OssanwithStage_36: 4912175947373953616
+      OssanwithStage_37: 2278179427698080827
+      OssanwithStage_38: -5699789624798983420
+      OssanwithStage_39: 4697975185965201515
+      OssanwithStage_4: -5735527488828715031
+      OssanwithStage_40: -438950802892673626
+      OssanwithStage_41: -3667208110009081419
+      OssanwithStage_42: 1541142730441441370
+      OssanwithStage_43: -8727369046999303009
+      OssanwithStage_44: 4386683035395537601
+      OssanwithStage_45: -8439972468127021972
+      OssanwithStage_46: -253977697666237979
+      OssanwithStage_47: -2365148768080744032
+      OssanwithStage_48: -1048176875096624412
+      OssanwithStage_49: 910587555618658536
+      OssanwithStage_5: 5547115602086078954
+      OssanwithStage_50: 3468007688263062636
+      OssanwithStage_51: -644366298207970620
+      OssanwithStage_52: -8700212853928696846
+      OssanwithStage_53: 3867040341083979966
+      OssanwithStage_54: -2916288587942397608
+      OssanwithStage_55: -8831177204782681295
+      OssanwithStage_56: 6292407663735901168
+      OssanwithStage_57: -949545150872381877
+      OssanwithStage_58: 3732581104274144634
+      OssanwithStage_59: 1915405601811535946
+      OssanwithStage_6: -7176988013390762960
+      OssanwithStage_60: -5513818710808156918
+      OssanwithStage_61: -156375109764393612
+      OssanwithStage_62: -233991934521745588
+      OssanwithStage_63: -4820505732328364817
+      OssanwithStage_64: 7540144589069347885
+      OssanwithStage_65: 7771968350083647637
+      OssanwithStage_66: 4085008985704404972
+      OssanwithStage_67: 7588040905038307660
+      OssanwithStage_68: 495801845020428056
+      OssanwithStage_69: 8848208446008673838
+      OssanwithStage_7: 3356008275435484947
+      OssanwithStage_70: -8667774370204039027
+      OssanwithStage_71: -5323680641815784887
+      OssanwithStage_72: 56667151534163423
+      OssanwithStage_73: -1366097835388725646
+      OssanwithStage_74: -7213791244131590405
+      OssanwithStage_75: 1575994231389468104
+      OssanwithStage_76: 834040318364440662
+      OssanwithStage_77: 8578292871361621606
+      OssanwithStage_78: -2354679332592561833
+      OssanwithStage_79: 4453090842802048341
+      OssanwithStage_8: -5231919360976672515
+      OssanwithStage_80: 2975940253058691677
+      OssanwithStage_81: 3838726522898221329
+      OssanwithStage_82: -1437498957864927179
+      OssanwithStage_83: 565811370983315242
+      OssanwithStage_84: -4207744800826699230
+      OssanwithStage_85: 1471051045723245312
+      OssanwithStage_86: -5522950707010333095
+      OssanwithStage_87: 5583168664361631882
+      OssanwithStage_88: -6682363596087355828
+      OssanwithStage_89: 878456030891512951
+      OssanwithStage_9: 2032134540493667957
+      OssanwithStage_90: 5058695591789524629
+      OssanwithStage_91: -3455003577044230256
+      OssanwithStage_92: 5195283701964898080
+      OssanwithStage_93: 4549172560602926702
+      OssanwithStage_94: 9004518280685326477
+      OssanwithStage_95: -7129690226825510481
+      OssanwithStage_96: 3652045574278994180
+      OssanwithStage_97: 4907051676065268530
+      OssanwithStage_98: 1565522896456418940
+      OssanwithStage_99: 538694017551209344
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
