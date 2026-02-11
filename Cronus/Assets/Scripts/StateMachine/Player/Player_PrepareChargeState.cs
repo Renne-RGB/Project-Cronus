@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player_PrepareChargeState : PlayerState
 {
-    private float prepareTimer;
+    protected float prepareTimer;
 
     public Player_PrepareChargeState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {

@@ -3,14 +3,8 @@ guid: fce80e0339fbb5a4a890c8c48fefc83a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2001549890549242753
-    second: ripple_0
-  - first:
-      213: -5515243490845997731
-    second: ripple_1
-  - first:
-      213: -8971687091379179229
-    second: ripple_2
+      213: 7558571432732579284
+    second: Ripple_Enemy1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ripple_0
+      name: Ripple_Enemy1_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 13
-        width: 20
-        height: 20
+        x: 0
+        y: 0
+        width: 48
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,52 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f74279daaf01934e0800000000000000
-      internalID: -2001549890549242753
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ripple_1
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 7
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d55c65e144be573b0800000000000000
-      internalID: -5515243490845997731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ripple_2
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 2
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 321f26adf1a2e7380800000000000000
-      internalID: -8971687091379179229
+      spriteID: 4d5d079cba075e860800000000000000
+      internalID: 7558571432732579284
       vertices: []
       indices: 
       edges: []
@@ -197,10 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ripple_0: -2001549890549242753
-      ripple_1: -5515243490845997731
-      ripple_2: -8971687091379179229
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,7 @@ public class Player_ChargeActionState : PlayerState
         stateTimer = 0f;
 
         //発動成功したらhp消費する
-        player.ChangeHP(-1);
+        HandleCost();
 
         //無敵時間
         player.invincibleTimer = player.chargeActionDuration;
@@ -45,5 +45,10 @@ public class Player_ChargeActionState : PlayerState
         base.Exit();
         player.SetVelocity(0, 0);
         player.SetInvincibleFlash(true);
+    }
+
+    protected virtual void HandleCost()
+    {
+        player.ChangeHP(-1);
     }
 }
