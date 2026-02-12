@@ -86,6 +86,16 @@ public class Player_BasicState : PlayerState
                 stateMachine.ChangeState(player.hiddenState);
                 return;
             }
+
+            if (player.currentGoalSpot != null)
+            {
+                EndingChanger changer = Object.FindFirstObjectByType<EndingChanger>();
+                if (changer != null)
+                {
+                    changer.TransitionToScene(player.currentGoalSpot.sceneName);
+                }
+                return;
+            }
         }
     }
 

@@ -74,6 +74,8 @@ public class Player : Entity
     public bool isHidden = false;
     private List<HideSpot> hideSpotsInRange = new List<HideSpot>();
     private HideSpot lastFrameHideSpot;
+    [Header("Goal Settings")]
+    public GoalSpot currentGoalSpot;
     [Header("UI")]
     public HealthUIManager healthUI;
     public GameObject gameOverUI;
@@ -220,6 +222,15 @@ public class Player : Entity
             }
         }
 
+        else if (other.CompareTag("GoalSpot"))
+        {
+            currentGoalSpot = other.GetComponent<GoalSpot>();
+            if (currentGoalSpot != null)
+            {
+                currentGoalSpot.ToggleInteractionIcon(true);
+            }
+        }
+
 
     }
 
@@ -249,6 +260,15 @@ public class Player : Entity
                 spot.ToggleInteractionIcon(false);
                 hideSpotsInRange.Remove(spot);
                 UpdateClosestHideSpot();
+            }
+        }
+
+        else if (other.CompareTag("GoalSpot"))
+        {
+            if (currentGoalSpot != null && other.gameObject == currentGoalSpot.gameObject)
+            {
+                currentGoalSpot.ToggleInteractionIcon(false);
+                currentGoalSpot = null;
             }
         }
 
@@ -411,7 +431,7 @@ public class Player : Entity
         {
             PauseMenu.Instance.enabled = true;
         }
-        
+
         input.Enable();
 
         if (gameOverUI != null)

@@ -108,8 +108,11 @@
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_FaintState.cs" />
     <Compile Include="Assets\Scripts\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\UI &amp; Menu\MenuDing\GoalSpot.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EntityState.cs" />
+    <Compile Include="Assets\Scripts\UI &amp; Menu\MenuDing\EndingChanger.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyVisibilityHandler.cs" />
+    <Compile Include="Assets\Scripts\UI &amp; Menu\MenuDing\EndingSceneManager.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_ChaseState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_CqbState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Enemy\Enemy_SearchState.cs" />

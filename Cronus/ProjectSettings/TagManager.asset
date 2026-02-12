@@ -11,6 +11,7 @@ TagManager:
   - HideSpot
   - CanMove
   - Box
+  - GoalSpot
   layers:
   - Default
   - TransparentFX
