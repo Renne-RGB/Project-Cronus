@@ -10,36 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: BestTen-CRT SDF
+  m_Name: x12y16pxMaruMonica SDF
   m_EditorClassIdentifier: 
   m_Version: 1.1.0
   m_FaceInfo:
     m_FaceIndex: 0
-    m_FamilyName: BestTen-CRT
-    m_StyleName: Bold
+    m_FamilyName: x12y16pxMaruMonica
+    m_StyleName: Regular
     m_PointSize: 90
     m_Scale: 1
-    m_UnitsPerEM: 1000
+    m_UnitsPerEM: 1024
     m_LineHeight: 90
-    m_AscentLine: 79.200005
-    m_CapLine: 69
-    m_MeanLine: 43
+    m_AscentLine: 78.75
+    m_CapLine: 62
+    m_MeanLine: 45
     m_Baseline: 0
-    m_DescentLine: -10.8
-    m_SuperscriptOffset: 79.200005
+    m_DescentLine: -11.25
+    m_SuperscriptOffset: 78.75
     m_SuperscriptSize: 0.5
-    m_SubscriptOffset: -10.8
+    m_SubscriptOffset: -11.25
     m_SubscriptSize: 0.5
-    m_UnderlineOffset: -9
-    m_UnderlineThickness: 4.5
-    m_StrikethroughOffset: 17.2
-    m_StrikethroughThickness: 4.5
-    m_TabWidth: 45
-  m_Material: {fileID: 7679527591679937453}
-  m_SourceFontFileGUID: e45afa70a8e6f0d488993c7f2847f7c1
+    m_UnderlineOffset: -8.4375
+    m_UnderlineThickness: 2.8125
+    m_StrikethroughOffset: 18
+    m_StrikethroughThickness: 2.8125
+    m_TabWidth: 23
+  m_Material: {fileID: 72937835803223318}
+  m_SourceFontFileGUID: 3c1be946fb99cac43a0f2cb930115f6c
   m_CreationSettings:
     sourceFontFileName: 
-    sourceFontFileGUID: e45afa70a8e6f0d488993c7f2847f7c1
+    sourceFontFileGUID: 3c1be946fb99cac43a0f2cb930115f6c
     faceIndex: 0
     pointSizeSamplingMode: 0
     pointSize: 90
@@ -56,14 +56,14 @@ MonoBehaviour:
     fontStyleModifier: 0
     renderMode: 4165
     includeFontFeatures: 0
-  m_SourceFontFile: {fileID: 12800000, guid: e45afa70a8e6f0d488993c7f2847f7c1, type: 3}
+  m_SourceFontFile: {fileID: 12800000, guid: 3c1be946fb99cac43a0f2cb930115f6c, type: 3}
   m_SourceFontFilePath: 
   m_AtlasPopulationMode: 1
   InternalDynamicOS: 0
   m_GlyphTable: []
   m_CharacterTable: []
   m_AtlasTextures:
-  - {fileID: 6953406184584450972}
+  - {fileID: 4976567965417048476}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_GetFontFeatures: 1
@@ -80,83 +80,7 @@ MonoBehaviour:
     m_Height: 1023
   m_FontFeatureTable:
     m_MultipleSubstitutionRecords: []
-    m_LigatureSubstitutionRecords:
-    - m_ComponentGlyphIDs: d8030000e7030000c4030000
-      m_LigatureGlyphID: 11936
-    - m_ComponentGlyphIDs: e5030000c5030000
-      m_LigatureGlyphID: 11949
-    - m_ComponentGlyphIDs: a0030000c7030000ef030000ac030000
-      m_LigatureGlyphID: 11876
-    - m_ComponentGlyphIDs: a0030000ef030000bd030000
-      m_LigatureGlyphID: 8183
-    - m_ComponentGlyphIDs: c3030000a7030000
-      m_LigatureGlyphID: 11908
-    - m_ComponentGlyphIDs: c3030000b3030000
-      m_LigatureGlyphID: 11909
-    - m_ComponentGlyphIDs: ac030000e5030000dc030000c4030000ef030000
-      m_LigatureGlyphID: 11898
-    - m_ComponentGlyphIDs: ac030000b503000094020000dc030000
-      m_LigatureGlyphID: 11897
-    - m_ComponentGlyphIDs: ac030000e5030000dc030000
-      m_LigatureGlyphID: 8040
-    - m_ComponentGlyphIDs: b3030000e6030000ef030000ac030000
-      m_LigatureGlyphID: 11906
-    - m_ComponentGlyphIDs: 220000002e000000
-      m_LigatureGlyphID: 11846
-    - m_ComponentGlyphIDs: e8030000ef030000c4030000ae030000ef030000
-      m_LigatureGlyphID: 11956
-    - m_ComponentGlyphIDs: e8030000dc030000
-      m_LigatureGlyphID: 11955
-    - m_ComponentGlyphIDs: e003000094020000c5030000
-      m_LigatureGlyphID: 8328
-    - m_ComponentGlyphIDs: e003000094020000e7030000
-      m_LigatureGlyphID: 11946
-    - m_ComponentGlyphIDs: f9070000bf08000071050000fe080000
-      m_LigatureGlyphID: 12049
-    - m_ComponentGlyphIDs: f9070000ca0e000071050000fe080000
-      m_LigatureGlyphID: 12050
-    - m_ComponentGlyphIDs: 470b0000590a0000
-      m_LigatureGlyphID: 7622
-    - m_ComponentGlyphIDs: 2f00000050000000
-      m_LigatureGlyphID: 7610
-    - m_ComponentGlyphIDs: 2800000023000000
-      m_LigatureGlyphID: 8033
-    - m_ComponentGlyphIDs: 420000001000000044000000
-      m_LigatureGlyphID: 11855
-    - m_ComponentGlyphIDs: 420000004e000000
-      m_LigatureGlyphID: 11856
-    - m_ComponentGlyphIDs: 4e000000100000004e000000
-      m_LigatureGlyphID: 11867
-    - m_ComponentGlyphIDs: 4e0000004a0000004f000000
-      m_LigatureGlyphID: 8190
-    - m_ComponentGlyphIDs: 4e0000004e00000013000000
-      m_LigatureGlyphID: 8186
-    - m_ComponentGlyphIDs: 4e0000004e00000014000000
-      m_LigatureGlyphID: 8187
-    - m_ComponentGlyphIDs: 4e00000013000000
-      m_LigatureGlyphID: 7607
-    - m_ComponentGlyphIDs: 4e00000014000000
-      m_LigatureGlyphID: 8023
-    - m_ComponentGlyphIDs: 4e00000043000000
-      m_LigatureGlyphID: 8036
-    - m_ComponentGlyphIDs: 4e00000048000000
-      m_LigatureGlyphID: 7604
-    - m_ComponentGlyphIDs: 4e0000004d000000
-      m_LigatureGlyphID: 8037
-    - m_ComponentGlyphIDs: 4e0000004e000000
-      m_LigatureGlyphID: 7601
-    - m_ComponentGlyphIDs: 4e00000054000000
-      m_LigatureGlyphID: 8027
-    - m_ComponentGlyphIDs: 4f000000100000004e000000
-      m_LigatureGlyphID: 11868
-    - m_ComponentGlyphIDs: 4f00000054000000
-      m_LigatureGlyphID: 8029
-    - m_ComponentGlyphIDs: 4a0000004f000000
-      m_LigatureGlyphID: 8182
-    - m_ComponentGlyphIDs: 540000004600000044000000
-      m_LigatureGlyphID: 8189
-    - m_ComponentGlyphIDs: 2e00000023000000
-      m_LigatureGlyphID: 8032
+    m_LigatureSubstitutionRecords: []
     m_GlyphPairAdjustmentRecords: []
     m_MarkToBaseAdjustmentRecords: []
     m_MarkToMarkAdjustmentRecords: []
@@ -217,60 +141,14 @@ MonoBehaviour:
     kerningPairs: []
   fallbackFontAssets: []
   atlas: {fileID: 0}
---- !u!28 &6953406184584450972
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: BestTen-CRT Atlas
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 1
-  m_Height: 1
-  m_CompleteImageSize: 1
-  m_MipsStripped: 0
-  m_TextureFormat: 1
-  m_MipCount: 1
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 1
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 1
-  _typelessdata: 00
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
---- !u!21 &7679527591679937453
+--- !u!21 &72937835803223318
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BestTen-CRT Atlas Material
+  m_Name: x12y16pxMaruMonica Atlas Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -299,7 +177,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 6953406184584450972}
+        m_Texture: {fileID: 4976567965417048476}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -372,3 +250,49 @@ Material:
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!28 &4976567965417048476
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: x12y16pxMaruMonica Atlas
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 1
+  m_Height: 1
+  m_CompleteImageSize: 1
+  m_MipsStripped: 0
+  m_TextureFormat: 1
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 1
+  _typelessdata: 00
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
