@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NewGame
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43ff6413a7b1e98408a1732cbe86fce9, type: 2}
-  m_sharedMaterial: {fileID: 7679527591679937453, guid: 43ff6413a7b1e98408a1732cbe86fce9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d017feb348285e941820ab1e16c06809, type: 2}
+  m_sharedMaterial: {fileID: -5732008780880269857, guid: d017feb348285e941820ab1e16c06809, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -628,8 +628,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43ff6413a7b1e98408a1732cbe86fce9, type: 2}
-  m_sharedMaterial: {fileID: 7679527591679937453, guid: 43ff6413a7b1e98408a1732cbe86fce9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d017feb348285e941820ab1e16c06809, type: 2}
+  m_sharedMaterial: {fileID: -5732008780880269857, guid: d017feb348285e941820ab1e16c06809, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

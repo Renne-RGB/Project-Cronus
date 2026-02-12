@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Enemy_SuspiciousState : EnemyState
 {
     private float timer;
-    private float duration = 5.0f;
+    private float duration = 3.0f;
     private bool halfWayTriggered = false; //50%以上フラグ
 
     private string susBlendParam = "susBlend";

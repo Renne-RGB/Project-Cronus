@@ -8,7 +8,7 @@ public class EnemyBullet : MonoBehaviour
     public float damage = 1f;
     public LayerMask targetLayers;
 
-    private float stunDuration = 0.5f;
+    private float stunDuration = 1.0f;
     private float knockbackForce = 10.0f;
 
     private void OnTriggerEnter2D(Collider2D collision)

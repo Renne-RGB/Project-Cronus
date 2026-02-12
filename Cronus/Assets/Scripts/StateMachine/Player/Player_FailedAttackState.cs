@@ -25,7 +25,7 @@ public class Player_FailedAttackState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
             Vector2 backDir = new Vector2(-player.facingDirX, -player.facingDirY);
-            player.TakeDamageByMelee(backDir, 1.0f, 20.0f, 0f);
+            player.TakeDamageByMelee(backDir, 1.0f, 20.0f, 0);
         }
     }
 }

@@ -76,9 +76,9 @@ public class Enemy : Entity
     public int shootNum = 2;        //弾数
     public float cqbDistance;         //接近戦距離
     public float cqbAttackRadius = 3.0f;     //接近戦判定半径
-    public float cqbStunDuration = 2.0f;     //stun時間
+    public float cqbStunDuration = 1.5f;     //stun時間
     public float cqbKnockbackForce = 20.0f;  //飛ばされる距離
-    public float cqbDamage = 2.0f;
+    public int cqbDamage = 2;
     private bool canAssassed = true;     //暗殺できるか否か
 
     public LayerMask playerLayer;

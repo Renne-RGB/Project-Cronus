@@ -34,7 +34,7 @@ public class EndingSceneManager : MonoBehaviour
 
     void Update()
     {
-        if (canExit && input.Player.Active.WasPressedThisFrame())
+        if (canExit && input.Player.Attack.WasPressedThisFrame())
         {
             canExit = false;
             ReturnToMainMenu();

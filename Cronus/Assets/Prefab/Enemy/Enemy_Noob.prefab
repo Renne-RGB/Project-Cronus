@@ -846,9 +846,9 @@ MonoBehaviour:
   shootNum: 2
   cqbDistance: 3
   cqbAttackRadius: 4
-  cqbStunDuration: 2
+  cqbStunDuration: 1.5
   cqbKnockbackForce: 30
-  cqbDamage: 2
+  cqbDamage: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 8

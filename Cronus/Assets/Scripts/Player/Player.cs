@@ -366,7 +366,7 @@ public class Player : Entity
         return true;
     }
 
-    public void TakeDamageByMelee(Vector2 impactDir, float heavyStunDuration, float heavyKnockbackForce, float damage)
+    public void TakeDamageByMelee(Vector2 impactDir, float heavyStunDuration, float heavyKnockbackForce, int damage)
     {
         if (stateMachine.currentState == dashState)
         {
@@ -386,7 +386,7 @@ public class Player : Entity
             SetHidden(false);
         }
 
-        ChangeHP(-1);
+        ChangeHP(-damage);
 
         SetInvincibleFlash(true);
         invincibleTimer = invincibleDuration;
