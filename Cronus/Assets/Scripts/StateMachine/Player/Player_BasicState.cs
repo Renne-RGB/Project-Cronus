@@ -9,6 +9,12 @@ public class Player_BasicState : PlayerState
 
     public override void Update()
     {
+        if ((PauseMenu.Instance != null && PauseMenu.Instance.pauseMenuUI.activeInHierarchy) ||
+        (player.gameOverUI != null && player.gameOverUI.activeInHierarchy))
+        {
+            return;
+        }
+
         base.Update();
 
         if (TryUseCharge())

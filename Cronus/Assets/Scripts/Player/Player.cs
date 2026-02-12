@@ -76,6 +76,8 @@ public class Player : Entity
     private HideSpot lastFrameHideSpot;
     [Header("UI")]
     public HealthUIManager healthUI;
+    public GameObject gameOverUI;
+
     protected override void Awake()
     {
         base.Awake();
@@ -129,6 +131,11 @@ public class Player : Entity
 
     protected override void Update()
     {
+        if (PauseMenu.Instance != null && PauseMenu.Instance.pauseMenuUI.activeInHierarchy)
+        {
+            return;
+        }
+
         base.Update();
 
         if (witchTimeManager != null && witchTimeManager.IsWitchTimeActive)
@@ -327,6 +334,8 @@ public class Player : Entity
             SetHidden(false);
         }
 
+        ChangeHP(-1);
+
         SetInvincibleFlash(true);
         invincibleTimer = invincibleDuration;
 
@@ -356,12 +365,43 @@ public class Player : Entity
             SetHidden(false);
         }
 
+        ChangeHP(-1);
+
         SetInvincibleFlash(true);
         invincibleTimer = invincibleDuration;
 
         hitState.SetupHit(impactDir, heavyStunDuration, heavyKnockbackForce);
 
         stateMachine.ChangeState(hitState);
+    }
+
+    private void PlayerDie()
+    {
+
+        if (gameOverUI != null)
+            gameOverUI.SetActive(true);
+
+        visuals.gameObject.SetActive(false);
+
+        //input.Disable();
+
+        rb.linearVelocity = Vector2.zero;
+    }
+
+    public void Revive()
+    {
+        currentHP = maxHP;
+        if (healthUI != null)
+            healthUI.UpdateUI(currentHP);
+
+        visuals.gameObject.SetActive(true);
+
+        //input.Enable();
+
+        if (gameOverUI != null)
+            gameOverUI.SetActive(false);
+            
+        stateMachine.Initialize(idleState);
     }
 
     private void Invincible()
@@ -444,6 +484,11 @@ public class Player : Entity
         if (healthUI != null)
         {
             healthUI.UpdateUI(currentHP);
+        }
+
+        if (currentHP <= 0)
+        {
+            PlayerDie();
         }
     }
 
@@ -647,6 +692,18 @@ public class Player : Entity
             interactionIcon.Show();
         else
             interactionIcon.Hide();
+    }
+
+    public void FreezePlayer()
+    {
+        moveInput = Vector2.zero;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        stateMachine.ChangeState(idleState);
     }
 
 }

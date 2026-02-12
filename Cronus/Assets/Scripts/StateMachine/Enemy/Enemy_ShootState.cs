@@ -67,6 +67,7 @@ public class Enemy_ShootState : EnemyState
             }
 
             FireCircularBullet();
+            enemy.EmitNoise(15.0f);
 
             yield return new WaitForSeconds(enemy.timeBetweenShots);
         }

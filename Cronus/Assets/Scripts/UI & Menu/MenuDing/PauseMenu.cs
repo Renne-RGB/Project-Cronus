@@ -1,16 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem; // 使用新输入系统
+using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI; 
+    public static PauseMenu Instance { get; private set; }
+    public GameObject pauseMenuUI;
     public GameObject firstButton;
 
     public PlayerInput playerInput;
 
     private bool isPaused = false;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     public void OnPause(InputAction.CallbackContext context)
     {
@@ -27,25 +36,26 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         playerInput.SwitchCurrentActionMap("Player");
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
         isPaused = true;
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        Player player = Object.FindFirstObjectByType<Player>();
 
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(firstButton);
+        if (player != null)
+        {
+            player.FreezePlayer();
+        }
 
         playerInput.SwitchCurrentActionMap("UI");
+        Time.timeScale = 0f;
     }
 
     public void LoadMenu()

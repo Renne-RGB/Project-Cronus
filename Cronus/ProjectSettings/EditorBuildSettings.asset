@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Map1-1(TEST).unity
-    guid: d1f02e710768bc144aa85c49421e7d5c
+    path: Assets/Scenes/MainMenu.unity
+    guid: 87db2ed2a4ce27345a41420fc1a226ab
+  - enabled: 1
+    path: Assets/Scenes/SpaceShip.unity
+    guid: 7a9f362f3c576bc4da29a5a88fb8b207
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
