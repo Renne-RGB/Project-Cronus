@@ -365,7 +365,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.25, y: 1.25}
+  m_Size: {x: 5.3333335, y: 3.6666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -432,7 +432,7 @@ Transform:
   m_GameObject: {fileID: 4402630829687915697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.459, z: 0}
+  m_LocalPosition: {x: 0, y: -2.11, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -494,9 +494,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1792333419
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: -1847827199
+  m_SortingLayer: 5
+  m_SortingOrder: 10
   m_Sprite: {fileID: 3772382588069208589, guid: e12ca29a7cf690542b5fb05dc597497b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -812,11 +812,10 @@ MonoBehaviour:
   canBlock: 0
   fieldOfView: {fileID: 0}
   fov: 70
-  viewDistance: 5
+  viewDistance: 10
   fovRotationSpeed: 10
   idleDuration: 5
   patroPoints:
-  - {fileID: 0}
   - {fileID: 0}
   targetPointIndex: 0
   playerTransform: {fileID: 0}
@@ -824,7 +823,7 @@ MonoBehaviour:
   playerAndObstacleMask:
     serializedVersion: 2
     m_Bits: 72
-  suspiciousDistance: 10
+  suspiciousDistance: 13
   questionMarkImage: {fileID: 6696584060271594222}
   currentSpeed: 7
   chaseDuration: 3

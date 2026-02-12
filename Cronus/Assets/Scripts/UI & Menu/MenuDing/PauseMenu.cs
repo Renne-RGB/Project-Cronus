@@ -25,6 +25,15 @@ public class PauseMenu : MonoBehaviour
     {
         if (context.performed)
         {
+            if (GameOverMenu.Instance != null && GameOverMenu.Instance.gameObject.activeInHierarchy)
+            {
+                if (EventSystem.current.currentSelectedGameObject == null)
+                {
+                    EventSystem.current.SetSelectedGameObject(GameOverMenu.Instance.firstButton);
+                }
+                return;
+            }
+
             if (isPaused) Resume();
             else Pause();
         }
@@ -32,13 +41,17 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        if (GameOverMenu.Instance != null && GameOverMenu.Instance.gameObject.activeInHierarchy)
+        {
+            isPaused = false;
+            pauseMenuUI.SetActive(false);
+            playerInput.SwitchCurrentActionMap("UI");
+            return;
+        }
+
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-
         playerInput.SwitchCurrentActionMap("Player");
     }
 
@@ -56,6 +69,12 @@ public class PauseMenu : MonoBehaviour
 
         playerInput.SwitchCurrentActionMap("UI");
         Time.timeScale = 0f;
+
+        if (EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstButton);
+        }
     }
 
     public void LoadMenu()

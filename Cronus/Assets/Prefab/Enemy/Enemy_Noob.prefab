@@ -160,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 2531347094414683852}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.459, z: 0}
+  m_LocalPosition: {x: 0, y: -2.04, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -222,9 +222,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1792333419
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: -1847827199
+  m_SortingLayer: 5
+  m_SortingOrder: 10
   m_Sprite: {fileID: 3772382588069208589, guid: e12ca29a7cf690542b5fb05dc597497b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7141635620502707686}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd760a1fd90bb624b9eacc3c7f294141, type: 3}
   m_Name: 
@@ -817,6 +817,7 @@ MonoBehaviour:
   idleDuration: 5
   patroPoints:
   - {fileID: 0}
+  - {fileID: 0}
   targetPointIndex: 0
   playerTransform: {fileID: 0}
   targetPlayer: {fileID: 0}
@@ -830,11 +831,10 @@ MonoBehaviour:
   currentChaseTimer: 0
   AlertFlag: 0
   soundWavePrefab: {fileID: 3989036047491272193, guid: 3b7dfe9ce2ec5594d92cda77d4371631, type: 3}
-  alertPrefab: {fileID: 6310532776294897818, guid: afdeec3e75c119444a8ada1199bd43eb, type: 3}
   chaseDistance: 20
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   loseTargetDelay: 4
   minSearchRingDistance: 4
   minChaseMoveDistance: 1.5

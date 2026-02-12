@@ -30,7 +30,7 @@ public class Player : Entity
     [SerializeField] private Transform enemyTrans;     //敵死体の生成座標
     [SerializeField] public bool attackStandby = false;     //攻撃できるか
     [Header("Sound Settings")]
-    [SerializeField] private float runNoiseRadius = 7.0f; // 走る時の音の範囲
+    [SerializeField] private float runNoiseRadius = 15.0f; // 走る時の音の範囲
     [SerializeField] private LayerMask enemyLayer;        // 敵のレイヤー
     [SerializeField] private GameObject soundWavePrefab;
     public float noiseCooldownTimer = 0f;
@@ -131,7 +131,8 @@ public class Player : Entity
 
     protected override void Update()
     {
-        if (PauseMenu.Instance != null && PauseMenu.Instance.pauseMenuUI.activeInHierarchy)
+        if ((PauseMenu.Instance != null && PauseMenu.Instance.pauseMenuUI.activeInHierarchy) ||
+        (gameOverUI != null && gameOverUI.activeInHierarchy))
         {
             return;
         }
@@ -377,13 +378,23 @@ public class Player : Entity
 
     private void PlayerDie()
     {
-
-        if (gameOverUI != null)
-            gameOverUI.SetActive(true);
-
         visuals.gameObject.SetActive(false);
 
-        //input.Disable();
+        if (PauseMenu.Instance != null)
+        {
+            PauseMenu.Instance.enabled = false;
+        }
+
+        input.Disable();
+
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+            if (GameOverMenu.Instance != null)
+            {
+                GameOverMenu.Instance.SetupGameOverUI();
+            }
+        }
 
         rb.linearVelocity = Vector2.zero;
     }
@@ -396,11 +407,16 @@ public class Player : Entity
 
         visuals.gameObject.SetActive(true);
 
-        //input.Enable();
+        if (PauseMenu.Instance != null)
+        {
+            PauseMenu.Instance.enabled = true;
+        }
+        
+        input.Enable();
 
         if (gameOverUI != null)
             gameOverUI.SetActive(false);
-            
+
         stateMachine.Initialize(idleState);
     }
 

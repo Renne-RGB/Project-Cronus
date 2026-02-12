@@ -129,7 +129,7 @@ MonoBehaviour:
   canBlock: 1
   fieldOfView: {fileID: 0}
   fov: 90
-  viewDistance: 8
+  viewDistance: 10
   fovRotationSpeed: 10
   idleDuration: 5
   patroPoints:
@@ -140,14 +140,13 @@ MonoBehaviour:
   playerAndObstacleMask:
     serializedVersion: 2
     m_Bits: 72
-  suspiciousDistance: 15
+  suspiciousDistance: 13
   questionMarkImage: {fileID: 7506603269349309761}
   currentSpeed: 5
   chaseDuration: 3
   currentChaseTimer: 0
   AlertFlag: 0
   soundWavePrefab: {fileID: 3989036047491272193, guid: 3b7dfe9ce2ec5594d92cda77d4371631, type: 3}
-  alertPrefab: {fileID: 6310532776294897818, guid: afdeec3e75c119444a8ada1199bd43eb, type: 3}
   chaseDistance: 20
   enemyLayer:
     serializedVersion: 2
@@ -171,8 +170,8 @@ MonoBehaviour:
     m_Bits: 8
   bulletPrefab: {fileID: 6638349535624953820, guid: e23a04eba26186d46a9ee36bcdd2ef3f, type: 3}
   firePoint: {fileID: 2215909562894485690}
-  timeBetweenShots: 0.1
-  spreadAngle: 60
+  timeBetweenShots: 0.15
+  spreadAngle: 45
   bulletSpeed: 20
   shootCooldownDuration: 4
   currentShootCooldown: 0
@@ -639,9 +638,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1792333419
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: -1847827199
+  m_SortingLayer: 5
+  m_SortingOrder: 10
   m_Sprite: {fileID: 3772382588069208589, guid: e12ca29a7cf690542b5fb05dc597497b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
