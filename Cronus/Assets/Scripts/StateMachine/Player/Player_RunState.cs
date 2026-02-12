@@ -19,6 +19,25 @@ public class Player_RunState : Player_MoveState
 
     public override void Update()
     {
+        if (player.CheckAttackInput())
+        {
+            Enemy target = player.GetCankillEnemy();
+            if (target != null)
+            {
+                if (!target.canBlock || target.GetCanAssassed() || player.witchTimeManager.IsWitchTimeActive)
+                {
+                    stateMachine.ChangeState(player.attackState);
+                }
+                else
+                {
+                    stateMachine.ChangeState(player.failedAttackState);
+                    target.TriggerBlockOrAlert();
+                }
+            }
+            //ターゲットがいなくても攻撃アニメーションを出したい場合はここに処理を追加
+            return;
+        }
+
         if (player.input.Player.Dash.WasPressedThisFrame())
         {
             if (player.dashCooldownTimer <= 0)

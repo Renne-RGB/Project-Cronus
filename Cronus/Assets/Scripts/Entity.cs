@@ -20,8 +20,8 @@ public class Entity : MonoBehaviour
     [SerializeField] private LayerMask whatIsWall;
 
 
-    protected bool facingRight = true;
-    protected bool facingDown = true;
+    public bool facingRight = true;
+    public bool facingDown = true;
 
     public bool wallDetectedX { get; private set; }
     public bool wallDetectedY { get; private set; }

@@ -33,6 +33,25 @@ public class Player_ChargeActionState : PlayerState
 
         player.SetVelocity(player.chargeDir.x * player.chargeSpeed, player.chargeDir.y * player.chargeSpeed);
 
+        if (player.CheckAttackInput())
+        {
+            Enemy target = player.GetCankillEnemy();
+            if (target != null)
+            {
+                if (!target.canBlock || target.GetCanAssassed() || player.witchTimeManager.IsWitchTimeActive)
+                {
+                    stateMachine.ChangeState(player.attackState);
+                    return;
+                }
+                else
+                {
+                    stateMachine.ChangeState(player.failedAttackState);
+                    target.TriggerBlockOrAlert();
+                    return;
+                }
+            }
+        }
+
         if (stateTimer >= player.chargeActionDuration)
         {
             player.SetVelocity(0, 0);

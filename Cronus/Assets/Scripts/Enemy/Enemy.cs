@@ -538,11 +538,31 @@ public class Enemy : Entity
         return canAssassed;
     }
 
-    public void TriggerAssassinationDeath()
+    public void TriggerAssassinationDeath(Transform attacker = null)
     {
         if (isDead)
             return;
         isDead = true;
+
+        Transform target = attacker;
+
+        if (target == null)
+        {
+            if (targetPlayer != null) target = targetPlayer.transform;
+            else
+            {
+                GameObject p = GameObject.FindGameObjectWithTag("Player");
+                if (p != null) target = p.transform;
+            }
+        }
+
+        if (target != null && sr != null)
+        {
+            //プレイヤーが敵より右にいる (relativeX > 0) -> 敵は左を向く (flipX = true)
+            //プレイヤーが敵より左にいる (relativeX < 0) -> 敵は右を向く (flipX = false)
+            float relativeX = target.position.x - transform.position.x;
+            sr.flipX = relativeX > 0;
+        }
 
         ToggleInteractionIcon(false);
 
@@ -554,7 +574,8 @@ public class Enemy : Entity
         anim.SetTrigger("die");
         CloseFieldOfView(false);
 
-        if (AlertFlag) { globalAlertCount--; }  //（金）アラート中にやられたらカウントを減らす
+        if (AlertFlag)
+            globalAlertCount--;
     }
 
     public void TriggerBlockOrAlert()

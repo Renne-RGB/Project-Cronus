@@ -88424,7 +88424,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -89355,7 +89355,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -90092,7 +90092,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -92293,7 +92293,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -92617,7 +92617,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -94710,7 +94710,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -145944,7 +145944,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -147608,19 +147608,19 @@ PrefabInstance:
     - target: {fileID: 7832830883906663722, guid: fd0f464c092bde343b585adae19d173e, type: 3}
       propertyPath: descText
       value: 
-      objectReference: {fileID: 1047936857}
+      objectReference: {fileID: 1143226989}
     - target: {fileID: 7832830883906663722, guid: fd0f464c092bde343b585adae19d173e, type: 3}
       propertyPath: infoPanel
       value: 
-      objectReference: {fileID: 846019798}
+      objectReference: {fileID: 1510594657}
     - target: {fileID: 7832830883906663722, guid: fd0f464c092bde343b585adae19d173e, type: 3}
       propertyPath: canvasGroup
       value: 
-      objectReference: {fileID: 846019801}
+      objectReference: {fileID: 1510594660}
     - target: {fileID: 7832830883906663722, guid: fd0f464c092bde343b585adae19d173e, type: 3}
       propertyPath: videoPlayer
       value: 
-      objectReference: {fileID: 846019800}
+      objectReference: {fileID: 1510594659}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -147902,6 +147902,10 @@ PrefabInstance:
       propertyPath: videoPlayer
       value: 
       objectReference: {fileID: 1813758751}
+    - target: {fileID: 7469102443531738221, guid: 00e85ab7b76542740b50b6dc7d55747b, type: 3}
+      propertyPath: contentDescription
+      value: "\u6575\u306E\u8996\u754C\u306B\u8FD1\u3065\u304F\u3068\u300C\uFF1F\u300D\u30B2\u30FC\u30B8\u304C\u6E9C\u307E\u308B\n\u8FD1\u3065\u3044\u3066\u304F\u308B\u306E\u3067\u8DDD\u96E2\u3092\u53D6\u308D\u3046"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -148100,7 +148104,7 @@ PrefabInstance:
       objectReference: {fileID: 1283082561}
     - target: {fileID: 5329745141345738249, guid: 87d92f71956656b40a77dfdc3849251e, type: 3}
       propertyPath: contentDescription
-      value: "A\u30DC\u30BF\u30F3\uFF1A\u6697\u6BBA\u653B\u6483\n\n\u3070\u308C\u3066\u3044\u308B\u72B6\u614B\u3060\u3068\n\u653B\u6483\u3092\u9632\u3050\u6575\u3082\u3044\u308B\n\n\u6697\u6BBA\u306B\u6210\u529F\u3059\u308B\u3068\u3001HP\u30921\u56DE\u5FA9\u3059\u308B"
+      value: "A\u30DC\u30BF\u30F3\uFF1A\u6697\u6BBA\u653B\u6483\n\n\u3070\u308C\u3066\u3044\u308B\u72B6\u614B\u3060\u3068\u653B\u6483\u3092\u9632\u3050\u6575\u3082\u3044\u308B\n\u6697\u6BBA\u306B\u6210\u529F\u3059\u308B\u3068\u3001HP\u30921\u56DE\u5FA9\u3059\u308B"
       objectReference: {fileID: 0}
     - target: {fileID: 9045376608245437620, guid: 87d92f71956656b40a77dfdc3849251e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -148298,6 +148302,10 @@ PrefabInstance:
       propertyPath: videoPlayer
       value: 
       objectReference: {fileID: 1267662512}
+    - target: {fileID: 3048374255803637214, guid: 33ed178b54a46de42aa99708361343bd, type: 3}
+      propertyPath: contentDescription
+      value: "B\u30DC\u30BF\u30F3\uFF1A\n\u30B9\u30E9\u30A4\u30C7\u30A3\u30F3\u30B0\u56DE\u907F\u56DE\u907F\u306B\u6210\u529F\u3059\u308B\u3068\u30B9\u30ED\u30FC\u30E2\u30FC\u30B7\u30E7\u30F3\u72B6\u614B\n\u4E0A\u4F4D\u5FC5\u6BBA\u6280\u3092\u51FA\u305B\u308B"
+      objectReference: {fileID: 0}
     - target: {fileID: 3699135496695368549, guid: 33ed178b54a46de42aa99708361343bd, type: 3}
       propertyPath: m_Name
       value: TSlow
@@ -148418,7 +148426,7 @@ PrefabInstance:
       objectReference: {fileID: 718802205}
     - target: {fileID: 4730263345803389326, guid: 2e1b32e774997b94e93bd36c0d424e66, type: 3}
       propertyPath: contentDescription
-      value: "X\u30DC\u30BF\u30F3\u9577\u62BC\u3057\uFF0B\nL\u30B9\u30C6\u30A3\u30C3\u30AF\u65B9\u5411\u306B\n\u5FC5\u6BBA\u6280\u3092\u51FA\u305B\u308B\n\u5FC5\u6BBA\u6280\u306FHP\u3092\u6D88\u8CBB\u3059\u308B"
+      value: "X\u30DC\u30BF\u30F3\u9577\u62BC\u3057\uFF0BL\u30B9\u30C6\u30A3\u30C3\u30AF\u65B9\u5411\u306B\u5FC5\u6BBA\u6280\u3092\u51FA\u305B\u308B\n\u5FC5\u6BBA\u6280\u306FHP\u3092\u6D88\u8CBB\u3059\u308B"
       objectReference: {fileID: 0}
     - target: {fileID: 7600848506531183848, guid: 2e1b32e774997b94e93bd36c0d424e66, type: 3}
       propertyPath: m_Name
@@ -148570,6 +148578,10 @@ PrefabInstance:
       propertyPath: videoPlayer
       value: 
       objectReference: {fileID: 846019800}
+    - target: {fileID: 7719708590795899567, guid: 4785ebd75157cae48b7a90c853facf01, type: 3}
+      propertyPath: contentDescription
+      value: "\u6575\u304C\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u3053\u3068\u3092\u767A\u898B\u3057\u305F\u5834\u5408\u3001\u5927\u304D\u306A\u97F3\u3092\u7ACB\u3066\u3066\u4ED6\u306E\u6575\u3092\u547C\u3073\u51FA\u3059\n\n\u5897\u63F4\u306B\u6CE8\u610F\uFF01"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -148891,13 +148903,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Chad
       objectReference: {fileID: 0}
-    - target: {fileID: 4834914437468531597, guid: 61df1a20cbba0024581eaf2ccdd3f698, type: 3}
-      propertyPath: viewDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4834914437468531597, guid: 61df1a20cbba0024581eaf2ccdd3f698, type: 3}
-      propertyPath: suspiciousDistance
-      value: 13
+    - target: {fileID: 4077116752225600947, guid: 61df1a20cbba0024581eaf2ccdd3f698, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4834914437468531597, guid: 61df1a20cbba0024581eaf2ccdd3f698, type: 3}
       propertyPath: 'patroPoints.Array.data[0]'
@@ -148936,6 +148944,10 @@ PrefabInstance:
       propertyPath: videoPlayer
       value: 
       objectReference: {fileID: 1105956717}
+    - target: {fileID: 6227200407294863812, guid: 50d3de4e8b025be44b024afbcd8bb229, type: 3}
+      propertyPath: contentDescription
+      value: "\u30C0\u30C3\u30B7\u30E5\u6642\u306B\u767A\u751F\u3059\u308B\u300C\u97F3\u300D\u306F\u3001\u6575\u306E\u6CE8\u610F\u3092\u5F15\u304D\u3064\u3051\u308B\n\n\u8FD1\u3065\u304D\u3059\u304E\u306B\u6CE8\u610F\uFF01"
+      objectReference: {fileID: 0}
     - target: {fileID: 6573001933372073075, guid: 50d3de4e8b025be44b024afbcd8bb229, type: 3}
       propertyPath: m_LocalPosition.x
       value: -935.95

@@ -16,7 +16,18 @@ public class Player_AttackState : PlayerState
             if (player.witchTimeManager.IsWitchTimeActive)
                 player.witchTimeManager.DeactivateWitchTime();
 
-            targetEnemy.TriggerAssassinationDeath();
+            bool enemyIsOnLeft = targetEnemy.transform.position.x < player.transform.position.x;
+
+            if (enemyIsOnLeft && player.facingRight)
+            {
+                player.FlipX();
+            }
+            else if (!enemyIsOnLeft && !player.facingRight)
+            {
+                player.FlipX();
+            }
+
+            targetEnemy.TriggerAssassinationDeath(player.transform);
 
             player.MovePlayerToEnemy();
             player.SetAttackStandby(false);
