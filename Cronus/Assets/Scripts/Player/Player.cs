@@ -496,7 +496,14 @@ public class Player : Entity
 
     public void ResetState()
     {
-        stateMachine.ChangeState(idleState);
+        if (stateMachine.currentState == null)
+        {
+            stateMachine.Initialize(idleState);
+        }
+        else
+        {
+            stateMachine.ChangeState(idleState);
+        }
     }
 
     public void SetInvincibleFlash(bool isInvincible)

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using DG.Tweening; // 使用你已有的 DOTween
+using DG.Tweening;
 
 public class EndingChanger : MonoBehaviour
 {
@@ -14,6 +14,11 @@ public class EndingChanger : MonoBehaviour
         fadeImage.DOFade(0f, fadeDuration).OnComplete(() =>
         {
             fadeImage.gameObject.SetActive(false);
+
+            if (OpeningManager.Instance != null)
+            {
+                OpeningManager.Instance.BeginIntro();
+            }
         });
     }
 
