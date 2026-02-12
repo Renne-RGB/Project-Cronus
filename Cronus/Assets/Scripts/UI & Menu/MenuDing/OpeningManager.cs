@@ -9,7 +9,7 @@ public class OpeningManager : MonoBehaviour
     public GameObject introCanvas;
 
     public Animator introAnimator;
-    public string animationStateName = "TestOpening";
+    public string animationStateName = "Opening";
 
     private bool isAnimationFinished = false;
     private bool hasStarted = false;
