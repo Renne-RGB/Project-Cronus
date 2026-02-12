@@ -87586,7 +87586,7 @@ Transform:
   m_GameObject: {fileID: 972260229}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.673609, y: -1.6044738, z: 25.459873}
+  m_LocalPosition: {x: 26.332829, y: -1.6056907, z: 25.459873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90771,7 +90771,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1.0443115, y: -1.9744034}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -90781,7 +90781,7 @@ BoxCollider2D:
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.7437134, y: 4.948807}
   m_EdgeRadius: 0
 --- !u!1 &1479220569
 GameObject:
@@ -143920,7 +143920,7 @@ PrefabInstance:
     - target: {fileID: 5589519511306491384, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: currentGoalSpot
       value: 
-      objectReference: {fileID: 1477556749}
+      objectReference: {fileID: 0}
     - target: {fileID: 5589519511306491384, guid: d9bcfcf3704d6d345b040cf71ae90869, type: 3}
       propertyPath: interactionIcon
       value: 

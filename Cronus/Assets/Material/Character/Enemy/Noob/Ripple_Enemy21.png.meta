@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ripple_Enemy21_0: 6652109957153947678
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
